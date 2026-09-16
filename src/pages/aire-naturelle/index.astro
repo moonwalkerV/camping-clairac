@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 const pratiques = [
-  'Entretien raisonné des espaces verts',
-  'Respect de la biodiversité',
-  'Limitation des produits chimiques',
-  'Gestion de l\'eau',
-  'Tri des déchets',
-  'Préservation des arbres',
+  'Les restes alimentaires (pain sec, épluchures de fruits, déchets de légumes) sont donnés aux poules du poulailler du domaine',
+  'Les déchets végétaux compostables sont déposés dans deux bacs à compost situés à côté du poulailler',
+  'Le tri sélectif (verre, plastique, métal, papier) est organisé à l\'extérieur du camping, le long du chemin',
+  'L\'eau potable est analysée régulièrement par un laboratoire agréé (résultats consultables à la réception)',
+  'Face aux sécheresses répétées, les campeurs sont sensibilisés à ne prélever que l\'eau nécessaire et à éviter tout gaspillage',
+  'Le lavage des voitures est interdit sur le site, pour préserver la ressource en eau',
 ];
 ---
 
@@ -51,16 +51,14 @@ const pratiques = [
         <p>
           L'écologie et le respect de la nature ne sont pas un argument
           marketing pour nous : ils guident la façon dont nous entretenons et
-          faisons vivre le domaine au quotidien.
+          faisons vivre le domaine au quotidien, du traitement des déchets à
+          la gestion de l'eau.
         </p>
         <ul class="pratiques-list">
           {pratiques.map((pratique) => (
             <li>🌿 {pratique}</li>
           ))}
         </ul>
-        <p class="note">
-          Cette liste sera affinée et complétée avec la directrice du camping.
-        </p>
       </div>
     </div>
   </section>
@@ -140,13 +138,6 @@ const pratiques = [
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1rem;
-  }
-
-  .note {
-    font-size: 0.85rem;
-    color: var(--color-earth);
-    font-style: italic;
-    margin-bottom: 0;
   }
 
   .cta {
