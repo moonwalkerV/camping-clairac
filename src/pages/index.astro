@@ -7,6 +7,7 @@ const teasers = [
     title: 'Nature',
     text: "Un ancien domaine préservé, entre grands arbres et biodiversité.",
     href: '/aire-naturelle',
+    ctaLabel: "Découvrir l'aire naturelle",
     image: '/images/vignes-domaine-batisse.webp',
     alt: 'Vignes du domaine avec la bâtisse ancienne',
   },
@@ -15,6 +16,7 @@ const teasers = [
     title: 'Emplacements',
     text: "25 emplacements ombragés, spacieux, pour tente, caravane ou camping-car.",
     href: '/sejourner',
+    ctaLabel: 'Voir les emplacements',
     image: '/images/allee-caravanes-arbres.webp',
     alt: 'Allée bordée d\'arbres avec des caravanes',
   },
@@ -23,6 +25,7 @@ const teasers = [
     title: 'Activités',
     text: "À pied, à vélo ou en famille, de quoi explorer les environs à votre rythme.",
     href: '/decouvrir',
+    ctaLabel: 'Explorer les activités',
     image: '/images/chemin-arbres-tunnel.webp',
     alt: 'Chemin ombragé sous un tunnel d\'arbres',
   },
@@ -32,12 +35,6 @@ const reassurance = [
   { emoji: '🏕️', text: '25 emplacements' },
   { emoji: '🐾', text: 'Animaux acceptés' },
   { emoji: '📍', text: 'À 15 min de Béziers et des plages' },
-];
-
-const petitFuteBadges = [
-  { image: '/images/badge-petit-fute-2024.webp', alt: 'Badge Petit Futé 2024' },
-  { image: '/images/badge-petit-fute-2025.webp', alt: 'Badge Petit Futé 2025' },
-  { image: '/images/badge-petit-fute-2026.webp', alt: 'Badge Petit Futé 2026' },
 ];
 
 const galleryPreview = [
@@ -76,27 +73,55 @@ const galleryPreview = [
           <p class="reassurance-card__text">{item.text}</p>
         </div>
       ))}
-      <div class="reassurance-card reassurance-card--petit-fute">
-        <p class="reassurance-card__text">Recommandé par le Petit Futé depuis 2004</p>
-        <div class="reassurance-card__badges">
-          {petitFuteBadges.map((badge) => (
-            <img src={badge.image} alt={badge.alt} loading="lazy" />
-          ))}
+      <div class="reassurance-card">
+        <div class="reassurance-card__icon">
+          <img src="/images/badge-petit-fute-2026.webp" alt="Badge Petit Futé 2026" />
         </div>
+        <p class="reassurance-card__text">Recommandé par le Petit Futé depuis 2004</p>
       </div>
     </div>
   </section>
 
-  <section class="teasers">
-    <div class="teasers__grid">
-      {teasers.map((teaser) => (
-        <a href={teaser.href} class="teaser-card">
-          <img src={teaser.image} alt={teaser.alt} loading="lazy" />
-          <div class="teaser-card__body">
-            <h2>{teaser.emoji} {teaser.title}</h2>
-            <p>{teaser.text}</p>
+  <section class="slider" id="teaser-slider">
+    <div class="slider__track">
+      {teasers.map((teaser, index) => (
+        <div
+          class="slider__slide"
+          data-slide
+          class:list={[{ active: index === 0 }]}
+        >
+          <img src={teaser.image} alt={teaser.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+          <div class="slider__overlay"></div>
+          <div class="slider__dim"></div>
+          <div class="slider__content">
+            <h2 class="slider__title" data-slide-title>{teaser.title}</h2>
+            <p class="slider__text" data-slide-text>{teaser.text}</p>
+            <a href={teaser.href} class="slider__cta btn btn--primary" data-slide-cta>{teaser.ctaLabel}</a>
           </div>
-        </a>
+        </div>
+      ))}
+    </div>
+
+    <button type="button" class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Slide précédente">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button type="button" class="slider__arrow slider__arrow--next" data-slider-next aria-label="Slide suivante">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="slider__dots" role="tablist" aria-label="Navigation du slider">
+      {teasers.map((_, index) => (
+        <button
+          type="button"
+          class="slider__dot"
+          class:list={[{ active: index === 0 }]}
+          data-slider-dot={index}
+          aria-label={`Aller à la slide ${index + 1}`}
+        ></button>
       ))}
     </div>
   </section>
@@ -268,6 +293,15 @@ const galleryPreview = [
     background-color: rgba(104, 122, 90, 0.15);
     font-size: 2.5rem;
     line-height: 1;
+    overflow: hidden;
+  }
+
+  .reassurance-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.9rem;
+    box-sizing: border-box;
   }
 
   .reassurance-card__text {
@@ -276,62 +310,163 @@ const galleryPreview = [
     color: var(--color-forest);
   }
 
-  .reassurance-card--petit-fute {
-    background-color: var(--color-cream);
-  }
-
-  .reassurance-card__badges {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .reassurance-card__badges img {
-    height: 50px;
-    width: auto;
-  }
-
-  .teasers {
-    padding: 4rem 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .teasers__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .teaser-card {
-    display: block;
-    background-color: var(--color-cream);
-    border: 1px solid var(--color-sand);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .teaser-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(36, 56, 44, 0.12);
-  }
-
-  .teaser-card img {
+  .slider {
+    position: relative;
     width: 100%;
-    height: 200px;
+    height: 480px;
+    overflow: hidden;
+  }
+
+  .slider__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slider__slide {
+    position: absolute;
+    inset: 0;
+    display: block;
+    transform: translateX(calc(var(--offset, 0) * 100%));
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    pointer-events: none;
+  }
+
+  .slider__slide.active {
+    pointer-events: auto;
+  }
+
+  .slider__slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
-  .teaser-card__body {
-    padding: 1.25rem;
+  .slider__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   }
 
-  .teaser-card__body h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+  .slider__dim {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .slider__content {
+    position: absolute;
+    inset: 0;
+    padding: 2.5rem;
+    color: var(--color-cream);
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .slider__title {
+    font-family: 'Bryndan Write', cursive;
+    text-transform: uppercase;
+    color: var(--color-cream);
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.75rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .slider__text {
+    max-width: 550px;
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .slider__cta {
+    margin-top: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .slider__title.slide-in {
+    animation: slide-in-up 0.9s ease 0.4s forwards;
+  }
+
+  .slider__text.slide-in {
+    animation: slide-in-up 0.9s ease 0.5s forwards;
+  }
+
+  .slider__cta.slide-in {
+    animation: slide-in-up 0.9s ease 0.6s forwards;
+  }
+
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(36, 56, 44, 0.45);
+    color: var(--color-cream);
+    transition: background-color 0.2s ease;
+  }
+
+  .slider__arrow:hover {
+    background-color: rgba(36, 56, 44, 0.7);
+  }
+
+  .slider__arrow--prev {
+    left: 1.5rem;
+  }
+
+  .slider__arrow--next {
+    right: 1.5rem;
+  }
+
+  .slider__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.25rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .slider__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.6);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .slider__dot.active {
+    background-color: var(--color-cream);
+    transform: scale(1.4);
   }
 
   .eco {
@@ -407,8 +542,33 @@ const galleryPreview = [
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .teasers__grid {
-      grid-template-columns: 1fr;
+    .slider {
+      height: 380px;
+    }
+
+    .slider__arrow {
+      width: 36px;
+      height: 36px;
+    }
+
+    .slider__arrow--prev {
+      left: 0.75rem;
+    }
+
+    .slider__arrow--next {
+      right: 0.75rem;
+    }
+
+    .slider__content {
+      padding: 1.5rem;
+    }
+
+    .slider__title {
+      font-size: 2rem;
+    }
+
+    .slider__text {
+      font-size: 0.95rem;
     }
 
     .eco__inner {
@@ -426,3 +586,84 @@ const galleryPreview = [
     }
   }
 </style>
+
+<script>
+  const slider = document.getElementById('teaser-slider');
+
+  if (slider) {
+    const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-slide]'));
+    const dots = Array.from(slider.querySelectorAll<HTMLElement>('[data-slider-dot]'));
+    const prevBtn = slider.querySelector<HTMLElement>('[data-slider-prev]');
+    const nextBtn = slider.querySelector<HTMLElement>('[data-slider-next]');
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = 0;
+
+    const playEntranceAnimation = (slide: HTMLElement) => {
+      const title = slide.querySelector<HTMLElement>('[data-slide-title]');
+      const text = slide.querySelector<HTMLElement>('[data-slide-text]');
+      const cta = slide.querySelector<HTMLElement>('[data-slide-cta]');
+
+      [title, text, cta].forEach((el) => {
+        if (!el) return;
+        el.classList.remove('slide-in');
+        void el.offsetWidth;
+        el.classList.add('slide-in');
+      });
+    };
+
+    const updatePositions = () => {
+      slides.forEach((slide, i) => {
+        slide.style.setProperty('--offset', String(i - activeIndex));
+      });
+    };
+
+    const goToSlide = (index: number) => {
+      const total = slides.length;
+      activeIndex = (index + total) % total;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === activeIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+
+      updatePositions();
+      playEntranceAnimation(slides[activeIndex]);
+    };
+
+    updatePositions();
+    playEntranceAnimation(slides[activeIndex]);
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(activeIndex - 1);
+    });
+
+    nextBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(activeIndex + 1);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(i);
+      });
+    });
+
+    slider.addEventListener('keydown', (e) => {
+      const event = e as KeyboardEvent;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goToSlide(activeIndex - 1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goToSlide(activeIndex + 1);
+      }
+    });
+
+    slider.setAttribute('tabindex', '0');
+  }
+</script>
