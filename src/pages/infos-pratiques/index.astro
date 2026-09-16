@@ -58,6 +58,47 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
     </div>
   </section>
 
+  <section id="plan" class="section">
+    <div class="section__inner section__inner--wide">
+      <h2>Plan du camping</h2>
+      <button type="button" class="plan-link" data-lightbox-trigger aria-label="Agrandir le plan du camping">
+        <img
+          src="/images/plan-du-camping.webp"
+          alt="Plan du camping avec emplacements numérotés, sanitaires, aire de jeux et équipements de sécurité incendie"
+          class="plan-image"
+          loading="lazy"
+        />
+      </button>
+      <a href="/images/plan-du-camping.webp" target="_blank" rel="noopener noreferrer" class="plan-fullscreen-link">
+        Voir en plein écran
+      </a>
+    </div>
+  </section>
+
+  <section id="reglement" class="section section--alt">
+    <div class="section__inner">
+      <h2>Bon à savoir avant votre arrivée</h2>
+      <div class="fire-notice">
+        <p>
+          Comme une grande partie du Sud de la France, notre région a été
+          touchée par plusieurs feux de forêt lors des étés précédents. Le
+          camping se situe en zone classée à risque fort de feu de forêt :
+          les feux ouverts et les barbecues au sol sont strictement
+          interdits, seuls les barbecues électriques ou à gaz sont autorisés
+          (une seule bouteille de gaz par installation). Merci à chacun de
+          rester vigilant, de ne jamais jeter de mégot au sol et de
+          respecter scrupuleusement ces consignes : la sécurité de tous,
+          campeurs comme forêt environnante, en dépend.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox" data-lightbox>
+    <button type="button" class="lightbox__close" data-lightbox-close aria-label="Fermer">&times;</button>
+    <img src="/images/plan-du-camping.webp" alt="Plan du camping en plein écran" class="lightbox__image" />
+  </div>
+
   <section id="contact" class="section">
     <div class="section__inner">
       <h2>Nous contacter</h2>
@@ -156,4 +197,119 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
   .btn--primary:hover {
     background-color: var(--color-sage);
   }
+
+  .section__inner--wide {
+    max-width: 1000px;
+    text-align: center;
+  }
+
+  .plan-link {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 1.5rem auto 1rem;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .plan-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--color-sand);
+  }
+
+  .plan-fullscreen-link {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--color-forest);
+    text-decoration: underline;
+  }
+
+  .fire-notice {
+    background-color: #fff;
+    border-left: 4px solid var(--color-earth);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  .fire-notice p {
+    margin: 0;
+  }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: rgba(36, 56, 44, 0.9);
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox__image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+  }
+
+  .lightbox__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.15);
+    color: var(--color-cream);
+    font-size: 1.75rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lightbox__close:hover {
+    background-color: rgba(244, 241, 232, 0.3);
+  }
 </style>
+
+<script>
+  const trigger = document.querySelector<HTMLElement>('[data-lightbox-trigger]');
+  const lightbox = document.querySelector<HTMLElement>('[data-lightbox]');
+  const closeBtn = document.querySelector<HTMLElement>('[data-lightbox-close]');
+
+  if (trigger && lightbox && closeBtn) {
+    const openLightbox = () => {
+      lightbox.classList.add('active');
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+    };
+
+    trigger.addEventListener('click', openLightbox);
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+</script>
