@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tarifs = [
+  { label: 'Emplacement tente', value: 'À partir de XX €/nuit' },
+  { label: 'Camping-car / caravane', value: 'À partir de XX €/nuit' },
+  { label: 'Personne supplémentaire', value: 'XX €' },
+  { label: 'Électricité', value: 'XX €' },
+  { label: 'Animal', value: 'XX €' },
+  { label: 'Taxe de séjour', value: 'XX €' },
+];
+
+const inclus = [
+  'Emplacement',
+  'Accès aux sanitaires',
+  'Accès à l\'aire de jeux',
+  'Wi-Fi',
+];
+---
+
+<Layout title="Tarifs 2026 — Camping Clairac">
+  <section class="pricing-page">
+    <div class="pricing-page__inner">
+      <h1>Tarifs 2026</h1>
+
+      <table class="pricing-table">
+        <tbody>
+          {tarifs.map((tarif) => (
+            <tr>
+              <td>{tarif.label}</td>
+              <td>{tarif.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="included">
+        <h2>Ce qui est inclus</h2>
+        <ul>
+          {inclus.map((item) => (
+            <li>✓ {item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <a href="/infos-pratiques" class="btn btn--primary">Nous contacter pour réserver</a>
+
+      <p class="pricing-page__note">
+        Ces tarifs sont indicatifs et seront confirmés prochainement.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pricing-page {
+    padding: 4rem 1.5rem;
+  }
+
+  .pricing-page__inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .pricing-page__inner h1 {
+    margin-bottom: 2rem;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .pricing-table tr {
+    border-bottom: 1px solid var(--color-sand);
+  }
+
+  .pricing-table td {
+    padding: 0.85rem 0.5rem;
+  }
+
+  .pricing-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .included {
+    text-align: left;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-sand);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .included h2 {
+    margin-bottom: 1rem;
+  }
+
+  .included ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn--primary {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-sage);
+  }
+
+  .pricing-page__note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--color-earth);
+    font-style: italic;
+  }
+</style>
