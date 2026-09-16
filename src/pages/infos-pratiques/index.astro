@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import WeatherWidget from '../../components/WeatherWidget.astro';
 
 const mapsEmbedSrc = 'https://www.google.com/maps?q=Domaine+de+Clairac,+Route+de+Bessan,+34500+B%C3%A9ziers&output=embed';
 const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=Domaine+de+Clairac+Route+de+Bessan+34500+Beziers';
@@ -15,6 +16,8 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
         accessible en sortant à la sortie Béziers de l'A75.
       </p>
 
+      <WeatherWidget />
+
       <div class="map-wrapper">
         <iframe
           src={mapsEmbedSrc}
@@ -27,6 +30,18 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
           title="Carte d'accès au Domaine de Clairac"
         ></iframe>
       </div>
+
+      <figure class="access-photo">
+        <img
+          src="/images/chemin-terre-acces-chiens.webp"
+          alt="Chemin d'accès au camping"
+          loading="lazy"
+        />
+        <figcaption>
+          Les derniers kilomètres se font sur un chemin de terre en bon état,
+          à l'image d'une véritable aire naturelle.
+        </figcaption>
+      </figure>
 
       <a href={mapsDirectionsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">
         Ouvrir l'itinéraire
@@ -147,6 +162,25 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
 
   .map-wrapper iframe {
     display: block;
+  }
+
+  .access-photo {
+    margin: 1.5rem 0;
+  }
+
+  .access-photo img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .access-photo figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-earth);
+    font-style: italic;
   }
 
   .infos-list {

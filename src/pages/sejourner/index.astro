@@ -15,17 +15,17 @@ const equipements = [
   <section id="emplacements" class="section">
     <div class="section__inner">
       <img
-        src="/images/prairie-emplacements.webp"
-        alt="Prairie avec emplacements de camping ombragés"
+        src="/images/allee-caravanes-arbres.webp"
+        alt="Allée arborée avec des caravanes"
         loading="lazy"
       />
       <div class="section__text">
         <h1>Les emplacements</h1>
         <p>
           25 emplacements pour tente, caravane ou camping-car, répartis dans
-          un cadre calme et ombragé. Chaque emplacement est spacieux, pensé
-          pour profiter pleinement du plein air sans être les uns sur les
-          autres.
+          un cadre calme et ombragé. Chaque emplacement est spacieux et
+          espacé d'au moins 5 mètres de son voisin, pour profiter pleinement
+          du plein air sans être les uns sur les autres.
         </p>
       </div>
     </div>
@@ -33,11 +33,18 @@ const equipements = [
 
   <section id="equipements" class="section section--alt">
     <div class="section__inner section__inner--reverse">
-      <img
-        src="/images/sanitaires-facade.webp"
-        alt="Façade des sanitaires du camping"
-        loading="lazy"
-      />
+      <div class="section__gallery">
+        <img
+          src="/images/aire-jeux-sanitaires-jour.webp"
+          alt="Aire de jeux et bâtiment sanitaire"
+          loading="lazy"
+        />
+        <img
+          src="/images/sanitaires-pique-nique-oliviers.webp"
+          alt="Bâtiment sanitaire et espace pique-nique sous les oliviers"
+          loading="lazy"
+        />
+      </div>
       <div class="section__text">
         <h2>Équipements & services</h2>
         <ul class="equipements-grid">
@@ -92,6 +99,16 @@ const equipements = [
     height: 320px;
     object-fit: cover;
     border-radius: 12px;
+  }
+
+  .section__gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .section__gallery img {
+    height: 320px;
   }
 
   .section__text h1,
@@ -160,6 +177,10 @@ const equipements = [
 
     .equipements-grid {
       grid-template-columns: 1fr;
+    }
+
+    .section__gallery img {
+      height: 220px;
     }
   }
 </style>

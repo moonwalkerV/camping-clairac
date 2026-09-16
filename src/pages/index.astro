@@ -8,8 +8,9 @@ const teasers = [
     text: "Un ancien domaine préservé, entre grands arbres et biodiversité.",
     href: '/aire-naturelle',
     ctaLabel: "Découvrir l'aire naturelle",
-    image: '/images/vignes-domaine-batisse.webp',
-    alt: 'Vignes du domaine avec la bâtisse ancienne',
+    image: '/images/sentier-pin-fleurs-sauvages.webp',
+    alt: 'Sentier sous les pins bordé de fleurs sauvages',
+    objectPosition: 'center 48%',
   },
   {
     emoji: '🏕️',
@@ -17,8 +18,9 @@ const teasers = [
     text: "25 emplacements ombragés, spacieux, pour tente, caravane ou camping-car.",
     href: '/sejourner',
     ctaLabel: 'Voir les emplacements',
-    image: '/images/allee-caravanes-arbres.webp',
-    alt: 'Allée bordée d\'arbres avec des caravanes',
+    image: '/images/tente-cloche-pins.webp',
+    alt: 'Tente cloche installée sous les pins',
+    objectPosition: 'center 58%',
   },
   {
     emoji: '🚲',
@@ -26,8 +28,9 @@ const teasers = [
     text: "À pied, à vélo ou en famille, de quoi explorer les environs à votre rythme.",
     href: '/decouvrir',
     ctaLabel: 'Explorer les activités',
-    image: '/images/chemin-arbres-tunnel.webp',
-    alt: 'Chemin ombragé sous un tunnel d\'arbres',
+    image: '/images/velo-plage-dunes.webp',
+    alt: 'Vélos sur la plage, entre les dunes et la mer',
+    objectPosition: 'center 62%',
   },
 ];
 
@@ -37,21 +40,39 @@ const reassurance = [
   { emoji: '📍', text: 'À 15 min de Béziers et des plages' },
 ];
 
-const galleryPreview = [
-  { image: '/images/sanitaires-facade.webp', alt: 'Façade des sanitaires du camping' },
-  { image: '/images/accueil-bar-terrasse.webp', alt: 'Terrasse du bar d\'accueil' },
-  { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
-  { image: '/images/chemin-arbres-tunnel.webp', alt: 'Chemin en tunnel sous les arbres' },
+const galleryPhotos = [
+  { image: '/images/vignes-domaine-batisse.webp', alt: 'Vignes du domaine avec la bâtisse ancienne' },
+  { image: '/images/sanitaires-pique-nique-oliviers.webp', alt: 'Bâtiment sanitaire et espace pique-nique parmi les oliviers' },
+  { image: '/images/aire-jeux-sanitaires-jour.webp', alt: 'Aire de jeux et bâtiment sanitaire en journée' },
+  { image: '/images/olivier-pique-nique-sanitaires.webp', alt: 'Espace pique-nique sous un olivier près des sanitaires' },
+  { image: '/images/chemin-terre-acces-chiens.webp', alt: 'Chemin de terre, accès autorisé aux chiens' },
   { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
-  { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec emplacements de camping' },
+  { image: '/images/tente-cloche-pins.webp', alt: 'Tente cloche installée sous les pins' },
+  { image: '/images/accueil-bar-terrasse.webp', alt: 'Terrasse de l’accueil du camping' },
+  { image: '/images/sentier-pin-fleurs-sauvages.webp', alt: 'Sentier sous les pins bordé de fleurs sauvages' },
+  { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
+  { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec des emplacements de camping' },
+  { image: '/images/chemin-pins-vignette.webp', alt: 'Chemin bordé de pins' },
+  { image: '/images/aire-jeux-nuit-pleine-lune.webp', alt: 'Aire de jeux du camping au clair de lune' },
+  { image: '/images/sanitaires-facade.webp', alt: 'Façade du bâtiment sanitaire' },
+  { image: '/images/allee-caravanes-arbres.webp', alt: 'Allée arborée avec des caravanes' },
+  { image: '/images/prairie-pins-ombragee.webp', alt: 'Prairie ombragée par les pins' },
+  { image: '/images/coucher-soleil-domaine.webp', alt: 'Coucher de soleil sur le domaine' },
+  { image: '/images/sanitaires-vue-laterale.webp', alt: 'Vue latérale du bâtiment sanitaire' },
+  { image: '/images/poulailler-poules.webp', alt: 'Poules près du poulailler du domaine' },
+  { image: '/images/velo-plage-dunes.webp', alt: 'Vélos sur la plage, entre les dunes et la mer' },
+  { image: '/images/chemin-arbres-tunnel.webp', alt: 'Chemin ombragé sous un tunnel d’arbres' },
+  { image: '/images/vegetation-fleurs-rouges.webp', alt: 'Végétation fleurie sur le domaine' },
 ];
+
+const galleryPreview = galleryPhotos.slice(0, 6);
 ---
 
 <Layout>
   <section class="hero">
     <img
-      src="/images/vegetation-fleurs-rouges.webp"
-      alt="Végétation fleurie aux couleurs rouges sur le domaine"
+      src="/images/olivier-pique-nique-sanitaires.webp"
+      alt="Olivier et espace pique-nique près du bâtiment sanitaire"
       class="hero__image"
     />
     <div class="hero__overlay"></div>
@@ -90,7 +111,12 @@ const galleryPreview = [
           data-slide
           class:list={[{ active: index === 0 }]}
         >
-          <img src={teaser.image} alt={teaser.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+          <img
+            src={teaser.image}
+            alt={teaser.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            style={teaser.objectPosition ? `object-position: ${teaser.objectPosition}` : undefined}
+          />
           <div class="slider__overlay"></div>
           <div class="slider__dim"></div>
           <div class="slider__content">
@@ -129,8 +155,8 @@ const galleryPreview = [
   <section class="eco">
     <div class="eco__inner">
       <img
-        src="/images/sous-bois-tentes.webp"
-        alt="Tentes installées sous les bois dans une ambiance calme"
+        src="/images/emplacement-tente-ombrage.webp"
+        alt="Emplacement de tente ombragé"
         loading="lazy"
       />
       <div class="eco__text">
@@ -166,11 +192,11 @@ const galleryPreview = [
     </div>
   </section>
 
-  <section class="gallery-preview">
+  <section class="gallery-preview" data-gallery-preview data-gallery-photos={JSON.stringify(galleryPhotos)}>
     <h2>Galerie</h2>
     <div class="gallery-preview__grid">
       {galleryPreview.map((photo) => (
-        <img src={photo.image} alt={photo.alt} loading="lazy" />
+        <img src={photo.image} alt={photo.alt} loading="lazy" data-gallery-photo />
       ))}
     </div>
     <a href="/galerie" class="btn btn--secondary">Voir toute la galerie</a>
@@ -195,7 +221,7 @@ const galleryPreview = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 55%;
   }
 
   .hero__overlay {
@@ -487,6 +513,7 @@ const galleryPreview = [
     width: 100%;
     height: 320px;
     object-fit: cover;
+    object-position: center 70%;
     border-radius: 12px;
   }
 
@@ -535,6 +562,27 @@ const galleryPreview = [
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
+  }
+
+  .gallery-preview__grid img.is-changing {
+    animation: gallery-photo-change 0.55s ease both;
+  }
+
+  @keyframes gallery-photo-change {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-preview__grid img.is-changing {
+      animation: none;
+    }
   }
 
   @media (max-width: 860px) {
@@ -665,5 +713,59 @@ const galleryPreview = [
     });
 
     slider.setAttribute('tabindex', '0');
+  }
+
+  const gallery = document.querySelector<HTMLElement>('[data-gallery-preview]');
+
+  if (gallery) {
+    const photoElements = Array.from(gallery.querySelectorAll<HTMLImageElement>('[data-gallery-photo]'));
+    const photoPool = JSON.parse(gallery.dataset.galleryPhotos ?? '[]') as Array<{ image: string; alt: string }>;
+    let previousSelection = '';
+
+    const shufflePhotos = () => {
+      const photos = [...photoPool];
+
+      for (let index = photos.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [photos[index], photos[randomIndex]] = [photos[randomIndex], photos[index]];
+      }
+
+      return photos.slice(0, photoElements.length);
+    };
+
+    const refreshGallery = () => {
+      let selection = shufflePhotos();
+      let selectionKey = selection.map((photo) => photo.image).join('|');
+
+      if (selectionKey === previousSelection && selection.length > 1) {
+        selection = [...selection.slice(1), selection[0]];
+        selectionKey = selection.map((photo) => photo.image).join('|');
+      }
+
+      previousSelection = selectionKey;
+
+      photoElements.forEach((element, index) => {
+        const photo = selection[index];
+        if (!photo) return;
+
+        element.classList.remove('is-changing');
+        void element.offsetWidth;
+        element.src = photo.image;
+        element.alt = photo.alt;
+        element.style.animationDelay = `${index * 70}ms`;
+        element.classList.add('is-changing');
+      });
+    };
+
+    const galleryObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) refreshGallery();
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    galleryObserver.observe(gallery);
   }
 </script>

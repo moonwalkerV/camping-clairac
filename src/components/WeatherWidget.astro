@@ -1,0 +1,115 @@
+<section class="weather-widget" data-weather-widget aria-labelledby="weather-widget-title">
+  <h2 id="weather-widget-title" class="weather-widget__title">Météo à Béziers en direct</h2>
+  <div class="weather-widget__card" data-weather-card aria-live="polite" aria-busy="true">
+    <span class="weather-widget__icon" data-weather-icon aria-hidden="true">🌤️</span>
+    <div>
+      <p class="weather-widget__location">Béziers</p>
+      <p class="weather-widget__details" data-weather-details>Chargement de la météo…</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .weather-widget {
+    max-width: 420px;
+    margin: 2rem 0;
+  }
+
+  .weather-widget__title {
+    font-family: 'Bryndan Write', cursive;
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .weather-widget__card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--color-cream);
+    border: 1px solid rgba(36, 56, 44, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(36, 56, 44, 0.12);
+  }
+
+  .weather-widget__icon {
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .weather-widget__location,
+  .weather-widget__details {
+    margin: 0;
+  }
+
+  .weather-widget__location {
+    font-weight: 700;
+  }
+
+  .weather-widget__details {
+    color: var(--color-sage);
+  }
+</style>
+
+<script>
+  const widget = document.querySelector<HTMLElement>('[data-weather-widget]');
+
+  if (widget) {
+    const card = widget.querySelector<HTMLElement>('[data-weather-card]');
+    const icon = widget.querySelector<HTMLElement>('[data-weather-icon]');
+    const details = widget.querySelector<HTMLElement>('[data-weather-details]');
+    const apiKey = import.meta.env.PUBLIC_OPENWEATHER_API_KEY;
+
+    const getWeatherIcon = (conditionId: number, iconCode: string) => {
+      if (conditionId >= 200 && conditionId < 300) return '⛈️';
+      if (conditionId >= 300 && conditionId < 500) return '🌦️';
+      if (conditionId >= 500 && conditionId < 600) return '🌧️';
+      if (conditionId >= 600 && conditionId < 700) return '❄️';
+      if (conditionId >= 700 && conditionId < 800) return '🌫️';
+      if (conditionId === 800) return iconCode.endsWith('n') ? '🌙' : '☀️';
+      if (conditionId === 801) return '🌤️';
+      return '☁️';
+    };
+
+    const showUnavailableState = () => {
+      if (icon) icon.textContent = '○';
+      if (details) details.textContent = 'Météo indisponible pour le moment.';
+      card?.setAttribute('aria-busy', 'false');
+    };
+
+    const loadWeather = async () => {
+      if (!apiKey) {
+        showUnavailableState();
+        return;
+      }
+
+      try {
+        const params = new URLSearchParams({
+          lat: '43.3442',
+          lon: '3.2158',
+          units: 'metric',
+          lang: 'fr',
+          appid: apiKey,
+        });
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?${params}`);
+
+        if (!response.ok) throw new Error('Weather request failed');
+
+        const data = await response.json();
+        const weather = data.weather?.[0];
+
+        if (!weather || typeof data.main?.temp !== 'number') throw new Error('Incomplete weather data');
+
+        const description = weather.description.charAt(0).toUpperCase() + weather.description.slice(1);
+
+        if (icon) icon.textContent = getWeatherIcon(weather.id, weather.icon ?? '');
+        if (details) details.textContent = `${Math.round(data.main.temp)} °C · ${description}`;
+        card?.setAttribute('aria-busy', 'false');
+      } catch {
+        showUnavailableState();
+      }
+    };
+
+    loadWeather();
+  }
+</script>
