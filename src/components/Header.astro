@@ -10,7 +10,9 @@ const navItems = [
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="/" class="site-header__logo">Camping Clairac</a>
+    <a href="/" class="site-header__logo">
+      <img src="/images/logo-camping-clairac.png" alt="Logo Camping Clairac" />
+    </a>
 
     <nav class="site-header__nav" aria-label="Navigation principale">
       <ul>
@@ -44,10 +46,14 @@ const navItems = [
   }
 
   .site-header__logo {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: var(--color-forest);
+    display: flex;
+    align-items: center;
     white-space: nowrap;
+  }
+
+  .site-header__logo img {
+    height: 56px;
+    width: auto;
   }
 
   .site-header__nav {

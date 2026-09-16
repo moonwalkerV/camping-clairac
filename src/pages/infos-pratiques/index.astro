@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const mapsEmbedSrc = 'https://www.google.com/maps?q=Domaine+de+Clairac,+Route+de+Bessan,+34500+B%C3%A9ziers&output=embed';
+const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=Domaine+de+Clairac+Route+de+Bessan+34500+Beziers';
+---
+
+<Layout title="Infos pratiques — Camping Clairac">
+  <section id="acces" class="section">
+    <div class="section__inner">
+      <h1>Accès</h1>
+      <p class="address">Domaine de Clairac, Route de Bessan (D28), 34500 Béziers</p>
+      <p>
+        Le camping dispose d'un second accès par la Route de Pézénas (N9),
+        accessible en sortant à la sortie Béziers de l'A75.
+      </p>
+
+      <div class="map-wrapper">
+        <iframe
+          src={mapsEmbedSrc}
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte d'accès au Domaine de Clairac"
+        ></iframe>
+      </div>
+
+      <a href={mapsDirectionsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+        Ouvrir l'itinéraire
+      </a>
+    </div>
+  </section>
+
+  <section id="infos" class="section section--alt">
+    <div class="section__inner">
+      <h2>Informations pratiques</h2>
+      <dl class="infos-list">
+        <div class="infos-list__item">
+          <dt>Période d'ouverture</dt>
+          <dd>Avril à Octobre</dd>
+        </div>
+        <div class="infos-list__item">
+          <dt>Horaires du portail</dt>
+          <dd>Ouvert de 7h30 à 22h30</dd>
+        </div>
+        <div class="infos-list__item">
+          <dt>Réservation</dt>
+          <dd>
+            Uniquement par email (<a href="mailto:info@campingclairac.com">info@campingclairac.com</a>)
+            ou téléphone (<a href="tel:+33611199813">+33 6 11 19 98 13</a>).
+            Pas de réservation en ligne pour l'instant.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section__inner">
+      <h2>Nous contacter</h2>
+      <p>
+        <a href="tel:+33611199813" class="contact-link">📞 +33 6 11 19 98 13</a>
+      </p>
+      <p>
+        <a href="mailto:info@campingclairac.com" class="contact-link">✉️ info@campingclairac.com</a>
+      </p>
+      <p class="note">
+        Le formulaire de contact en ligne sera ajouté dans une prochaine itération du site.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .section--alt {
+    background-color: var(--color-sand);
+  }
+
+  .section__inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .section__inner h1,
+  .section__inner h2 {
+    margin-bottom: 1rem;
+  }
+
+  .address {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .map-wrapper {
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .map-wrapper iframe {
+    display: block;
+  }
+
+  .infos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .infos-list__item dt {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-forest);
+    margin-bottom: 0.25rem;
+  }
+
+  .infos-list__item dd {
+    margin: 0;
+  }
+
+  .contact-link {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-forest);
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: var(--color-earth);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn--primary {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-sage);
+  }
+</style>
