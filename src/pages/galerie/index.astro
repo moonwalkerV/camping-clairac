@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const categories = [
+  {
+    title: 'Le domaine',
+    photos: [
+      { image: '/images/vignes-domaine-batisse.webp', alt: 'Vignes du domaine avec la bâtisse ancienne' },
+      { image: '/images/coucher-soleil-domaine.webp', alt: 'Coucher de soleil sur le domaine' },
+      { image: '/images/chemin-pins-vignette.webp', alt: 'Chemin bordé de pins' },
+    ],
+  },
+  {
+    title: 'Emplacements',
+    photos: [
+      { image: '/images/tente-cloche-pins.webp', alt: 'Tente cloche installée sous les pins' },
+      { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
+      { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec emplacements' },
+      { image: '/images/allee-caravanes-arbres.webp', alt: 'Allée de caravanes sous les arbres' },
+      { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
+    ],
+  },
+  {
+    title: 'Vie du camping',
+    photos: [
+      { image: '/images/accueil-bar-terrasse.webp', alt: 'Bar et terrasse d\'accueil' },
+      { image: '/images/aire-jeux-nuit-pleine-lune.webp', alt: 'Aire de jeux en soirée sous la pleine lune' },
+      { image: '/images/sanitaires-facade.webp', alt: 'Façade du bâtiment sanitaire' },
+      { image: '/images/sanitaires-vue-laterale.webp', alt: 'Vue latérale du bâtiment sanitaire' },
+      { image: '/images/chemin-arbres-tunnel.webp', alt: 'Allée sous les arbres' },
+      { image: '/images/vegetation-fleurs-rouges.webp', alt: 'Végétation fleurie du domaine' },
+    ],
+  },
+];
+---
+
+<Layout title="Galerie — Camping Clairac">
+  <section class="gallery-page">
+    <div class="gallery-page__inner">
+      <h1>Galerie</h1>
+
+      {categories.map((category) => (
+        <div class="gallery-category">
+          <h2>{category.title}</h2>
+          <div class="gallery-grid">
+            {category.photos.map((photo) => (
+              <img src={photo.image} alt={photo.alt} loading="lazy" />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .gallery-page {
+    padding: 4rem 1.5rem;
+  }
+
+  .gallery-page__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery-page__inner h1 {
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .gallery-category {
+    margin-bottom: 3rem;
+  }
+
+  .gallery-category:last-child {
+    margin-bottom: 0;
+  }
+
+  .gallery-category h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 960px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
