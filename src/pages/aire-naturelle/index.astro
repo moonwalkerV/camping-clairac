@@ -22,18 +22,12 @@ const pratiques = [
       <div class="section__text">
         <h1>Notre histoire</h1>
         <p>
-          Le Camping Clairac s'est installé sur un ancien domaine viticole,
-          dont il a gardé l'esprit : de grands arbres, des allées ombragées et
-          un rapport simple à la terre. Plutôt que d'effacer ce passé, nous
-          avons choisi de composer avec lui.
-        </p>
-        <p>
-          Ici, pas de standardisation ni de surfréquentation. Nous avons fait
-          le choix d'une aire naturelle à taille humaine, pensée pour
-          préserver le calme et le caractère du lieu plutôt que pour
-          multiplier les emplacements. C'est ce parti pris qui donne au
-          camping son atmosphère particulière, loin des grandes structures
-          standardisées.
+          Avant d'être un camping, Clairac était un domaine viticole. On le
+          sent encore aujourd'hui : les vignes bordent toujours le terrain,
+          les grands arbres ont eu le temps de pousser, et la bâtisse veille
+          sur l'ensemble. On n'a jamais cherché à transformer ce lieu en parc
+          de loisirs. On a simplement ouvert 25 emplacements dans ce
+          cadre-là, et on a laissé le reste tranquille.
         </p>
       </div>
     </div>
@@ -55,8 +49,18 @@ const pratiques = [
           la gestion de l'eau.
         </p>
         <ul class="pratiques-list">
-          {pratiques.map((pratique) => (
-            <li>🌿 {pratique}</li>
+          {pratiques.map((pratique, index) => (
+            <li>
+              🌿 {pratique}
+              {index === 0 && (
+                <img
+                  src="/images/poulailler-poules.webp"
+                  alt="Poules du poulailler du domaine"
+                  loading="lazy"
+                  class="pratiques-list__image"
+                />
+              )}
+            </li>
           ))}
         </ul>
       </div>
@@ -138,6 +142,16 @@ const pratiques = [
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1rem;
+  }
+
+  .pratiques-list__image {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 0.5rem;
   }
 
   .cta {
