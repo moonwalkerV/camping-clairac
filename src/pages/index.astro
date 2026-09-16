@@ -1,17 +1,317 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+const teasers = [
+  {
+    emoji: '🌿',
+    title: 'Nature',
+    text: "Un ancien domaine préservé, entre grands arbres et biodiversité.",
+    href: '/aire-naturelle',
+    image: '/images/vegetation-fleurs-rouges.webp',
+    alt: 'Végétation fleurie aux couleurs rouges sur le domaine',
+  },
+  {
+    emoji: '🏕️',
+    title: 'Emplacements',
+    text: "25 emplacements ombragés, spacieux, pour tente, caravane ou camping-car.",
+    href: '/sejourner',
+    image: '/images/prairie-emplacements.webp',
+    alt: 'Prairie avec emplacements de camping ombragés',
+  },
+  {
+    emoji: '🚲',
+    title: 'Activités',
+    text: "À pied, à vélo ou en famille, de quoi explorer les environs à votre rythme.",
+    href: '/decouvrir',
+    image: '/images/allee-caravanes-arbres.webp',
+    alt: 'Allée bordée d\'arbres avec des caravanes',
+  },
+];
+
+const galleryPreview = [
+  { image: '/images/sanitaires-facade.webp', alt: 'Façade des sanitaires du camping' },
+  { image: '/images/accueil-bar-terrasse.webp', alt: 'Terrasse du bar d\'accueil' },
+  { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
+  { image: '/images/chemin-arbres-tunnel.webp', alt: 'Chemin en tunnel sous les arbres' },
+  { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
+  { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec emplacements de camping' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section class="hero">
+    <img
+      src="/images/chemin-arbres-tunnel.webp"
+      alt="Chemin ombragé sous un tunnel d'arbres menant au camping"
+      class="hero__image"
+    />
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1>Une parenthèse nature aux portes de Béziers</h1>
+      <p>25 emplacements dans un environnement calme et préservé, pour prendre le temps de profiter du plein air.</p>
+      <div class="hero__actions">
+        <a href="/aire-naturelle" class="btn btn--primary">Découvrir l'aire</a>
+        <a href="/infos-pratiques" class="btn btn--secondary">Préparer mon séjour</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="teasers">
+    <div class="teasers__grid">
+      {teasers.map((teaser) => (
+        <a href={teaser.href} class="teaser-card">
+          <img src={teaser.image} alt={teaser.alt} loading="lazy" />
+          <div class="teaser-card__body">
+            <h2>{teaser.emoji} {teaser.title}</h2>
+            <p>{teaser.text}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="eco">
+    <div class="eco__inner">
+      <img
+        src="/images/sous-bois-tentes.webp"
+        alt="Tentes installées sous les bois dans une ambiance calme"
+        loading="lazy"
+      />
+      <div class="eco__text">
+        <h2>🌱 Un camping à taille humaine</h2>
+        <p>
+          Ici, pas de standardisation ni de surfréquentation. Nous privilégions
+          des pratiques respectueuses de l'environnement et un accueil à échelle
+          humaine, pour préserver l'esprit du lieu et le calme qui en fait tout
+          le charme.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-teaser">
+    <div class="pricing-teaser__inner">
+      <h2>Tarifs 2026</h2>
+      <p>Des tarifs simples et transparents pour tous les types d'emplacements.</p>
+      <a href="/sejourner/tarifs" class="btn btn--primary">Voir tous les tarifs</a>
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <h2>Galerie</h2>
+    <div class="gallery-preview__grid">
+      {galleryPreview.map((photo) => (
+        <img src={photo.image} alt={photo.alt} loading="lazy" />
+      ))}
+    </div>
+    <a href="/galerie" class="btn btn--secondary">Voir toute la galerie</a>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-cream);
+    overflow: hidden;
+  }
+
+  .hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(36, 56, 44, 0.35), rgba(36, 56, 44, 0.65));
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    padding: 0 1.5rem;
+  }
+
+  .hero__content h1 {
+    color: var(--color-cream);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero__content p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn--primary {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-sage);
+  }
+
+  .btn--secondary {
+    background-color: var(--color-cream);
+    color: var(--color-forest);
+    border: 1px solid var(--color-forest);
+  }
+
+  .btn--secondary:hover {
+    background-color: var(--color-sand);
+  }
+
+  .teasers {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .teasers__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .teaser-card {
+    display: block;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-sand);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .teaser-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(36, 56, 44, 0.12);
+  }
+
+  .teaser-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .teaser-card__body {
+    padding: 1.25rem;
+  }
+
+  .teaser-card__body h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .eco {
+    background-color: var(--color-sand);
+    padding: 4rem 1.5rem;
+  }
+
+  .eco__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .eco__inner img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .eco__text h2 {
+    margin-bottom: 1rem;
+  }
+
+  .pricing-teaser {
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .pricing-teaser__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-teaser__inner h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .pricing-teaser__inner p {
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-preview {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .gallery-preview h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-preview__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .gallery-preview__grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 860px) {
+    .teasers__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .eco__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-preview__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-preview__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
