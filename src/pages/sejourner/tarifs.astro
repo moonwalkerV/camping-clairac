@@ -1,13 +1,39 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const tarifs = [
-  { label: 'Emplacement tente', value: 'À partir de XX €/nuit' },
-  { label: 'Camping-car / caravane', value: 'À partir de XX €/nuit' },
-  { label: 'Personne supplémentaire', value: 'XX €' },
-  { label: 'Électricité', value: 'XX €' },
-  { label: 'Animal', value: 'XX €' },
-  { label: 'Taxe de séjour', value: 'XX €' },
+const emplacement = [
+  { label: 'Emplacement pour caravane / tente / voiture (2 personnes incluses)', value: '25,00 €' },
+  { label: 'Adulte supplémentaire', value: '6,00 €' },
+  { label: 'Enfant (- de 13 ans)', value: '4,00 €' },
+  { label: 'Électricité', value: '5,00 €' },
+  { label: 'Animaux domestiques (chien, chat, etc.)', value: '2,00 €' },
+];
+
+const supplements = [
+  { label: 'Petite tente supplémentaire', value: '5,00 €' },
+  { label: 'Caravane de plus de 6 m', value: '5,00 €' },
+  { label: 'Deuxième voiture', value: '5,00 €' },
+  { label: 'Fourgon aménagé (utilisé comme camping-car)', value: '5,00 €' },
+];
+
+const services = [
+  { label: 'Douche chaude', value: 'Gratuit' },
+  { label: 'Machine à laver (par lavage)', value: '5,00 €' },
+  { label: 'Dose de lessive', value: '1,50 €' },
+  { label: 'Adaptateur électrique (caution)', value: '30,00 €' },
+  { label: 'Location de câble électrique', value: '1,00 €' },
+  { label: 'Câble électrique (caution)', value: '30,00 €' },
+];
+
+const taxeSejour = [
+  { label: 'Taxe de séjour par personne (à partir de 18 ans)', value: '0,29 €' },
+];
+
+const tarifTables = [
+  { title: 'Emplacement / jour', rows: emplacement },
+  { title: 'Suppléments', rows: supplements },
+  { title: 'Services', rows: services },
+  { title: 'Taxe de séjour', rows: taxeSejour },
 ];
 
 const inclus = [
@@ -23,16 +49,27 @@ const inclus = [
     <div class="pricing-page__inner">
       <h1>Tarifs 2026</h1>
 
-      <table class="pricing-table">
-        <tbody>
-          {tarifs.map((tarif) => (
-            <tr>
-              <td>{tarif.label}</td>
-              <td>{tarif.value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {tarifTables.map((table) => (
+        <div class="pricing-table-wrapper">
+          <h2>{table.title}</h2>
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Désignation</th>
+                <th>Prix</th>
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((tarif) => (
+                <tr>
+                  <td>{tarif.label}</td>
+                  <td>{tarif.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
 
       <div class="included">
         <h2>Ce qui est inclus</h2>
@@ -44,10 +81,6 @@ const inclus = [
       </div>
 
       <a href="/infos-pratiques" class="btn btn--primary">Nous contacter pour réserver</a>
-
-      <p class="pricing-page__note">
-        Ces tarifs sont indicatifs et seront confirmés prochainement.
-      </p>
     </div>
   </section>
 </Layout>
@@ -67,11 +100,32 @@ const inclus = [
     margin-bottom: 2rem;
   }
 
+  .pricing-table-wrapper {
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+
+  .pricing-table-wrapper h2 {
+    margin-bottom: 0.75rem;
+  }
+
   .pricing-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 2.5rem;
     text-align: left;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .pricing-table th {
+    background-color: var(--color-sage);
+    color: var(--color-cream);
+    padding: 0.75rem 0.85rem;
+    font-weight: 600;
+  }
+
+  .pricing-table th:last-child {
+    text-align: right;
   }
 
   .pricing-table tr {
@@ -79,7 +133,7 @@ const inclus = [
   }
 
   .pricing-table td {
-    padding: 0.85rem 0.5rem;
+    padding: 0.85rem 0.85rem;
   }
 
   .pricing-table td:last-child {
@@ -122,12 +176,5 @@ const inclus = [
 
   .btn--primary:hover {
     background-color: var(--color-sage);
-  }
-
-  .pricing-page__note {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    color: var(--color-earth);
-    font-style: italic;
   }
 </style>
