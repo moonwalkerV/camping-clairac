@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pratiques = [
+  'Entretien raisonné des espaces verts',
+  'Respect de la biodiversité',
+  'Limitation des produits chimiques',
+  'Gestion de l\'eau',
+  'Tri des déchets',
+  'Préservation des arbres',
+];
+---
+
+<Layout title="L'aire naturelle — Camping Clairac">
+  <section id="histoire" class="section">
+    <div class="section__inner">
+      <img
+        src="/images/allee-caravanes-arbres.webp"
+        alt="Allée bordée de grands arbres sur l'ancien domaine viticole"
+        loading="lazy"
+      />
+      <div class="section__text">
+        <h1>Notre histoire</h1>
+        <p>
+          Le Camping Clairac s'est installé sur un ancien domaine viticole,
+          dont il a gardé l'esprit : de grands arbres, des allées ombragées et
+          un rapport simple à la terre. Plutôt que d'effacer ce passé, nous
+          avons choisi de composer avec lui.
+        </p>
+        <p>
+          Ici, pas de standardisation ni de surfréquentation. Nous avons fait
+          le choix d'une aire naturelle à taille humaine, pensée pour
+          préserver le calme et le caractère du lieu plutôt que pour
+          multiplier les emplacements. C'est ce parti pris qui donne au
+          camping son atmosphère particulière, loin des grandes structures
+          standardisées.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="demarche-nature" class="section section--alt">
+    <div class="section__inner section__inner--reverse">
+      <img
+        src="/images/vegetation-fleurs-rouges.webp"
+        alt="Végétation fleurie aux couleurs rouges sur le domaine"
+        loading="lazy"
+      />
+      <div class="section__text">
+        <h2>Notre démarche nature</h2>
+        <p>
+          L'écologie et le respect de la nature ne sont pas un argument
+          marketing pour nous : ils guident la façon dont nous entretenons et
+          faisons vivre le domaine au quotidien.
+        </p>
+        <ul class="pratiques-list">
+          {pratiques.map((pratique) => (
+            <li>🌿 {pratique}</li>
+          ))}
+        </ul>
+        <p class="note">
+          Cette liste sera affinée et complétée avec la directrice du camping.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="domaine" class="section">
+    <div class="section__inner">
+      <img
+        src="/images/chemin-arbres-tunnel.webp"
+        alt="Chemin ombragé sous un tunnel d'arbres traversant le domaine"
+        loading="lazy"
+      />
+      <div class="section__text">
+        <h2>Le domaine</h2>
+        <p>
+          Le domaine offre de grands emplacements ombragés, à l'abri d'arbres
+          parfois centenaires. La biodiversité s'y déploie librement, entre
+          sous-bois et espaces plus dégagés, dans un cadre calme et préservé
+          propice au repos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__inner">
+      <h2>Envie de poser vos valises ?</h2>
+      <a href="/sejourner" class="btn btn--primary">Découvrir les emplacements</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .section--alt {
+    background-color: var(--color-sand);
+  }
+
+  .section__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .section__inner--reverse {
+    direction: rtl;
+  }
+
+  .section__inner--reverse > * {
+    direction: ltr;
+  }
+
+  .section__inner img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .section__text h1,
+  .section__text h2 {
+    margin-bottom: 1rem;
+  }
+
+  .section__text p {
+    margin-bottom: 1rem;
+  }
+
+  .pratiques-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: var(--color-earth);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  .cta {
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .cta__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta__inner h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn--primary {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-sage);
+  }
+
+  @media (max-width: 860px) {
+    .section__inner,
+    .section__inner--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+  }
+</style>
