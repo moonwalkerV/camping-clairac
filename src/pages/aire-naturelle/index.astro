@@ -191,7 +191,6 @@ const pratiques = [
     background-size: cover;
     background-position: center 68%;
     overflow: hidden;
-    border-top: 6px solid var(--color-forest);
   }
 
   .domaine-banner__overlay {
@@ -203,15 +202,17 @@ const pratiques = [
   .domaine-banner__content {
     position: relative;
     z-index: 1;
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    max-width: 850px;
+    margin: 0 1.5rem;
+    padding: 2.5rem 3rem;
     text-align: center;
-    color: var(--color-cream);
+    color: var(--color-forest);
+    background-color: var(--color-sand);
+    border-radius: 16px;
   }
 
   .domaine-banner__content h2 {
-    color: var(--color-cream);
+    color: var(--color-forest);
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
@@ -250,6 +251,10 @@ const pratiques = [
 
     .domaine-banner {
       min-height: 380px;
+    }
+
+    .domaine-banner__content {
+      padding: 1.75rem 1.5rem;
     }
   }
 </style>
