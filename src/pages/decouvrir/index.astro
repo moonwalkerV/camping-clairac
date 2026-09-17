@@ -1,0 +1,363 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const mapsLink = (query: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+
+const tabs = [
+  {
+    id: 'nature',
+    label: 'Nature & randonnées',
+    places: [
+      {
+        name: "Gorges d'Héric",
+        subtitle: 'Mons-la-Trivalle',
+        image: '/images/decouvrir-gorges-heric.webp',
+        alt: "Gorges d'Héric, vasques naturelles au pied du Caroux",
+        text: "On adore venir se rafraîchir dans les vasques naturelles des Gorges d'Héric, au pied du Caroux. Le sentier longe le ruisseau à l'ombre des châtaigniers, parfait pour une randonnée en famille. Prévoyez de bonnes chaussures, le chemin est caillouteux par endroits.",
+        mapsQuery: "Gorges d'Héric, Mons-la-Trivalle",
+      },
+      {
+        name: 'Lac du Salagou',
+        image: '/images/decouvrir-salagou.webp',
+        alt: 'Lac du Salagou et ses paysages de ruffes rouges',
+        text: "Avec ses eaux et ses ruffes rouges caractéristiques, le lac du Salagou offre un paysage qui ne ressemble à aucun autre dans la région. On y va volontiers pour une balade à vélo, une baignade ou simplement pour profiter du coucher de soleil. Un site incontournable si vous avez une journée à consacrer à la nature.",
+        mapsQuery: 'Lac du Salagou',
+        credit: 'Hans Hagenaars',
+      },
+      {
+        name: 'Roquebrun',
+        image: '/images/decouvrir-roquebrun.webp',
+        alt: 'Village de Roquebrun au bord de l\'Orb',
+        text: "Surnommé la petite Nice de l'Hérault grâce à son microclimat, Roquebrun est un village perché où poussent orangers et mimosas. On aime s'y promener le long de l'Orb et grimper jusqu'au jardin méditerranéen pour la vue. Une halte parfaite pour une après-midi tranquille.",
+        mapsQuery: 'Roquebrun',
+        credit: 'Christian Ferrer',
+      },
+      {
+        name: 'Saint-Guilhem-le-Désert',
+        image: '/images/decouvrir-saint-guilhem.webp',
+        alt: 'Ruelles médiévales de Saint-Guilhem-le-Désert',
+        text: "Classé parmi les plus beaux villages de France, Saint-Guilhem-le-Désert mérite clairement le détour avec ses ruelles médiévales et son abbaye millénaire. On vous conseille d'y aller tôt le matin pour profiter du calme avant l'arrivée des visiteurs. Le pont du Diable, juste à côté, vaut aussi le coup d'œil.",
+        mapsQuery: 'Saint-Guilhem-le-Désert',
+        credit: 'uuger',
+      },
+    ],
+  },
+  {
+    id: 'patrimoine',
+    label: 'Villages & patrimoine',
+    places: [
+      {
+        name: '9 écluses de Fonséranes',
+        subtitle: 'Béziers',
+        image: '/images/decouvrir-ecluses-fonseranes.webp',
+        alt: 'Escalier d\'écluses de Fonséranes sur le Canal du Midi',
+        text: "Cet escalier d'écluses construit au XVIIe siècle permet de franchir 25 mètres de dénivelé sur le Canal du Midi. On aime venir observer les péniches manœuvrer d'écluse en écluse, un vrai spectacle d'ingénierie. C'est aussi un bel endroit pour une balade à pied ou à vélo le long du canal.",
+        mapsQuery: 'Écluses de Fonséranes, Béziers',
+      },
+      {
+        name: 'Béziers',
+        subtitle: 'Cathédrale Saint-Nazaire, Allées Paul Riquet',
+        image: '/images/decouvrir-beziers.webp',
+        alt: 'Vue sur Béziers et la cathédrale Saint-Nazaire',
+        text: "À quelques minutes du camping, Béziers vaut le détour pour sa cathédrale Saint-Nazaire perchée au-dessus de l'Orb et sa vue imprenable. On aime aussi flâner sur les Allées Paul Riquet, l'une des plus belles promenades de la ville, bordée de terrasses et de platanes. Une bonne option pour une sortie en ville sans trop s'éloigner.",
+        mapsQuery: 'Béziers',
+      },
+      {
+        name: 'Cathédrale de Béziers',
+        image: '/images/decouvrir-cathedrale-beziers.webp',
+        alt: 'Cathédrale Saint-Nazaire de Béziers',
+        text: "Reconstruite après les événements tragiques de la croisade des Albigeois, la cathédrale Saint-Nazaire domine la ville depuis son promontoire au-dessus de l'Orb. On aime son architecture gothique méridionale et le panorama qu'elle offre sur les vignes environnantes. L'entrée est libre et l'ambiance y est toujours paisible.",
+        mapsQuery: 'Cathédrale Saint-Nazaire, Béziers',
+      },
+    ],
+  },
+  {
+    id: 'terroir',
+    label: 'Marchés & terroir',
+    places: [
+      {
+        name: 'Marché de Pézenas',
+        image: '/images/decouvrir-marche-pezenas.webp',
+        alt: 'Marché provençal dans les ruelles de Pézenas',
+        text: "Le marché du samedi matin à Pézenas est un rendez-vous incontournable pour les produits locaux, entre maraîchers, fromagers et producteurs de vin. On aime flâner dans les ruelles de la ville ancienne, où Molière lui-même a vécu, avant de repartir les bras chargés. Comptez une bonne matinée pour en profiter pleinement.",
+        mapsQuery: 'Marché de Pézenas',
+      },
+      {
+        name: 'Marchés nocturnes',
+        subtitle: 'Valras-Plage, Sérignan, Portiragnes-Plage',
+        image: '/images/decouvrir-marche-nocturne.webp',
+        alt: 'Marché nocturne animé en bord de mer',
+        text: "L'été, les marchés nocturnes s'installent sur le littoral pour des soirées animées entre artisanat local, spécialités régionales et ambiance bord de mer. On aime y aller en fin de journée pour profiter de la fraîcheur et terminer par un coucher de soleil sur la plage.",
+        note: 'Marchés saisonniers, généralement en juillet-août uniquement : mieux vaut vérifier les dates et lieux chaque année.',
+        mapsQuery: 'Marché nocturne Valras-Plage',
+      },
+    ],
+  },
+  {
+    id: 'manger',
+    label: 'Où manger',
+    places: [
+      {
+        name: 'Bistrot Cersois',
+        image: '/images/decouvrir-bistrot-cersois.webp',
+        alt: 'Terrasse du Bistrot Cersois',
+        text: "À Cers, à deux pas du camping, ce bistrot propose une cuisine simple et généreuse, portée par des produits locaux. On y va volontiers pour un déjeuner sans chichi ou un dîner en terrasse les soirs d'été. Une adresse de quartier qu'on apprécie pour son ambiance conviviale.",
+        mapsQuery: 'Bistrot Cersois',
+      },
+      {
+        name: "L'Orangerie",
+        subtitle: 'Béziers',
+        image: '/images/decouvrir-orangerie.webp',
+        alt: "Salle du restaurant L'Orangerie à Béziers",
+        text: "Installée à Béziers, L'Orangerie propose une cuisine soignée dans un cadre agréable, parfaite pour un repas un peu plus festif. On aime s'y attarder en soirée, entre bonne table et service attentionné. Une bonne option si vous cherchez à sortir du camping pour un dîner un peu spécial.",
+        mapsQuery: "L'Orangerie, Béziers",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Découvrir — Camping Clairac">
+  <section class="discover">
+    <div class="discover__inner">
+      <h1>Découvrir</h1>
+      <p class="discover__intro">
+        À pied, à vélo ou en voiture, de quoi explorer les environs à votre rythme.
+      </p>
+
+      <div class="tabs" data-tabs>
+        <div class="tabs__nav" role="tablist" aria-label="Catégories à découvrir">
+          {tabs.map((tab, index) => (
+            <button
+              type="button"
+              class="tabs__tab"
+              class:list={[{ active: index === 0 }]}
+              data-tab-button={tab.id}
+              role="tab"
+              aria-selected={index === 0}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {tabs.map((tab, index) => (
+          <div
+            class="tabs__panel"
+            class:list={[{ active: index === 0 }]}
+            data-tab-panel={tab.id}
+            role="tabpanel"
+          >
+            <div class="cards-grid">
+              {tab.places.map((place) => (
+                <div class="place-card">
+                  <img
+                    src={place.image}
+                    alt={place.alt}
+                    class="place-card__image"
+                    loading="lazy"
+                  />
+                  <div class="place-card__body">
+                    <h2 class="place-card__name">{place.name}</h2>
+                    {place.subtitle && <p class="place-card__subtitle">{place.subtitle}</p>}
+                    <p class="place-card__text">{place.text}</p>
+                    {place.note && <p class="place-card__note">{place.note}</p>}
+                    <a
+                      href={mapsLink(place.mapsQuery)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="place-card__link"
+                    >
+                      Voir sur Google Maps
+                    </a>
+                    {place.credit && (
+                      <p class="place-card__credit">
+                        Photo : {place.credit} (Wikimedia Commons, CC-BY-SA)
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="discover__credits">
+        Crédits photo (Wikimedia Commons, licence CC-BY-SA) : Roquebrun (Christian Ferrer) ·
+        Lac du Salagou (Hans Hagenaars) · Saint-Guilhem-le-Désert (uuger).
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .discover {
+    padding: 4rem 1.5rem;
+  }
+
+  .discover__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .discover__inner h1 {
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .discover__intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    color: var(--color-sage);
+  }
+
+  .tabs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tabs__tab {
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-sand);
+    background-color: var(--color-cream);
+    color: var(--color-forest);
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .tabs__tab:hover {
+    background-color: var(--color-sand);
+  }
+
+  .tabs__tab.active {
+    background-color: var(--color-forest);
+    border-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .tabs__panel {
+    display: none;
+  }
+
+  .tabs__panel.active {
+    display: block;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .place-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-sand);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .place-card__image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+
+  .place-card__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .place-card__name {
+    font-size: 1.2rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .place-card__subtitle {
+    font-size: 0.85rem;
+    color: var(--color-sage);
+    margin-bottom: 0.5rem;
+  }
+
+  .place-card__text {
+    margin-bottom: 0.75rem;
+    flex: 1;
+  }
+
+  .place-card__note {
+    font-size: 0.85rem;
+    color: var(--color-earth);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .place-card__link {
+    display: inline-block;
+    align-self: flex-start;
+    font-weight: 600;
+    color: var(--color-forest);
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
+  }
+
+  .place-card__credit {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--color-earth);
+  }
+
+  .discover__credits {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-earth);
+    font-style: italic;
+  }
+
+  @media (max-width: 960px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const tabsContainer = document.querySelector<HTMLElement>('[data-tabs]');
+
+  if (tabsContainer) {
+    const buttons = Array.from(tabsContainer.querySelectorAll<HTMLElement>('[data-tab-button]'));
+    const panels = Array.from(tabsContainer.querySelectorAll<HTMLElement>('[data-tab-panel]'));
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-tab-button');
+
+        buttons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', String(isActive));
+        });
+
+        panels.forEach((panel) => {
+          panel.classList.toggle('active', panel.getAttribute('data-tab-panel') === target);
+        });
+      });
+    });
+  }
+</script>
