@@ -4,17 +4,60 @@ import Layout from '../../layouts/Layout.astro';
 const mapsLink = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
-const tabs = [
+interface Place {
+  name: string;
+  subtitle?: string;
+  image?: string;
+  alt: string;
+  text: string;
+  hours?: string;
+  note?: string;
+  mapsQuery: string;
+  credit?: string;
+}
+
+interface Tab {
+  id: string;
+  label: string;
+  places: Place[];
+}
+
+const tabs: Tab[] = [
   {
     id: 'nature',
     label: 'Nature & randonnées',
     places: [
+      {
+        name: 'Canyon du Diable',
+        subtitle: 'Saint-Jean-de-la-Blaquière',
+        image: '/images/decouvrir-canyon-diable.webp',
+        alt: 'Ruffes rouges et falaises du Canyon du Diable',
+        text: "Surnommé le Colorado languedocien, le Canyon du Diable est une vaste étendue de ruffes, ces terres rouges façonnées par l'érosion, qui dessine un décor minéral surprenant entre falaises, ravines et cheminées naturelles. On y accède librement par les sentiers de randonnée qui partent du village. Un site spectaculaire, à découvrir de préférence tôt le matin pour la lumière sur les couleurs rouges.",
+        mapsQuery: 'Canyon du Diable Saint-Jean-de-la-Blaquiere',
+      },
+      {
+        name: 'Cirque de Mourèze',
+        alt: 'Chaos rocheux dolomitique du Cirque de Mourèze',
+        image: '/images/decouvrir-cirque-moureze.webp',
+        text: "Ce chaos rocheux dolomitique de 340 hectares, aux formes qu'on dit \"ruiniformes\", est classé Grand Site de France et se trouve tout près du lac du Salagou. On aime partir sur le circuit court (3 km, 1h à 1h30), familial, qui serpente à travers le labyrinthe de rochers depuis le village. Pour les plus motivés, le tour du Mont Liausson (7 à 9 km, 2h30 à 4h) offre une vue panoramique sur le lac du Salagou.",
+        note: "Parking payant (2-3€/jour) au Parc des Courtinals, à l'entrée du village.",
+        mapsQuery: 'Cirque de Moureze',
+      },
+      {
+        name: 'Forêt enchantée',
+        subtitle: 'Villeneuvette',
+        image: '/images/decouvrir-foret-enchantee.webp',
+        alt: 'Sculptures sur rochers de la Forêt enchantée à Villeneuvette',
+        text: "Ce site original rassemble des sculptures sur rochers représentant personnages et animaux, à découvrir au départ d'une boucle de 15 km qui rejoint ensuite le plateau de la Ramasse. On aime cette balade insolite, particulièrement sympa à faire en famille. Prévoyez de bonnes chaussures si vous comptez enchaîner sur la boucle complète.",
+        mapsQuery: 'Foret Enchantee Villeneuvette',
+      },
       {
         name: "Gorges d'Héric",
         subtitle: 'Mons-la-Trivalle',
         image: '/images/decouvrir-gorges-heric.webp',
         alt: "Gorges d'Héric, vasques naturelles au pied du Caroux",
         text: "On adore venir se rafraîchir dans les vasques naturelles des Gorges d'Héric, au pied du Caroux. Le sentier longe le ruisseau à l'ombre des châtaigniers, parfait pour une randonnée en famille. Prévoyez de bonnes chaussures, le chemin est caillouteux par endroits.",
+        hours: 'Accès libre, toute l\'année',
         mapsQuery: "Gorges d'Héric, Mons-la-Trivalle",
       },
       {
@@ -22,14 +65,32 @@ const tabs = [
         image: '/images/decouvrir-salagou.webp',
         alt: 'Lac du Salagou et ses paysages de ruffes rouges',
         text: "Avec ses eaux et ses ruffes rouges caractéristiques, le lac du Salagou offre un paysage qui ne ressemble à aucun autre dans la région. On y va volontiers pour une balade à vélo, une baignade ou simplement pour profiter du coucher de soleil. Un site incontournable si vous avez une journée à consacrer à la nature.",
+        hours: 'Accès libre, toute l\'année',
         mapsQuery: 'Lac du Salagou',
         credit: 'Hans Hagenaars',
+      },
+      {
+        name: 'Mont Caylus',
+        subtitle: "Clermont-l'Hérault",
+        image: '/images/decouvrir-mont-caylus.webp',
+        alt: "Vue depuis le Mont Caylus sur la plaine du cœur d'Hérault",
+        text: "Cette boucle de 6,4 km, environ 2h de marche pour 206 m de dénivelé, serpente au-dessus de Clermont-l'Hérault jusqu'au belvédère de la Ramasse. On y profite d'une vue dégagée sur toute la plaine du cœur d'Hérault, un joli objectif pour une randonnée à la demi-journée. Le départ se fait du parking près de la cave coopérative, avenue du Général-Malafosse.",
+        mapsQuery: "Mont Caylus Clermont-l'Herault",
+      },
+      {
+        name: 'Mont Saint-Clair',
+        subtitle: 'Sète',
+        image: '/images/decouvrir-mont-saint-clair.webp',
+        alt: "Vue panoramique depuis le Mont Saint-Clair sur l'étang de Thau",
+        text: "Une courte marche facile au-dessus de Sète suffit pour profiter d'une vue panoramique sur la Méditerranée, l'étang de Thau et le Lido. On aime y monter en fin de journée pour admirer le coucher de soleil sur l'eau. Un bel équilibre entre effort minimal et panorama maximal.",
+        mapsQuery: 'Mont Saint-Clair Sete',
       },
       {
         name: 'Roquebrun',
         image: '/images/decouvrir-roquebrun.webp',
         alt: 'Village de Roquebrun au bord de l\'Orb',
         text: "Surnommé la petite Nice de l'Hérault grâce à son microclimat, Roquebrun est un village perché où poussent orangers et mimosas. On aime s'y promener le long de l'Orb et grimper jusqu'au jardin méditerranéen pour la vue. Une halte parfaite pour une après-midi tranquille.",
+        hours: 'Village accessible toute l\'année',
         mapsQuery: 'Roquebrun',
         credit: 'Christian Ferrer',
       },
@@ -38,6 +99,7 @@ const tabs = [
         image: '/images/decouvrir-saint-guilhem.webp',
         alt: 'Ruelles médiévales de Saint-Guilhem-le-Désert',
         text: "Classé parmi les plus beaux villages de France, Saint-Guilhem-le-Désert mérite clairement le détour avec ses ruelles médiévales et son abbaye millénaire. On vous conseille d'y aller tôt le matin pour profiter du calme avant l'arrivée des visiteurs. Le pont du Diable, juste à côté, vaut aussi le coup d'œil.",
+        hours: 'Village accessible toute l\'année',
         mapsQuery: 'Saint-Guilhem-le-Désert',
         credit: 'uuger',
       },
@@ -53,6 +115,7 @@ const tabs = [
         image: '/images/decouvrir-ecluses-fonseranes.webp',
         alt: 'Escalier d\'écluses de Fonséranes sur le Canal du Midi',
         text: "Cet escalier d'écluses construit au XVIIe siècle permet de franchir 25 mètres de dénivelé sur le Canal du Midi. On aime venir observer les péniches manœuvrer d'écluse en écluse, un vrai spectacle d'ingénierie. C'est aussi un bel endroit pour une balade à pied ou à vélo le long du canal.",
+        hours: 'Accès libre aux écluses, toute l\'année',
         mapsQuery: 'Écluses de Fonséranes, Béziers',
       },
       {
@@ -61,6 +124,7 @@ const tabs = [
         image: '/images/decouvrir-beziers.webp',
         alt: 'Vue sur Béziers et la cathédrale Saint-Nazaire',
         text: "À quelques minutes du camping, Béziers vaut le détour pour sa cathédrale Saint-Nazaire perchée au-dessus de l'Orb et sa vue imprenable. On aime aussi flâner sur les Allées Paul Riquet, l'une des plus belles promenades de la ville, bordée de terrasses et de platanes. Une bonne option pour une sortie en ville sans trop s'éloigner.",
+        hours: 'Ville accessible toute l\'année',
         mapsQuery: 'Béziers',
       },
       {
@@ -68,6 +132,7 @@ const tabs = [
         image: '/images/decouvrir-cathedrale-beziers.webp',
         alt: 'Cathédrale Saint-Nazaire de Béziers',
         text: "Reconstruite après les événements tragiques de la croisade des Albigeois, la cathédrale Saint-Nazaire domine la ville depuis son promontoire au-dessus de l'Orb. On aime son architecture gothique méridionale et le panorama qu'elle offre sur les vignes environnantes. L'entrée est libre et l'ambiance y est toujours paisible.",
+        hours: 'Horaires à préciser',
         mapsQuery: 'Cathédrale Saint-Nazaire, Béziers',
       },
     ],
@@ -77,10 +142,34 @@ const tabs = [
     label: 'Marchés & terroir',
     places: [
       {
+        name: "Marché d'Agde",
+        alt: "Halles d'Agde et marché du centre historique",
+        text: "Autour des Halles et de la place du Jeu de Ballon, le marché d'Agde est un rendez-vous immanquable pour l'alimentaire et l'artisanat local. On aime son ambiance animée à deux pas du centre historique, avec ses étals qui débordent de produits de saison. Un bon complément aux marchés de Pézenas et de Béziers.",
+        hours: "Marché : jeudi toute l'année (6h30-13h), + dimanche d'avril à septembre (7h-13h)",
+        mapsQuery: "Halles d'Agde",
+      },
+      {
+        name: 'Marché de Bessan',
+        image: '/images/decouvrir-marche-bessan.webp',
+        alt: 'Marché de Bessan sur la promenade ombragée du centre-ville',
+        text: "Le marché de Bessan s'installe deux fois par semaine en plein cœur de ville, sur la promenade ombragée. On y trouve un peu de tout : alimentaire, vêtements et produits du terroir, dans une ambiance de marché de village bien vivante.",
+        hours: 'Marché : mardi et dimanche, 6h30-12h',
+        mapsQuery: 'Marche de Bessan',
+      },
+      {
+        name: 'Marché de Montagnac',
+        image: '/images/decouvrir-marche-montagnac.webp',
+        alt: 'Marché de Montagnac sous les platanes de l\'esplanade',
+        text: "Avec plus de 800 ans d'histoire, le marché de Montagnac s'étend sous les platanes de l'esplanade jusqu'au parvis de l'église Saint-André. On aime son ambiance authentique et sa position en plein centre du village, un vrai marché de terroir comme on les aime.",
+        hours: 'Marché : vendredi, 7h-13h',
+        mapsQuery: 'Marche de Montagnac Esplanade des Platanes',
+      },
+      {
         name: 'Marché de Pézenas',
         image: '/images/decouvrir-marche-pezenas.webp',
         alt: 'Marché provençal dans les ruelles de Pézenas',
         text: "Le marché du samedi matin à Pézenas est un rendez-vous incontournable pour les produits locaux, entre maraîchers, fromagers et producteurs de vin. On aime flâner dans les ruelles de la ville ancienne, où Molière lui-même a vécu, avant de repartir les bras chargés. Comptez une bonne matinée pour en profiter pleinement.",
+        hours: 'Marché : samedi matin',
         mapsQuery: 'Marché de Pézenas',
       },
       {
@@ -89,6 +178,7 @@ const tabs = [
         image: '/images/decouvrir-marche-nocturne.webp',
         alt: 'Marché nocturne animé en bord de mer',
         text: "L'été, les marchés nocturnes s'installent sur le littoral pour des soirées animées entre artisanat local, spécialités régionales et ambiance bord de mer. On aime y aller en fin de journée pour profiter de la fraîcheur et terminer par un coucher de soleil sur la plage.",
+        hours: 'Horaires à préciser',
         note: 'Marchés saisonniers, généralement en juillet-août uniquement : mieux vaut vérifier les dates et lieux chaque année.',
         mapsQuery: 'Marché nocturne Valras-Plage',
       },
@@ -103,7 +193,24 @@ const tabs = [
         image: '/images/decouvrir-bistrot-cersois.webp',
         alt: 'Terrasse du Bistrot Cersois',
         text: "À Cers, à deux pas du camping, ce bistrot propose une cuisine simple et généreuse, portée par des produits locaux. On y va volontiers pour un déjeuner sans chichi ou un dîner en terrasse les soirs d'été. Une adresse de quartier qu'on apprécie pour son ambiance conviviale.",
+        hours: 'Horaires à préciser',
         mapsQuery: 'Bistrot Cersois',
+      },
+      {
+        name: 'De Lauzun',
+        subtitle: 'Pézenas, Prieuré de Saint-Jean-de-Bébian',
+        alt: 'Salle du restaurant De Lauzun au Prieuré de Saint-Jean-de-Bébian',
+        text: "Installé au Prieuré de Saint-Jean-de-Bébian, au cœur des vignes, De Lauzun est une table étoilée au Guide Michelin portée par le chef Matthieu de Lauzun. On y savoure une cuisine méditerranéenne raffinée dans un cadre pierre, bois et cuivre. Une adresse à réserver pour une occasion spéciale.",
+        hours: 'Ouvert du mardi au samedi, midi et soir. Réservation impérative.',
+        mapsQuery: 'De Lauzun Prieure de Saint-Jean-de-Bebian Pezenas',
+      },
+      {
+        name: 'La Cabane',
+        subtitle: "Marseillan, 1 Chemin de l'Étang",
+        alt: "Terrasse de La Cabane, les pieds dans l'eau sur l'étang de Thau",
+        text: "Tenu par des ostréiculteurs, ce bar à huîtres et moules a les pieds dans l'eau sur l'étang de Thau. On y va surtout pour la brasucade de moules au feu de bois, à déguster en terrasse face à l'étang. Une adresse simple et authentique, portée par le savoir-faire des producteurs locaux.",
+        hours: 'Horaires à préciser',
+        mapsQuery: "La Cabane, 1 Chemin de l'Étang, Marseillan",
       },
       {
         name: "L'Orangerie",
@@ -111,7 +218,16 @@ const tabs = [
         image: '/images/decouvrir-orangerie.webp',
         alt: "Salle du restaurant L'Orangerie à Béziers",
         text: "Installée à Béziers, L'Orangerie propose une cuisine soignée dans un cadre agréable, parfaite pour un repas un peu plus festif. On aime s'y attarder en soirée, entre bonne table et service attentionné. Une bonne option si vous cherchez à sortir du camping pour un dîner un peu spécial.",
+        hours: 'Horaires à préciser',
         mapsQuery: "L'Orangerie, Béziers",
+      },
+      {
+        name: 'Tielle La Cettoise',
+        subtitle: 'Sète',
+        alt: 'Tielles sétoises en vitrine à Tielle La Cettoise',
+        text: "Dans le centre-ville de Sète, cette petite boutique s'est fait une spécialité de la tielle sétoise, la tourte traditionnelle au poulpe emblématique de la ville. On y passe plutôt pour une pause gourmande simple que pour un vrai repas, mais la qualité est unanimement saluée.",
+        hours: 'Horaires à préciser',
+        mapsQuery: 'Tielles La Cettoise Sete',
       },
     ],
   },
@@ -152,24 +268,35 @@ const tabs = [
             <div class="cards-grid">
               {tab.places.map((place) => (
                 <div class="place-card">
-                  <img
-                    src={place.image}
-                    alt={place.alt}
-                    class="place-card__image"
-                    loading="lazy"
-                  />
+                  {place.image ? (
+                    <img
+                      src={place.image}
+                      alt={place.alt}
+                      class="place-card__image"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="place-card__placeholder">
+                      <span>{place.name}</span>
+                    </div>
+                  )}
                   <div class="place-card__body">
                     <h2 class="place-card__name">{place.name}</h2>
                     {place.subtitle && <p class="place-card__subtitle">{place.subtitle}</p>}
                     <p class="place-card__text">{place.text}</p>
                     {place.note && <p class="place-card__note">{place.note}</p>}
+                    {place.hours && (
+                      <p class="place-card__hours">
+                        <span aria-hidden="true">🕐</span> {place.hours}
+                      </p>
+                    )}
                     <a
                       href={mapsLink(place.mapsQuery)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="place-card__link"
+                      class="place-card__btn"
                     >
-                      Voir sur Google Maps
+                      <span aria-hidden="true">📍</span> Voir sur Maps
                     </a>
                     {place.credit && (
                       <p class="place-card__credit">
@@ -271,6 +398,23 @@ const tabs = [
     object-fit: cover;
   }
 
+  .place-card__placeholder {
+    width: 100%;
+    height: 190px;
+    background-color: var(--color-sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .place-card__placeholder span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-forest);
+  }
+
   .place-card__body {
     padding: 1.25rem;
     display: flex;
@@ -301,13 +445,32 @@ const tabs = [
     margin-bottom: 0.75rem;
   }
 
-  .place-card__link {
-    display: inline-block;
-    align-self: flex-start;
+  .place-card__hours {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--color-forest);
-    text-decoration: underline;
+    margin-bottom: 1rem;
+  }
+
+  .place-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    align-self: flex-start;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+    font-weight: 600;
     margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .place-card__btn:hover {
+    background-color: var(--color-sage);
   }
 
   .place-card__credit {
