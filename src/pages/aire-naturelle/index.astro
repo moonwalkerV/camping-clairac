@@ -65,28 +65,16 @@ const pratiques = [
     </div>
   </section>
 
-  <section id="domaine" class="section">
-    <div class="section__inner">
-      <img
-        src="/images/chemin-arbres-tunnel.webp"
-        alt="Chemin ombragé sous un tunnel d'arbres traversant le domaine"
-        loading="lazy"
-      />
-      <div class="section__text">
-        <h2>Le domaine</h2>
-        <p>
-          Le domaine offre de grands emplacements ombragés, à l'abri d'arbres
-          parfois centenaires. La biodiversité s'y déploie librement, entre
-          sous-bois et espaces plus dégagés, dans un cadre calme et préservé
-          propice au repos.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="cta__inner">
-      <h2>Envie de poser vos valises ?</h2>
+  <section id="domaine" class="domaine-banner">
+    <div class="domaine-banner__overlay"></div>
+    <div class="domaine-banner__content">
+      <h2>Le domaine</h2>
+      <p>
+        Le domaine offre de grands emplacements ombragés, à l'abri d'arbres
+        parfois centenaires. La biodiversité s'y déploie librement, entre
+        sous-bois et espaces plus dégagés, dans un cadre calme et préservé
+        propice au repos.
+      </p>
       <a href="/sejourner" class="btn btn--primary">Découvrir les emplacements</a>
     </div>
   </section>
@@ -190,17 +178,40 @@ const pratiques = [
     margin: 0;
   }
 
-  .cta {
-    padding: 4rem 1.5rem;
-    text-align: center;
+  .domaine-banner {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/camping-nature-allee-lauriers.webp');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
   }
 
-  .cta__inner {
-    max-width: 600px;
+  .domaine-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(36, 56, 44, 0.55), rgba(36, 56, 44, 0.7));
+  }
+
+  .domaine-banner__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
     margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+    color: var(--color-cream);
   }
 
-  .cta__inner h2 {
+  .domaine-banner__content h2 {
+    color: var(--color-cream);
+    margin-bottom: 1rem;
+  }
+
+  .domaine-banner__content p {
     margin-bottom: 1.5rem;
   }
 
@@ -230,6 +241,10 @@ const pratiques = [
 
     .pratiques-grid {
       grid-template-columns: 1fr;
+    }
+
+    .domaine-banner {
+      min-height: 380px;
     }
   }
 </style>
