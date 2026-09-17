@@ -14,11 +14,18 @@ const equipements = [
 <Layout title="Séjourner — Camping Clairac">
   <section id="emplacements" class="section">
     <div class="section__inner">
-      <img
-        src="/images/allee-caravanes-arbres.webp"
-        alt="Allée arborée avec des caravanes"
-        loading="lazy"
-      />
+      <div class="section__gallery">
+        <img
+          src="/images/allee-caravanes-arbres.webp"
+          alt="Allée arborée avec des caravanes"
+          loading="lazy"
+        />
+        <img
+          src="/images/camping-emplacements-oliviers.webp"
+          alt="Emplacements ombragés parmi les oliviers"
+          loading="lazy"
+        />
+      </div>
       <div class="section__text">
         <h1>Les emplacements</h1>
         <p>
@@ -31,17 +38,68 @@ const equipements = [
     </div>
   </section>
 
-  <section id="equipements" class="section section--alt">
-    <div class="section__inner section__inner--reverse">
-      <div class="section__gallery">
+  <section id="gite" class="section">
+    <div class="section__inner">
+      <div class="section__gallery section__gallery--quad">
         <img
-          src="/images/aire-jeux-sanitaires-jour.webp"
-          alt="Aire de jeux et bâtiment sanitaire"
+          src="/images/gite-exterieur-terrasse.webp"
+          alt="Terrasse extérieure du gîte"
           loading="lazy"
         />
         <img
-          src="/images/sanitaires-pique-nique-oliviers.webp"
-          alt="Bâtiment sanitaire et espace pique-nique sous les oliviers"
+          src="/images/gite-jardin-transats.webp"
+          alt="Jardin ombragé du gîte avec transats"
+          loading="lazy"
+        />
+        <img
+          src="/images/gite-interieur-cuisine.webp"
+          alt="Cuisine équipée du gîte"
+          loading="lazy"
+        />
+        <img
+          src="/images/gite-interieur-couloir-sdb.webp"
+          alt="Salle de bain privative du gîte"
+          loading="lazy"
+        />
+      </div>
+      <div class="section__text">
+        <h2>Le gîte</h2>
+        <p>
+          Pas d'équipement à vous ? On a aussi une maison indépendante sur le
+          domaine, pour ceux qui préfèrent poser leurs valises sans tente ni
+          camping-car. On y trouve une cuisine équipée, une salle à manger et
+          une salle de bain privative, tout le confort d'une vraie maison.
+        </p>
+        <p>
+          Dehors, un jardin ombragé avec des transats invite à ne rien faire,
+          dans le même calme que le reste du domaine.
+        </p>
+        <a href="/infos-pratiques/contact" class="btn btn--primary">Nous contacter pour réserver</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipements" class="section section--alt">
+    <div class="section__inner section__inner--reverse">
+      <div class="section__gallery section__gallery--quad">
+        <img
+          src="/images/camping-sanitaires-wc.webp"
+          alt="Sanitaires : bloc WC"
+          loading="lazy"
+        />
+        <img
+          src="/images/camping-sanitaires-douche.webp"
+          alt="Sanitaires : douche"
+          loading="lazy"
+        />
+        <img
+          src="/images/camping-sanitaires-lavabos.webp"
+          alt="Sanitaires : lavabos"
+          loading="lazy"
+        />
+        <img
+          src="/images/camping-sanitaires-pmr.webp"
+          alt="Sanitaires accessibles PMR"
           loading="lazy"
         />
       </div>
@@ -109,6 +167,15 @@ const equipements = [
 
   .section__gallery img {
     height: 320px;
+  }
+
+  .section__gallery--quad {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .section__gallery--quad img {
+    height: 155px;
   }
 
   .section__text h1,
@@ -181,6 +248,10 @@ const equipements = [
 
     .section__gallery img {
       height: 220px;
+    }
+
+    .section__gallery--quad img {
+      height: 160px;
     }
   }
 </style>

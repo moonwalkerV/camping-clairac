@@ -56,6 +56,12 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
   <section id="infos" class="section section--alt">
     <div class="section__inner section__inner--wide">
       <h2>Informations pratiques</h2>
+      <img
+        src="/images/camping-reception.webp"
+        alt="Accueil et réception du camping"
+        class="infos-photo"
+        loading="lazy"
+      />
       <div class="infos-grid">
         <div class="infos-card">
           <div class="infos-card__icon" aria-hidden="true">📅</div>
@@ -198,6 +204,16 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
     font-size: 0.9rem;
     color: var(--color-earth);
     font-style: italic;
+  }
+
+  .infos-photo {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 2rem;
   }
 
   .infos-grid {
