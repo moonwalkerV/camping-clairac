@@ -23,8 +23,30 @@ const navItems = [
       </ul>
     </nav>
 
-    <a href="/infos-pratiques/contact" class="site-header__cta">Réserver</a>
+    <div class="site-header__actions">
+      <a href="/infos-pratiques/contact" class="site-header__cta">Réserver</a>
+
+      <button
+        type="button"
+        class="site-header__burger"
+        data-menu-toggle
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
+
+  <nav class="site-header__mobile-nav" data-mobile-nav aria-label="Navigation mobile">
+    <ul>
+      {navItems.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
 </header>
 
 <style>
@@ -68,7 +90,6 @@ const navItems = [
   .site-header__nav {
     flex: 1;
     min-width: 0;
-    overflow-x: auto;
   }
 
   .site-header__nav ul {
@@ -76,7 +97,7 @@ const navItems = [
     display: flex;
     gap: 1.75rem;
     justify-content: center;
-    white-space: nowrap;
+    flex-wrap: wrap;
   }
 
   .site-header__nav a {
@@ -88,6 +109,12 @@ const navItems = [
 
   .site-header__nav a:hover {
     color: var(--color-sage);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .site-header__cta {
@@ -104,9 +131,95 @@ const navItems = [
     background-color: var(--color-sage);
   }
 
+  .site-header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: none;
+    flex-shrink: 0;
+  }
+
+  .site-header__burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-forest);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .site-header__burger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .site-header__burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header__burger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .site-header__mobile-nav {
+    display: none;
+  }
+
   @media (max-width: 860px) {
     .site-header__inner {
-      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .site-header__actions {
+      gap: 0.5rem;
+    }
+
+    .site-header__nav {
+      display: none;
+    }
+
+    .site-header__burger {
+      display: flex;
+    }
+
+    .site-header__mobile-nav {
+      display: block;
+      max-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      transition: max-height 0.25s ease;
+      border-top: 1px solid transparent;
+    }
+
+    .site-header__mobile-nav.is-open {
+      max-height: min(60vh, 420px);
+      border-top-color: var(--color-sand);
+    }
+
+    .site-header__mobile-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 1.5rem 1rem;
+    }
+
+    .site-header__mobile-nav li {
+      border-bottom: 1px solid var(--color-sand);
+    }
+
+    .site-header__mobile-nav li:last-child {
+      border-bottom: none;
+    }
+
+    .site-header__mobile-nav a {
+      display: block;
+      padding: 0.85rem 0;
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--color-forest);
     }
 
     .site-header__logo img {
@@ -116,31 +229,64 @@ const navItems = [
     .site-header__logo span {
       font-size: 1.4rem;
     }
-
-    .site-header__nav {
-      order: 3;
-      width: 100%;
-    }
-
-    .site-header__nav ul {
-      justify-content: flex-start;
-      gap: 1.25rem;
-      padding-bottom: 0.25rem;
-    }
   }
 
   @media (max-width: 400px) {
+    .site-header__inner {
+      padding: 1rem;
+      gap: 0.5rem;
+    }
+
+    .site-header__logo {
+      gap: 0.5rem;
+    }
+
     .site-header__logo img {
-      height: 44px;
+      height: 40px;
     }
 
     .site-header__logo span {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .site-header__actions {
+      gap: 0.4rem;
     }
 
     .site-header__cta {
-      padding: 0.55rem 1rem;
-      font-size: 0.9rem;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.85rem;
+    }
+
+    .site-header__burger {
+      width: 36px;
+      height: 36px;
     }
   }
 </style>
+
+<script>
+  const toggle = document.querySelector<HTMLElement>('[data-menu-toggle]');
+  const mobileNav = document.querySelector<HTMLElement>('[data-mobile-nav]');
+
+  if (toggle && mobileNav) {
+    const closeMenu = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileNav.classList.remove('is-open');
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileNav.classList.toggle('is-open', !isOpen);
+    });
+
+    mobileNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeMenu();
+    });
+  }
+</script>
