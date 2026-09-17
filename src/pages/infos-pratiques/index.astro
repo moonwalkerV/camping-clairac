@@ -202,7 +202,7 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
 
   .infos-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -419,7 +419,7 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
     .fire-notice__media {
       flex: none;
       width: 100%;
-      max-height: 220px;
+      height: 220px;
     }
   }
 </style>
