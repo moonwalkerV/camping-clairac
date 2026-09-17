@@ -5,7 +5,6 @@ const pratiques = [
   {
     icon: '🐔',
     text: "Les restes alimentaires (pain sec, épluchures de fruits, déchets de légumes) sont donnés aux poules du poulailler du domaine.",
-    image: '/images/camping-poules.webp',
   },
   {
     icon: '🍃',
@@ -17,7 +16,7 @@ const pratiques = [
   },
   {
     icon: '💧',
-    text: "L'eau potable est analysée régulièrement par un laboratoire agréé, avec des résultats consultables à la réception. Face aux sécheresses répétées, on sensibilise aussi les campeurs à ne prélever que l'eau nécessaire et à éviter tout gaspillage : le lavage des voitures est d'ailleurs interdit sur le site, pour préserver la ressource.",
+    text: "L'eau potable est analysée régulièrement par un laboratoire agréé. On sensibilise aussi les campeurs à une consommation raisonnée, et le lavage des voitures est interdit sur le site.",
   },
 ];
 ---
@@ -57,11 +56,7 @@ const pratiques = [
       </div>
       <div class="pratiques-grid">
         {pratiques.map((pratique) => (
-          <div
-            class="pratique-card"
-            class:list={[{ 'pratique-card--photo': !!pratique.image }]}
-            style={pratique.image ? `background-image: url(${pratique.image})` : undefined}
-          >
+          <div class="pratique-card">
             <div class="pratique-card__icon" aria-hidden="true">{pratique.icon}</div>
             <p class="pratique-card__text">{pratique.text}</p>
           </div>
@@ -104,6 +99,12 @@ const pratiques = [
 
   .section--alt {
     background-color: var(--color-sand);
+  }
+
+  #demarche-nature {
+    background-image: linear-gradient(rgba(216, 208, 184, 0.88), rgba(216, 208, 184, 0.88)), url('/images/camping-poules.webp');
+    background-size: cover;
+    background-position: center;
   }
 
   .section__inner {
@@ -161,63 +162,32 @@ const pratiques = [
   }
 
   .pratique-card {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     background-color: #fff;
     border: 1px solid var(--color-sand);
     border-radius: 16px;
-    padding: 2rem 1.5rem;
+    padding: 1.25rem 1.25rem;
     box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
-    overflow: hidden;
-  }
-
-  .pratique-card--photo {
-    min-height: 280px;
-    background-size: cover;
-    background-position: center;
-    border-color: transparent;
-  }
-
-  .pratique-card--photo::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(36, 56, 44, 0.35), rgba(36, 56, 44, 0.75));
-    z-index: 0;
   }
 
   .pratique-card__icon {
-    position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 64px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background-color: rgba(104, 122, 90, 0.15);
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 1;
   }
 
-  .pratique-card--photo .pratique-card__icon {
-    background-color: rgba(244, 241, 232, 0.2);
-  }
-
   .pratique-card__text {
-    position: relative;
-    z-index: 1;
     margin: 0;
-    flex: 1;
-  }
-
-  .pratique-card--photo .pratique-card__text {
-    color: var(--color-cream);
   }
 
   .cta {
