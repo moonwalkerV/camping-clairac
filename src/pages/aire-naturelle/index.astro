@@ -66,16 +66,17 @@ const pratiques = [
   </section>
 
   <section id="domaine" class="domaine-banner">
-    <div class="domaine-banner__overlay"></div>
     <div class="domaine-banner__content">
-      <h2>Le domaine</h2>
-      <p>
-        Le domaine offre de grands emplacements ombragés, à l'abri d'arbres
-        parfois centenaires. La biodiversité s'y déploie librement, entre
-        sous-bois et espaces plus dégagés, dans un cadre calme et préservé
-        propice au repos.
-      </p>
-      <a href="/sejourner" class="btn btn--primary">Découvrir les emplacements</a>
+      <div class="domaine-banner__text">
+        <h2>Le domaine</h2>
+        <p>
+          Le domaine offre de grands emplacements ombragés, à l'abri d'arbres
+          parfois centenaires. La biodiversité s'y déploie librement, entre
+          sous-bois et espaces plus dégagés, dans un cadre calme et préservé
+          propice au repos.
+        </p>
+        <a href="/sejourner" class="btn btn--primary">Découvrir les emplacements</a>
+      </div>
     </div>
   </section>
 </Layout>
@@ -182,42 +183,50 @@ const pratiques = [
   }
 
   .domaine-banner {
-    position: relative;
-    min-height: 450px;
+    padding: 4rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--color-sand);
+  }
+
+  .domaine-banner__content {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    min-height: 400px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    overflow: hidden;
     background-image: url('/images/camping-nature-allee-lauriers.webp');
     background-size: cover;
     background-position: center 68%;
-    overflow: hidden;
   }
 
-  .domaine-banner__overlay {
+  .domaine-banner__content::before {
+    content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(36, 56, 44, 0.55), rgba(36, 56, 44, 0.7));
   }
 
-  .domaine-banner__content {
+  .domaine-banner__text {
     position: relative;
     z-index: 1;
-    max-width: 850px;
-    margin: 0 1.5rem;
-    padding: 2.5rem 3rem;
     text-align: center;
-    color: var(--color-forest);
-    background-color: var(--color-sand);
-    border-radius: 16px;
+    color: var(--color-cream);
   }
 
-  .domaine-banner__content h2 {
-    color: var(--color-forest);
+  .domaine-banner__text h2 {
+    color: var(--color-cream);
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
 
-  .domaine-banner__content p {
+  .domaine-banner__text p {
     margin-bottom: 1.5rem;
   }
 
@@ -249,11 +258,8 @@ const pratiques = [
       grid-template-columns: 1fr;
     }
 
-    .domaine-banner {
-      min-height: 380px;
-    }
-
     .domaine-banner__content {
+      min-height: 340px;
       padding: 1.75rem 1.5rem;
     }
   }
