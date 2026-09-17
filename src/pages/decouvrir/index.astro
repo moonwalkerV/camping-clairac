@@ -25,7 +25,7 @@ interface Tab {
 const tabs: Tab[] = [
   {
     id: 'nature',
-    label: 'Nature & randonnées',
+    label: 'Randonnées',
     places: [
       {
         name: 'Canyon du Diable',
@@ -134,6 +134,54 @@ const tabs: Tab[] = [
         text: "Reconstruite après les événements tragiques de la croisade des Albigeois, la cathédrale Saint-Nazaire domine la ville depuis son promontoire au-dessus de l'Orb. On aime son architecture gothique méridionale et le panorama qu'elle offre sur les vignes environnantes. L'entrée est libre et l'ambiance y est toujours paisible.",
         hours: 'Horaires à préciser',
         mapsQuery: 'Cathédrale Saint-Nazaire, Béziers',
+      },
+    ],
+  },
+  {
+    id: 'plages',
+    label: 'Plages',
+    places: [
+      {
+        name: "Cap d'Agde",
+        image: '/images/decouvrir-cap-agde.webp',
+        alt: "Rochers noirs volcaniques du Cap d'Agde plongeant dans la mer",
+        text: "Bâtie sur d'anciennes coulées volcaniques, la station du Cap d'Agde se reconnaît à ses rochers noirs qui plongent directement dans la mer. On y trouve de grandes plages de sable pour les familles, mais aussi des criques plus sauvages sur la côte rocheuse, pour ceux qui cherchent un peu plus de calme.",
+        mapsQuery: "Cap d'Agde",
+      },
+      {
+        name: 'Marseillan',
+        image: '/images/decouvrir-marseillan.webp',
+        alt: "Port pittoresque de Marseillan sur l'étang de Thau",
+        text: "Ce petit port pittoresque sur l'étang de Thau vaut le détour pour ses ruelles fleuries et la maison Noilly Prat, où se prépare le célèbre vermouth. On aime en faire le point de départ d'une sortie huîtres, à déguster directement au bord de l'eau chez l'un des nombreux producteurs.",
+        mapsQuery: 'Marseillan',
+      },
+      {
+        name: 'Portiragnes-Plage',
+        image: '/images/decouvrir-portiragnes.webp',
+        alt: 'Plage et cordon dunaire de Portiragnes-Plage',
+        text: "Cette plage familiale est bordée d'un cordon dunaire préservé, loin de l'agitation des grandes stations. On y va pour une journée farniente tranquille, entre baignade et sieste à l'ombre d'un parasol.",
+        mapsQuery: 'Portiragnes-Plage',
+      },
+      {
+        name: 'Sérignan',
+        image: '/images/decouvrir-serignan.webp',
+        alt: "Plage de Sérignan à l'embouchure de l'Orb",
+        text: "À l'embouchure de l'Orb, le village et la plage de Sérignan offrent un joli mélange entre balade fluviale et farniente en bord de mer. On aime cette double ambiance, qui permet de varier les plaisirs sans changer de destination.",
+        mapsQuery: 'Serignan-Plage',
+      },
+      {
+        name: 'Sète',
+        image: '/images/decouvrir-sete.webp',
+        alt: 'Canaux et maisons colorées de Sète',
+        text: "Surnommée la petite Venise du Languedoc, Sète séduit par ses canaux, ses maisons colorées et son port de pêche animé. On vous conseille de monter aussi jusqu'au Mont Saint-Clair juste au-dessus, pour un panorama complet sur la ville et l'étang de Thau (à retrouver dans l'onglet Randonnées).",
+        mapsQuery: 'Sete',
+      },
+      {
+        name: 'Valras-Plage',
+        image: '/images/decouvrir-valras-plage.webp',
+        alt: 'Plage de sable et promenade de Valras-Plage',
+        text: "Cette station balnéaire familiale aligne une grande plage de sable fin et une promenade animée, entre restaurants et commerces face à la mer. On l'apprécie pour sa proximité avec le camping et son ambiance conviviale, parfaite pour une journée à la plage sans se prendre la tête.",
+        mapsQuery: 'Valras-Plage',
       },
     ],
   },
