@@ -1,66 +1,123 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const equipements = [
-  { emoji: '🚿', label: 'Sanitaires' },
-  { emoji: '📶', label: 'Wi-Fi' },
-  { emoji: '🥖', label: 'Dépôt de pain' },
-  { emoji: '🔥', label: 'Barbecue' },
-  { emoji: '🛝', label: 'Aire de jeux' },
-  { emoji: '🐾', label: 'Animaux acceptés' },
+const emplacementsSlides = [
+  { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec des emplacements de camping' },
+  { image: '/images/camping-emplacements-oliviers.webp', alt: 'Emplacements ombragés parmi les oliviers' },
+  { image: '/images/camping-nature-allee-lauriers.webp', alt: 'Allée bordée de lauriers roses' },
+  { image: '/images/camping-nature-palmiers-pins.webp', alt: 'Palmiers et pins du domaine' },
+];
+
+const gitePhotos = [
+  { image: '/images/gite-exterieur-terrasse.webp', alt: 'Terrasse extérieure du gîte' },
+  { image: '/images/gite-jardin-transats.webp', alt: 'Jardin ombragé du gîte avec transats' },
+  { image: '/images/gite-interieur-cuisine.webp', alt: 'Cuisine équipée du gîte' },
+  { image: '/images/gite-interieur-couloir-sdb.webp', alt: 'Salle de bain privative du gîte' },
+];
+
+const sanitaires = [
+  {
+    image: '/images/camping-sanitaires-wc.webp',
+    title: 'WC',
+    caption: "Toilettes propres, entretenues quotidiennement.",
+  },
+  {
+    image: '/images/camping-sanitaires-douche.webp',
+    title: 'Douches',
+    caption: 'Douches chaudes individuelles, accessibles à tous.',
+  },
+  {
+    image: '/images/camping-sanitaires-lavabos.webp',
+    title: 'Lavabos extérieurs',
+    caption: "Bacs à vaisselle et lavabos à l'air libre, à l'ombre des pins.",
+  },
+  {
+    image: '/images/camping-sanitaires-pmr.webp',
+    title: 'Accès PMR',
+    caption: 'Sanitaires adaptés aux personnes à mobilité réduite.',
+  },
+];
+
+const serviceIcons: Record<string, string> = {
+  wifi: '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+  bread: '<path d="M3 13c0-3.5 3-8 9-8s9 4.5 9 8-3 5-9 5-9-1.5-9-5Z"/><path d="M8 10l1.5 3"/><path d="M12 9l1.5 4"/><path d="M16 10l1.2 3"/>',
+  bbq: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  playground: '<path d="M4 21V8"/><path d="M20 21V8"/><path d="M4 8h16"/><path d="M9 21l3-7 3 7"/><circle cx="12" cy="14" r="1" fill="currentColor"/>',
+  paw: '<circle cx="7" cy="9" r="1.6"/><circle cx="12" cy="6.5" r="1.6"/><circle cx="17" cy="9" r="1.6"/><ellipse cx="12" cy="15.5" rx="5" ry="4"/>',
+};
+
+const services = [
+  { icon: 'wifi', label: 'Wi-Fi' },
+  { icon: 'bread', label: 'Dépôt de pain' },
+  { icon: 'bbq', label: 'Barbecue' },
+  { icon: 'playground', label: 'Aire de jeux' },
+  { icon: 'paw', label: 'Animaux acceptés' },
 ];
 ---
 
 <Layout title="Séjourner — Camping Clairac">
   <section id="emplacements" class="section">
-    <div class="section__inner">
-      <div class="section__gallery">
-        <img
-          src="/images/allee-caravanes-arbres.webp"
-          alt="Allée arborée avec des caravanes"
-          loading="lazy"
-        />
-        <img
-          src="/images/camping-emplacements-oliviers.webp"
-          alt="Emplacements ombragés parmi les oliviers"
-          loading="lazy"
-        />
-      </div>
-      <div class="section__text">
-        <h1>Les emplacements</h1>
-        <p>
-          25 emplacements pour tente, caravane ou camping-car, répartis dans
-          un cadre calme et ombragé. Chaque emplacement est spacieux et
-          espacé d'au moins 5 mètres de son voisin, pour profiter pleinement
-          du plein air sans être les uns sur les autres.
-        </p>
+    <div class="section__inner--full">
+      <h1>Les emplacements</h1>
+      <p class="section__intro">
+        25 emplacements pour tente, caravane ou camping-car, répartis dans
+        un cadre calme et ombragé. Chaque emplacement est spacieux et
+        espacé d'au moins 5 mètres de son voisin, pour profiter pleinement
+        du plein air sans être les uns sur les autres.
+      </p>
+
+      <div class="slider" id="emplacements-slider">
+        <div class="slider__track">
+          {emplacementsSlides.map((slide, index) => (
+            <div class="slider__slide" data-slide class:list={[{ active: index === 0 }]}>
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            </div>
+          ))}
+        </div>
+
+        <button type="button" class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Photo précédente">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button type="button" class="slider__arrow slider__arrow--next" data-slider-next aria-label="Photo suivante">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="slider__dots" role="tablist" aria-label="Navigation des photos">
+          {emplacementsSlides.map((_, index) => (
+            <button
+              type="button"
+              class="slider__dot"
+              class:list={[{ active: index === 0 }]}
+              data-slider-dot={index}
+              aria-label={`Aller à la photo ${index + 1}`}
+            ></button>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="gite" class="section">
+  <section id="gite" class="section section--alt">
     <div class="section__inner">
-      <div class="section__gallery section__gallery--quad">
-        <img
-          src="/images/gite-exterieur-terrasse.webp"
-          alt="Terrasse extérieure du gîte"
-          loading="lazy"
-        />
-        <img
-          src="/images/gite-jardin-transats.webp"
-          alt="Jardin ombragé du gîte avec transats"
-          loading="lazy"
-        />
-        <img
-          src="/images/gite-interieur-cuisine.webp"
-          alt="Cuisine équipée du gîte"
-          loading="lazy"
-        />
-        <img
-          src="/images/gite-interieur-couloir-sdb.webp"
-          alt="Salle de bain privative du gîte"
-          loading="lazy"
-        />
+      <div class="gite-gallery">
+        <button type="button" class="gite-gallery__main" data-gite-photo={0} aria-label="Agrandir la photo du gîte">
+          <img src={gitePhotos[0].image} alt={gitePhotos[0].alt} loading="lazy" />
+        </button>
+        <div class="gite-gallery__thumbs">
+          {gitePhotos.slice(1).map((photo, index) => (
+            <button type="button" class="gite-gallery__thumb" data-gite-photo={index + 1} aria-label="Agrandir la photo du gîte">
+              <img src={photo.image} alt={photo.alt} loading="lazy" />
+            </button>
+          ))}
+        </div>
       </div>
       <div class="section__text">
         <h2>Le gîte</h2>
@@ -79,40 +136,50 @@ const equipements = [
     </div>
   </section>
 
-  <section id="equipements" class="section section--alt">
-    <div class="section__inner section__inner--reverse">
-      <div class="section__gallery section__gallery--quad">
-        <img
-          src="/images/camping-sanitaires-wc.webp"
-          alt="Sanitaires : bloc WC"
-          loading="lazy"
-        />
-        <img
-          src="/images/camping-sanitaires-douche.webp"
-          alt="Sanitaires : douche"
-          loading="lazy"
-        />
-        <img
-          src="/images/camping-sanitaires-lavabos.webp"
-          alt="Sanitaires : lavabos"
-          loading="lazy"
-        />
-        <img
-          src="/images/camping-sanitaires-pmr.webp"
-          alt="Sanitaires accessibles PMR"
-          loading="lazy"
-        />
+  <div class="lightbox" data-gite-lightbox>
+    <button type="button" class="lightbox__close" data-gite-lightbox-close aria-label="Fermer">&times;</button>
+    <button type="button" class="lightbox__arrow lightbox__arrow--prev" data-gite-lightbox-prev aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <img src={gitePhotos[0].image} alt="" class="lightbox__image" data-gite-lightbox-image />
+    <button type="button" class="lightbox__arrow lightbox__arrow--next" data-gite-lightbox-next aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <section id="sanitaires" class="section">
+    <div class="section__inner--full">
+      <h2>Sanitaires</h2>
+      <div class="sanitaires-grid">
+        {sanitaires.map((item) => (
+          <div class="sanitaire-card">
+            <img src={item.image} alt={item.title} loading="lazy" class="sanitaire-card__image" />
+            <div class="sanitaire-card__body">
+              <p class="sanitaire-card__title">{item.title}</p>
+              <p class="sanitaire-card__caption">{item.caption}</p>
+            </div>
+          </div>
+        ))}
       </div>
-      <div class="section__text">
-        <h2>Équipements & services</h2>
-        <ul class="equipements-grid">
-          {equipements.map((item) => (
-            <li>
-              <span class="equipements-grid__emoji" aria-hidden="true">{item.emoji}</span>
-              {item.label}
-            </li>
-          ))}
-        </ul>
+    </div>
+  </section>
+
+  <section id="services" class="section section--alt">
+    <div class="section__inner--full">
+      <h2>Services</h2>
+      <div class="services-grid">
+        {services.map((service) => (
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={serviceIcons[service.icon]} />
+            </div>
+            <p class="service-card__label">{service.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -144,81 +211,28 @@ const equipements = [
     align-items: center;
   }
 
-  .section__inner--reverse {
-    direction: rtl;
+  .section__inner--full {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
   }
 
-  .section__inner--reverse > * {
-    direction: ltr;
+  .section__intro {
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
   }
 
-  .section__inner img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 12px;
+  .section__inner--full h1,
+  .section__inner--full h2 {
+    margin-bottom: 1rem;
   }
 
-  .section__gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-  }
-
-  .section__gallery img {
-    height: 320px;
-  }
-
-  .section__gallery--quad {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-  }
-
-  .section__gallery--quad img {
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-    background-color: var(--color-sand);
-  }
-
-  .section__text h1,
   .section__text h2 {
     margin-bottom: 1rem;
   }
 
-  .equipements-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .equipements-grid li {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-weight: 500;
-  }
-
-  .equipements-grid__emoji {
-    font-size: 1.4rem;
-  }
-
-  .pricing {
-    text-align: center;
-  }
-
-  .pricing__inner {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .pricing__inner h2 {
-    margin-bottom: 0.75rem;
-  }
-
-  .pricing__inner p {
-    margin-bottom: 1.5rem;
+  .section__text p {
+    margin-bottom: 1rem;
   }
 
   .btn {
@@ -238,20 +252,469 @@ const equipements = [
     background-color: var(--color-sage);
   }
 
+  /* Emplacements slider */
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .slider__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slider__slide {
+    position: absolute;
+    inset: 0;
+    display: block;
+    transform: translateX(calc(var(--offset, 0) * 100%));
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .slider__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(36, 56, 44, 0.45);
+    color: var(--color-cream);
+    transition: background-color 0.2s ease;
+  }
+
+  .slider__arrow:hover {
+    background-color: rgba(36, 56, 44, 0.7);
+  }
+
+  .slider__arrow--prev {
+    left: 1.25rem;
+  }
+
+  .slider__arrow--next {
+    right: 1.25rem;
+  }
+
+  .slider__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.25rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .slider__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.6);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .slider__dot.active {
+    background-color: var(--color-cream);
+    transform: scale(1.4);
+  }
+
+  /* Gîte gallery */
+  .gite-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .gite-gallery__main,
+  .gite-gallery__thumb {
+    display: block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .gite-gallery__main img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gite-gallery__thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .gite-gallery__thumb img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+
+  .gite-gallery__thumb:hover img,
+  .gite-gallery__main:hover img {
+    opacity: 0.85;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: rgba(36, 56, 44, 0.9);
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox__image {
+    max-width: calc(100% - 8rem);
+    max-height: 100%;
+    border-radius: 8px;
+  }
+
+  .lightbox__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.15);
+    color: var(--color-cream);
+    font-size: 1.75rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lightbox__close:hover {
+    background-color: rgba(244, 241, 232, 0.3);
+  }
+
+  .lightbox__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.15);
+    color: var(--color-cream);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .lightbox__arrow:hover {
+    background-color: rgba(244, 241, 232, 0.3);
+  }
+
+  .lightbox__arrow--prev {
+    left: 1.5rem;
+  }
+
+  .lightbox__arrow--next {
+    right: 1.5rem;
+  }
+
+  /* Sanitaires infographic grid */
+  .sanitaires-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .sanitaire-card {
+    background-color: #fff;
+    border: 1px solid var(--color-sand);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sanitaire-card__image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .sanitaire-card__body {
+    padding: 1.25rem;
+    flex: 1;
+  }
+
+  .sanitaire-card__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-forest);
+    margin: 0 0 0.4rem;
+  }
+
+  .sanitaire-card__caption {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Services grid — same card format as "Notre démarche nature" */
+  .services-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    background-color: #fff;
+    border: 1px solid var(--color-sand);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
+  }
+
+  .service-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(104, 122, 90, 0.15);
+    color: var(--color-forest);
+  }
+
+  .service-card__label {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-forest);
+  }
+
+  .pricing {
+    text-align: center;
+  }
+
+  .pricing__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing__inner h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .pricing__inner p {
+    margin-bottom: 1.5rem;
+  }
+
   @media (max-width: 860px) {
-    .section__inner,
-    .section__inner--reverse {
-      grid-template-columns: 1fr;
-      direction: ltr;
-    }
-
-    .equipements-grid {
+    .section__inner {
       grid-template-columns: 1fr;
     }
 
-    .section__gallery img {
-      height: 220px;
+    .slider {
+      height: 320px;
     }
 
+    .sanitaires-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sanitaires-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gite-gallery__thumb img {
+      height: 80px;
+    }
+
+    .lightbox__arrow {
+      width: 38px;
+      height: 38px;
+    }
+
+    .lightbox__arrow--prev {
+      left: 0.5rem;
+    }
+
+    .lightbox__arrow--next {
+      right: 0.5rem;
+    }
+
+    .lightbox__image {
+      max-width: calc(100% - 3rem);
+    }
   }
 </style>
+
+<script>
+  // Emplacements slider (auto-advancing carousel)
+  const slider = document.getElementById('emplacements-slider');
+
+  if (slider) {
+    const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-slide]'));
+    const dots = Array.from(slider.querySelectorAll<HTMLElement>('[data-slider-dot]'));
+    const prevBtn = slider.querySelector<HTMLElement>('[data-slider-prev]');
+    const nextBtn = slider.querySelector<HTMLElement>('[data-slider-next]');
+    let activeIndex = 0;
+    let autoplayId: ReturnType<typeof setInterval> | undefined;
+
+    const updatePositions = () => {
+      slides.forEach((slide, i) => {
+        slide.style.setProperty('--offset', String(i - activeIndex));
+        slide.classList.toggle('active', i === activeIndex);
+      });
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+    };
+
+    const goToSlide = (index: number) => {
+      const total = slides.length;
+      activeIndex = (index + total) % total;
+      updatePositions();
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayId = setInterval(() => goToSlide(activeIndex + 1), 5000);
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayId) clearInterval(autoplayId);
+    };
+
+    const manualNavigate = (index: number) => {
+      goToSlide(index);
+      startAutoplay();
+    };
+
+    updatePositions();
+    startAutoplay();
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      manualNavigate(activeIndex - 1);
+    });
+
+    nextBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      manualNavigate(activeIndex + 1);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        manualNavigate(i);
+      });
+    });
+
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+  }
+
+  // Gîte gallery + lightbox
+  const gitePhotoData = Array.from(document.querySelectorAll<HTMLElement>('[data-gite-photo]')).map((btn) => {
+    const img = btn.querySelector('img');
+    return { src: img?.getAttribute('src') ?? '', alt: img?.getAttribute('alt') ?? '' };
+  });
+
+  const lightbox = document.querySelector<HTMLElement>('[data-gite-lightbox]');
+  const lightboxImage = document.querySelector<HTMLImageElement>('[data-gite-lightbox-image]');
+  const lightboxClose = document.querySelector<HTMLElement>('[data-gite-lightbox-close]');
+  const lightboxPrev = document.querySelector<HTMLElement>('[data-gite-lightbox-prev]');
+  const lightboxNext = document.querySelector<HTMLElement>('[data-gite-lightbox-next]');
+  const gitePhotoButtons = Array.from(document.querySelectorAll<HTMLElement>('[data-gite-photo]'));
+
+  if (lightbox && lightboxImage && gitePhotoData.length > 0) {
+    let currentIndex = 0;
+
+    const showPhoto = (index: number) => {
+      const total = gitePhotoData.length;
+      currentIndex = (index + total) % total;
+      const photo = gitePhotoData[currentIndex];
+      lightboxImage.src = photo.src;
+      lightboxImage.alt = photo.alt;
+    };
+
+    const openLightbox = (index: number) => {
+      showPhoto(index);
+      lightbox.classList.add('active');
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+    };
+
+    gitePhotoButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const index = Number(btn.getAttribute('data-gite-photo') ?? '0');
+        openLightbox(index);
+      });
+    });
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', () => showPhoto(currentIndex - 1));
+    lightboxNext?.addEventListener('click', () => showPhoto(currentIndex + 1));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPhoto(currentIndex - 1);
+      if (e.key === 'ArrowRight') showPhoto(currentIndex + 1);
+    });
+  }
+</script>
