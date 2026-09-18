@@ -1,11 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const emplacementsSlides = [
+const emplacementsPhotos = [
   { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec des emplacements de camping' },
   { image: '/images/camping-emplacements-oliviers.webp', alt: 'Emplacements ombragés parmi les oliviers' },
-  { image: '/images/camping-nature-allee-lauriers.webp', alt: 'Allée bordée de lauriers roses' },
-  { image: '/images/camping-nature-palmiers-pins.webp', alt: 'Palmiers et pins du domaine' },
+  { image: '/images/allee-caravanes-arbres.webp', alt: 'Allée de caravanes sous les arbres' },
+  { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
+  { image: '/images/prairie-pins-ombragee.webp', alt: 'Prairie ombragée par les pins' },
+  { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
+  { image: '/images/tente-cloche-pins.webp', alt: 'Tente cloche installée sous les pins' },
 ];
 
 const gitePhotos = [
@@ -66,41 +69,10 @@ const services = [
         du plein air sans être les uns sur les autres.
       </p>
 
-      <div class="slider" id="emplacements-slider">
-        <div class="slider__track">
-          {emplacementsSlides.map((slide, index) => (
-            <div class="slider__slide" data-slide class:list={[{ active: index === 0 }]}>
-              <img
-                src={slide.image}
-                alt={slide.alt}
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            </div>
-          ))}
-        </div>
-
-        <button type="button" class="slider__arrow slider__arrow--prev" data-slider-prev aria-label="Photo précédente">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button type="button" class="slider__arrow slider__arrow--next" data-slider-next aria-label="Photo suivante">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-
-        <div class="slider__dots" role="tablist" aria-label="Navigation des photos">
-          {emplacementsSlides.map((_, index) => (
-            <button
-              type="button"
-              class="slider__dot"
-              class:list={[{ active: index === 0 }]}
-              data-slider-dot={index}
-              aria-label={`Aller à la photo ${index + 1}`}
-            ></button>
-          ))}
-        </div>
+      <div class="emplacements-grid">
+        {emplacementsPhotos.map((photo) => (
+          <img src={photo.image} alt={photo.alt} loading="lazy" />
+        ))}
       </div>
     </div>
   </section>
@@ -252,86 +224,18 @@ const services = [
     background-color: var(--color-sage);
   }
 
-  /* Emplacements slider */
-  .slider {
-    position: relative;
-    width: 100%;
-    height: 450px;
-    border-radius: 16px;
-    overflow: hidden;
+  /* Emplacements grid */
+  .emplacements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
   }
 
-  .slider__track {
-    position: relative;
+  .emplacements-grid img {
     width: 100%;
-    height: 100%;
-  }
-
-  .slider__slide {
-    position: absolute;
-    inset: 0;
-    display: block;
-    transform: translateX(calc(var(--offset, 0) * 100%));
-    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-  }
-
-  .slider__slide img {
-    width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
-  }
-
-  .slider__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(36, 56, 44, 0.45);
-    color: var(--color-cream);
-    transition: background-color 0.2s ease;
-  }
-
-  .slider__arrow:hover {
-    background-color: rgba(36, 56, 44, 0.7);
-  }
-
-  .slider__arrow--prev {
-    left: 1.25rem;
-  }
-
-  .slider__arrow--next {
-    right: 1.25rem;
-  }
-
-  .slider__dots {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 1.25rem;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-  }
-
-  .slider__dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(244, 241, 232, 0.6);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }
-
-  .slider__dot.active {
-    background-color: var(--color-cream);
-    transform: scale(1.4);
+    border-radius: 12px;
   }
 
   /* Gîte gallery */
@@ -553,8 +457,8 @@ const services = [
       grid-template-columns: 1fr;
     }
 
-    .slider {
-      height: 320px;
+    .emplacements-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .sanitaires-grid {
@@ -567,6 +471,10 @@ const services = [
   }
 
   @media (max-width: 480px) {
+    .emplacements-grid {
+      grid-template-columns: 1fr;
+    }
+
     .sanitaires-grid {
       grid-template-columns: 1fr;
     }
@@ -599,69 +507,6 @@ const services = [
 </style>
 
 <script>
-  // Emplacements slider (auto-advancing carousel)
-  const slider = document.getElementById('emplacements-slider');
-
-  if (slider) {
-    const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-slide]'));
-    const dots = Array.from(slider.querySelectorAll<HTMLElement>('[data-slider-dot]'));
-    const prevBtn = slider.querySelector<HTMLElement>('[data-slider-prev]');
-    const nextBtn = slider.querySelector<HTMLElement>('[data-slider-next]');
-    let activeIndex = 0;
-    let autoplayId: ReturnType<typeof setInterval> | undefined;
-
-    const updatePositions = () => {
-      slides.forEach((slide, i) => {
-        slide.style.setProperty('--offset', String(i - activeIndex));
-        slide.classList.toggle('active', i === activeIndex);
-      });
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
-    };
-
-    const goToSlide = (index: number) => {
-      const total = slides.length;
-      activeIndex = (index + total) % total;
-      updatePositions();
-    };
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      autoplayId = setInterval(() => goToSlide(activeIndex + 1), 5000);
-    };
-
-    const stopAutoplay = () => {
-      if (autoplayId) clearInterval(autoplayId);
-    };
-
-    const manualNavigate = (index: number) => {
-      goToSlide(index);
-      startAutoplay();
-    };
-
-    updatePositions();
-    startAutoplay();
-
-    prevBtn?.addEventListener('click', (e) => {
-      e.preventDefault();
-      manualNavigate(activeIndex - 1);
-    });
-
-    nextBtn?.addEventListener('click', (e) => {
-      e.preventDefault();
-      manualNavigate(activeIndex + 1);
-    });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', (e) => {
-        e.preventDefault();
-        manualNavigate(i);
-      });
-    });
-
-    slider.addEventListener('mouseenter', stopAutoplay);
-    slider.addEventListener('mouseleave', startAutoplay);
-  }
-
   // Gîte gallery + lightbox
   const gitePhotoData = Array.from(document.querySelectorAll<HTMLElement>('[data-gite-photo]')).map((btn) => {
     const img = btn.querySelector('img');
