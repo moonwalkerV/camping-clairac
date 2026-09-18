@@ -38,23 +38,27 @@ const sanitaires = [
   },
 ];
 
-const receptionCards = [
+const receptionIcons: Record<string, string> = {
+  clock: '<circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>',
+  bread: '<rect x="2.5" y="9" width="19" height="7.5" rx="3.75"/><path d="M7.5 9v7.5M12 9v7.5M16.5 9v7.5"/>',
+  car: '<path d="M5 16.5h1a2 2 0 1 0 4 0h4a2 2 0 1 0 4 0h1a1 1 0 0 0 1-1v-2.7a1 1 0 0 0-.3-.7l-1.9-1.9a2 2 0 0 0-1.4-.6h-1L14.2 7a2 2 0 0 0-1.7-1H7a2 2 0 0 0-1.9 1.4L4 11H3a1 1 0 0 0-1 1v3.5a1 1 0 0 0 1 1h2z"/><circle cx="8" cy="16.5" r="1.5"/><circle cx="16" cy="16.5" r="1.5"/>',
+  bike: '<circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h2l2.5 5"/><path d="M5.5 17.5 10 8h4l-2.5 4.5H15l3.5 5"/><circle cx="10" cy="8" r="1"/>',
+};
+
+const receptionInfo = [
   {
-    icon: '🥖',
-    label: 'Pain frais',
-    text: 'Commandez votre pain la veille, à récupérer chaque matin à la réception.',
+    icon: 'clock',
+    title: 'Horaires et arrivées',
+    text: "Les arrivées se font entre 8h30 et 20h00 (les emplacements se libèrent généralement à partir de 11h). La réception/boutique est ouverte de 8h30 à 11h30 et de 17h00 à 20h00. Pour toute inscription ou urgence en dehors de ces horaires, sonnez à la sonnette sur le volet gauche.",
   },
   {
-    icon: '💬',
-    label: 'Informations',
-    text: "Le point de repère du domaine pour vos questions et conseils sur les environs.",
-  },
-  {
-    icon: '🌳',
-    label: 'Espace convivial',
-    text: 'Une terrasse ombragée pour se retrouver, à deux pas de l\'accueil.',
+    icon: 'bread',
+    title: 'Pain & épicerie',
+    text: "Une liste de pains et viennoiseries est à disposition à la réception, à commander la veille pour le lendemain. Le matin, l'équipe va chercher les commandes à la boulangerie : à récupérer à la réception entre 8h30 et 11h30. La réception fait aussi office de petite épicerie sur place.",
   },
 ];
+
+const lidlDirectionsHref = 'https://www.google.com/maps/dir//Lidl,+Rue+des+Entrepreneurs+10,+34290+Servian/@43.352064,3.2309248,5413m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x12b1134dfffd6c29:0xef1134ce3f72efe2!2m2!1d3.3178!2d43.39161?entry=ttu';
 
 const serviceIcons: Record<string, string> = {
   wifi: '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
@@ -178,11 +182,6 @@ const services = [
   <section id="reception" class="section section--alt">
     <div class="section__inner--full">
       <h2>La réception</h2>
-      <p class="section__intro">
-        À votre arrivée comme tout au long de votre séjour, la réception est
-        le point de repère du domaine : accueil, informations et un service
-        de pain frais pour bien commencer la journée.
-      </p>
       <img
         src="/images/camping-reception.webp"
         alt="Accueil et réception du camping"
@@ -190,13 +189,34 @@ const services = [
         loading="lazy"
       />
       <div class="reception-grid">
-        {receptionCards.map((card) => (
+        {receptionInfo.map((info) => (
           <div class="reception-card">
-            <div class="reception-card__icon" aria-hidden="true">{card.icon}</div>
-            <p class="reception-card__label">{card.label}</p>
-            <p class="reception-card__text">{card.text}</p>
+            <div class="reception-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={receptionIcons[info.icon]} />
+            </div>
+            <p class="reception-card__title">{info.title}</p>
+            <p class="reception-card__text">{info.text}</p>
           </div>
         ))}
+      </div>
+
+      <div class="courses-card">
+        <h3>Où faire ses courses</h3>
+        <p>
+          Un Lidl se trouve à proximité, pratique pour les courses pendant le
+          séjour (Lidl, Rue des Entrepreneurs, 34290 Servian).
+        </p>
+        <div class="courses-times">
+          <div class="courses-time">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={receptionIcons.car} />
+            <span>6 min en voiture</span>
+          </div>
+          <div class="courses-time">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={receptionIcons.bike} />
+            <span>15 min à vélo</span>
+          </div>
+        </div>
+        <a href={lidlDirectionsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">Itinéraire vers le Lidl</a>
       </div>
     </div>
   </section>
@@ -456,7 +476,7 @@ const services = [
     font-size: 0.9rem;
   }
 
-  /* Réception section */
+  /* Réception section — same card format as "Notre démarche nature" and "Services" */
   .reception-photo {
     display: block;
     width: 100%;
@@ -464,14 +484,14 @@ const services = [
     height: 280px;
     object-fit: cover;
     border-radius: 12px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
   }
 
   .reception-grid {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -480,11 +500,11 @@ const services = [
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
     background-color: #fff;
     border: 1px solid var(--color-sand);
     border-radius: 16px;
-    padding: 1.75rem 1.25rem;
+    padding: 2rem 1.5rem;
     box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
   }
 
@@ -496,11 +516,10 @@ const services = [
     height: 64px;
     border-radius: 50%;
     background-color: rgba(104, 122, 90, 0.15);
-    font-size: 2rem;
-    line-height: 1;
+    color: var(--color-forest);
   }
 
-  .reception-card__label {
+  .reception-card__title {
     margin: 0;
     font-family: var(--font-heading);
     font-weight: 600;
@@ -510,6 +529,40 @@ const services = [
   .reception-card__text {
     margin: 0;
     font-size: 0.9rem;
+  }
+
+  .courses-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid var(--color-sand);
+    border-radius: 16px;
+    padding: 2rem 2rem;
+    box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
+  }
+
+  .courses-card h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .courses-card p {
+    margin-bottom: 1.25rem;
+  }
+
+  .courses-times {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .courses-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-forest);
+    font-weight: 600;
   }
 
   /* Services grid — same card format as "Notre démarche nature" */
