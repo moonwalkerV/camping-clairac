@@ -98,6 +98,8 @@ const services = [
           ))}
         </div>
       </div>
+
+      <a href="/sejourner/tarifs" class="btn btn--primary section-cta">Voir les tarifs</a>
     </div>
   </section>
 
@@ -142,7 +144,10 @@ const services = [
           Dehors, un jardin ombragé avec des transats invite à ne rien faire,
           dans le même calme que le reste du domaine.
         </p>
-        <a href="/infos-pratiques/contact" class="btn btn--primary">Nous contacter pour réserver</a>
+        <div class="gite-actions">
+          <a href="/infos-pratiques/contact" class="btn btn--primary">Nous contacter pour réserver</a>
+          <a href="/sejourner/tarifs-gite" class="btn btn--primary">Voir les tarifs du gîte</a>
+        </div>
       </div>
     </div>
   </section>
@@ -237,13 +242,6 @@ const services = [
     </div>
   </section>
 
-  <section id="tarifs" class="section pricing">
-    <div class="pricing__inner">
-      <h2>Tarifs</h2>
-      <p>Des tarifs simples et transparents pour tous les types d'emplacements.</p>
-      <a href="/sejourner/tarifs" class="btn btn--primary">Voir le détail des tarifs</a>
-    </div>
-  </section>
 </Layout>
 
 <style>
@@ -303,6 +301,16 @@ const services = [
 
   .btn--primary:hover {
     background-color: var(--color-sage);
+  }
+
+  .section-cta {
+    margin-top: 2rem;
+  }
+
+  .gite-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   /* Emplacements gallery + Gîte gallery share the same structure */
@@ -602,23 +610,6 @@ const services = [
     margin: 0;
     font-weight: 600;
     color: var(--color-forest);
-  }
-
-  .pricing {
-    text-align: center;
-  }
-
-  .pricing__inner {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .pricing__inner h2 {
-    margin-bottom: 0.75rem;
-  }
-
-  .pricing__inner p {
-    margin-bottom: 1.5rem;
   }
 
   @media (max-width: 860px) {
