@@ -46,33 +46,46 @@ const reassurance = [
   { icon: 'pin', lines: ['À 15 min de Béziers', 'et des plages'] },
 ];
 
-const galleryPhotos = [
-  { image: '/images/vignes-domaine-batisse.webp', alt: 'Vignes du domaine avec la bâtisse ancienne' },
-  { image: '/images/sanitaires-pique-nique-oliviers.webp', alt: 'Bâtiment sanitaire et espace pique-nique parmi les oliviers' },
-  { image: '/images/aire-jeux-sanitaires-jour.webp', alt: 'Aire de jeux et bâtiment sanitaire en journée' },
-  { image: '/images/olivier-pique-nique-sanitaires.webp', alt: 'Espace pique-nique sous un olivier près des sanitaires' },
-  { image: '/images/chemin-terre-acces-chiens.webp', alt: 'Chemin de terre, accès autorisé aux chiens' },
-  { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
-  { image: '/images/tente-cloche-pins.webp', alt: 'Tente cloche installée sous les pins' },
-  { image: '/images/accueil-bar-terrasse.webp', alt: 'Terrasse de l’accueil du camping' },
-  { image: '/images/sentier-pin-fleurs-sauvages.webp', alt: 'Sentier sous les pins bordé de fleurs sauvages' },
-  { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
-  { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec des emplacements de camping' },
-  { image: '/images/chemin-pins-vignette.webp', alt: 'Chemin bordé de pins' },
-  { image: '/images/aire-jeux-nuit-pleine-lune.webp', alt: 'Aire de jeux du camping au clair de lune' },
-  { image: '/images/sanitaires-facade.webp', alt: 'Façade du bâtiment sanitaire' },
-  { image: '/images/allee-caravanes-arbres.webp', alt: 'Allée arborée avec des caravanes' },
-  { image: '/images/prairie-pins-ombragee.webp', alt: 'Prairie ombragée par les pins' },
-  { image: '/images/coucher-soleil-domaine.webp', alt: 'Coucher de soleil sur le domaine' },
-  { image: '/images/sanitaires-vue-laterale.webp', alt: 'Vue latérale du bâtiment sanitaire' },
-  { image: '/images/camping-poules.webp', alt: 'Poules près du poulailler du domaine' },
-  { image: '/images/velo-plage-dunes.webp', alt: 'Vélos sur la plage, entre les dunes et la mer' },
-  { image: '/images/chemin-arbres-tunnel.webp', alt: 'Chemin ombragé sous un tunnel d’arbres' },
-  { image: '/images/vegetation-fleurs-rouges.webp', alt: 'Végétation fleurie sur le domaine' },
-  { image: '/images/camping-piscine-vignes.webp', alt: 'Vue sur les vignes du domaine' },
+const galleryCategoriesRaw = [
+  {
+    title: 'Le domaine',
+    photos: [
+      { image: '/images/vignes-domaine-batisse.webp', alt: 'Vignes du domaine avec la bâtisse ancienne' },
+      { image: '/images/coucher-soleil-domaine.webp', alt: 'Coucher de soleil sur le domaine' },
+      { image: '/images/sentier-pin-fleurs-sauvages.webp', alt: 'Sentier bordé de pins et de fleurs sauvages' },
+      { image: '/images/chemin-pins-vignette.webp', alt: 'Chemin bordé de pins' },
+      { image: '/images/camping-piscine-vignes.webp', alt: 'Vue sur les vignes du domaine' },
+    ],
+  },
+  {
+    title: 'Emplacements',
+    photos: [
+      { image: '/images/prairie-pins-ombragee.webp', alt: 'Prairie ombragée par les pins' },
+      { image: '/images/tente-cloche-pins.webp', alt: 'Tente cloche installée sous les pins' },
+      { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
+      { image: '/images/allee-caravanes-arbres.webp', alt: 'Allée de caravanes sous les arbres' },
+      { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
+      { image: '/images/camping-emplacements-oliviers.webp', alt: 'Emplacements ombragés parmi les oliviers' },
+    ],
+  },
+  {
+    title: 'Vie du camping',
+    photos: [
+      { image: '/images/aire-jeux-sanitaires-jour.webp', alt: 'Aire de jeux et bâtiment sanitaire en journée' },
+      { image: '/images/sanitaires-pique-nique-oliviers.webp', alt: 'Bâtiment sanitaire et espace pique-nique parmi les oliviers' },
+      { image: '/images/olivier-pique-nique-sanitaires.webp', alt: 'Espace pique-nique sous un olivier près des sanitaires' },
+      { image: '/images/accueil-bar-terrasse.webp', alt: 'Bar et terrasse d\'accueil' },
+      { image: '/images/aire-jeux-nuit-pleine-lune.webp', alt: 'Aire de jeux en soirée sous la pleine lune' },
+      { image: '/images/chemin-terre-acces-chiens.webp', alt: 'Chemin de terre, accès autorisé aux chiens' },
+    ],
+  },
 ];
 
-const galleryPreview = galleryPhotos.slice(0, 6);
+let galleryPhotoIndex = 0;
+const galleryCategories = galleryCategoriesRaw.map((category) => ({
+  title: category.title,
+  photos: category.photos.map((photo) => ({ ...photo, index: galleryPhotoIndex++ })),
+}));
 ---
 
 <Layout>
@@ -201,15 +214,43 @@ const galleryPreview = galleryPhotos.slice(0, 6);
     </div>
   </section>
 
-  <section class="gallery-preview" data-gallery-preview data-gallery-photos={JSON.stringify(galleryPhotos)}>
-    <h2>Galerie</h2>
-    <div class="gallery-preview__grid">
-      {galleryPreview.map((photo) => (
-        <img src={photo.image} alt={photo.alt} loading="lazy" data-gallery-photo />
+  <section class="home-gallery">
+    <div class="home-gallery__inner">
+      <h2>Galerie</h2>
+      {galleryCategories.map((category) => (
+        <div class="home-gallery__category">
+          <h3>{category.title}</h3>
+          <div class="home-gallery__grid">
+            {category.photos.map((photo) => (
+              <button
+                type="button"
+                class="home-gallery__thumb"
+                data-home-gallery-photo={photo.index}
+                aria-label={`Agrandir la photo : ${photo.alt}`}
+              >
+                <img src={photo.image} alt={photo.alt} loading="lazy" />
+              </button>
+            ))}
+          </div>
+        </div>
       ))}
     </div>
-    <a href="/galerie" class="btn btn--secondary">Voir toute la galerie</a>
   </section>
+
+  <div class="lightbox" data-home-gallery-lightbox>
+    <button type="button" class="lightbox__close" data-home-gallery-lightbox-close aria-label="Fermer">&times;</button>
+    <button type="button" class="lightbox__arrow lightbox__arrow--prev" data-home-gallery-lightbox-prev aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <img src="" alt="" class="lightbox__image" data-home-gallery-lightbox-image />
+    <button type="button" class="lightbox__arrow lightbox__arrow--next" data-home-gallery-lightbox-next aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
 </Layout>
 
 <style>
@@ -548,50 +589,131 @@ const galleryPreview = galleryPhotos.slice(0, 6);
     margin-bottom: 1.5rem;
   }
 
-  .gallery-preview {
+  .home-gallery {
     padding: 4rem 1.5rem;
+  }
+
+  .home-gallery__inner {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .home-gallery__inner > h2 {
     text-align: center;
+    margin-bottom: 2.5rem;
   }
 
-  .gallery-preview h2 {
-    margin-bottom: 1.5rem;
+  .home-gallery__category {
+    margin-bottom: 3rem;
   }
 
-  .gallery-preview__grid {
+  .home-gallery__category:last-child {
+    margin-bottom: 0;
+  }
+
+  .home-gallery__category h3 {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-gallery__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
-    margin-bottom: 2rem;
   }
 
-  .gallery-preview__grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  .home-gallery__thumb {
+    display: block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
     border-radius: 12px;
+    overflow: hidden;
   }
 
-  .gallery-preview__grid img.is-changing {
-    animation: gallery-photo-change 0.55s ease both;
+  .home-gallery__thumb img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease;
   }
 
-  @keyframes gallery-photo-change {
-    from {
-      opacity: 0;
-      transform: scale(0.97);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+  .home-gallery__thumb:hover img {
+    opacity: 0.85;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-preview__grid img.is-changing {
-      animation: none;
-    }
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: rgba(36, 56, 44, 0.9);
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox__image {
+    max-width: calc(100% - 8rem);
+    max-height: 100%;
+    border-radius: 8px;
+  }
+
+  .lightbox__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.15);
+    color: var(--color-cream);
+    font-size: 1.75rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lightbox__close:hover {
+    background-color: rgba(244, 241, 232, 0.3);
+  }
+
+  .lightbox__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 232, 0.15);
+    color: var(--color-cream);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .lightbox__arrow:hover {
+    background-color: rgba(244, 241, 232, 0.3);
+  }
+
+  .lightbox__arrow--prev {
+    left: 1.5rem;
+  }
+
+  .lightbox__arrow--next {
+    right: 1.5rem;
   }
 
   @media (max-width: 860px) {
@@ -632,14 +754,37 @@ const galleryPreview = galleryPhotos.slice(0, 6);
       grid-template-columns: 1fr;
     }
 
-    .gallery-preview__grid {
+    .home-gallery__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .home-gallery__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 480px) {
-    .gallery-preview__grid {
+    .home-gallery__grid {
       grid-template-columns: 1fr;
+    }
+
+    .lightbox__arrow {
+      width: 38px;
+      height: 38px;
+    }
+
+    .lightbox__arrow--prev {
+      left: 0.5rem;
+    }
+
+    .lightbox__arrow--next {
+      right: 0.5rem;
+    }
+
+    .lightbox__image {
+      max-width: calc(100% - 3rem);
     }
   }
 
@@ -730,57 +875,67 @@ const galleryPreview = galleryPhotos.slice(0, 6);
     slider.setAttribute('tabindex', '0');
   }
 
-  const gallery = document.querySelector<HTMLElement>('[data-gallery-preview]');
+  // Reusable setup for a "grid of photos" gallery with its lightbox
+  function setupGallery(prefix: string) {
+    const photoButtons = Array.from(document.querySelectorAll<HTMLElement>(`[data-${prefix}-photo]`));
+    const photoData = photoButtons
+      .map((btn) => {
+        const img = btn.querySelector('img');
+        const index = Number(btn.getAttribute(`data-${prefix}-photo`) ?? '0');
+        return { index, src: img?.getAttribute('src') ?? '', alt: img?.getAttribute('alt') ?? '' };
+      })
+      .sort((a, b) => a.index - b.index)
+      .map(({ src, alt }) => ({ src, alt }));
 
-  if (gallery) {
-    const photoElements = Array.from(gallery.querySelectorAll<HTMLImageElement>('[data-gallery-photo]'));
-    const photoPool = JSON.parse(gallery.dataset.galleryPhotos ?? '[]') as Array<{ image: string; alt: string }>;
-    let previousSelection = '';
+    const lightbox = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox]`);
+    const lightboxImage = document.querySelector<HTMLImageElement>(`[data-${prefix}-lightbox-image]`);
+    const lightboxClose = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox-close]`);
+    const lightboxPrev = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox-prev]`);
+    const lightboxNext = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox-next]`);
 
-    const shufflePhotos = () => {
-      const photos = [...photoPool];
+    if (!lightbox || !lightboxImage || photoData.length === 0) return;
 
-      for (let index = photos.length - 1; index > 0; index -= 1) {
-        const randomIndex = Math.floor(Math.random() * (index + 1));
-        [photos[index], photos[randomIndex]] = [photos[randomIndex], photos[index]];
-      }
+    let currentIndex = 0;
 
-      return photos.slice(0, photoElements.length);
+    const showPhoto = (index: number) => {
+      const total = photoData.length;
+      currentIndex = (index + total) % total;
+      const photo = photoData[currentIndex];
+      lightboxImage.src = photo.src;
+      lightboxImage.alt = photo.alt;
     };
 
-    const refreshGallery = () => {
-      let selection = shufflePhotos();
-      let selectionKey = selection.map((photo) => photo.image).join('|');
+    const openLightbox = (index: number) => {
+      showPhoto(index);
+      lightbox.classList.add('active');
+    };
 
-      if (selectionKey === previousSelection && selection.length > 1) {
-        selection = [...selection.slice(1), selection[0]];
-        selectionKey = selection.map((photo) => photo.image).join('|');
-      }
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+    };
 
-      previousSelection = selectionKey;
-
-      photoElements.forEach((element, index) => {
-        const photo = selection[index];
-        if (!photo) return;
-
-        element.classList.remove('is-changing');
-        void element.offsetWidth;
-        element.src = photo.image;
-        element.alt = photo.alt;
-        element.style.animationDelay = `${index * 70}ms`;
-        element.classList.add('is-changing');
+    photoButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const index = Number(btn.getAttribute(`data-${prefix}-photo`) ?? '0');
+        openLightbox(index);
       });
-    };
+    });
 
-    const galleryObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) refreshGallery();
-        });
-      },
-      { threshold: 0.35 },
-    );
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', () => showPhoto(currentIndex - 1));
+    lightboxNext?.addEventListener('click', () => showPhoto(currentIndex + 1));
 
-    galleryObserver.observe(gallery);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPhoto(currentIndex - 1);
+      if (e.key === 'ArrowRight') showPhoto(currentIndex + 1);
+    });
   }
+
+  setupGallery('home-gallery');
 </script>
