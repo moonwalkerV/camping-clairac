@@ -2,8 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 import WeatherWidget from '../../components/WeatherWidget.astro';
 
-const mapsEmbedSrc = 'https://www.google.com/maps?q=Domaine+de+Clairac,+Route+de+Bessan,+34500+B%C3%A9ziers&output=embed';
-const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=Domaine+de+Clairac+Route+de+Bessan+34500+Beziers';
+const mapsEmbedSrc = 'https://www.google.com/maps?q=43.362408,3.319105&output=embed';
+const appleMapsHref = 'https://maps.apple.com/?address=34500%20B%C3%A9ziers,%20France&auid=13666031460363364111&ll=43.362434,3.319060&lsp=9902&q=Camping%20Clairac&t=m';
+const googleMapsHref = 'https://www.google.com/maps/search/?api=1&query=43.362408,3.319105';
+
+const itineraries = [
+  {
+    title: "Par l'A9",
+    steps: "Sortie n°35 « Béziers Centre ». Au 1er rond-point, direction Béziers-Centre. Au 2ème et 3ème rond-point, direction Pézenas. Au 4ème rond-point, direction N9/PAE La Baume. Tout droit pendant 3,5 km sur la N9, puis à droite vers « Domaine de Clairac / Camping Clairac ».",
+  },
+  {
+    title: "Par l'A75",
+    steps: "Sortie n°63 « Béziers-Centre ». Au rond-point, à droite, direction N9/PAE La Baume. Tout droit pendant 3,5 km sur la N9, puis à droite vers « Domaine de Clairac / Camping Clairac ».",
+  },
+];
 ---
 
 <Layout title="Infos pratiques — Camping Clairac">
@@ -16,11 +28,34 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
   <section id="acces" class="section">
     <div class="section__inner">
       <h1>Accès</h1>
-      <p class="address">Domaine de Clairac, Route de Bessan (D28), 34500 Béziers</p>
-      <p>
-        Le camping dispose d'un second accès par la Route de Pézénas (N9),
-        accessible en sortant à la sortie Béziers de l'A75.
+      <p class="acces-intro">
+        Le camping s'installe sur le Domaine de Clairac, un ancien domaine
+        viticole niché au milieu des vignes et des oliviers, à 5 km du
+        centre-ville de Béziers, 15 km de la Méditerranée et 20 km des
+        premiers reliefs de l'Hérault et des Cévennes. L'entrée du domaine se
+        trouve côté sud de la route nationale N9/N113, à 5 km de Béziers et
+        15 km de Pézenas.
       </p>
+
+      <div class="gps-notice">
+        <p class="gps-notice__title">
+          Suivez nos indications ou votre GPS, jamais les deux à la fois.
+        </p>
+        <p>
+          Pour votre GPS, n'utilisez pas notre adresse postale mais l'adresse
+          suivante : <strong>Allée de Clairac, Béziers</strong>. Coordonnées
+          précises : 43.362408, 3.319105 (43°21'44.6"N 3°19'08.8"E).
+        </p>
+      </div>
+
+      <div class="maps-links">
+        <a href={appleMapsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          Ouvrir dans Apple Maps
+        </a>
+        <a href={googleMapsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          Ouvrir dans Google Maps
+        </a>
+      </div>
 
       <div class="map-wrapper">
         <iframe
@@ -47,9 +82,19 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
         </figcaption>
       </figure>
 
-      <a href={mapsDirectionsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">
-        Ouvrir l'itinéraire
-      </a>
+      <div class="itineraries">
+        {itineraries.map((itinerary) => (
+          <div class="itinerary-card">
+            <h3>{itinerary.title}</h3>
+            <p>{itinerary.steps}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="postal-address">
+        Adresse postale, pour le courrier (pas pour le GPS) : Domaine de
+        Clairac, Route de Bessan, 34500 Béziers, France.
+      </p>
     </div>
   </section>
 
@@ -172,9 +217,61 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
     margin-bottom: 1rem;
   }
 
-  .address {
+  .acces-intro {
+    margin-bottom: 1.5rem;
+  }
+
+  .gps-notice {
+    background-color: var(--color-cream);
+    border-left: 4px solid var(--color-earth);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gps-notice__title {
     font-weight: 600;
-    margin-bottom: 1rem;
+    color: var(--color-forest);
+    margin-bottom: 0.5rem;
+  }
+
+  .maps-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .itineraries {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .itinerary-card {
+    background-color: #fff;
+    border: 1px solid var(--color-sand);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
+  }
+
+  .itinerary-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-forest);
+  }
+
+  .itinerary-card p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .postal-address {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-earth);
+    font-style: italic;
   }
 
   .map-wrapper {
@@ -422,6 +519,12 @@ const mapsDirectionsHref = 'https://www.google.com/maps/dir/?api=1&destination=D
 
   @media (max-width: 800px) {
     .infos-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .itineraries {
       grid-template-columns: 1fr;
     }
   }
