@@ -12,13 +12,16 @@ interface Place {
   text: string;
   hours?: string;
   note?: string;
-  mapsQuery: string;
+  mapsQuery?: string;
+  website?: string;
   credit?: string;
 }
 
 interface Tab {
   id: string;
   label: string;
+  intro?: string;
+  footerLink?: { label: string; href: string };
   places: Place[];
 }
 
@@ -119,6 +122,19 @@ const tabs: Tab[] = [
         mapsQuery: 'Écluses de Fonséranes, Béziers',
       },
       {
+        name: 'Abbaye de Fontcaude',
+        subtitle: 'Cazedarnes',
+        alt: 'Abbaye de Fontcaude nichée près d\'une source sacrée',
+        text: "Fondée en 1154 par l'ordre des Prémontrés, cette abbaye est nichée près d'une source sacrée au cœur du Languedoc. Une bretelle des chemins de Saint-Jacques-de-Compostelle passe par l'abbaye, pour les marcheurs en quête d'une étape chargée d'histoire.",
+        mapsQuery: 'Abbaye de Fontcaude Cazedarnes',
+      },
+      {
+        name: 'Berlou',
+        alt: 'Village de Berlou dans les montagnes du Saint-Chinianais',
+        text: "Ce petit village de 200 habitants est niché dans les montagnes près des Gorges d'Héric. Son vin bénéficie de la dénomination géographique \"Berlou\", en plus de l'AOC Saint-Chinian, et le village offre des panoramas splendides sur la vallée.",
+        mapsQuery: 'Berlou Herault',
+      },
+      {
         name: 'Béziers',
         subtitle: 'Cathédrale Saint-Nazaire, Allées Paul Riquet',
         image: '/images/decouvrir-beziers.webp',
@@ -152,7 +168,7 @@ const tabs: Tab[] = [
         name: 'Marseillan',
         image: '/images/decouvrir-marseillan.webp',
         alt: "Port pittoresque de Marseillan sur l'étang de Thau",
-        text: "Ce petit port pittoresque sur l'étang de Thau vaut le détour pour ses ruelles fleuries et la maison Noilly Prat, où se prépare le célèbre vermouth. On aime en faire le point de départ d'une sortie huîtres, à déguster directement au bord de l'eau chez l'un des nombreux producteurs.",
+        text: "Ce petit port pittoresque sur l'étang de Thau vaut le détour pour ses ruelles fleuries et la maison Noilly Prat, où se prépare le célèbre vermouth. On aime en faire le point de départ d'une sortie huîtres, à déguster directement au bord de l'eau chez l'un des nombreux producteurs. Marseillan borde d'ailleurs l'étang de Thau, le plus grand étang du Languedoc et un haut lieu de la production d'huîtres et moules, avec plus de 600 établissements conchylicoles.",
         mapsQuery: 'Marseillan',
       },
       {
@@ -200,7 +216,7 @@ const tabs: Tab[] = [
         name: 'Marché de Bessan',
         image: '/images/decouvrir-marche-bessan.webp',
         alt: 'Marché de Bessan sur la promenade ombragée du centre-ville',
-        text: "Le marché de Bessan s'installe deux fois par semaine en plein cœur de ville, sur la promenade ombragée. On y trouve un peu de tout : alimentaire, vêtements et produits du terroir, dans une ambiance de marché de village bien vivante.",
+        text: "Le marché de Bessan s'installe deux fois par semaine en plein cœur de ville, sur la promenade ombragée. On y trouve un peu de tout : alimentaire, vêtements et produits du terroir, dans une ambiance de marché de village bien vivante. Bessan abrite aussi l'usine Ricard, où est fabriqué le pastis du même nom depuis 1965.",
         hours: 'Marché : mardi et dimanche, 6h30-12h',
         mapsQuery: 'Marche de Bessan',
       },
@@ -261,6 +277,14 @@ const tabs: Tab[] = [
         mapsQuery: "La Cabane, 1 Chemin de l'Étang, Marseillan",
       },
       {
+        name: 'Le Faitout',
+        subtitle: 'Berlou',
+        alt: 'Restaurant Le Faitout à Berlou',
+        text: "Niché dans ce petit village viticole près des Gorges d'Héric, Le Faitout se distingue par un rapport qualité-prix remarquable. Une adresse simple et généreuse, à découvrir après une balade dans les environs.",
+        website: 'http://www.lefaitout.net/',
+        mapsQuery: 'Le Faitout Berlou',
+      },
+      {
         name: "L'Orangerie",
         subtitle: 'Béziers',
         image: '/images/decouvrir-orangerie.webp',
@@ -276,6 +300,47 @@ const tabs: Tab[] = [
         text: "Dans le centre-ville de Sète, cette petite boutique s'est fait une spécialité de la tielle sétoise, la tourte traditionnelle au poulpe emblématique de la ville. On y passe plutôt pour une pause gourmande simple que pour un vrai repas, mais la qualité est unanimement saluée.",
         hours: 'Horaires à préciser',
         mapsQuery: 'Tielles La Cettoise Sete',
+      },
+    ],
+  },
+  {
+    id: 'vignobles',
+    label: 'Vignobles',
+    intro: "De nombreux domaines viticoles nous entourent, la plupart en accès libre pour une dégustation et un achat directement chez le producteur. Chaque village a aussi sa cave coopérative.",
+    footerLink: {
+      label: "Trouver d'autres domaines viticoles",
+      href: 'http://www.hachette-vins.com/le-guide-hachette-des-vins/regions-viticoles/languedoc-1-1-98.html',
+    },
+    places: [
+      {
+        name: 'Cave vinicole des vins de Saint-Saturnin de Lucian',
+        alt: 'Cave coopérative des vins de Saint-Saturnin de Lucian',
+        text: "Cette cave coopérative propose dégustation et vente directe de vin local, une bonne façon de repartir avec quelques bouteilles du cru directement auprès des producteurs.",
+        website: 'https://www.vins-saint-saturnin.com/',
+      },
+      {
+        name: 'Domaine Comps',
+        alt: 'Domaine viticole Comps',
+        text: "Ce domaine viticole propose lui aussi dégustation et vente directe, pour découvrir le travail d'un producteur local autour d'un verre.",
+        website: 'http://www.domainecomps.com',
+      },
+      {
+        name: 'Picpoul de Pinet',
+        alt: "Vignobles du Picpoul de Pinet à l'est de l'étang de Thau",
+        text: "Ce vin blanc AOC est produit à l'est de l'étang de Thau, autour de Pinet, Castelnau-de-Guers, Florensac, Mèze, Montagnac et Pomérols. Vif et minéral, c'est le compagnon tout trouvé des huîtres de l'étang de Thau, tout proche.",
+      },
+    ],
+  },
+  {
+    id: 'nautique',
+    label: 'Activités nautiques',
+    places: [
+      {
+        name: "Réals, Canoë-Kayak sur l'Orb",
+        alt: "Descente en canoë-kayak sur l'Orb à la base de Réals",
+        text: "Cette base propose la descente de la Vallée de l'Orb en canoë ou en kayak, avec des parcours adaptés à tous les niveaux. On peut aussi simplement rester sur les berges pour pique-niquer à l'ombre des arbres et se baigner dans l'eau douce de la rivière.",
+        website: 'http://www.base-reals.com/',
+        mapsQuery: 'Base de Reals Canoe Kayak',
       },
     ],
   },
@@ -313,6 +378,7 @@ const tabs: Tab[] = [
             data-tab-panel={tab.id}
             role="tabpanel"
           >
+            {tab.intro && <p class="tabs__intro">{tab.intro}</p>}
             <div class="cards-grid">
               {tab.places.map((place) => (
                 <div class="place-card">
@@ -338,14 +404,30 @@ const tabs: Tab[] = [
                         <span aria-hidden="true">🕐</span> {place.hours}
                       </p>
                     )}
-                    <a
-                      href={mapsLink(place.mapsQuery)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="place-card__btn"
-                    >
-                      <span aria-hidden="true">📍</span> Voir sur Maps
-                    </a>
+                    {(place.website || place.mapsQuery) && (
+                      <div class="place-card__actions">
+                        {place.website && (
+                          <a
+                            href={place.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="place-card__btn place-card__btn--secondary"
+                          >
+                            <span aria-hidden="true">🌐</span> Site officiel
+                          </a>
+                        )}
+                        {place.mapsQuery && (
+                          <a
+                            href={mapsLink(place.mapsQuery)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="place-card__btn"
+                          >
+                            <span aria-hidden="true">📍</span> Voir sur Maps
+                          </a>
+                        )}
+                      </div>
+                    )}
                     {place.credit && (
                       <p class="place-card__credit">
                         Photo : {place.credit} (Wikimedia Commons, CC-BY-SA)
@@ -355,6 +437,18 @@ const tabs: Tab[] = [
                 </div>
               ))}
             </div>
+            {tab.footerLink && (
+              <div class="tabs__footer">
+                <a
+                  href={tab.footerLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary"
+                >
+                  {tab.footerLink.label}
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -423,6 +517,35 @@ const tabs: Tab[] = [
 
   .tabs__panel.active {
     display: block;
+  }
+
+  .tabs__intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  .tabs__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn--primary {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-sage);
   }
 
   .cards-grid {
@@ -503,22 +626,38 @@ const tabs: Tab[] = [
     margin-bottom: 1rem;
   }
 
+  .place-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .place-card__btn {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    align-self: flex-start;
     padding: 0.6rem 1.25rem;
     border-radius: 999px;
     background-color: var(--color-forest);
     color: var(--color-cream);
     font-weight: 600;
-    margin-bottom: 0.5rem;
     transition: background-color 0.2s ease;
   }
 
   .place-card__btn:hover {
     background-color: var(--color-sage);
+  }
+
+  .place-card__btn--secondary {
+    background-color: transparent;
+    color: var(--color-forest);
+    border: 1px solid var(--color-forest);
+  }
+
+  .place-card__btn--secondary:hover {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
   }
 
   .place-card__credit {
