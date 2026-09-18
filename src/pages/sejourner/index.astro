@@ -77,14 +77,17 @@ const services = [
 
 <Layout title="Séjourner — Camping Clairac">
   <section id="emplacements" class="section">
-    <div class="section__inner--full">
-      <h1>Les emplacements</h1>
-      <p class="section__intro">
-        25 emplacements pour tente, caravane ou camping-car, répartis dans
-        un cadre calme et ombragé. Chaque emplacement est spacieux et
-        espacé d'au moins 5 mètres de son voisin, pour profiter pleinement
-        du plein air sans être les uns sur les autres.
-      </p>
+    <div class="section__inner">
+      <div class="section__text">
+        <h1>Les emplacements</h1>
+        <p>
+          25 emplacements pour tente, caravane ou camping-car, répartis dans
+          un cadre calme et ombragé. Chaque emplacement est spacieux et
+          espacé d'au moins 5 mètres de son voisin, pour profiter pleinement
+          du plein air sans être les uns sur les autres.
+        </p>
+        <a href="/sejourner/tarifs" class="btn btn--primary">Voir les tarifs</a>
+      </div>
 
       <div class="emplacements-gallery">
         <button type="button" class="emplacements-gallery__main" data-emplacements-photo={0} aria-label="Agrandir la photo de l'emplacement">
@@ -98,8 +101,6 @@ const services = [
           ))}
         </div>
       </div>
-
-      <a href="/sejourner/tarifs" class="btn btn--primary section-cta">Voir les tarifs</a>
     </div>
   </section>
 
@@ -268,16 +269,12 @@ const services = [
     text-align: center;
   }
 
-  .section__intro {
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
-  }
-
   .section__inner--full h1,
   .section__inner--full h2 {
     margin-bottom: 1rem;
   }
 
+  .section__text h1,
   .section__text h2 {
     margin-bottom: 1rem;
   }
@@ -303,10 +300,6 @@ const services = [
     background-color: var(--color-sage);
   }
 
-  .section-cta {
-    margin-top: 2rem;
-  }
-
   .gite-actions {
     display: flex;
     flex-wrap: wrap;
@@ -314,11 +307,6 @@ const services = [
   }
 
   /* Emplacements gallery + Gîte gallery share the same structure */
-  .emplacements-gallery {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
   .emplacements-gallery,
   .gite-gallery {
     display: flex;
