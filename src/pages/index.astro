@@ -34,10 +34,16 @@ const teasers = [
   },
 ];
 
+const reassuranceIcons: Record<string, string> = {
+  tent: '<path d="M3.5 21 14 3"/><path d="M20.5 21 10 3"/><path d="M15.5 21 12 15l-3.5 6"/><path d="M2 21h20"/>',
+  paw: '<circle cx="7" cy="9" r="1.6"/><circle cx="12" cy="6.5" r="1.6"/><circle cx="17" cy="9" r="1.6"/><ellipse cx="12" cy="15.5" rx="5" ry="4"/>',
+  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+};
+
 const reassurance = [
-  { emoji: '🏕️', lines: ['25', 'Emplacements'] },
-  { emoji: '🐾', lines: ['Animaux', 'acceptés'] },
-  { emoji: '📍', lines: ['À 15 min de Béziers', 'et des plages'] },
+  { icon: 'tent', lines: ['25', 'Emplacements'] },
+  { icon: 'paw', lines: ['Animaux', 'acceptés'] },
+  { icon: 'pin', lines: ['À 15 min de Béziers', 'et des plages'] },
 ];
 
 const galleryPhotos = [
@@ -91,7 +97,9 @@ const galleryPreview = galleryPhotos.slice(0, 6);
     <div class="reassurance__grid">
       {reassurance.map((item) => (
         <div class="reassurance-card">
-          <div class="reassurance-card__icon" aria-hidden="true">{item.emoji}</div>
+          <div class="reassurance-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={reassuranceIcons[item.icon]} />
+          </div>
           <p class="reassurance-card__text">{item.lines[0]}<br />{item.lines[1]}</p>
         </div>
       ))}
@@ -314,12 +322,11 @@ const galleryPreview = galleryPhotos.slice(0, 6);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background-color: rgba(104, 122, 90, 0.15);
-    font-size: 2.5rem;
-    line-height: 1;
+    color: var(--color-forest);
     overflow: hidden;
   }
 
@@ -327,12 +334,12 @@ const galleryPreview = galleryPhotos.slice(0, 6);
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 0.9rem;
+    padding: 0.75rem;
     box-sizing: border-box;
   }
 
   .reassurance-card__text {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.95rem;
     color: var(--color-forest);
     max-width: 190px;
