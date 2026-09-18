@@ -2,11 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 
 const emplacementsPhotos = [
-  { image: '/images/prairie-emplacements.webp', alt: 'Prairie avec des emplacements de camping' },
-  { image: '/images/camping-emplacements-oliviers.webp', alt: 'Emplacements ombragés parmi les oliviers' },
   { image: '/images/allee-caravanes-arbres.webp', alt: 'Allée de caravanes sous les arbres' },
   { image: '/images/emplacement-tente-ombrage.webp', alt: 'Emplacement de tente ombragé' },
-  { image: '/images/prairie-pins-ombragee.webp', alt: 'Prairie ombragée par les pins' },
   { image: '/images/sous-bois-tentes.webp', alt: 'Tentes installées sous les bois' },
   { image: '/images/tente-cloche-pins.webp', alt: 'Tente cloche installée sous les pins' },
 ];
@@ -43,7 +40,6 @@ const sanitaires = [
 
 const serviceIcons: Record<string, string> = {
   wifi: '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
-  bread: '<path d="M3 13c0-3.5 3-8 9-8s9 4.5 9 8-3 5-9 5-9-1.5-9-5Z"/><path d="M8 10l1.5 3"/><path d="M12 9l1.5 4"/><path d="M16 10l1.2 3"/>',
   bbq: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
   playground: '<path d="M4 21V8"/><path d="M20 21V8"/><path d="M4 8h16"/><path d="M9 21l3-7 3 7"/><circle cx="12" cy="14" r="1" fill="currentColor"/>',
   paw: '<circle cx="7" cy="9" r="1.6"/><circle cx="12" cy="6.5" r="1.6"/><circle cx="17" cy="9" r="1.6"/><ellipse cx="12" cy="15.5" rx="5" ry="4"/>',
@@ -51,7 +47,6 @@ const serviceIcons: Record<string, string> = {
 
 const services = [
   { icon: 'wifi', label: 'Wi-Fi' },
-  { icon: 'bread', label: 'Dépôt de pain' },
   { icon: 'bbq', label: 'Barbecue' },
   { icon: 'playground', label: 'Aire de jeux' },
   { icon: 'paw', label: 'Animaux acceptés' },
@@ -69,13 +64,35 @@ const services = [
         du plein air sans être les uns sur les autres.
       </p>
 
-      <div class="emplacements-grid">
-        {emplacementsPhotos.map((photo) => (
-          <img src={photo.image} alt={photo.alt} loading="lazy" />
-        ))}
+      <div class="emplacements-gallery">
+        <button type="button" class="emplacements-gallery__main" data-emplacements-photo={0} aria-label="Agrandir la photo de l'emplacement">
+          <img src={emplacementsPhotos[0].image} alt={emplacementsPhotos[0].alt} loading="lazy" />
+        </button>
+        <div class="emplacements-gallery__thumbs">
+          {emplacementsPhotos.slice(1).map((photo, index) => (
+            <button type="button" class="emplacements-gallery__thumb" data-emplacements-photo={index + 1} aria-label="Agrandir la photo de l'emplacement">
+              <img src={photo.image} alt={photo.alt} loading="lazy" />
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   </section>
+
+  <div class="lightbox" data-emplacements-lightbox>
+    <button type="button" class="lightbox__close" data-emplacements-lightbox-close aria-label="Fermer">&times;</button>
+    <button type="button" class="lightbox__arrow lightbox__arrow--prev" data-emplacements-lightbox-prev aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <img src={emplacementsPhotos[0].image} alt="" class="lightbox__image" data-emplacements-lightbox-image />
+    <button type="button" class="lightbox__arrow lightbox__arrow--next" data-emplacements-lightbox-next aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
 
   <section id="gite" class="section section--alt">
     <div class="section__inner">
@@ -224,27 +241,21 @@ const services = [
     background-color: var(--color-sage);
   }
 
-  /* Emplacements grid */
-  .emplacements-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
+  /* Emplacements gallery + Gîte gallery share the same structure */
+  .emplacements-gallery {
+    max-width: 700px;
+    margin: 0 auto;
   }
 
-  .emplacements-grid img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  /* Gîte gallery */
+  .emplacements-gallery,
   .gite-gallery {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
   }
 
+  .emplacements-gallery__main,
+  .emplacements-gallery__thumb,
   .gite-gallery__main,
   .gite-gallery__thumb {
     display: block;
@@ -256,6 +267,7 @@ const services = [
     overflow: hidden;
   }
 
+  .emplacements-gallery__main img,
   .gite-gallery__main img {
     width: 100%;
     height: 320px;
@@ -263,12 +275,14 @@ const services = [
     display: block;
   }
 
+  .emplacements-gallery__thumbs,
   .gite-gallery__thumbs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
   }
 
+  .emplacements-gallery__thumb img,
   .gite-gallery__thumb img {
     width: 100%;
     height: 100px;
@@ -277,6 +291,8 @@ const services = [
     transition: opacity 0.2s ease;
   }
 
+  .emplacements-gallery__thumb:hover img,
+  .emplacements-gallery__main:hover img,
   .gite-gallery__thumb:hover img,
   .gite-gallery__main:hover img {
     opacity: 0.85;
@@ -401,7 +417,7 @@ const services = [
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -457,10 +473,6 @@ const services = [
       grid-template-columns: 1fr;
     }
 
-    .emplacements-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .sanitaires-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -471,10 +483,6 @@ const services = [
   }
 
   @media (max-width: 480px) {
-    .emplacements-grid {
-      grid-template-columns: 1fr;
-    }
-
     .sanitaires-grid {
       grid-template-columns: 1fr;
     }
@@ -483,6 +491,7 @@ const services = [
       grid-template-columns: 1fr;
     }
 
+    .emplacements-gallery__thumb img,
     .gite-gallery__thumb img {
       height: 80px;
     }
@@ -507,26 +516,28 @@ const services = [
 </style>
 
 <script>
-  // Gîte gallery + lightbox
-  const gitePhotoData = Array.from(document.querySelectorAll<HTMLElement>('[data-gite-photo]')).map((btn) => {
-    const img = btn.querySelector('img');
-    return { src: img?.getAttribute('src') ?? '', alt: img?.getAttribute('alt') ?? '' };
-  });
+  // Reusable setup for a "main photo + thumbnails" gallery with its lightbox
+  function setupGallery(prefix: string) {
+    const photoData = Array.from(document.querySelectorAll<HTMLElement>(`[data-${prefix}-photo]`)).map((btn) => {
+      const img = btn.querySelector('img');
+      return { src: img?.getAttribute('src') ?? '', alt: img?.getAttribute('alt') ?? '' };
+    });
 
-  const lightbox = document.querySelector<HTMLElement>('[data-gite-lightbox]');
-  const lightboxImage = document.querySelector<HTMLImageElement>('[data-gite-lightbox-image]');
-  const lightboxClose = document.querySelector<HTMLElement>('[data-gite-lightbox-close]');
-  const lightboxPrev = document.querySelector<HTMLElement>('[data-gite-lightbox-prev]');
-  const lightboxNext = document.querySelector<HTMLElement>('[data-gite-lightbox-next]');
-  const gitePhotoButtons = Array.from(document.querySelectorAll<HTMLElement>('[data-gite-photo]'));
+    const lightbox = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox]`);
+    const lightboxImage = document.querySelector<HTMLImageElement>(`[data-${prefix}-lightbox-image]`);
+    const lightboxClose = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox-close]`);
+    const lightboxPrev = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox-prev]`);
+    const lightboxNext = document.querySelector<HTMLElement>(`[data-${prefix}-lightbox-next]`);
+    const photoButtons = Array.from(document.querySelectorAll<HTMLElement>(`[data-${prefix}-photo]`));
 
-  if (lightbox && lightboxImage && gitePhotoData.length > 0) {
+    if (!lightbox || !lightboxImage || photoData.length === 0) return;
+
     let currentIndex = 0;
 
     const showPhoto = (index: number) => {
-      const total = gitePhotoData.length;
+      const total = photoData.length;
       currentIndex = (index + total) % total;
-      const photo = gitePhotoData[currentIndex];
+      const photo = photoData[currentIndex];
       lightboxImage.src = photo.src;
       lightboxImage.alt = photo.alt;
     };
@@ -540,9 +551,9 @@ const services = [
       lightbox.classList.remove('active');
     };
 
-    gitePhotoButtons.forEach((btn) => {
+    photoButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const index = Number(btn.getAttribute('data-gite-photo') ?? '0');
+        const index = Number(btn.getAttribute(`data-${prefix}-photo`) ?? '0');
         openLightbox(index);
       });
     });
@@ -562,4 +573,7 @@ const services = [
       if (e.key === 'ArrowRight') showPhoto(currentIndex + 1);
     });
   }
+
+  setupGallery('gite');
+  setupGallery('emplacements');
 </script>
