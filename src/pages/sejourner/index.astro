@@ -38,6 +38,24 @@ const sanitaires = [
   },
 ];
 
+const receptionCards = [
+  {
+    icon: '🥖',
+    label: 'Pain frais',
+    text: 'Commandez votre pain la veille, à récupérer chaque matin à la réception.',
+  },
+  {
+    icon: '💬',
+    label: 'Informations',
+    text: "Le point de repère du domaine pour vos questions et conseils sur les environs.",
+  },
+  {
+    icon: '🌳',
+    label: 'Espace convivial',
+    text: 'Une terrasse ombragée pour se retrouver, à deux pas de l\'accueil.',
+  },
+];
+
 const serviceIcons: Record<string, string> = {
   wifi: '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
   bbq: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
@@ -157,7 +175,33 @@ const services = [
     </div>
   </section>
 
-  <section id="services" class="section section--alt">
+  <section id="reception" class="section section--alt">
+    <div class="section__inner--full">
+      <h2>La réception</h2>
+      <p class="section__intro">
+        À votre arrivée comme tout au long de votre séjour, la réception est
+        le point de repère du domaine : accueil, informations et un service
+        de pain frais pour bien commencer la journée.
+      </p>
+      <img
+        src="/images/camping-reception.webp"
+        alt="Accueil et réception du camping"
+        class="reception-photo"
+        loading="lazy"
+      />
+      <div class="reception-grid">
+        {receptionCards.map((card) => (
+          <div class="reception-card">
+            <div class="reception-card__icon" aria-hidden="true">{card.icon}</div>
+            <p class="reception-card__label">{card.label}</p>
+            <p class="reception-card__text">{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
     <div class="section__inner--full">
       <h2>Services</h2>
       <div class="services-grid">
@@ -412,6 +456,62 @@ const services = [
     font-size: 0.9rem;
   }
 
+  /* Réception section */
+  .reception-photo {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 2rem;
+  }
+
+  .reception-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .reception-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    background-color: #fff;
+    border: 1px solid var(--color-sand);
+    border-radius: 16px;
+    padding: 1.75rem 1.25rem;
+    box-shadow: 0 4px 16px rgba(36, 56, 44, 0.06);
+  }
+
+  .reception-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(104, 122, 90, 0.15);
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .reception-card__label {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-forest);
+  }
+
+  .reception-card__text {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
   /* Services grid — same card format as "Notre démarche nature" */
   .services-grid {
     max-width: 1000px;
@@ -479,6 +579,10 @@ const services = [
 
     .services-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reception-grid {
+      grid-template-columns: 1fr;
     }
   }
 
