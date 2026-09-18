@@ -167,23 +167,6 @@ const services = [
     </button>
   </div>
 
-  <section id="sanitaires" class="section">
-    <div class="section__inner--full">
-      <h2>Sanitaires</h2>
-      <div class="sanitaires-grid">
-        {sanitaires.map((item) => (
-          <div class="sanitaire-card">
-            <img src={item.image} alt={item.title} loading="lazy" class="sanitaire-card__image" />
-            <div class="sanitaire-card__body">
-              <p class="sanitaire-card__title">{item.title}</p>
-              <p class="sanitaire-card__caption">{item.caption}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section id="reception" class="section section--alt">
     <div class="section__inner--full">
       <h2>La réception</h2>
@@ -222,6 +205,23 @@ const services = [
           </div>
         </div>
         <a href={lidlDirectionsHref} target="_blank" rel="noopener noreferrer" class="btn btn--primary">Itinéraire vers le Lidl</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sanitaires" class="section">
+    <div class="section__inner--full">
+      <h2>Sanitaires</h2>
+      <div class="sanitaires-grid">
+        {sanitaires.map((item) => (
+          <div class="sanitaire-card">
+            <img src={item.image} alt={item.title} loading="lazy" class="sanitaire-card__image" />
+            <div class="sanitaire-card__body">
+              <p class="sanitaire-card__title">{item.title}</p>
+              <p class="sanitaire-card__caption">{item.caption}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
