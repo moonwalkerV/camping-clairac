@@ -1,0 +1,7 @@
+<section class="hero hero-centre"><div class="conteneur">
+  {% if s.surtitre %}<p class="surtitre">{{ s.surtitre }}</p>{% endif %}
+  <h1>{{ s.titre or site.accroche }}</h1>
+  {% if s.intro %}<p class="chapo">{{ s.intro }}</p>{% endif %}
+  {% if s.bouton %}<a class="bouton" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>{% endif %}
+  {% if s.image %}<img class="hero-img" src="{{ s.image }}" alt="{{ s.alt }}" width="900" height="560" fetchpriority="high">{% endif %}
+</div></section>

@@ -1,0 +1,51 @@
+# Pages CMS (https://pagescms.org) : ce que le camping peut modifier lui-même, sans toucher au code.
+media:
+  input: src/assets/img/photos
+  output: /assets/img/photos
+content:
+  - name: tarifs
+    label: Tarifs
+    type: file
+    path: src/_data/tarifs.json
+    format: json
+    fields:
+      - { name: annee, label: "Années affichées (ex. 2027)", type: string }
+      - name: groupes
+        label: Tableaux de prix
+        type: object
+        list: true
+        fields:
+          - { name: titre, label: Titre du tableau, type: string }
+          - name: lignes
+            label: Lignes
+            type: object
+            list: true
+            fields:
+              - { name: nom, label: Désignation, type: string }
+              - { name: prix, label: Prix, type: string }
+      - { name: inclus, label: Ce qui est compris, type: string, list: true }
+      - { name: gite, label: Texte sur le prix du gîte, type: text }
+  - name: faq
+    label: Questions fréquentes
+    type: file
+    path: src/_data/faq.json
+    format: json
+    list: true
+    fields:
+      - { name: titre, label: Question, type: string }
+      - { name: texte, label: Réponse, type: text }
+  - name: site
+    label: Coordonnées et horaires
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - name: contact
+        label: Coordonnées
+        type: object
+        fields:
+          - { name: telephone, label: "Téléphone (format +33…)", type: string }
+          - { name: telephone_affiche, label: Téléphone affiché, type: string }
+          - { name: email, label: E-mail, type: string }
+          - { name: ouverture, label: Période d'ouverture, type: string }
+          - { name: horaires, label: Horaires, type: string, list: true }

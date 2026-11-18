@@ -1,0 +1,5 @@
+<section class="section avis"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  <div class="avis-liste">{% for i in s.items %}<blockquote class="avis-un"><p>{{ i.texte }}</p><footer>{{ i.auteur }}</footer></blockquote>{% endfor %}</div>
+  {% if site.avis_google %}<p class="avis-lien"><a href="{{ site.avis_google }}" rel="noopener">Lire tous les avis Google</a></p>{% endif %}
+</div></section>

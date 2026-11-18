@@ -1,0 +1,11 @@
+<section class="hero hero-appel"><div class="conteneur hero-in">
+  <div class="hero-texte">
+    {% if s.surtitre %}<p class="surtitre">{{ s.surtitre }}</p>{% endif %}
+    <h1>{{ s.titre or site.accroche }}</h1>
+    {% if s.intro %}<p class="chapo">{{ s.intro }}</p>{% endif %}
+    <a class="bouton bouton-tel" href="tel:{{ site.contact.telephone | tel }}"><span>Appelez</span> {{ site.contact.telephone }}</a>
+    {% if s.bouton %}<p><a href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a></p>{% endif %}
+    {% if s.items %}<ul class="garanties">{% for i in s.items %}<li>{{ i.titre }}</li>{% endfor %}</ul>{% endif %}
+  </div>
+  {% if s.image %}<img class="hero-img" src="{{ s.image }}" alt="{{ s.alt }}" width="640" height="640" fetchpriority="high">{% endif %}
+</div></section>

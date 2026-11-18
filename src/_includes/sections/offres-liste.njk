@@ -1,0 +1,4 @@
+<section class="section offres-liste" id="{{ s.ancre or 'offres' }}"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  <ul class="liste-services">{% for i in s.items %}<li><h3>{{ i.titre }}</h3><p>{{ i.texte }}</p>{% if i.prix %}<p class="prix">{{ i.prix }}</p>{% endif %}</li>{% endfor %}</ul>
+</div></section>

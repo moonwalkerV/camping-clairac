@@ -1,0 +1,24 @@
+<section class="section contact" id="contact"><div class="conteneur contact-in">
+  <div class="contact-infos">
+    {% include "sections/_entete-section.njk" %}
+    <p><strong>Adresse</strong><br>{{ site.contact.adresse }}<br><a href="{{ site.contact.carte }}" rel="noopener">Voir sur la carte</a></p>
+    <p><strong>Téléphone</strong><br><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone }}</a></p>
+    <p><strong>E-mail</strong><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+    {% if site.contact.horaires.length %}<p><strong>Horaires</strong><br>{% for h in site.contact.horaires %}{{ h }}<br>{% endfor %}</p>{% endif %}
+    {% if site.rendez_vous.actif %}<p><a class="bouton" href="{{ site.rendez_vous.lien }}" rel="noopener">Prendre rendez-vous</a></p>{% endif %}
+  </div>
+  {% if site.formulaire.actif %}
+  <form class="formulaire" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="{{ site.formulaire.web3forms_cle }}">
+    <input type="hidden" name="subject" value="Nouveau message depuis le site">
+    <input type="hidden" name="redirect" value="{{ '/merci/' | absolu(site.url) }}">
+    <input type="checkbox" name="botcheck" class="cache" tabindex="-1" autocomplete="off">
+    <label for="nom">Votre nom</label><input id="nom" name="name" required autocomplete="name">
+    <label for="email">Votre e-mail</label><input id="email" name="email" type="email" required autocomplete="email">
+    <label for="tel">Votre téléphone (facultatif)</label><input id="tel" name="telephone" type="tel" autocomplete="tel">
+    <label for="message">Votre message</label><textarea id="message" name="message" rows="5" required></textarea>
+    <p class="petit">Vos informations servent uniquement à vous répondre. Elles ne sont ni revendues ni utilisées pour de la publicité, et sont supprimées au bout de 12 mois.</p>
+    <button class="bouton" type="submit">Envoyer</button>
+  </form>
+  {% endif %}
+</div></section>

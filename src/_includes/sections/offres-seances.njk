@@ -1,0 +1,8 @@
+<section class="section offres-seances" id="{{ s.ancre or 'offres' }}"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  <div class="seances">{% for i in s.items %}<article class="seance">
+    <h3>{{ i.titre }}</h3><p>{{ i.texte }}</p>
+    <p class="seance-infos">{% if i.detail %}<span>{{ i.detail }}</span>{% endif %}{% if i.prix %}<span>{{ i.prix }}</span>{% endif %}</p>
+  </article>{% endfor %}</div>
+  {% if s.bouton %}<p class="centre"><a class="bouton" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a></p>{% endif %}
+</div></section>

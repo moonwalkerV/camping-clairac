@@ -1,0 +1,4 @@
+<section class="section etapes"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  <ol class="etapes-liste">{% for i in s.items %}<li><h3>{{ i.titre }}</h3><p>{{ i.texte }}</p></li>{% endfor %}</ol>
+</div></section>

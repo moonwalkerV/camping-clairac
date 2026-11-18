@@ -1,0 +1,4 @@
+<section class="section chiffres"><div class="conteneur">
+  {% if s.titre %}{% include "sections/_entete-section.njk" %}{% endif %}
+  <dl class="chiffres-liste">{% for i in s.items %}<div><dt>{{ i.titre }}</dt><dd>{{ i.texte }}</dd></div>{% endfor %}</dl>
+</div></section>

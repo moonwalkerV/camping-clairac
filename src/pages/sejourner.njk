@@ -1,0 +1,72 @@
+---
+layout: base.njk
+permalink: /sejourner/
+title: Séjourner
+surtitre: Emplacements, gîte et tarifs
+description: "25 emplacements ombragés pour tente, caravane ou camping-car, un gîte indépendant, sanitaires avec douches chaudes et tarifs du camping Clairac à Béziers."
+intro: "Avec votre tente, votre caravane, votre camping-car, ou sans rien du tout : au domaine, chacun trouve son coin d'ombre."
+bandeau_image: /assets/img/photos/allee-caravanes-arbres.webp
+bandeau_alt: Une allée de caravanes sous les arbres
+bandeau_note: l'allée des caravanes
+---
+{% include "bandeau.njk" %}
+<section class="section" id="emplacements"><div class="conteneur deux-col">
+  <div>
+    <h2>Les emplacements</h2>
+    <p>25 emplacements pour tente, caravane ou camping-car, dans un cadre calme et ombragé. Chaque emplacement est spacieux et espacé d'au moins 5 mètres de son voisin, pour profiter du plein air sans être les uns sur les autres.</p>
+    <ul class="gestes gestes-compact">
+      <li><svg class="picto" aria-hidden="true"><use href="#p-prise"/></svg><span>Électricité sur demande</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-patte"/></svg><span>Animaux acceptés</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-lune"/></svg><span>Aire de jeux et Wi-Fi</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-flamme"/></svg><span>Barbecue électrique ou à gaz seulement</span></li>
+    </ul>
+  </div>
+  <div class="tirages-duo">
+    <figure class="tirage"><img src="/assets/img/photos/emplacement-tente-ombrage.webp" alt="Un emplacement de tente à l'ombre" width="638" height="595" loading="lazy"><figcaption class="note">à l'ombre toute la journée</figcaption></figure>
+    <figure class="tirage tirage-penche"><img src="/assets/img/photos/camping-emplacements-oliviers.webp" alt="Des emplacements parmi les oliviers" width="1200" height="900" loading="lazy"><figcaption class="note">côté oliviers</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section fond-doux"><div class="conteneur">
+  <header class="section-entete"><h2>Les sanitaires</h2><p class="section-intro">Un bâtiment sanitaire entretenu tous les jours, entre les oliviers.</p></header>
+  <div class="vignettes">
+    <figure><img src="/assets/img/photos/camping-sanitaires-douche.webp" alt="Une douche individuelle" width="900" height="1160" loading="lazy"><figcaption><strong>Douches chaudes</strong> individuelles et gratuites</figcaption></figure>
+    <figure><img src="/assets/img/photos/camping-sanitaires-wc.webp" alt="Des toilettes propres" width="900" height="1200" loading="lazy"><figcaption><strong>WC</strong> entretenus chaque jour</figcaption></figure>
+    <figure><img src="/assets/img/photos/camping-sanitaires-lavabos.webp" alt="Bacs à vaisselle et lavabos en plein air" width="900" height="1196" loading="lazy"><figcaption><strong>Bacs à vaisselle</strong> à l'air libre, à l'ombre des pins</figcaption></figure>
+    <figure><img src="/assets/img/photos/camping-sanitaires-pmr.webp" alt="La porte des sanitaires accessibles" width="900" height="1200" loading="lazy"><figcaption><strong>Accès PMR</strong> pour les personnes à mobilité réduite</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section" id="gite"><div class="conteneur deux-col deux-col-inverse">
+  <div>
+    <h2>Le gîte</h2>
+    <p>Pas d'équipement ? Le domaine a aussi une maison indépendante, pour poser vos valises sans tente ni camping-car. Cuisine équipée, salle à manger et salle de bain privative : tout le confort d'une vraie maison.</p>
+    <p>Dehors, un jardin ombragé avec des transats invite à ne rien faire, dans le même calme que le reste du domaine.</p>
+    <p class="note-encadree">{{ tarifs.gite }}</p>
+    <a class="bouton" href="/infos-pratiques/#reservation">Demander le gîte</a>
+  </div>
+  <div class="tirages-duo">
+    <figure class="tirage"><img src="/assets/img/photos/gite-exterieur-terrasse.webp" alt="La terrasse extérieure du gîte" width="900" height="1200" loading="lazy"><figcaption class="note">la terrasse</figcaption></figure>
+    <figure class="tirage tirage-penche"><img src="/assets/img/photos/gite-interieur-cuisine.webp" alt="La cuisine équipée du gîte" width="900" height="1200" loading="lazy"><figcaption class="note">la cuisine</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section fond-doux" id="reception"><div class="conteneur deux-col">
+  <div>
+    <h2>La réception et le pain du matin</h2>
+    <p><strong>Arrivées entre 8 h 30 et 20 h.</strong> Les emplacements se libèrent en général à partir de 11 h. La réception, qui fait aussi petite épicerie, est ouverte de 8 h 30 à 11 h 30 et de 17 h à 20 h. En dehors de ces horaires, sonnez à la sonnette sur le volet gauche.</p>
+    <p><svg class="picto picto-texte" aria-hidden="true"><use href="#p-pain"/></svg> <strong>Pain et viennoiseries :</strong> commandez la veille sur la liste de la réception, l'équipe va les chercher à la boulangerie. À récupérer entre 8 h 30 et 11 h 30.</p>
+    <p><svg class="picto picto-texte" aria-hidden="true"><use href="#p-velo"/></svg> <strong>Courses :</strong> un Lidl est à 6 min en voiture ou 15 min à vélo (rue des Entrepreneurs, Servian). <a href="https://www.google.com/maps/dir//Lidl,+Rue+des+Entrepreneurs+10,+34290+Servian" rel="noopener">Itinéraire</a></p>
+  </div>
+  <figure class="tirage tirage-penche"><img src="/assets/img/photos/camping-reception.webp" alt="La réception du camping et sa terrasse" width="1200" height="900" loading="lazy"><figcaption class="note">la réception</figcaption></figure>
+</div></section>
+
+<section class="section" id="tarifs"><div class="conteneur">
+  <header class="section-entete"><p class="surtitre">Tarifs {{ tarifs.annee }}</p><h2>Les tarifs</h2><p class="section-intro">Compris dans le prix : {% for i in tarifs.inclus %}{{ i | lower if not loop.first else i }}{% if not loop.last %}, {% endif %}{% endfor %}.</p></header>
+  <div class="tarifs-grille">
+  {% for g in tarifs.groupes %}<div class="tarif-bloc"><h3>{{ g.titre }}</h3>
+    <table><caption class="cache-visuel">{{ g.titre }}</caption><tbody>{% for l in g.lignes %}<tr><th scope="row">{{ l.nom }}</th><td>{{ l.prix }}</td></tr>{% endfor %}</tbody></table>
+  </div>{% endfor %}
+  </div>
+  <p class="centre"><a class="bouton" href="/infos-pratiques/#reservation">Demander une réservation</a></p>
+</div></section>

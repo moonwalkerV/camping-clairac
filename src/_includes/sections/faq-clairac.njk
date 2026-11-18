@@ -1,0 +1,6 @@
+{% set questions = faq.slice(0, s.nombre) if s.nombre else faq %}
+<section class="section faq" id="questions"><div class="conteneur faq-in">
+  {% include "sections/_entete-section.njk" %}
+  <div class="faq-liste">{% for i in questions %}<details><summary>{{ i.titre }}</summary><p>{{ i.texte }}</p></details>{% endfor %}</div>
+</div></section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for i in questions %}{"@type":"Question","name":{{ i.titre | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ i.texte | dump | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>

@@ -1,0 +1,8 @@
+---
+layout: base.njk
+---
+{% include "bandeau.njk" %}
+<section class="section"><div class="conteneur texte-long">
+{{ content | safe }}
+</div></section>
+{% if bouton %}<section class="section appel"><div class="conteneur"><a class="bouton" href="{{ bouton.lien }}">{{ bouton.texte }}</a></div></section>{% endif %}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% set titrePage = (title + " · " + site.nom) if title else (site.nom + " · Aire naturelle de camping près de Béziers") %}
+<title>{{ titrePage }}</title>
+<meta name="description" content="{{ description or site.description_seo }}">
+{% if noindex or site.demo %}<meta name="robots" content="noindex">{% endif %}
+<link rel="canonical" href="{{ page.url | absolu(site.url) }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ titrePage }}">
+<meta property="og:description" content="{{ description or site.description_seo }}">
+<meta property="og:image" content="{{ site.image_partage | absolu(site.url) }}">
+<meta property="og:url" content="{{ page.url | absolu(site.url) }}">
+<meta property="og:locale" content="fr_FR">
+<meta name="theme-color" content="{{ site.couleurs.fond }}">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+:root{--fond:{{ site.couleurs.fond }};--texte:{{ site.couleurs.texte }};--accent:{{ site.couleurs.accent }};--accent-texte:{{ site.couleurs.accent_texte }};--doux:{{ site.couleurs.doux }};--second:{{ site.couleurs.second or site.couleurs.accent }};--f-titre:"{{ site.polices.titre }}",Georgia,serif;--f-texte:"{{ site.polices.texte }}",system-ui,sans-serif}
+</style>
+<link rel="stylesheet" href="/assets/socle.css">
+<link rel="stylesheet" href="/assets/themes/{{ site.theme }}.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": site.type_schema,
+  "name": site.nom,
+  "description": site.description_seo,
+  "url": site.url,
+  "telephone": site.contact.telephone,
+  "email": site.contact.email,
+  "image": site.image_partage | absolu(site.url),
+  "logo": site.logo | absolu(site.url),
+  "priceRange": "À partir de 25 € la nuit pour 2 personnes",
+  "petsAllowed": true,
+  "address": { "@type": "PostalAddress", "streetAddress": site.contact.rue, "postalCode": site.contact.code_postal, "addressLocality": site.contact.commune, "addressRegion": "Occitanie", "addressCountry": "FR" },
+  "geo": { "@type": "GeoCoordinates", "latitude": site.contact.latitude, "longitude": site.contact.longitude },
+  "hasMap": site.contact.carte,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Douches chaudes", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Sanitaires accessibles PMR", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Électricité", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Aire de jeux", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Dépôt de pain", "value": true }
+  ]
+} | dump | safe }}</script>
+</head>
+<body class="theme-{{ site.theme }}">
+{% include "pictos.njk" %}
+<a class="evitement" href="#contenu">Aller au contenu</a>
+{% if site.demo %}<p class="bandeau-demo">Version de démonstration : ce site n'est pas encore en ligne.</p>{% endif %}
+<header class="entete"><div class="conteneur entete-in">
+  <a class="marque" href="/"><img src="{{ site.logo }}" alt="" width="44" height="44"><span>{{ site.nom }}</span></a>
+  <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+  <nav id="menu-principal" aria-label="Navigation principale"><ul>
+  {% for item in site.navigation %}<li><a href="{{ item.lien }}"{% if item.lien == page.url %} aria-current="page"{% endif %}>{{ item.texte }}</a></li>{% endfor %}
+  </ul></nav>
+  <a class="bouton bouton-entete" href="{{ site.bouton_flottant.lien }}">Réserver</a>
+</div></header>
+<main id="contenu">
+{{ content | safe }}
+</main>
+<a class="bouton bouton-flottant" href="{{ site.bouton_flottant.lien }}">{{ site.bouton_flottant.texte }}</a>
+<footer class="pied">
+  <div class="conteneur pied-in">
+    <div class="pied-marque"><img src="{{ site.logo }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>Aire naturelle de 25 emplacements<br>{{ site.contact.ouverture | lower }}</p></div></div>
+    <div><p class="pied-titre">Nous trouver</p><p>{{ site.contact.adresse }}<br>GPS : {{ site.contact.gps }}<br><a href="{{ site.contact.carte }}" rel="noopener">Ouvrir dans Google Maps</a></p></div>
+    <div><p class="pied-titre">Nous écrire ou appeler</p><p><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p></div>
+    <div><p class="pied-titre">Le site</p><ul class="pied-liens">{% for item in site.navigation %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}<li><a href="/mentions-legales/">Mentions légales</a></li></ul></div>
+  </div>
+  <p class="conteneur petit pied-bas">© {{ "" | annee }} {{ site.nom }} · Recommandé par le Petit Futé depuis 2004</p>
+</footer>
+<script>
+(function(){var f=document.querySelector(".bouton-flottant");if(f){var m=function(){f.classList.toggle("visible",scrollY>520)};addEventListener("scroll",m,{passive:true});m()}})();
+(function(){var b=document.querySelector(".menu-bouton"),n=document.getElementById("menu-principal");if(!b||!n)return;b.addEventListener("click",function(){var o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",String(!o));document.body.classList.toggle("menu-ouvert",!o)});n.addEventListener("click",function(e){if(e.target.tagName==="A"){b.setAttribute("aria-expanded","false");document.body.classList.remove("menu-ouvert")}})})();
+</script>
+</body>
+</html>

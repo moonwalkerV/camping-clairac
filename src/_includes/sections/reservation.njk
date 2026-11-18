@@ -1,0 +1,40 @@
+<section class="section reservation" id="reservation"><div class="conteneur reservation-in">
+  <div class="reservation-infos">
+    <p class="surtitre">Réserver</p>
+    <h2>Demander une réservation</h2>
+    <p>Il n'y a pas de réservation en ligne : envoyez-nous vos dates, nous vous répondons par e-mail pour confirmer.</p>
+    <ul class="contact-liste">
+      <li><svg class="picto" aria-hidden="true"><use href="#p-tel"/></svg><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-lettre"/></svg><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-cle"/></svg><span>Réception : 8 h 30 à 11 h 30 et 17 h à 20 h</span></li>
+    </ul>
+  </div>
+  <form class="formulaire" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="{{ site.formulaire.web3forms_cle }}">
+    <input type="hidden" name="subject" value="Demande de réservation depuis le site">
+    <input type="hidden" name="from_name" value="Site Camping Clairac">
+    <input type="hidden" name="redirect" value="{{ '/merci/' | absolu(site.url) }}">
+    <input type="checkbox" name="botcheck" class="cache" tabindex="-1" autocomplete="off">
+    <div class="champs-2">
+      <p><label for="nom">Votre nom</label><input id="nom" name="name" required autocomplete="name"></p>
+      <p><label for="tel">Téléphone (facultatif)</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></p>
+    </div>
+    <p><label for="email">Votre e-mail</label><input id="email" name="email" type="email" required autocomplete="email"></p>
+    <div class="champs-2">
+      <p><label for="arrivee">Arrivée</label><input id="arrivee" name="arrivee" type="date" required></p>
+      <p><label for="depart">Départ</label><input id="depart" name="depart" type="date" required></p>
+    </div>
+    <div class="champs-2">
+      <p><label for="adultes">Adultes</label><input id="adultes" name="adultes" type="number" min="1" max="12" value="2" required></p>
+      <p><label for="enfants">Enfants de moins de 13 ans</label><input id="enfants" name="enfants" type="number" min="0" max="12" value="0"></p>
+    </div>
+    <fieldset><legend>Vous venez avec</legend>
+      <div class="choix">{% for e in ["Tente", "Caravane", "Camping-car ou fourgon", "Je voudrais le gîte"] %}<label><input type="radio" name="hebergement" value="{{ e }}"{% if loop.first %} required{% endif %}> {{ e }}</label>{% endfor %}</div>
+    </fieldset>
+    <div class="choix choix-cases"><label><input type="checkbox" name="electricite" value="Oui"> Électricité</label><label><input type="checkbox" name="animal" value="Oui"> Un animal</label></div>
+    <p><label for="message">Un mot pour nous (facultatif)</label><textarea id="message" name="message" rows="4"></textarea></p>
+    <p class="petit">Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées pour de la publicité, et sont supprimées au bout de 12 mois. <a href="/mentions-legales/#donnees">En savoir plus</a></p>
+    {% if site.demo %}<p class="note-encadree petit">Démo : le formulaire sera relié à la boîte mail du camping à la mise en ligne.</p>{% endif %}
+    <button class="bouton" type="submit">Envoyer ma demande</button>
+  </form>
+</div></section>

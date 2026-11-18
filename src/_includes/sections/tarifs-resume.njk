@@ -1,0 +1,6 @@
+<section class="section tarifs-resume"><div class="conteneur tarifs-resume-in">
+  <div class="etiquette"><p class="etiquette-titre">{{ s.titre }}</p><p class="etiquette-prix">{{ s.prix }}</p><p>{{ s.prix_detail }}</p></div>
+  <div><ul class="tarifs-points">{% for i in s.items %}<li>{{ i }}</li>{% endfor %}</ul>
+  <p class="petit">Tarifs {{ tarifs.annee }}, taxe de séjour en plus (0,29 € par adulte et par nuit).</p>
+  <a class="lien-fleche" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a></div>
+</div></section>

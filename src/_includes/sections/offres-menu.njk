@@ -1,0 +1,5 @@
+<section class="section offres-menu" id="{{ s.ancre or 'offres' }}"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  <ul class="menu">{% for i in s.items %}<li><p class="menu-ligne"><span class="menu-nom">{{ i.titre }}</span><span class="menu-points" aria-hidden="true"></span><span class="menu-prix">{{ i.prix }}</span></p>{% if i.texte %}<p class="menu-desc">{{ i.texte }}</p>{% endif %}</li>{% endfor %}</ul>
+  {% if s.bouton %}<p><a class="bouton" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a></p>{% endif %}
+</div></section>

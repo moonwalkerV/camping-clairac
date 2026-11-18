@@ -1,0 +1,3 @@
+<section class="reperes" aria-label="En bref"><div class="conteneur"><ul class="reperes-liste">
+  {% for i in s.items %}<li><svg class="picto" aria-hidden="true"><use href="#p-{{ i.picto }}"/></svg><strong>{{ i.titre }}</strong><span>{{ i.texte }}</span></li>{% endfor %}
+</ul></div></section>
