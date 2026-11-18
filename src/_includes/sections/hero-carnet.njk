@@ -1,5 +1,5 @@
-<section class="hero-carnet"><div class="conteneur hero-carnet-in">
-  <div class="hero-texte">
+<section class="hero-carnet">
+  <div class="hero-panneau"><div class="hero-texte">
     {% if s.surtitre %}<p class="surtitre">{{ s.surtitre }}</p>{% endif %}
     <h1>{{ s.titre }}</h1>
     <p class="chapo">{{ s.intro }}</p>
@@ -7,10 +7,11 @@
       <a class="bouton" href="{{ site.bouton_flottant.lien }}">Demander une réservation</a>
       <a class="bouton secondaire" href="tel:{{ site.contact.telephone | tel }}"><svg class="picto" aria-hidden="true"><use href="#p-tel"/></svg>{{ site.contact.telephone_affiche }}</a>
     </div>
-    <p class="hero-ouverture">Ouvert {{ site.contact.ouverture | lower }} · Recommandé par le Petit Futé depuis 2004</p>
-  </div>
-  <div class="hero-tirages">
-    <figure class="tirage tirage-grand"><img src="{{ s.image }}" alt="{{ s.alt }}" width="765" height="1020" fetchpriority="high"><figcaption class="note">{{ s.note }}</figcaption></figure>
+    <p class="meteo-court" data-meteo="court" aria-live="polite" aria-busy="true"></p>
+  </div></div>
+  <div class="hero-photo">
+    <img src="{{ s.image }}" alt="{{ s.alt }}" width="765" height="1020" fetchpriority="high">
+    <p class="note note-photo">{{ s.note }}</p>
     {% if s.image2 %}<figure class="tirage tirage-petit"><img src="{{ s.image2 }}" alt="{{ s.alt2 }}" width="600" height="530" loading="lazy"><figcaption class="note">{{ s.note2 }}</figcaption></figure>{% endif %}
   </div>
-</div></section>
+</section>

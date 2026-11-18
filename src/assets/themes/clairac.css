@@ -81,19 +81,29 @@ a:hover{text-decoration-thickness:2px}
 /* Haies ondulées */
 .haie{display:block;width:100%;height:28px;fill:color-mix(in srgb,var(--doux) 55%,var(--fond))}
 
-/* Accueil : hero carnet */
-.hero-carnet{padding-block:clamp(40px,6vw,80px) clamp(48px,6vw,88px);background:radial-gradient(ellipse at 85% 20%,color-mix(in srgb,var(--doux) 70%,transparent),transparent 60%)}
-.hero-carnet-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,80px);align-items:center}
-.hero-ouverture{margin-top:24px;font-size:.98rem;opacity:.85}
-.hero-tirages{position:relative;padding:0 8% 18% 0}
-.tirage-grand{transform:rotate(-1.6deg)}
-.tirage-grand img{aspect-ratio:4/5}
-.tirage-petit{position:absolute;width:46%;right:0;bottom:0;transform:rotate(3deg)}
-.tirage-petit img{aspect-ratio:1}
-@media (max-width:860px){.hero-carnet-in{grid-template-columns:1fr}.hero-tirages{max-width:460px;margin-inline:auto;padding:0 10% 22% 0}}
+/* Accueil : hero en deux blocs (panneau olivier + grande photo) */
+.hero-carnet{display:grid;grid-template-columns:1fr 1fr;min-height:min(88vh,860px);background:var(--texte);color:var(--fond)}
+.hero-panneau{display:flex;align-items:center;justify-content:flex-end;padding:clamp(40px,6vw,88px) clamp(32px,5vw,72px) clamp(56px,7vw,96px) max(20px,calc((100vw - 1160px)/2 + 20px))}
+.hero-texte{max-width:560px}
+.hero-carnet .surtitre{color:#E9A47E}
+.hero-carnet h1{font-size:clamp(2.5rem,5.4vw,4.5rem);color:var(--fond)}
+.hero-carnet .chapo{color:color-mix(in srgb,var(--fond) 88%,transparent)}
+.hero-carnet .bouton:not(.secondaire){background:#C26A3F;border-color:#C26A3F;color:#1E1A12}
+.hero-carnet .bouton:not(.secondaire):hover{background:#D07A4E;border-color:#D07A4E}
+.hero-carnet .bouton.secondaire{border-color:var(--fond);color:var(--fond)}
+.hero-carnet .bouton.secondaire:hover{background:var(--fond);color:var(--texte)}
+.hero-photo{position:relative;min-height:420px}
+.hero-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.note-photo{position:absolute;right:24px;top:24px;margin:0;background:var(--papier);padding:4px 14px 6px;border-radius:3px;transform:rotate(2deg);box-shadow:var(--ombre)}
+.hero-photo .tirage-petit{position:absolute;width:min(44%,260px);left:-60px;bottom:-40px;transform:rotate(-4deg);z-index:2}
+.hero-photo .tirage-petit img{aspect-ratio:1}
+.meteo-court{display:flex;align-items:center;gap:12px;margin:32px 0 0;padding-top:20px;border-top:1px dashed rgb(243 238 226/.35);min-height:60px;font-size:1.05rem}
+.meteo-court .picto{color:#E9C46A;width:44px;height:44px}
+.meteo-court .meteo-titre{display:block;font-family:"Caveat",cursive;font-size:1.35rem;line-height:1;color:#E9A47E}
+@media (max-width:860px){.hero-carnet{grid-template-columns:1fr;min-height:0}.hero-panneau{padding:40px 20px 56px;justify-content:flex-start}.hero-photo{min-height:0;aspect-ratio:4/5;max-height:70vh}.hero-photo .tirage-petit{left:16px;bottom:-32px;width:44%}}
 
 /* Repères */
-.reperes{padding-block:8px 24px}
+.reperes{padding-block:clamp(64px,7vw,88px) 28px}
 .reperes-liste{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0;padding:24px 0;border-block:1px dashed color-mix(in srgb,var(--texte) 30%,transparent)}
 .reperes-liste li{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center}
 .reperes-liste .picto{grid-row:span 2}
@@ -247,3 +257,52 @@ a:hover{text-decoration-thickness:2px}
 .appel-reservation::before{content:"";position:absolute;left:0;right:0;top:-27px;height:28px;background:var(--texte);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V24c32 -9 76 -9 108 0c32 -15 76 -15 108 0c29 -11 67 -11 96 0c29 -15 67 -15 96 0c32 -9 76 -9 108 0c32 -9 76 -9 108 0c32 -13 76 -13 108 0c29 -15 67 -15 96 0c36 -13 84 -13 120 0c36 -15 84 -15 120 0c29 -11 67 -11 96 0c11 -13 25 -13 36 0V40Z'/%3E%3C/svg%3E") 0 0/100% 100%;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V24c32 -9 76 -9 108 0c32 -15 76 -15 108 0c29 -11 67 -11 96 0c29 -15 67 -15 96 0c32 -9 76 -9 108 0c32 -9 76 -9 108 0c32 -13 76 -13 108 0c29 -15 67 -15 96 0c36 -13 84 -13 120 0c36 -15 84 -15 120 0c29 -11 67 -11 96 0c11 -13 25 -13 36 0V40Z'/%3E%3C/svg%3E") 0 0/100% 100%}
 .appel-reservation+*{border-top:1px solid rgb(255 255 255/.15)}
 @media (max-width:1080px){.js .bouton-flottant{opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .2s,transform .2s}.js .bouton-flottant.visible{opacity:1;pointer-events:auto;transform:none}}
+
+/* Corde à linge (galerie) */
+.corde{padding-block:clamp(56px,8vw,96px) clamp(48px,6vw,72px);background:color-mix(in srgb,var(--doux) 55%,var(--fond));overflow:hidden}
+.corde .conteneur{text-align:center}
+.corde-fil{position:relative;margin-top:24px}
+.corde-ligne{position:absolute;left:0;right:0;top:0;width:100%;height:60px;fill:none;stroke:#8A6848;stroke-width:2.5}
+.corde-photos{list-style:none;display:flex;gap:clamp(16px,2.4vw,36px);padding:22px 4vw 28px;overflow-x:auto;scroll-snap-type:x mandatory;justify-content:safe center}
+.corde-photos li{position:relative;flex:0 0 clamp(180px,13.4vw,220px);scroll-snap-align:center;padding-top:14px}
+.corde-photos li:nth-child(odd){transform:rotate(-2.4deg) translateY(10px)}
+.corde-photos li:nth-child(even){transform:rotate(2deg) translateY(22px)}
+.corde-photos li:nth-child(3),.corde-photos li:nth-child(4){margin-top:14px}
+.corde-photos .tirage img{aspect-ratio:1}
+.pince{position:absolute;top:0;left:50%;width:14px;height:34px;margin-left:-7px;z-index:2;fill:#D9B98A;stroke:#5C4A36;stroke-width:1.6}
+
+/* Panorama */
+.panorama{position:relative;height:clamp(320px,52vw,560px);overflow:hidden;color:#fff}
+.panorama img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panorama-texte{position:absolute;inset:auto 0 0;padding:120px 20px 40px;background:linear-gradient(transparent,rgb(20 24 18/.65));text-align:center}
+.panorama .note{color:#fff;font-size:clamp(1.8rem,4vw,3rem);max-width:22ch;margin:0 auto;padding:0}
+
+/* Carte dessinée */
+.carte-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:center}
+.carte-dessin{width:100%;height:auto;font-family:"Caveat",cursive;font-size:24px}
+.carte-mer{fill:#C9D7CF}
+.carte-cote{fill:none;stroke:var(--second);stroke-width:2.5}
+.carte-route{fill:none;stroke:#C9B98F;stroke-width:6;stroke-linecap:round}
+.carte-riviere{fill:none;stroke:#9DB4C0;stroke-width:3;stroke-linecap:round}
+.carte-pointille path{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:2 9;stroke-linecap:round}
+.carte-lieu circle{fill:var(--fond);stroke:var(--texte);stroke-width:2.5}
+.carte-lieu text{fill:var(--texte)}
+.carte-km{fill:var(--accent)!important;font-size:22px}
+.carte-clairac circle{fill:var(--accent)}
+.carte-clairac svg{fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.carte-clairac text{font-family:"Bryndan Write",var(--f-titre);font-size:22px;fill:var(--texte);text-transform:uppercase}
+@media (max-width:860px){.carte-in{grid-template-columns:1fr}}
+
+/* Météo complète */
+.meteo{background:var(--papier);border-radius:14px;box-shadow:var(--ombre);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:auto 1fr;gap:24px 40px;align-items:center;min-height:150px;margin-bottom:56px}
+.meteo-maintenant{display:flex;gap:16px;align-items:center}
+.meteo-maintenant p{margin:0}
+.meteo-maintenant .picto{width:72px;height:72px;color:var(--accent)}
+.meteo .meteo-titre{font-family:"Caveat",cursive;font-size:1.4rem;color:var(--accent)}
+.meteo-temp{font-family:var(--f-titre);font-size:2.6rem;font-weight:600;line-height:1}
+.meteo-jours{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center}
+.meteo-jours li{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border-left:1px dashed color-mix(in srgb,var(--texte) 25%,transparent)}
+.meteo-jour{text-transform:capitalize;font-weight:600}
+.meteo-min{opacity:.7}
+.meteo-jours .picto{width:38px;height:38px}
+@media (max-width:760px){.meteo{grid-template-columns:1fr}.meteo-jours li:first-child{border-left:0}}
