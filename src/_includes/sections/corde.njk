@@ -1,0 +1,6 @@
+<section class="corde" aria-labelledby="corde-titre"><div class="conteneur"><p class="surtitre">{{ s.surtitre }}</p><h2 id="corde-titre">{{ s.titre }}</h2></div>
+  <div class="corde-fil">
+    <svg class="corde-ligne" viewBox="0 0 1600 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8C400 52 1200 52 1600 8"/></svg>
+    <ul class="corde-photos">{% for i in s.items %}<li><svg class="pince" aria-hidden="true"><use href="#p-pince"/></svg><figure class="tirage"><img src="{{ i.image }}" alt="{{ i.alt }}" width="600" height="600" loading="lazy"><figcaption class="note">{{ i.note }}</figcaption></figure></li>{% endfor %}</ul>
+  </div>
+</section>

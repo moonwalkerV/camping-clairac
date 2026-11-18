@@ -25,9 +25,9 @@ Glimra · Amélie Philippon, Béziers.
 
 Les informations envoyées avec le formulaire de demande de réservation (nom, e-mail, téléphone, dates, composition du groupe) servent uniquement à répondre à votre demande. Elles sont transmises par le service Web3Forms à la boîte mail du camping, conservées 12 mois au plus et jamais revendues. Vous pouvez demander à les consulter, les corriger ou les supprimer en écrivant à info@campingclairac.com. Vous pouvez aussi adresser une réclamation à la CNIL (www.cnil.fr).
 
-## Cookies
+## Cookies et services extérieurs
 
-Ce site ne dépose aucun cookie publicitaire ni traceur de mesure d'audience. Les polices de caractères sont hébergées sur le site lui-même.
+Ce site ne dépose aucun cookie publicitaire ni traceur de mesure d'audience. Les polices de caractères sont hébergées sur le site lui-même. La météo est fournie par Open-Meteo (open-meteo.com) : pour l'afficher, votre navigateur l'interroge directement, sans cookie.
 
 ## Propriété intellectuelle
 
