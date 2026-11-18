@@ -5,9 +5,45 @@
   "outputDirectory": "_site",
   "trailingSlash": true,
   "redirects": [
-    { "source": "/sejourner/tarifs", "destination": "/sejourner/#tarifs", "permanent": true },
-    { "source": "/sejourner/tarifs-gite", "destination": "/sejourner/#gite", "permanent": true },
-    { "source": "/galerie", "destination": "/aire-naturelle/", "permanent": true },
-    { "source": "/infos-pratiques/contact", "destination": "/infos-pratiques/#reservation", "permanent": true }
+    {
+      "source": "/sejourner/tarifs",
+      "destination": "/sejourner/#tarifs",
+      "permanent": true
+    },
+    {
+      "source": "/sejourner/tarifs-gite",
+      "destination": "/sejourner/#gite",
+      "permanent": true
+    },
+    {
+      "source": "/galerie",
+      "destination": "/aire-naturelle/",
+      "permanent": true
+    },
+    {
+      "source": "/infos-pratiques/contact",
+      "destination": "/infos-pratiques/#reservation",
+      "permanent": true
+    },
+    {
+      "source": "/sejourner/tarifs/",
+      "destination": "/sejourner/#tarifs",
+      "permanent": true
+    },
+    {
+      "source": "/sejourner/tarifs-gite/",
+      "destination": "/sejourner/#gite",
+      "permanent": true
+    },
+    {
+      "source": "/galerie/",
+      "destination": "/aire-naturelle/",
+      "permanent": true
+    },
+    {
+      "source": "/infos-pratiques/contact/",
+      "destination": "/infos-pratiques/#reservation",
+      "permanent": true
+    }
   ]
 }
