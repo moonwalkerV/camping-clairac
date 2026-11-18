@@ -1,0 +1,10 @@
+<section class="section recit"><div class="conteneur recit-in">
+  {% if s.image %}<img class="recit-img" src="{{ s.image }}" alt="{{ s.alt }}" loading="lazy" width="640" height="800">{% endif %}
+  <div class="recit-texte">
+    {% if s.surtitre %}<p class="surtitre">{{ s.surtitre }}</p>{% endif %}
+    <h2>{{ s.titre }}</h2>
+    {{ s.texte | paragraphes | safe }}
+    {% if s.citation %}<blockquote class="citation"><p>{{ s.citation }}</p></blockquote>{% endif %}
+    {% if s.bouton %}<a class="lien-fleche" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>{% endif %}
+  </div>
+</div></section>

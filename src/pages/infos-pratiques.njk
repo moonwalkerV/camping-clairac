@@ -1,0 +1,43 @@
+---
+layout: base.njk
+permalink: /infos-pratiques/
+title: Infos pratiques et réservation
+surtitre: Préparer votre venue
+description: "Accès au camping Clairac à Béziers (adresse GPS, itinéraires A9 et A75), horaires, plan du camping, consignes incendie et demande de réservation."
+intro: "Le camping se trouve sur le domaine de Clairac, entre vignes et oliviers, à 5 km du centre de Béziers, 15 km de la Méditerranée et 15 km de Pézenas."
+---
+{% include "bandeau.njk" %}
+{% include "sections/reservation.njk" %}
+<section class="section fond-doux" id="acces"><div class="conteneur deux-col">
+  <div>
+    <h2>Venir au camping</h2>
+    <p class="note-encadree"><strong>Pour le GPS, n'utilisez pas l'adresse postale.</strong> Tapez « {{ site.contact.gps }} » ou les coordonnées 43.362408, 3.319105. Et suivez nos indications ou votre GPS, jamais les deux à la fois.</p>
+    <p class="actions"><a class="bouton secondaire" href="{{ site.contact.carte }}" rel="noopener">Ouvrir dans Google Maps</a><a class="bouton secondaire" href="{{ site.contact.carte_apple }}" rel="noopener">Ouvrir dans Plans (Apple)</a></p>
+    <h3>Par l'A9</h3>
+    <p>Sortie n° 35 « Béziers Centre ». Au 1er rond-point, direction Béziers-Centre. Aux 2e et 3e ronds-points, direction Pézenas. Au 4e, direction N9 / PAE La Baume. Tout droit pendant 3,5 km sur la N9, puis à droite vers « Domaine de Clairac / Camping Clairac ».</p>
+    <h3>Par l'A75</h3>
+    <p>Sortie n° 63 « Béziers-Centre ». Au rond-point, à droite, direction N9 / PAE La Baume. Tout droit pendant 3,5 km sur la N9, puis à droite vers « Domaine de Clairac / Camping Clairac ».</p>
+    <p>Les derniers kilomètres se font sur un chemin de terre en bon état, à l'image d'une vraie aire naturelle.</p>
+    <p class="petit">Adresse postale, pour le courrier seulement : {{ site.contact.adresse }}.</p>
+  </div>
+  <figure class="tirage tirage-penche"><img src="/assets/img/photos/chemin-terre-acces-chiens.webp" alt="Le chemin de terre qui mène au camping" width="900" height="1200" loading="lazy"><figcaption class="note">le chemin, c'est par ici</figcaption></figure>
+</div></section>
+<section class="section" id="infos"><div class="conteneur">
+  <header class="section-entete"><h2>Bon à savoir</h2></header>
+  <ul class="reperes-liste reperes-page">
+    <li><svg class="picto" aria-hidden="true"><use href="#p-tente"/></svg><strong>Ouverture</strong><span>d'avril à octobre</span></li>
+    <li><svg class="picto" aria-hidden="true"><use href="#p-cle"/></svg><strong>Portail</strong><span>ouvert de 7 h 30 à 22 h 30</span></li>
+    <li><svg class="picto" aria-hidden="true"><use href="#p-maison"/></svg><strong>Réception</strong><span>8 h 30 à 11 h 30 et 17 h à 20 h</span></li>
+    <li><svg class="picto" aria-hidden="true"><use href="#p-lettre"/></svg><strong>Réservation</strong><span>par e-mail ou téléphone</span></li>
+  </ul>
+  <div class="deux-col plan-feu">
+    <figure class="plan"><a href="/assets/img/photos/plan-du-camping.webp"><img src="/assets/img/photos/plan-du-camping.webp" alt="Plan du camping avec les emplacements numérotés, les sanitaires, l'aire de jeux et les équipements de sécurité incendie" width="1641" height="1800" loading="lazy"></a><figcaption>Plan du camping (cliquez pour l'agrandir)</figcaption></figure>
+    <div class="alerte-feu">
+      <svg class="picto picto-grand" aria-hidden="true"><use href="#p-flamme"/></svg>
+      <h3>Zone de vigilance feu de forêt</h3>
+      <p>Le camping est en zone classée à risque fort de feu de forêt. Les feux et les barbecues au sol sont strictement interdits : seuls les barbecues électriques ou à gaz sont autorisés, avec une seule bouteille de gaz par installation.</p>
+      <p>Ne jetez jamais de mégot au sol. La sécurité de tous, campeurs comme forêt, en dépend.</p>
+    </div>
+  </div>
+</div></section>
+{% set s = { surtitre: "Questions fréquentes", titre: "Les réponses avant de partir" } %}{% include "sections/faq-clairac.njk" %}

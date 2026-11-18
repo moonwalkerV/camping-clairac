@@ -1,0 +1,9 @@
+<section class="hero hero-sobre"><div class="conteneur hero-in">
+  <div class="hero-texte">
+    {% if s.surtitre %}<p class="surtitre">{{ s.surtitre }}</p>{% endif %}
+    <h1>{{ s.titre or site.accroche }}</h1>
+    {% if s.intro %}<p class="chapo">{{ s.intro }}</p>{% endif %}
+    {% if s.bouton %}<a class="bouton" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>{% endif %}
+  </div>
+  {% if s.items %}<dl class="chiffres-hero">{% for i in s.items %}<div><dt>{{ i.titre }}</dt><dd>{{ i.texte }}</dd></div>{% endfor %}</dl>{% endif %}
+</div></section>

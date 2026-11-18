@@ -1,0 +1,4 @@
+<section class="section bandeau"><div class="conteneur bandeau-in">
+  <div><h2>{{ s.titre }}</h2>{% if s.intro %}<p>{{ s.intro }}</p>{% endif %}</div>
+  {% if s.bouton %}<a class="bouton" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>{% endif %}
+</div></section>

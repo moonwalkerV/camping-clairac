@@ -1,0 +1,92 @@
+{
+  "annee": "2026 et 2027",
+  "groupes": [
+    {
+      "titre": "Emplacement, par nuit",
+      "lignes": [
+        {
+          "nom": "Emplacement tente, caravane ou voiture, 2 personnes comprises",
+          "prix": "25,00 €"
+        },
+        {
+          "nom": "Adulte supplémentaire",
+          "prix": "6,00 €"
+        },
+        {
+          "nom": "Enfant de moins de 13 ans",
+          "prix": "4,00 €"
+        },
+        {
+          "nom": "Électricité",
+          "prix": "5,00 €"
+        },
+        {
+          "nom": "Animal (chien, chat…)",
+          "prix": "2,00 €"
+        }
+      ]
+    },
+    {
+      "titre": "Suppléments",
+      "lignes": [
+        {
+          "nom": "Petite tente supplémentaire",
+          "prix": "5,00 €"
+        },
+        {
+          "nom": "Caravane de plus de 6 m",
+          "prix": "5,00 €"
+        },
+        {
+          "nom": "Deuxième voiture",
+          "prix": "5,00 €"
+        },
+        {
+          "nom": "Fourgon aménagé utilisé comme camping-car",
+          "prix": "5,00 €"
+        }
+      ]
+    },
+    {
+      "titre": "Services",
+      "lignes": [
+        {
+          "nom": "Douche chaude",
+          "prix": "Gratuite"
+        },
+        {
+          "nom": "Machine à laver (par lavage)",
+          "prix": "5,00 €"
+        },
+        {
+          "nom": "Dose de lessive",
+          "prix": "1,50 €"
+        },
+        {
+          "nom": "Location de câble électrique",
+          "prix": "1,00 €"
+        },
+        {
+          "nom": "Caution adaptateur ou câble électrique",
+          "prix": "30,00 €"
+        }
+      ]
+    },
+    {
+      "titre": "Taxe de séjour",
+      "lignes": [
+        {
+          "nom": "Par personne de 18 ans et plus, par nuit",
+          "prix": "0,29 €"
+        }
+      ]
+    }
+  ],
+  "inclus": [
+    "L'emplacement",
+    "Les sanitaires et les douches chaudes",
+    "L'aire de jeux",
+    "Le Wi-Fi"
+  ],
+  "gite": "Les tarifs du gîte arrivent bientôt. En attendant, écrivez-nous : nous vous répondons avec un prix pour vos dates."
+}

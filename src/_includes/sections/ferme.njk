@@ -1,0 +1,10 @@
+<section class="section ferme"><div class="conteneur ferme-in">
+  <div class="ferme-texte">
+    <p class="surtitre">{{ s.surtitre }}</p>
+    <h2>{{ s.titre }}</h2>
+    {{ s.texte | paragraphes | safe }}
+    <ul class="gestes">{% for i in s.items %}<li><svg class="picto" aria-hidden="true"><use href="#p-{{ i.picto }}"/></svg><span>{{ i.texte }}</span></li>{% endfor %}</ul>
+    {% if s.bouton %}<a class="lien-fleche" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>{% endif %}
+  </div>
+  <figure class="tirage tirage-penche"><img src="{{ s.image }}" alt="{{ s.alt }}" width="1061" height="1020" loading="lazy"><figcaption class="note">{{ s.note }}</figcaption></figure>
+</div></section>

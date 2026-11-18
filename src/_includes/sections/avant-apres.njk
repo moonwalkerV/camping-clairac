@@ -1,0 +1,7 @@
+<section class="section avant-apres" id="{{ s.ancre or 'realisations' }}"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  {% for i in s.items %}<figure class="paire">
+    <div class="paire-images"><div><img src="{{ i.image }}" alt="Avant : {{ i.alt }}" loading="lazy" width="560" height="420"><span>Avant</span></div><div><img src="{{ i.image2 }}" alt="Après : {{ i.alt }}" loading="lazy" width="560" height="420"><span>Après</span></div></div>
+    <figcaption><strong>{{ i.titre }}</strong> {{ i.texte }}</figcaption>
+  </figure>{% endfor %}
+</div></section>

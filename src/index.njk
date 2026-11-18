@@ -1,0 +1,6 @@
+---
+layout: base.njk
+---
+{#- L'accueil n'a pas de mise en page fixe : il enchaîne les sections choisies dans accueil.json, dans l'ordre. -#}
+{% for s in accueil.sections %}{% include "sections/" + s.type + ".njk" %}
+{% endfor %}

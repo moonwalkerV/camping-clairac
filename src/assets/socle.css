@@ -1,0 +1,41 @@
+/* SOCLE : commun à tous les sites, volontairement sans style visible (pas de rayon, d'ombre ni de taille de titre).
+   Tout ce qui se voit est dans themes/<theme>.css. Les couleurs et polices viennent de site.json. */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--fond);color:var(--texte);font-family:var(--f-texte);line-height:1.6;overflow-wrap:break-word}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-titre);text-wrap:balance;margin:0 0 .5em}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0}
+.conteneur{max-width:var(--largeur,1120px);margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left))}
+.evitement{position:absolute;left:-9999px}
+.evitement:focus{left:16px;top:16px;background:var(--fond);padding:8px 12px;z-index:20}
+.cache{display:none}
+.petit{font-size:.875rem}
+.centre{text-align:center}
+.entete-in{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+.marque{display:flex;align-items:center;gap:10px;text-decoration:none}
+.entete nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 20px}
+.entete nav a{text-decoration:none}
+.bouton{display:inline-block;text-decoration:none;cursor:pointer;font:inherit;border:2px solid var(--accent);background:var(--accent);color:var(--accent-texte)}
+.bouton.secondaire{background:transparent;color:inherit}
+.bouton-flottant{position:fixed;right:16px;bottom:16px;z-index:10;text-decoration:none}
+.formulaire{display:flex;flex-direction:column;gap:6px}
+.formulaire input,.formulaire textarea{font:inherit;padding:12px;border:1px solid color-mix(in srgb,var(--texte) 35%,transparent);background:#fff;color:#111}
+.formulaire .bouton{margin-top:12px;align-self:flex-start}
+summary{cursor:pointer}
+.menu,.liste-services,.etapes-liste,.garanties{list-style:none}
+.menu-ligne{display:flex;align-items:baseline;gap:8px;margin:0}
+.menu-points{flex:1;border-bottom:2px dotted currentColor;opacity:.4;transform:translateY(-4px)}
+.chiffres-liste,.chiffres-hero{margin:0}
+.chiffres-liste dd,.chiffres-hero dd{margin:0}
+.paire-images{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.paire-images>div{position:relative}
+.paire-images span{position:absolute;left:8px;top:8px}
+.pied-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+.reseaux{list-style:none;display:flex;gap:16px}
+.bandeau-page{background:var(--doux);padding-block:56px 40px}
+.texte-long{max-width:720px}

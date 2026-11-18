@@ -1,0 +1,4 @@
+<section class="section galerie"><div class="conteneur">
+  {% include "sections/_entete-section.njk" %}
+  <div class="galerie-grille">{% for i in s.items %}<img src="{{ i.image }}" alt="{{ i.alt }}" loading="lazy" width="600" height="450">{% endfor %}</div>
+</div></section>
