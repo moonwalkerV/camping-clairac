@@ -323,3 +323,52 @@ a:hover{text-decoration-thickness:2px}
 .theme>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
 .theme[open]{padding-bottom:22px}
+
+
+/* GLIMRA · évolution éditoriale du premier écran (proposition A)
+   Conserver l'identité carnet, les vraies photos et la palette du camping.
+   Deux choix de séjour lisibles dès l'accueil, au clavier comme sur mobile. */
+.hero-carnet .hero-texte{max-width:580px}
+.hero-carnet .hero-choix{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:clamp(26px,3vw,42px);
+}
+.hero-choix-lien{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  padding:18px 20px;
+  min-height:116px;
+  border:1px solid rgb(243 238 226/.38);
+  border-radius:8px;
+  background:rgb(243 238 226/.075);
+  color:var(--fond);
+  text-decoration:none;
+  transition:background .18s,border-color .18s,transform .18s;
+}
+.hero-choix-lien:hover{
+  color:var(--fond);
+  border-color:#E9A47E;
+  background:rgb(243 238 226/.16);
+  transform:translateY(-2px);
+}
+.hero-choix-lien:focus-visible{outline:3px solid #F7C69B;outline-offset:3px}
+.hero-choix-surtitre{font-family:"Caveat",cursive;font-size:1.3rem;line-height:1.05;color:#F4C7A6}
+.hero-choix-lien strong{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-family:var(--f-titre);font-size:clamp(1.12rem,1.7vw,1.4rem);font-weight:560;line-height:1.15}
+.hero-choix-lien strong span{font-family:var(--f-texte);font-size:1rem;flex:none}
+.hero-choix-detail{font-size:.92rem;line-height:1.4;color:rgb(243 238 226/.9)}
+@media (max-width:1100px) and (min-width:861px){
+  .hero-choix-lien{padding:14px}
+  .hero-carnet .hero-choix{gap:8px}
+}
+@media (max-width:500px){
+  .hero-carnet .hero-choix{grid-template-columns:1fr}
+  .hero-choix-lien{min-height:0;padding:14px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-choix-lien{transition:none}
+  .hero-choix-lien:hover{transform:none}
+}
+.formulaire button:disabled{opacity:.72;cursor:not-allowed;filter:grayscale(.15);transform:none}
