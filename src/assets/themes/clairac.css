@@ -323,3 +323,94 @@ a:hover{text-decoration-thickness:2px}
 .theme>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
 .theme[open]{padding-bottom:22px}
+
+
+/* GLIMRA · évolution éditoriale du premier écran (proposition A)
+   Conserver l'identité carnet, les vraies photos et la palette du camping.
+   Deux choix de séjour lisibles dès l'accueil, au clavier comme sur mobile. */
+.hero-carnet .hero-texte{max-width:580px}
+.hero-carnet .hero-choix{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:clamp(26px,3vw,42px);
+}
+.hero-choix-lien{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  padding:18px 20px;
+  min-height:116px;
+  border:1px solid rgb(243 238 226/.38);
+  border-radius:8px;
+  background:rgb(243 238 226/.075);
+  color:var(--fond);
+  text-decoration:none;
+  transition:background .18s,border-color .18s,transform .18s;
+}
+.hero-choix-lien:hover{
+  color:var(--fond);
+  border-color:#E9A47E;
+  background:rgb(243 238 226/.16);
+  transform:translateY(-2px);
+}
+.hero-choix-lien:focus-visible{outline:3px solid #F7C69B;outline-offset:3px}
+.hero-choix-surtitre{font-family:"Caveat",cursive;font-size:1.3rem;line-height:1.05;color:#F4C7A6}
+.hero-choix-lien strong{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-family:var(--f-titre);font-size:clamp(1.12rem,1.7vw,1.4rem);font-weight:560;line-height:1.15}
+.hero-choix-lien strong span{font-family:var(--f-texte);font-size:1rem;flex:none}
+.hero-choix-detail{font-size:.92rem;line-height:1.4;color:rgb(243 238 226/.9)}
+@media (max-width:1100px) and (min-width:861px){
+  .hero-choix-lien{padding:14px}
+  .hero-carnet .hero-choix{gap:8px}
+}
+@media (max-width:500px){
+  .hero-carnet .hero-choix{grid-template-columns:1fr}
+  .hero-choix-lien{min-height:0;padding:14px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-choix-lien{transition:none}
+  .hero-choix-lien:hover{transform:none}
+}
+.formulaire button:disabled{opacity:.72;cursor:not-allowed;filter:grayscale(.15);transform:none}
+
+
+/* GLIMRA · proposition B : Clairac signature, carnet photographique immersif.
+   Alternative à A à tester sur la branche dédiée ; ne change aucun contenu. */
+@media (min-width:861px){
+  .hero-carnet{
+    position:relative;
+    isolation:isolate;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    min-height:clamp(700px,92vh,940px);
+    background:#24362A;
+  }
+  .hero-photo{position:absolute;inset:0;z-index:0;min-height:0}
+  .hero-panneau{position:relative;z-index:1}
+  .hero-photo>img{object-position:center 65%}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(21,35,26,.93) 0%,rgba(24,39,29,.77) 35%,rgba(24,39,29,.14) 84%),
+      linear-gradient(0deg,rgba(12,23,16,.44),transparent 40%);
+  }
+  .hero-photo .tirage-petit{left:auto;right:clamp(28px,5vw,90px);bottom:40px;width:clamp(150px,16vw,215px);z-index:2}
+  .hero-photo .note-photo{top:clamp(32px,6vw,80px);right:clamp(28px,5vw,90px);z-index:2}
+  .hero-panneau{justify-content:flex-start;padding:clamp(75px,9vh,120px) max(32px,calc((100vw - 1160px)/2 + 20px))}
+  .hero-texte{max-width:670px}
+  .hero-carnet h1{font-size:clamp(3.4rem,5.8vw,6rem);max-width:14ch;line-height:1.04}
+  .hero-carnet .chapo{max-width:49ch}
+  .hero-carnet .hero-choix{max-width:620px;margin-top:clamp(32px,5vh,56px)}
+  .hero-choix-lien{background:rgba(251,248,240,.92);border-color:rgba(251,248,240,.92);color:#24362A;backdrop-filter:blur(6px)}
+  .hero-choix-lien:hover{color:#24362A;background:#fff;border-color:#fff}
+  .hero-choix-surtitre{color:#8F4727}
+  .hero-choix-detail{color:#3F4F40}
+}
+@media (min-width:861px) and (max-width:1100px){
+  .hero-carnet .hero-photo .tirage-petit{display:none}
+  .hero-carnet .hero-photo .note-photo{right:22px;top:20px}
+  .hero-carnet h1{font-size:clamp(3rem,5.4vw,4.3rem)}
+}
+@media (max-width:860px){
+  .hero-carnet{background:#24362A}
+  .hero-carnet .hero-photo{aspect-ratio:4/3}
+}
