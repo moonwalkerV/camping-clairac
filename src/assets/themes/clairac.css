@@ -372,3 +372,18 @@ a:hover{text-decoration-thickness:2px}
   .hero-choix-lien:hover{transform:none}
 }
 .formulaire button:disabled{opacity:.72;cursor:not-allowed;filter:grayscale(.15);transform:none}
+
+
+/* Glimra UX review — accès direct aux deux hébergements dès le premier écran.
+   Conserve le thème carnet de la ferme et ses visuels authentiques. */
+.hero-choix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+.hero-choix-lien{display:flex;flex-direction:column;justify-content:center;gap:3px;min-height:104px;padding:14px 16px;border:1px solid rgb(243 238 226/.5);border-radius:8px;background:rgb(243 238 226/.08);color:var(--fond);text-decoration:none;transition:background .2s,border-color .2s}
+.hero-choix-lien:hover{background:rgb(243 238 226/.16);border-color:var(--fond)}
+.hero-choix-lien:focus-visible{outline:3px solid #F3EEE2;outline-offset:3px}
+.hero-choix-surtitre{font-family:"Caveat",cursive;font-size:1.25rem;line-height:1.1;color:#F2BC9D}
+.hero-choix-lien strong{font-family:var(--f-titre);font-size:clamp(1.05rem,1.6vw,1.35rem);font-weight:600;line-height:1.2}
+.hero-choix-lien strong span{font-family:var(--f-texte);font-size:.85em}
+.hero-choix-detail{font-size:.85rem;line-height:1.35;color:#F3EEE2}
+.formulaire button:disabled{cursor:not-allowed;opacity:.7;transform:none}
+@media(max-width:520px){.hero-choix{grid-template-columns:1fr}.hero-choix-lien{min-height:76px;padding:11px 14px}}
+@media(prefers-reduced-motion:reduce){.hero-choix-lien{transition:none}}
