@@ -10,21 +10,20 @@ bandeau_alt: Des vélos sur la plage, entre les dunes et la mer
 bandeau_note: la mer est à 15 km
 ---
 {% include "bandeau.njk" %}
-<nav class="sommaire conteneur" aria-label="Catégories"><ul>{% for t in alentours %}<li><a href="#{{ t.id }}">{{ t.label }}</a></li>{% endfor %}</ul></nav>
-{% for t in alentours %}
-<section class="section-courte lieux" id="{{ t.id }}"><div class="conteneur">
-  <h2>{{ t.label }}</h2>
-  {% if t.intro %}<p class="section-intro">{{ t.intro }}</p>{% endif %}
-  <div class="lieux-grille">{% for p in t.places %}<article class="lieu lieu-long">
-    {% if p.image %}<img src="{{ p.image | replace('/images/', '/assets/img/photos/') }}" alt="{{ p.alt }}" width="800" height="600" loading="lazy">{% endif %}
-    <div class="lieu-texte"><h3>{{ p.name }}</h3>{% if p.subtitle %}<p class="lieu-sous">{{ p.subtitle }}</p>{% endif %}
-    <p>{{ p.text }}</p>
-    {% if p.hours %}<p class="petit"><strong>Horaires :</strong> {{ p.hours }}</p>{% endif %}
-    {% if p.note %}<p class="petit">{{ p.note }}</p>{% endif %}
-    <p class="lieu-liens">{% if p.mapsQuery %}<a href="https://www.google.com/maps/search/?api=1&amp;query={{ p.mapsQuery | urlencode }}" rel="noopener">Voir sur la carte<span class="cache-visuel"> : {{ p.name }}</span></a>{% endif %}{% if p.website %} <a href="{{ p.website }}" rel="noopener">Site web<span class="cache-visuel"> de {{ p.name }}</span></a>{% endif %}</p>
-    {% if p.credit %}<p class="credit">Photo : {{ p.credit }}</p>{% endif %}</div>
-  </article>{% endfor %}</div>
-  {% if t.footerLink %}<p><a class="lien-fleche" href="{{ t.footerLink.href }}" rel="noopener">{{ t.footerLink.label }}</a></p>{% endif %}
+<section class="section-courte lieux" id="preferes"><div class="conteneur">
+  <h2>Nos préférés</h2>
+  <p class="section-intro">Si vous n'avez que quelques jours, commencez par ceux-là.</p>
+  <div class="lieux-grille">{% for t in alentours %}{% for p in t.places %}{% if p.favori %}{% include "sections/_lieu.njk" %}{% endif %}{% endfor %}{% endfor %}</div>
 </div></section>
-{% endfor %}
+<section class="section-courte lieux" id="autres"><div class="conteneur">
+  <h2>Et tout le reste, par thème</h2>
+  <p class="section-intro">Ouvrez un thème pour voir toutes nos autres adresses.</p>
+  {% for t in alentours %}{% set reste = 0 %}{% for p in t.places %}{% if not p.favori %}{% set reste = reste + 1 %}{% endif %}{% endfor %}
+  {% if reste > 0 %}<details class="theme" id="{{ t.id }}"><summary><span>{{ t.label }}</span><span class="theme-nb">{{ reste }} adresse{% if reste > 1 %}s{% endif %}</span></summary>
+    {% if t.intro %}<p class="section-intro">{{ t.intro }}</p>{% endif %}
+    <div class="lieux-grille">{% for p in t.places %}{% if not p.favori %}{% include "sections/_lieu.njk" %}{% endif %}{% endfor %}</div>
+    {% if t.footerLink %}<p><a class="lien-fleche" href="{{ t.footerLink.href }}" rel="noopener">{{ t.footerLink.label }}</a></p>{% endif %}
+  </details>{% endif %}{% endfor %}
+</div></section>
+<script>(function(){function o(){var e=location.hash&&document.querySelector(location.hash);if(e&&e.tagName==="DETAILS")e.open=true}o();addEventListener("hashchange",o)})();</script>
 {% set s = { titre: "Et le soir, on rentre au calme", intro: "Réservez votre emplacement : nous vous répondons par e-mail pour confirmer." } %}{% include "sections/appel-reservation.njk" %}

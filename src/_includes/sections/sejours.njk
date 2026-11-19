@@ -2,6 +2,6 @@
   {% include "sections/_entete-section.njk" %}
   <div class="sejours-grille">{% for i in s.items %}<article class="sejour">
     <figure class="tirage"><img src="{{ i.image }}" alt="{{ i.alt }}" width="1200" height="900" loading="lazy"><figcaption class="note">{{ i.note }}</figcaption></figure>
-    <h3>{{ i.titre }}</h3><p>{{ i.texte }}</p><a class="lien-fleche" href="{{ i.lien }}">{{ i.lien_texte }}</a>
+    <h3>{{ i.titre }}</h3>{% if i.prix %}<p class="sejour-prix">{{ i.prix }}</p>{% endif %}<p>{{ i.texte }}</p><a class="lien-fleche" href="{{ i.lien }}">{{ i.lien_texte }}</a>
   </article>{% endfor %}</div>
 </div></section>

@@ -90,7 +90,7 @@ a:hover{text-decoration-thickness:2px}
 .hero-carnet .surtitre{color:#E9A47E}
 .hero-carnet h1{font-size:clamp(2.3rem,4.5vw,3.85rem);color:var(--fond)}
 .hero-carnet .chapo{font-size:1.15rem;color:color-mix(in srgb,var(--fond) 88%,transparent)}
-.hero-carnet .bouton:not(.secondaire){background:#C26A3F;border-color:#C26A3F;color:#1E1A12}
+.hero-carnet .bouton:not(.secondaire){background:#CC7347;border-color:#CC7347;color:#1E1A12}
 .hero-carnet .bouton:not(.secondaire):hover{background:#D07A4E;border-color:#D07A4E}
 .hero-carnet .bouton.secondaire{border-color:var(--fond);color:var(--fond)}
 .hero-carnet .bouton.secondaire:hover{background:var(--fond);color:var(--texte)}
@@ -183,7 +183,7 @@ a:hover{text-decoration-thickness:2px}
 .appel-reservation .actions{justify-content:center}
 .appel-reservation .bouton.secondaire{border-color:var(--fond);color:var(--fond)}
 .appel-reservation .bouton.secondaire:hover{background:var(--fond);color:var(--texte)}
-.appel-reservation .bouton:not(.secondaire){background:#C26A3F;border-color:#C26A3F;color:#1E1A12}
+.appel-reservation .bouton:not(.secondaire){background:#CC7347;border-color:#CC7347;color:#1E1A12}
 .appel-reservation .bouton:not(.secondaire):hover{background:#D07A4E}
 
 /* Pages intérieures */
@@ -311,3 +311,15 @@ a:hover{text-decoration-thickness:2px}
 .meteo-min{opacity:.7}
 .meteo-jours .picto{width:38px;height:38px}
 @media (max-width:760px){.meteo{grid-template-columns:1fr}.meteo-jours li:first-child{border-left:0}}
+
+/* P2 : prix sur les cartes séjours, thèmes repliables des coups de cœur */
+.sejour-prix{font-family:"Caveat",cursive;font-size:1.5rem;color:var(--accent);margin:-4px 0 6px}
+.theme{background:var(--papier);border-radius:var(--rayon);box-shadow:var(--ombre);margin:0 0 16px;scroll-margin-top:140px}
+.theme>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font-family:"Fraunces",serif;font-size:1.3rem;min-height:48px}
+.theme>summary::-webkit-details-marker{display:none}
+.theme>summary::after{content:"+";font-size:1.6rem;line-height:1;margin-left:auto}
+.theme[open]>summary::after{content:"–"}
+.theme-nb{font-family:"Source Sans 3",sans-serif;font-size:.95rem;opacity:.75}
+.theme>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
+.theme[open]{padding-bottom:22px}
