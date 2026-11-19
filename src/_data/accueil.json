@@ -117,7 +117,8 @@
           "alt": "Une prairie ombragée par les pins, où l'on plante sa tente",
           "note": "l'herbe sous les pins",
           "lien": "/sejourner/#emplacements",
-          "lien_texte": "Voir les emplacements"
+          "lien_texte": "Voir les emplacements et les tarifs",
+          "prix": "Dès 25 € la nuit pour 2 personnes"
         },
         {
           "titre": "Le gîte",
@@ -126,7 +127,8 @@
           "alt": "Le jardin ombragé du gîte avec ses transats",
           "note": "les transats du gîte",
           "lien": "/sejourner/#gite",
-          "lien_texte": "Découvrir le gîte"
+          "lien_texte": "Découvrir le gîte",
+          "prix": "Maison indépendante, tarifs sur demande"
         }
       ]
     },

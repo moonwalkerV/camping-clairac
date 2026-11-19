@@ -17,7 +17,8 @@
     "image": "/images/decouvrir-cirque-moureze.webp",
     "text": "Ce chaos rocheux dolomitique de 340 hectares, aux formes qu'on dit \"ruiniformes\", est classé Grand Site de France et se trouve tout près du lac du Salagou. On aime partir sur le circuit court (3 km, 1h à 1h30), familial, qui serpente à travers le labyrinthe de rochers depuis le village. Pour les plus motivés, le tour du Mont Liausson (7 à 9 km, 2h30 à 4h) offre une vue panoramique sur le lac du Salagou.",
     "note": "Parking payant (2-3€/jour) au Parc des Courtinals, à l'entrée du village.",
-    "mapsQuery": "Cirque de Moureze"
+    "mapsQuery": "Cirque de Moureze",
+    "favori": true
    },
    {
     "name": "Forêt enchantée",
@@ -34,7 +35,8 @@
     "alt": "Gorges d'Héric, vasques naturelles au pied du Caroux",
     "text": "On adore venir se rafraîchir dans les vasques naturelles des Gorges d'Héric, au pied du Caroux. Le sentier longe le ruisseau à l'ombre des châtaigniers, parfait pour une randonnée en famille. Prévoyez de bonnes chaussures, le chemin est caillouteux par endroits.",
     "hours": "Accès libre, toute l'année",
-    "mapsQuery": "Gorges d'Héric, Mons-la-Trivalle"
+    "mapsQuery": "Gorges d'Héric, Mons-la-Trivalle",
+    "favori": true
    },
    {
     "name": "Lac du Salagou",
@@ -43,7 +45,8 @@
     "text": "Avec ses eaux et ses ruffes rouges caractéristiques, le lac du Salagou offre un paysage qui ne ressemble à aucun autre dans la région. On y va volontiers pour une balade à vélo, une baignade ou simplement pour profiter du coucher de soleil. Un site incontournable si vous avez une journée à consacrer à la nature.",
     "hours": "Accès libre, toute l'année",
     "mapsQuery": "Lac du Salagou",
-    "credit": "Hans Hagenaars"
+    "credit": "Hans Hagenaars",
+    "favori": true
    },
    {
     "name": "Mont Caylus",
@@ -68,7 +71,8 @@
     "text": "Surnommé la petite Nice de l'Hérault grâce à son microclimat, Roquebrun est un village perché où poussent orangers et mimosas. On aime s'y promener le long de l'Orb et grimper jusqu'au jardin méditerranéen pour la vue. Une halte parfaite pour une après-midi tranquille.",
     "hours": "Village accessible toute l'année",
     "mapsQuery": "Roquebrun",
-    "credit": "Christian Ferrer"
+    "credit": "Christian Ferrer",
+    "favori": true
    },
    {
     "name": "Saint-Guilhem-le-Désert",
@@ -77,7 +81,8 @@
     "text": "Classé parmi les plus beaux villages de France, Saint-Guilhem-le-Désert mérite clairement le détour avec ses ruelles médiévales et son abbaye millénaire. On vous conseille d'y aller tôt le matin pour profiter du calme avant l'arrivée des visiteurs. Le pont du Diable, juste à côté, vaut aussi le coup d'œil.",
     "hours": "Village accessible toute l'année",
     "mapsQuery": "Saint-Guilhem-le-Désert",
-    "credit": "uuger"
+    "credit": "uuger",
+    "favori": true
    }
   ]
  },
@@ -92,7 +97,8 @@
     "alt": "Escalier d'écluses de Fonséranes sur le Canal du Midi",
     "text": "Cet escalier d'écluses construit au XVIIe siècle permet de franchir 25 mètres de dénivelé sur le Canal du Midi. On aime venir observer les péniches manœuvrer d'écluse en écluse, un vrai spectacle d'ingénierie. C'est aussi un bel endroit pour une balade à pied ou à vélo le long du canal.",
     "hours": "Accès libre aux écluses, toute l'année",
-    "mapsQuery": "Écluses de Fonséranes, Béziers"
+    "mapsQuery": "Écluses de Fonséranes, Béziers",
+    "favori": true
    },
    {
     "name": "Abbaye de Fontcaude",
@@ -144,7 +150,8 @@
     "image": "/images/decouvrir-marseillan.webp",
     "alt": "Port pittoresque de Marseillan sur l'étang de Thau",
     "text": "Ce petit port pittoresque sur l'étang de Thau vaut le détour pour ses ruelles fleuries et la maison Noilly Prat, où se prépare le célèbre vermouth. On aime en faire le point de départ d'une sortie huîtres, à déguster directement au bord de l'eau chez l'un des nombreux producteurs. Marseillan borde d'ailleurs l'étang de Thau, le plus grand étang du Languedoc et un haut lieu de la production d'huîtres et moules, avec plus de 600 établissements conchylicoles.",
-    "mapsQuery": "Marseillan"
+    "mapsQuery": "Marseillan",
+    "favori": true
    },
    {
     "name": "Portiragnes-Plage",
@@ -158,7 +165,8 @@
     "image": "/images/decouvrir-serignan.webp",
     "alt": "Plage de Sérignan à l'embouchure de l'Orb",
     "text": "À l'embouchure de l'Orb, le village et la plage de Sérignan offrent un joli mélange entre balade fluviale et farniente en bord de mer. On aime cette double ambiance, qui permet de varier les plaisirs sans changer de destination.",
-    "mapsQuery": "Serignan-Plage"
+    "mapsQuery": "Serignan-Plage",
+    "favori": true
    },
    {
     "name": "Sète",
@@ -209,7 +217,8 @@
     "alt": "Marché provençal dans les ruelles de Pézenas",
     "text": "Le marché du samedi matin à Pézenas est un rendez-vous incontournable pour les produits locaux, entre maraîchers, fromagers et producteurs de vin. On aime flâner dans les ruelles de la ville ancienne, où Molière lui-même a vécu, avant de repartir les bras chargés. Comptez une bonne matinée pour en profiter pleinement.",
     "hours": "Marché : samedi matin",
-    "mapsQuery": "Marché de Pézenas"
+    "mapsQuery": "Marché de Pézenas",
+    "favori": true
    },
    {
     "name": "Marchés nocturnes",
@@ -219,7 +228,8 @@
     "text": "L'été, les marchés nocturnes s'installent sur le littoral pour des soirées animées entre artisanat local, spécialités régionales et ambiance bord de mer. On aime y aller en fin de journée pour profiter de la fraîcheur et terminer par un coucher de soleil sur la plage.",
     "hours": "Horaires à préciser",
     "note": "Marchés saisonniers, généralement en juillet-août uniquement : mieux vaut vérifier les dates et lieux chaque année.",
-    "mapsQuery": "Marché nocturne Valras-Plage"
+    "mapsQuery": "Marché nocturne Valras-Plage",
+    "favori": true
    }
   ]
  },
@@ -267,7 +277,8 @@
     "alt": "Salle du restaurant L'Orangerie à Béziers",
     "text": "Installée à Béziers, L'Orangerie propose une cuisine soignée dans un cadre agréable, parfaite pour un repas un peu plus festif. On aime s'y attarder en soirée, entre bonne table et service attentionné. Une bonne option si vous cherchez à sortir du camping pour un dîner un peu spécial.",
     "hours": "Horaires à préciser",
-    "mapsQuery": "L'Orangerie, Béziers"
+    "mapsQuery": "L'Orangerie, Béziers",
+    "favori": true
    },
    {
     "name": "Tielle La Cettoise",
@@ -306,7 +317,8 @@
     "name": "Picpoul de Pinet",
     "image": "/images/decouvrir-picpoul-pinet.webp",
     "alt": "Vignobles du Picpoul de Pinet à l'est de l'étang de Thau",
-    "text": "Ce vin blanc AOC est produit à l'est de l'étang de Thau, autour de Pinet, Castelnau-de-Guers, Florensac, Mèze, Montagnac et Pomérols. Vif et minéral, c'est le compagnon tout trouvé des huîtres de l'étang de Thau, tout proche."
+    "text": "Ce vin blanc AOC est produit à l'est de l'étang de Thau, autour de Pinet, Castelnau-de-Guers, Florensac, Mèze, Montagnac et Pomérols. Vif et minéral, c'est le compagnon tout trouvé des huîtres de l'étang de Thau, tout proche.",
+    "favori": true
    }
   ]
  },

@@ -6,5 +6,5 @@
     <ul class="gestes">{% for i in s.items %}<li><svg class="picto" aria-hidden="true"><use href="#p-{{ i.picto }}"/></svg><span>{{ i.texte }}</span></li>{% endfor %}</ul>
     {% if s.bouton %}<a class="lien-fleche" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>{% endif %}
   </div>
-  <figure class="tirage tirage-penche"><img src="{{ s.image }}" alt="{{ s.alt }}" width="1061" height="1020" loading="lazy"><figcaption class="note">{{ s.note }}</figcaption></figure>
+  <figure class="tirage tirage-penche"><img src="{{ s.image }}" alt="{{ s.alt }}" width="1061" height="1020" loading="lazy"></figure>
 </div></section>
