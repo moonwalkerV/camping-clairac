@@ -24,6 +24,7 @@
 </style>
 <link rel="stylesheet" href="/assets/socle.css">
 <link rel="stylesheet" href="/assets/themes/{{ site.theme }}.css">
+{% if page.url and "/comparaison/" in page.url %}<link rel="stylesheet" href="/assets/themes/comparaison.css">{% endif %}
 <script>document.documentElement.classList.add("js")</script>
 <script src="/assets/js/meteo.js" defer></script>
 <script type="application/ld+json">{{ {

@@ -1,0 +1,126 @@
+---
+permalink: /comparaison/essentiel/index.html
+---
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js-enabled")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<title>Clairac — L'essentiel · Proposition</title>
+<meta name="description" content="Découvrez Camping Clairac, une aire naturelle entre vignes et oliviers près de Béziers.">
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/img/photos/sentier-pin-fleurs-sauvages.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/assets/themes/essentiel.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="demo">Proposition de design · <a href="/">Voir le site actuel</a></div>
+<main id="contenu">
+  <section class="hero" aria-labelledby="hero-title">
+    <picture class="hero-picture"><img class="hero-image" src="/assets/img/photos/sentier-pin-fleurs-sauvages.webp" alt="Un sentier dans la prairie à l’ombre des pins du domaine" width="900" height="1200" fetchpriority="high"></picture>
+    <div class="hero-shade" aria-hidden="true"></div>
+<header class="header">
+  <a class="brand" href="/" aria-label="Camping Clairac, accueil actuel"><img src="{{ site.logo }}" alt="" width="62" height="62"><span>Camping<br><strong>Clairac</strong></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu</button>
+  <nav id="navigation" aria-label="Navigation principale"><ul>{% for item in site.navigation %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}</ul></nav>
+  <a class="header-book" href="{{ site.bouton_flottant.lien }}">Réserver</a>
+</header>
+
+    <div class="hero-content">
+      <p class="eyebrow">Aire naturelle de camping · Béziers</p>
+      <h1 id="hero-title">Clairac</h1>
+      <p class="hero-intro">Un petit camping à la ferme, entre vignes et oliviers.<br>Le temps de se poser, à 5 km de Béziers.</p>
+      <div class="hero-actions"><a class="button" href="#sejours">Découvrir les séjours</a><a class="hero-link" href="{{ site.bouton_flottant.lien }}">Demander une réservation</a></div>
+    </div>
+    <div class="hero-bottom"><a href="#experience">Découvrir Clairac <span aria-hidden="true">↓</span></a></div>
+  </section>
+  <section class="experience wrap" id="experience" aria-labelledby="experience-title">
+    <div class="experience-heading"><p class="eyebrow">Bienvenue à Clairac</p><h2 id="experience-title">De l’espace, de l’ombre et le temps de vivre.</h2></div>
+    <div class="experience-copy"><p>Avant d’être un camping, Clairac était un domaine viticole. Les grands arbres ont eu le temps de pousser, et nous avons simplement ouvert 25 emplacements dans ce cadre-là.</p><a class="text-link" href="/aire-naturelle/">Découvrir l’aire naturelle</a></div>
+    <figure class="experience-photo"><img src="/assets/img/photos/vignes-domaine-batisse.webp" alt="Les vignes devant la bâtisse du domaine de Clairac" width="1061" height="1020" loading="lazy"><figcaption>Le domaine de Clairac, près de Béziers</figcaption></figure>
+    <figure class="experience-detail"><img src="/assets/img/photos/camping-jardin-commun.webp" alt="Le jardin commun du domaine" width="1200" height="900" loading="lazy"></figure>
+  </section>
+  <section class="stays wrap" id="sejours" aria-labelledby="stays-title">
+    <div class="stays-heading"><div><p class="eyebrow">Séjourner à Clairac</p><h2 id="stays-title">À chacun son coin de campagne.</h2></div><p>Sous les arbres ou dans la maison, choisissez votre façon de séjourner au domaine.</p></div>
+    <div class="stays-grid">
+      <article class="stay stay-pitch"><a class="stay-image" href="/sejourner/#emplacements" tabindex="-1" aria-hidden="true"><img src="/assets/img/photos/tente-cloche-pins.webp" alt="" width="765" height="1020" loading="lazy"></a><div class="stay-heading"><h3>Les emplacements</h3><p>Dès 25 € la nuit pour deux personnes</p></div><p>Pour votre tente, caravane ou camping-car, des emplacements espacés à l’ombre des arbres.</p><a class="text-link" href="/sejourner/#emplacements">Découvrir les emplacements</a></article>
+      <article class="stay stay-cottage"><a class="stay-image" href="/sejourner/#gite" tabindex="-1" aria-hidden="true"><img src="/assets/img/photos/gite-exterieur-terrasse.webp" alt="" width="900" height="1200" loading="lazy"></a><div class="stay-heading"><h3>Le gîte</h3></div><p>Une maison indépendante sur le domaine, avec son jardin ombragé et ses transats.</p><a class="text-link" href="/sejourner/#gite">Découvrir le gîte</a></article>
+    </div>
+  </section>
+</main>
+<footer class="footer"><p>Camping Clairac · Béziers</p><a href="{{ site.bouton_flottant.lien }}">Demander une réservation</a><a href="/">Retour au site actuel</a></footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#navigation');
+function setMenu(open, returnFocus = false) {
+  toggle.setAttribute('aria-expanded', String(open));
+  document.body.classList.toggle('menu-open', open);
+  if (returnFocus) toggle.focus();
+}
+toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+navigation.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+    event.preventDefault();
+    setMenu(false, true);
+  }
+});
+window.matchMedia('(min-width: 1051px)').addEventListener('change', event => {
+  if (event.matches) setMenu(false);
+});
+
+// Le contenu reste visible par défaut, y compris sans JavaScript.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const revealItems = document.querySelectorAll('.experience-heading, .experience-copy, .experience-photo, .experience-detail, .stays-heading > div, .stays-heading > p, .stay-image, .stay-heading, .stay > p, .stay > .text-link');
+let revealObserver;
+function revealAll() {
+  if (revealObserver) revealObserver.disconnect();
+  revealItems.forEach(item => item.classList.remove('reveal-pending'));
+}
+if ('IntersectionObserver' in window && !motionPreference.matches) {
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('reveal-pending');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -3% 0px' });
+  revealItems.forEach(item => {
+    if (item.getBoundingClientRect().top > window.innerHeight) item.classList.add('reveal-pending');
+    revealObserver.observe(item);
+  });
+}
+motionPreference.addEventListener('change', event => { if (event.matches) revealAll(); });
+
+// Profondeur limitée aux grands écrans à pointeur précis, sans défilement imposé.
+const depthMedia = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+const heroPicture = document.querySelector('.hero-picture');
+let depthFrame = 0;
+function updateDepth() {
+  depthFrame = 0;
+  heroPicture.style.setProperty('--hero-depth', `${Math.min(window.scrollY * 0.025, 20)}px`);
+}
+function onDepthScroll() {
+  if (!depthFrame) depthFrame = requestAnimationFrame(updateDepth);
+}
+function setDepth() {
+  window.removeEventListener('scroll', onDepthScroll);
+  if (depthFrame) cancelAnimationFrame(depthFrame);
+  depthFrame = 0;
+  if (depthMedia.matches) {
+    window.addEventListener('scroll', onDepthScroll, { passive: true });
+    onDepthScroll();
+  } else {
+    heroPicture.style.removeProperty('--hero-depth');
+  }
+}
+depthMedia.addEventListener('change', setDepth);
+setDepth();
+</script>
+</body>
+</html>

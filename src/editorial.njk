@@ -1,0 +1,11 @@
+---
+layout: base.njk
+permalink: /comparaison/editorial/index.html
+noindex: true
+---
+<div class="comparaison comparaison--editorial">
+  <div class="comparaison-bandeau"><strong>Proposition B · Clairac éditorial</strong><span>Accueil de démonstration</span><a href="/comparaison/raffine/">Voir la proposition A</a><a href="/">Voir le site actuel</a></div>
+  {% for s in accueil.sections %}
+    {% if loop.first %}{% include "sections/hero-editorial.njk" %}{% elif s.type != "sejours" %}{% include "sections/" + s.type + ".njk" %}{% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+---
+layout: base.njk
+permalink: /comparaison/raffine/index.html
+noindex: true
+---
+<div class="comparaison comparaison--raffine">
+  <div class="comparaison-bandeau"><strong>Proposition A · Clairac raffiné</strong><span>Accueil de démonstration</span><a href="/comparaison/editorial/">Voir la proposition B</a><a href="/">Voir le site actuel</a></div>
+  {% for s in accueil.sections %}
+    {% if loop.first %}{% include "sections/hero-comparaison.njk" %}{% else %}{% include "sections/" + s.type + ".njk" %}{% endif %}
+  {% endfor %}
+</div>

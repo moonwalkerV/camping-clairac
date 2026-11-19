@@ -1,0 +1,18 @@
+<section class="proposition-hero">
+  <div class="proposition-photo"><img src="{{ s.image }}" alt="{{ s.alt }}" width="765" height="1020" fetchpriority="high"></div>
+  <div class="proposition-texte">
+    <p class="proposition-kicker">{{ s.surtitre }}</p>
+    <h1>{{ s.titre }}</h1>
+    <p class="proposition-intro">{{ s.intro }}</p>
+    <div class="proposition-actions"><a class="bouton" href="{{ site.bouton_flottant.lien }}">Demander une réservation</a><a class="proposition-tel" href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a></div>
+    <p class="meteo-court" data-meteo="court" aria-live="polite" aria-busy="true"></p>
+  </div>
+  <p class="proposition-note">{{ s.note }}</p>
+</section>
+<section class="proposition-sejours" aria-label="Choisir son séjour">
+  <p class="proposition-sejours-titre">À chacun son coin de campagne</p>
+  <div class="proposition-cartes">
+    <a href="/sejourner/#emplacements"><span>En plein air</span><strong>Les emplacements</strong><small>Dès 25 € la nuit pour 2 personnes</small></a>
+    <a href="/sejourner/#gite"><span>Comme à la maison</span><strong>Le gîte</strong><small>Maison indépendante · tarifs sur demande</small></a>
+  </div>
+</section>

@@ -323,3 +323,6 @@ a:hover{text-decoration-thickness:2px}
 .theme>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
 .theme[open]{padding-bottom:22px}
+
+/* En démonstration, aucun champ ne peut déclencher un envoi implicite. */
+.formulaire-champs{border:0;padding:0;margin:0;min-width:0}
