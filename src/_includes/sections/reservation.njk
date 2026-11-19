@@ -9,11 +9,13 @@
       <li><svg class="picto" aria-hidden="true"><use href="#p-cle"/></svg><span>Réception : 8 h 30 à 11 h 30 et 17 h à 20 h</span></li>
     </ul>
   </div>
-  <form class="formulaire" action="https://api.web3forms.com/submit" method="POST">
+  <form class="formulaire"{% if not site.demo and site.formulaire.web3forms_cle != "A-REMPLACER" %} action="https://api.web3forms.com/submit" method="POST"{% else %} onsubmit="return false"{% endif %}>
+    {% if not site.demo and site.formulaire.web3forms_cle != "A-REMPLACER" %}
     <input type="hidden" name="access_key" value="{{ site.formulaire.web3forms_cle }}">
     <input type="hidden" name="subject" value="Demande de réservation depuis le site">
     <input type="hidden" name="from_name" value="Site Camping Clairac">
     <input type="hidden" name="redirect" value="{{ '/merci/' | absolu(site.url) }}">
+    {% endif %}
     <input type="checkbox" name="botcheck" class="cache" tabindex="-1" autocomplete="off">
     <div class="champs-2">
       <p><label for="nom">Votre nom</label><input id="nom" name="name" required autocomplete="name"></p>
@@ -34,7 +36,11 @@
     <div class="choix choix-cases"><label><input type="checkbox" name="electricite" value="Oui"> Électricité</label><label><input type="checkbox" name="animal" value="Oui"> Un animal</label></div>
     <p><label for="message">Un mot pour nous (facultatif)</label><textarea id="message" name="message" rows="4"></textarea></p>
     <p class="petit">Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées pour de la publicité, et sont supprimées au bout de 12 mois. <a href="/mentions-legales/#donnees">En savoir plus</a></p>
-    {% if site.demo %}<p class="note-encadree petit">Démo : le formulaire sera relié à la boîte mail du camping à la mise en ligne.</p>{% endif %}
+    {% if site.demo or site.formulaire.web3forms_cle == "A-REMPLACER" %}
+    <p class="note-encadree petit" role="status">Formulaire de démonstration : aucun envoi n'est effectué. La connexion à la boîte mail du camping sera finalisée avant la mise en ligne.</p>
+    <button class="bouton" type="button" disabled aria-disabled="true">Envoi indisponible en démonstration</button>
+    {% else %}
     <button class="bouton" type="submit">Envoyer ma demande</button>
+    {% endif %}
   </form>
 </div></section>
