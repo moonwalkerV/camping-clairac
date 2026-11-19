@@ -1,0 +1,12 @@
+<section class="hi" aria-labelledby="hi-titre">
+  <div class="hi-photo"><img class="hi-image" src="{{ s.image }}" srcset="{{ s.image_petite }} 640w, {{ s.image }} 900w" sizes="(max-width:650px) 330px, 100vw" alt="{{ s.alt }}" width="900" height="1200" fetchpriority="high"></div>
+  <div class="hi-voile" aria-hidden="true"></div>
+  <div class="hi-contenu">
+    <p class="hi-surtitre">{{ s.surtitre }}</p>
+    <h1 id="hi-titre">{{ s.titre_court }}</h1>
+    <p class="hi-intro">{{ s.accroche }}</p>
+    <div class="hi-actions"><a class="bouton" href="#sejours">Découvrir les séjours</a><a class="hi-lien" href="{{ site.bouton_flottant.lien }}">Demander une réservation</a></div>
+    <p class="meteo-court" data-meteo="court" aria-live="polite" aria-busy="true"></p>
+  </div>
+  <a class="hi-bas" href="#reperes">Découvrir Clairac <span aria-hidden="true">↓</span></a>
+</section>

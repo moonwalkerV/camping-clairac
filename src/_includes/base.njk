@@ -24,7 +24,8 @@
 </style>
 <link rel="stylesheet" href="/assets/socle.css">
 <link rel="stylesheet" href="/assets/themes/{{ site.theme }}.css">
-{% if page.url and "/comparaison/" in page.url %}<link rel="stylesheet" href="/assets/themes/comparaison.css">{% endif %}
+{% if page.url and "/comparaison/" in page.url and "/comparaison/hybride/" not in page.url %}<link rel="stylesheet" href="/assets/themes/comparaison.css">{% endif %}
+{% if page.url and "/comparaison/hybride/" in page.url %}<link rel="stylesheet" href="/assets/themes/hybride.css">{% endif %}
 <script>document.documentElement.classList.add("js")</script>
 <script src="/assets/js/meteo.js" defer></script>
 <script type="application/ld+json">{{ {
@@ -52,7 +53,7 @@
   ]
 } | dump | safe }}</script>
 </head>
-<body class="theme-{{ site.theme }}">
+<body class="theme-{{ site.theme }}{% if page.url and "/comparaison/hybride/" in page.url %} hybride{% endif %}">
 {% include "pictos.njk" %}
 <a class="evitement" href="#contenu">Aller au contenu</a>
 {% if site.demo %}<p class="bandeau-demo">Version de démonstration : ce site n'est pas encore en ligne.</p>{% endif %}

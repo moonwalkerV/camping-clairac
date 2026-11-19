@@ -1,0 +1,26 @@
+---
+layout: base.njk
+permalink: /comparaison/hybride/index.html
+noindex: true
+---
+{#- Accueil hybride : contenu et structure de l'accueil actuel, premier écran et mouvement de « L'Essentiel ». -#}
+{% set hero = { surtitre: "Aire naturelle de camping · Béziers", titre_court: "Clairac", accroche: "Un petit camping à la ferme, entre vignes et oliviers. Le temps de se poser, à 5 km de Béziers.", image: "/assets/img/photos/sentier-pin-fleurs-sauvages.webp", image_petite: "/assets/img/photos/sentier-pin-fleurs-sauvages-640.webp", alt: "Un sentier dans la prairie à l'ombre des pins du domaine" } %}
+{% for s in accueil.sections %}
+  {% if loop.first %}{% set s = hero %}{% include "sections/hero-immersif.njk" %}{% else %}{% include "sections/" + s.type + ".njk" %}{% endif %}
+{% endfor %}
+<script>
+(function(){
+  var h=document.querySelector(".entete"),hero=document.querySelector(".hi");
+  function s(){h.classList.toggle("solide",scrollY>hero.offsetHeight-140)}
+  addEventListener("scroll",s,{passive:true});s();
+  var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(rm||!("IntersectionObserver"in window))return;
+  var el=document.querySelectorAll(".section h2,.section .section-intro,.section .surtitre,.sejour,.lieu,.reperes-liste li,.panorama-cadre,.corde-photos li,.carte-dessin,.faq details");
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("rv");io.unobserve(e.target)}})},{threshold:.08,rootMargin:"0px 0px -3% 0px"});
+  el.forEach(function(e){if(e.getBoundingClientRect().top>innerHeight){e.classList.add("rv");io.observe(e)}});
+  if(matchMedia("(min-width:1024px) and (hover:hover) and (pointer:fine)").matches){
+    var p=document.querySelector(".hi-photo"),f=0;
+    addEventListener("scroll",function(){if(!f)f=requestAnimationFrame(function(){f=0;p.style.setProperty("--prof",Math.min(scrollY*.025,20)+"px")})},{passive:true});
+  }
+})();
+</script>
