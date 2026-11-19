@@ -372,3 +372,44 @@ a:hover{text-decoration-thickness:2px}
   .hero-choix-lien:hover{transform:none}
 }
 .formulaire button:disabled{opacity:.72;cursor:not-allowed;filter:grayscale(.15);transform:none}
+
+
+/* GLIMRA · proposition B : Clairac signature, carnet photographique immersif.
+   Alternative à A à tester sur la branche dédiée ; ne change aucun contenu. */
+@media (min-width:861px){
+  .hero-carnet{
+    position:relative;
+    isolation:isolate;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    min-height:clamp(700px,92vh,940px);
+    background:#24362A;
+  }
+  .hero-photo{position:absolute;inset:0;z-index:-1;min-height:0}
+  .hero-photo>img{object-position:center 65%}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(21,35,26,.93) 0%,rgba(24,39,29,.77) 35%,rgba(24,39,29,.14) 84%),
+      linear-gradient(0deg,rgba(12,23,16,.44),transparent 40%);
+  }
+  .hero-photo .tirage-petit{left:auto;right:clamp(28px,5vw,90px);bottom:40px;width:clamp(150px,16vw,215px);z-index:2}
+  .hero-photo .note-photo{top:clamp(32px,6vw,80px);right:clamp(28px,5vw,90px);z-index:2}
+  .hero-panneau{justify-content:flex-start;padding:clamp(75px,9vh,120px) max(32px,calc((100vw - 1160px)/2 + 20px))}
+  .hero-texte{max-width:670px}
+  .hero-carnet h1{font-size:clamp(3.4rem,5.8vw,6rem);max-width:14ch;line-height:1.04}
+  .hero-carnet .chapo{max-width:49ch}
+  .hero-carnet .hero-choix{max-width:620px;margin-top:clamp(32px,5vh,56px)}
+  .hero-choix-lien{background:rgba(251,248,240,.92);border-color:rgba(251,248,240,.92);color:#24362A;backdrop-filter:blur(6px)}
+  .hero-choix-lien:hover{color:#24362A;background:#fff;border-color:#fff}
+  .hero-choix-surtitre{color:#8F4727}
+  .hero-choix-detail{color:#3F4F40}
+}
+@media (min-width:861px) and (max-width:1100px){
+  .hero-carnet .hero-photo .tirage-petit{display:none}
+  .hero-carnet .hero-photo .note-photo{right:22px;top:20px}
+  .hero-carnet h1{font-size:clamp(3rem,5.4vw,4.3rem)}
+}
+@media (max-width:860px){
+  .hero-carnet{background:#24362A}
+  .hero-carnet .hero-photo{aspect-ratio:4/3}
+}
