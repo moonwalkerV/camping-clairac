@@ -4,19 +4,18 @@
 @font-face{font-family:"Fraunces";src:url(/assets/fonts/fraunces.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(/assets/fonts/source-sans-3.woff2) format("woff2");font-weight:200 900;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(/assets/fonts/source-sans-3-italic.woff2) format("woff2");font-weight:200 900;font-style:italic;font-display:swap}
-@font-face{font-family:"Caveat";src:url(/assets/fonts/caveat.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Bryndan Write";src:url(/assets/fonts/bryndan-write.woff2) format("woff2");font-display:swap}
 
 :root{--papier:#FBF8F0;--ombre:0 1px 2px rgb(46 59 42/.12),0 8px 24px -10px rgb(46 59 42/.35);--rayon:6px}
 body{font-size:1.125rem;line-height:1.65}
 .conteneur{--largeur:1160px}
-h1,h2,h3{font-weight:560;font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:-.01em;line-height:1.1}
+h1,h2,h3{font-weight:400;font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:-.01em;line-height:1.1}
 h1{font-size:clamp(2.3rem,5.2vw,3.9rem)}
 h2{font-size:clamp(1.9rem,3.8vw,2.8rem)}
 h3{font-size:1.4rem}
 a{color:var(--accent)}
 a:hover{text-decoration-thickness:2px}
-.surtitre{font-family:"Caveat",cursive;font-size:1.6rem;line-height:1;color:var(--accent);margin-bottom:.4em}
+.surtitre{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;line-height:1.2;color:var(--accent);margin-bottom:.8em}
 .chapo{font-size:1.2rem;max-width:56ch}
 .section{padding-block:clamp(64px,9vw,112px)}
 .section-courte{padding-block:clamp(40px,6vw,64px)}
@@ -76,7 +75,7 @@ a:hover{text-decoration-thickness:2px}
 .tirage{margin:0;position:relative;background:var(--papier);padding:10px 10px 12px;border-radius:3px;box-shadow:var(--ombre)}
 .tirage img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
 .tirage-penche{transform:rotate(1.4deg)}
-.note{font-family:"Caveat",cursive;font-size:1.45rem;line-height:1.1;color:var(--texte);padding:8px 4px 0}
+.note{font-style:italic;font-size:1rem;line-height:1.3;color:var(--texte);padding:8px 4px 0}
 .tirage .note::before{content:"↖ ";color:var(--accent)}
 @media (prefers-reduced-motion:no-preference){.tirage{transition:transform .3s}.tirage:hover{transform:rotate(0) scale(1.01)}}
 
@@ -101,7 +100,7 @@ a:hover{text-decoration-thickness:2px}
 .hero-photo .tirage-petit img{aspect-ratio:1}
 .meteo-court{display:flex;align-items:center;gap:12px;margin:24px 0 0;padding-top:16px;border-top:1px dashed rgb(243 238 226/.35);min-height:60px;font-size:1.05rem}
 .meteo-court .picto{color:#E9C46A;width:44px;height:44px}
-.meteo-court .meteo-titre{display:block;font-family:"Caveat",cursive;font-size:1.35rem;line-height:1;color:#E9A47E}
+.meteo-court .meteo-titre{display:block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;line-height:1.2;color:#E9A47E}
 @media (max-width:860px){.hero-carnet{grid-template-columns:1fr;min-height:0}.hero-panneau{padding:36px 20px 48px;justify-content:flex-start}.hero-photo{min-height:0;aspect-ratio:1}.hero-photo .tirage-petit{left:16px;bottom:-30px;width:39%}}
 
 /* Repères */
@@ -109,7 +108,7 @@ a:hover{text-decoration-thickness:2px}
 .reperes-liste{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0;padding:24px 0;border-block:1px dashed color-mix(in srgb,var(--texte) 30%,transparent)}
 .reperes-liste li{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center}
 .reperes-liste .picto{grid-row:span 2}
-.reperes-liste strong{font-family:var(--f-titre);font-weight:560;font-size:1.15rem;line-height:1.2}
+.reperes-liste strong{font-family:var(--f-titre);font-weight:400;font-size:1.15rem;line-height:1.2}
 .reperes-liste span{font-size:.98rem}
 .reperes-page{margin-bottom:56px}
 @media (max-width:900px){.reperes-liste{grid-template-columns:1fr 1fr;row-gap:24px}}
@@ -119,7 +118,7 @@ a:hover{text-decoration-thickness:2px}
 .ferme-in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,88px);align-items:center}
 .gestes{list-style:none;display:grid;gap:14px;margin:24px 0 28px}
 .gestes li{display:flex;gap:14px;align-items:center}
-.gestes strong{display:block;font-family:var(--f-titre);font-weight:560;font-size:1.2rem}
+.gestes strong{display:block;font-family:var(--f-titre);font-weight:400;font-size:1.2rem}
 .gestes-grille{grid-template-columns:1fr 1fr;gap:28px 40px;max-width:980px;margin:0 auto 56px}
 .gestes-grille li{align-items:flex-start}
 .gestes-compact{gap:10px}
@@ -142,8 +141,8 @@ a:hover{text-decoration-thickness:2px}
 .etiquette{position:relative;background:var(--papier);border:2px solid var(--texte);border-radius:18px 18px 18px 18px;padding:28px 36px 24px 52px;transform:rotate(-2deg);box-shadow:var(--ombre);text-align:center;max-width:300px}
 .etiquette::before{content:"";position:absolute;left:18px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;border:2px solid var(--texte);background:var(--fond)}
 .etiquette p{margin:0}
-.etiquette-titre{font-family:"Caveat",cursive;font-size:1.6rem;color:var(--accent)}
-.etiquette-prix{font-family:var(--f-titre);font-weight:600;font-size:4rem;line-height:1}
+.etiquette-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
+.etiquette-prix{font-family:var(--f-titre);font-weight:400;font-size:4rem;line-height:1}
 .tarifs-points{list-style:none;columns:2;gap:32px;margin:0 0 16px}
 .tarifs-points li{padding:6px 0;border-bottom:1px dashed color-mix(in srgb,var(--texte) 25%,transparent);break-inside:avoid}
 @media (max-width:700px){.tarifs-resume-in{grid-template-columns:1fr;justify-items:center}.tarifs-points{columns:1}}
@@ -152,7 +151,7 @@ a:hover{text-decoration-thickness:2px}
 .cartes-lieux{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:32px}
 .lieu{background:var(--papier);border-radius:var(--rayon);overflow:hidden;box-shadow:var(--ombre)}
 .lieu img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.lieu-cat{font-family:"Caveat",cursive;font-size:1.3rem;color:var(--accent);margin:14px 18px 0}
+.lieu-cat{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:14px 18px 0}
 .lieu h3{margin:2px 18px 4px;font-size:1.3rem}
 .lieu-sous{margin:0 18px 18px;font-size:.95rem;opacity:.85}
 .lieu-texte{padding:18px 20px 8px}
@@ -171,9 +170,9 @@ a:hover{text-decoration-thickness:2px}
 /* FAQ */
 .faq-liste{max-width:780px;margin:0 auto}
 .faq details{border-bottom:1px dashed color-mix(in srgb,var(--texte) 30%,transparent);padding:4px 0}
-.faq summary{font-family:var(--f-titre);font-weight:520;font-size:1.2rem;padding:14px 36px 14px 0;list-style:none;position:relative}
+.faq summary{font-family:var(--f-titre);font-weight:400;font-size:1.2rem;padding:14px 36px 14px 0;list-style:none;position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:4px;top:8px;font-family:"Caveat",cursive;font-size:2rem;color:var(--accent)}
+.faq summary::after{content:"+";position:absolute;right:4px;top:8px;font-family:var(--f-texte);font-size:1.6rem;line-height:1;color:var(--accent)}
 .faq details[open] summary::after{content:"–"}
 
 /* Appel réservation */
@@ -200,7 +199,7 @@ a:hover{text-decoration-thickness:2px}
 .vignettes figure{margin:0}
 .vignettes img{aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:var(--rayon)}
 .vignettes figcaption{padding-top:10px;font-size:1rem}
-.vignettes strong{display:block;font-family:var(--f-titre);font-weight:560;font-size:1.15rem}
+.vignettes strong{display:block;font-family:var(--f-titre);font-weight:400;font-size:1.15rem}
 @media (max-width:860px){.vignettes{grid-template-columns:1fr 1fr}}
 .note-encadree+.actions{margin:0 0 32px}
 .note-encadree{background:var(--papier);border-left:4px solid var(--accent);padding:14px 18px;border-radius:0 var(--rayon) var(--rayon) 0}
@@ -250,7 +249,7 @@ a:hover{text-decoration-thickness:2px}
 .pied-marque{display:flex;gap:14px;align-items:flex-start}
 .pied-marque img{background:var(--fond);border-radius:50%;padding:6px;width:56px;height:56px}
 .pied-nom{font-family:"Bryndan Write",var(--f-titre);text-transform:uppercase;letter-spacing:.06em;font-weight:400;font-size:1.15rem}
-.pied-titre{font-family:"Caveat",cursive;font-size:1.4rem;color:var(--doux);margin-bottom:4px}
+.pied-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--doux);margin-bottom:4px}
 .pied-liens{list-style:none;display:grid;gap:4px}
 .pied-liens a{display:inline-block;padding:4px 0}
 .pied-bas{border-top:1px solid rgb(255 255 255/.18);padding-top:20px;margin-top:24px;opacity:.85}
@@ -284,7 +283,7 @@ a:hover{text-decoration-thickness:2px}
 
 /* Carte dessinée */
 .carte-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:center}
-.carte-dessin{width:100%;height:auto;font-family:"Caveat",cursive;font-size:24px}
+.carte-dessin{width:100%;height:auto;font-family:var(--f-texte);font-style:italic;font-size:20px}
 .carte-mer{fill:#C9D7CF}
 .carte-cote{fill:none;stroke:var(--second);stroke-width:2.5}
 .carte-route{fill:none;stroke:#C9B98F;stroke-width:6;stroke-linecap:round}
@@ -303,8 +302,8 @@ a:hover{text-decoration-thickness:2px}
 .meteo-maintenant{display:flex;gap:16px;align-items:center}
 .meteo-maintenant p{margin:0}
 .meteo-maintenant .picto{width:72px;height:72px;color:var(--accent)}
-.meteo .meteo-titre{font-family:"Caveat",cursive;font-size:1.4rem;color:var(--accent)}
-.meteo-temp{font-family:var(--f-titre);font-size:2.6rem;font-weight:600;line-height:1}
+.meteo .meteo-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+.meteo-temp{font-family:var(--f-titre);font-size:2.6rem;font-weight:400;line-height:1}
 .meteo-jours{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center}
 .meteo-jours li{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border-left:1px dashed color-mix(in srgb,var(--texte) 25%,transparent)}
 .meteo-jour{text-transform:capitalize;font-weight:600}
@@ -313,7 +312,7 @@ a:hover{text-decoration-thickness:2px}
 @media (max-width:760px){.meteo{grid-template-columns:1fr}.meteo-jours li:first-child{border-left:0}}
 
 /* P2 : prix sur les cartes séjours, thèmes repliables des coups de cœur */
-.sejour-prix{font-family:"Caveat",cursive;font-size:1.5rem;color:var(--accent);margin:-4px 0 6px}
+.sejour-prix{font-weight:600;font-size:1rem;color:var(--accent);margin:-4px 0 6px}
 .theme{background:var(--papier);border-radius:var(--rayon);box-shadow:var(--ombre);margin:0 0 16px;scroll-margin-top:140px}
 .theme>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font-family:"Fraunces",serif;font-size:1.3rem;min-height:48px}
 .theme>summary::-webkit-details-marker{display:none}
@@ -323,3 +322,4 @@ a:hover{text-decoration-thickness:2px}
 .theme>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
 .theme[open]{padding-bottom:22px}
+.menu-bouton{font-family:inherit}

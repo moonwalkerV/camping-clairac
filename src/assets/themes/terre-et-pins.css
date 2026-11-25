@@ -2,6 +2,7 @@
 body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#2F1904;--accent:#8F4727;background:var(--fond);color:var(--texte)}
 .terre .marque span{font-family:"Bryndan Write",var(--f-titre)}
 .terre h1,.terre h2,.terre h3{font-weight:400;letter-spacing:-.02em}
+.terre .surtitre{color:var(--terre)}
 .terre .bandeau-demo{position:absolute;top:0;left:0;right:0;z-index:30;background:rgba(25,32,12,.55);color:#fff;font-size:.75rem;padding:.2rem 1rem}
 .terre .entete{position:fixed;top:26px;left:0;right:0;background:transparent;backdrop-filter:none;border-bottom-color:transparent;transition:background .3s,top .3s}
 .terre .entete:not(.solide){background:linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0))}
