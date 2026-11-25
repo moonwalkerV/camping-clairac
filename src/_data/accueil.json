@@ -197,12 +197,6 @@
    }
   },
   {
-   "type": "panorama",
-   "image": "/assets/img/photos/coucher-soleil-domaine.webp",
-   "alt": "Coucher de soleil sur le domaine",
-   "note": "Ici, la seule animation du soir, c'est le coucher de soleil."
-  },
-  {
    "type": "carte",
    "surtitre": "Où nous trouver",
    "titre": "Au calme, mais tout près de tout",

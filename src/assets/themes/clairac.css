@@ -353,3 +353,4 @@ a:hover{text-decoration-thickness:2px}
 .corde-tout .bouton{border:2px solid var(--texte);background:transparent;color:var(--texte);cursor:pointer;font-family:inherit}
 .corde-tout .bouton:hover{background:var(--texte);color:var(--fond);border-color:var(--texte)}
 .corde-tout .photo-ouvrir{display:inline-flex;width:auto;padding:12px 28px;cursor:pointer;border:2px solid var(--texte)}
+.bouton-section{margin-top:1.4rem}.alentours-choix .bouton-section,.centre .bouton-section{margin-top:0}
