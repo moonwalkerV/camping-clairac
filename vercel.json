@@ -44,6 +44,11 @@
       "source": "/infos-pratiques/contact/",
       "destination": "/infos-pratiques/#reservation",
       "permanent": true
+    },
+    {
+      "source": "/comparaison/terre-et-pins/",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
