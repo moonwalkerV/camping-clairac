@@ -103,7 +103,50 @@
      "alt": "Le camping la nuit, sous la pleine lune",
      "note": ""
     }
-   ]
+   ],
+   "plus": [
+    {
+     "image": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt": "Une tente posée dans l'herbe, sous les arbres du domaine"
+    },
+    {
+     "image": "/assets/img/photos/camping-poules.webp",
+     "alt": "Les poules du domaine en liberté"
+    },
+    {
+     "image": "/assets/img/photos/chemin-arbres-tunnel.webp",
+     "alt": "Un chemin de terre en tunnel d'arbres"
+    },
+    {
+     "image": "/assets/img/photos/camping-reception.webp",
+     "alt": "La petite réception et sa terrasse"
+    },
+    {
+     "image": "/assets/img/photos/camping-nature-allee-lauriers.webp",
+     "alt": "Une allée bordée de lauriers roses sous les pins"
+    },
+    {
+     "image": "/assets/img/photos/prairie-pins-ombragee.webp",
+     "alt": "Une prairie ombragée par les pins"
+    },
+    {
+     "image": "/assets/img/photos/camping-emplacements-oliviers.webp",
+     "alt": "Des emplacements parmi les oliviers"
+    },
+    {
+     "image": "/assets/img/photos/vignes-domaine.webp",
+     "alt": "Un pied de vigne du domaine, chargé de feuilles et de raisins"
+    },
+    {
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "Le gîte et sa terrasse"
+    },
+    {
+     "image": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt": "Le jardin ombragé du gîte avec ses transats"
+    }
+   ],
+   "voir_tout": "Voir toutes les photos"
   },
   {
    "type": "sejours",
