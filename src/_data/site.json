@@ -10,17 +10,17 @@
  "description_seo": "Aire naturelle de camping à 5 km de Béziers : 25 emplacements ombragés pour tente, caravane ou camping-car et un gîte, sur un ancien domaine viticole. Ouvert d'avril à octobre.",
  "type_schema": "Campground",
  "image_partage": "/assets/img/partage.jpg",
- "logo": "/assets/img/logo.png",
+ "logo": "/assets/img/logo.svg",
  "couleurs": {
-  "fond": "#F3EEE2",
-  "texte": "#2E3B2A",
-  "accent": "#8F4727",
+  "fond": "#F3EEE3",
+  "texte": "#2F1904",
+  "accent": "#9D5934",
   "accent_texte": "#FFFFFF",
-  "doux": "#E6D9B8",
-  "second": "#6B7B55"
+  "doux": "#D9C9A8",
+  "second": "#3F5224"
  },
  "polices": {
-  "titre": "Fraunces",
+  "titre": "Bryndan Write",
   "texte": "Source Sans 3",
   "google_fonts": ""
  },
@@ -102,5 +102,7 @@
    "texte": "Practical info",
    "lien": "/infos-pratiques/"
   }
- ]
+ ],
+ "logo_sombre": "/assets/img/logo-sombre.svg",
+ "logo_schema": "/assets/img/logo-512.png"
 }

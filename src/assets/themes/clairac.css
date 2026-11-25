@@ -1,7 +1,6 @@
 /* CLAIRAC : thème propre au camping Clairac (parti du thème « domaine »).
    Esprit : petit camping à la ferme, calme, nature, familial.
    Signature : le « carnet de la ferme » (photos posées comme des tirages, notes manuscrites, pictos dessinés au trait, haies ondulées). */
-@font-face{font-family:"Fraunces";src:url(/assets/fonts/fraunces.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(/assets/fonts/source-sans-3.woff2) format("woff2");font-weight:200 900;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(/assets/fonts/source-sans-3-italic.woff2) format("woff2");font-weight:200 900;font-style:italic;font-display:swap}
 @font-face{font-family:"Bryndan Write";src:url(/assets/fonts/bryndan-write.woff2) format("woff2");font-display:swap}
@@ -9,7 +8,7 @@
 :root{--papier:#FBF8F0;--ombre:0 1px 2px rgb(46 59 42/.12),0 8px 24px -10px rgb(46 59 42/.35);--rayon:6px}
 body{font-size:1.125rem;line-height:1.65}
 .conteneur{--largeur:1160px}
-h1,h2,h3{font-weight:400;font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:-.01em;line-height:1.1}
+h1,h2,h3{font-weight:400;letter-spacing:0;line-height:1.1}
 h1{font-size:clamp(2.3rem,5.2vw,3.9rem)}
 h2{font-size:clamp(1.9rem,3.8vw,2.8rem)}
 h3{font-size:1.4rem}
@@ -247,7 +246,7 @@ a:hover{text-decoration-thickness:2px}
 .pied a{color:var(--fond)}
 .pied-in{display:grid;grid-template-columns:1.3fr 1fr 1fr .8fr;gap:32px;padding-top:40px}
 .pied-marque{display:flex;gap:14px;align-items:flex-start}
-.pied-marque img{background:var(--fond);border-radius:50%;padding:6px;width:56px;height:56px}
+.pied-marque img{width:56px;height:56px}
 .pied-nom{font-family:"Bryndan Write",var(--f-titre);text-transform:uppercase;letter-spacing:.06em;font-weight:400;font-size:1.15rem}
 .pied-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--doux);margin-bottom:4px}
 .pied-liens{list-style:none;display:grid;gap:4px}
@@ -316,7 +315,7 @@ a:hover{text-decoration-thickness:2px}
 /* P2 : prix sur les cartes séjours, thèmes repliables des coups de cœur */
 .sejour-prix{font-weight:600;font-size:1rem;color:var(--accent);margin:-4px 0 6px}
 .theme{background:var(--papier);border-radius:var(--rayon);box-shadow:var(--ombre);margin:0 0 16px;scroll-margin-top:140px}
-.theme>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font-family:"Fraunces",serif;font-size:1.3rem;min-height:48px}
+.theme>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font-family:var(--f-titre);font-size:1.3rem;min-height:48px}
 .theme>summary::-webkit-details-marker{display:none}
 .theme>summary::after{content:"+";font-size:1.6rem;line-height:1;margin-left:auto}
 .theme[open]>summary::after{content:"–"}
@@ -325,3 +324,5 @@ a:hover{text-decoration-thickness:2px}
 .theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
 .theme[open]{padding-bottom:22px}
 .menu-bouton{font-family:inherit}
+
+.logo-s{display:none}

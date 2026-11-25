@@ -18,7 +18,7 @@
 <meta name="theme-color" content="{{ site.couleurs.fond }}">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bryndan-write.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{--fond:{{ site.couleurs.fond }};--texte:{{ site.couleurs.texte }};--accent:{{ site.couleurs.accent }};--accent-texte:{{ site.couleurs.accent_texte }};--doux:{{ site.couleurs.doux }};--second:{{ site.couleurs.second or site.couleurs.accent }};--f-titre:"{{ site.polices.titre }}",Georgia,serif;--f-texte:"{{ site.polices.texte }}",system-ui,sans-serif}
@@ -37,7 +37,7 @@
   "telephone": site.contact.telephone,
   "email": site.contact.email,
   "image": site.image_partage | absolu(site.url),
-  "logo": site.logo | absolu(site.url),
+  "logo": site.logo_schema | absolu(site.url),
   "priceRange": "À partir de 25 € la nuit pour 2 personnes",
   "petsAllowed": true,
   "address": { "@type": "PostalAddress", "streetAddress": site.contact.rue, "postalCode": site.contact.code_postal, "addressLocality": site.contact.commune, "addressRegion": "Occitanie", "addressCountry": "FR" },
@@ -58,7 +58,7 @@
 <a class="evitement" href="#contenu">{{ "Skip to content" if lang == "en" else "Aller au contenu" }}</a>
 {% if site.demo %}<p class="bandeau-demo">{{ "Demo version: this site is not online yet." if lang == "en" else "Version de démonstration : ce site n'est pas encore en ligne." }}</p>{% endif %}
 <header class="entete"><div class="conteneur entete-in">
-  <a class="marque" href="/"><img src="{{ site.logo }}" alt="" width="68" height="68"><span>{{ site.nom }}</span></a>
+  <a class="marque" href="/"><img class="logo-c" src="{{ site.logo }}" alt="" width="68" height="68"><img class="logo-s" src="{{ site.logo_sombre }}" alt="" width="68" height="68"><span>{{ site.nom }}</span></a>
   <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
   <nav id="menu-principal" aria-label="Navigation principale"><ul>
   {% for item in (site.navigation_en if lang == "en" else site.navigation) %}<li><a href="{{ item.lien }}"{% if item.lien == page.url %} aria-current="page"{% endif %}>{{ item.texte }}</a></li>{% endfor %}
@@ -72,7 +72,7 @@
 <a class="bouton bouton-flottant" href="{{ site.bouton_flottant.lien }}">{{ site.bouton_flottant.texte }}</a>
 <footer class="pied">
   <div class="conteneur pied-in">
-    <div class="pied-marque"><img src="{{ site.logo }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>{{ "Natural campsite with 25 pitches<br>open April to October" | safe if lang == "en" else ("Aire naturelle de 25 emplacements<br>" + (site.contact.ouverture | lower)) | safe }}</p></div></div>
+    <div class="pied-marque"><img src="{{ site.logo_sombre }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>{{ "Natural campsite with 25 pitches<br>open April to October" | safe if lang == "en" else ("Aire naturelle de 25 emplacements<br>" + (site.contact.ouverture | lower)) | safe }}</p></div></div>
     <div><p class="pied-titre">{{ "Find us" if lang == "en" else "Nous trouver" }}</p><p>{{ site.contact.adresse }}<br>GPS : {{ site.contact.gps }}<br><a href="{{ site.contact.carte }}" rel="noopener">{{ "Open in Google Maps" if lang == "en" else "Ouvrir dans Google Maps" }}</a></p></div>
     <div><p class="pied-titre">{{ "Write or call us" if lang == "en" else "Nous écrire ou appeler" }}</p><p><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p></div>
     <div><p class="pied-titre">{{ "The site" if lang == "en" else "Le site" }}</p><ul class="pied-liens">{% for item in (site.navigation_en if lang == "en" else site.navigation) %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}<li><a href="/mentions-legales/">{{ "Legal notice (French)" if lang == "en" else "Mentions légales" }}</a></li></ul></div>

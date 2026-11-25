@@ -1,7 +1,7 @@
 /* Refonte « Terre et pins » : palette de la fiche client, hero photo cadré, phrase d'ambiance, séjours en deux blocs. Sans JS ni avec prefers-reduced-motion : tout est visible, rien ne bouge. */
-body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#2F1904;--accent:#8F4727;background:var(--fond);color:var(--texte)}
+body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--texte)}
 .terre .marque span{font-family:"Bryndan Write",var(--f-titre)}
-.terre h1,.terre h2,.terre h3{font-weight:400;letter-spacing:-.02em}
+.terre h1,.terre h2,.terre h3{font-weight:400;letter-spacing:0}
 .terre .surtitre{color:var(--terre)}
 .terre .bandeau-demo{position:absolute;top:0;left:0;right:0;z-index:30;background:rgba(25,32,12,.55);color:#fff;font-size:.75rem;padding:.2rem 1rem}
 .terre .entete{position:fixed;top:26px;left:0;right:0;background:transparent;backdrop-filter:none;border-bottom-color:transparent;transition:background .3s,top .3s}
@@ -20,7 +20,7 @@ body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#
 .th-voile{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(20,30,10,.28),rgba(20,30,10,0) 65%),linear-gradient(0deg,rgba(25,32,12,.6),rgba(25,32,12,.05) 60%),linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0) 30%)}
 .th-contenu{position:relative;z-index:1;padding:110px 24px}
 .th-surtitre{text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}
-.th h1{font-family:var(--f-titre);font-weight:400;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.05;letter-spacing:-.02em;margin:1rem auto 0;max-width:16ch;color:#F3EEE3;text-wrap:balance;text-shadow:0 2px 28px rgba(15,25,8,.45)}
+.th h1{font-family:var(--f-titre);font-weight:400;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.05;letter-spacing:0;margin:1rem auto 0;max-width:16ch;color:#F3EEE3;text-wrap:balance;text-shadow:0 2px 28px rgba(15,25,8,.45)}
 .th-actions{display:flex;justify-content:center;margin-top:2rem}
 .th .bouton{background:#F3EEE3;border-color:#F3EEE3;color:var(--pin)}.th .bouton:hover{background:#DDD6C6;border-color:#DDD6C6}
 .th-lien,.th-bas{color:#fff;display:inline-flex;align-items:center;min-height:44px}
@@ -30,7 +30,7 @@ body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#
 
 /* Ambiance : une phrase, trois photos en formes organiques */
 .ambiance{max-width:1160px;margin:0 auto;padding:clamp(72px,10vw,140px) 24px clamp(40px,6vw,80px);text-align:center}
-.amb-phrase{font-family:var(--f-titre);font-weight:300;font-size:clamp(1.7rem,3.8vw,3.1rem);line-height:1.2;letter-spacing:-.02em;max-width:24ch;margin:0 auto;text-wrap:balance}
+.amb-phrase{font-family:var(--f-titre);font-weight:300;font-size:clamp(1.7rem,3.8vw,3.1rem);line-height:1.2;letter-spacing:0;max-width:24ch;margin:0 auto;text-wrap:balance}
 .amb-photos{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:clamp(12px,2vw,28px);align-items:end;margin-top:clamp(40px,6vw,80px)}
 .amb-p{margin:0;overflow:hidden}
 .amb-p img{width:100%;height:100%;object-fit:cover;display:block}
@@ -72,3 +72,5 @@ body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#
 .terre .entete:not(.solide) .langue{color:#fff}
 @media(max-width:1080px){.langue{margin-left:auto}.menu-bouton{order:3;margin-left:.25rem}.marque span{font-size:1.05rem}.marque{min-width:0}}
 @media(max-width:420px){.marque span{font-size:.95rem;letter-spacing:.03em}.langue{padding:0 .25rem}}
+
+.terre .entete:not(.solide) .logo-c{display:none}.terre .entete:not(.solide) .logo-s{display:inline}
