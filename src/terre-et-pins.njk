@@ -7,7 +7,7 @@ lang: fr
 altlien: /en/
 ---
 {#- Refonte « Terre et pins » : accueil actuel + premier écran photo, phrase d'ambiance, séjours en deux blocs. Proposition validée le 25/11 (sur branche). -#}
-{% set hero = { surtitre: "Aire naturelle de camping · Béziers", titre_court: "Clairac", accroche: "Un petit coin nature aux portes de Béziers.", ambiance: "Un petit camping familial, au milieu des pins, des vignes et des oliviers. Vingt-cinq emplacements, de l'ombre, et le temps de se poser.", image: "/assets/img/photos/terrain-olivier-hero.webp", image_petite: "/assets/img/photos/terrain-olivier-hero-mobile.webp", alt: "Les pins du domaine et la prairie au soleil" } %}
+{% set hero = { surtitre: "Aire naturelle de camping · Béziers", titre_court: "Clairac", accroche: "Un petit coin nature aux portes de Béziers.", ambiance: "Un petit camping familial, au milieu des pins, des vignes et des oliviers.", mentions: ["25 emplacements", "De l'ombre", "Le temps de se poser"], image: "/assets/img/photos/terrain-olivier-hero.webp", image_petite: "/assets/img/photos/terrain-olivier-hero-mobile.webp", alt: "Les pins du domaine et la prairie au soleil" } %}
 {% for s in accueil.sections %}
   {% if loop.first %}{% set s = hero %}{% include "sections/hero-terre.njk" %}{% else %}{% include "sections/" + s.type + ".njk" %}{% endif %}
 {% endfor %}

@@ -7,7 +7,10 @@
   </div>
 </section>
 <section class="ambiance" id="ambiance" aria-label="L'esprit de Clairac">
-  <p class="amb-phrase">{% for m in s.ambiance.split(" ") %}<span class="mot">{{ m }}</span> {% endfor %}</p>
+  <div class="amb-tete">
+    <p class="amb-phrase">{% for m in s.ambiance.split(" ") %}<span class="mot">{{ m }}</span> {% endfor %}</p>
+    <ul class="amb-mentions">{% for m in s.mentions %}<li>{{ m }}</li>{% endfor %}</ul>
+  </div>
   <div class="amb-photos">
     <figure class="amb-p amb-a"><img src="/assets/img/photos/olivier-pique-nique-sanitaires.webp" alt="Une table de pique-nique sous un olivier" width="1200" height="900" loading="lazy"></figure>
     <figure class="amb-p amb-b"><img src="/assets/img/photos/vignes-domaine-batisse.webp" alt="Les vignes du domaine devant la bâtisse ancienne" width="1200" height="900" loading="lazy"></figure>
