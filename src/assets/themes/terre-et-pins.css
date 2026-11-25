@@ -37,9 +37,9 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .amb-photos{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:clamp(12px,2vw,28px);align-items:end;margin-top:clamp(28px,4vw,48px)}
 .amb-p{margin:0;overflow:hidden}
 .amb-p img{width:100%;height:100%;object-fit:cover;display:block}
-.amb-a{border-radius:999px 999px 14px 14px;aspect-ratio:3/4}
-.amb-b{border-radius:14px 14px 140px 14px;aspect-ratio:4/5}
-.amb-c{border-radius:14px 140px 14px 14px;aspect-ratio:3/4}
+.amb-a{aspect-ratio:3/4;clip-path:url(#tente-a)}
+.amb-b{aspect-ratio:4/5;clip-path:url(#tente-b)}
+.amb-c{aspect-ratio:3/4;clip-path:url(#tente-c)}
 @media(max-width:700px){.amb-photos{grid-template-columns:1fr 1fr}.amb-b{grid-column:1 / -1;order:-1;aspect-ratio:4/3}}
 
 /* Séjours : deux grandes cartes alternées, photo principale + petite photo qui la chevauche */
@@ -100,3 +100,5 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .terre .reperes-liste .picto{color:#D9C9A8;width:38px;height:38px}
 .terre .reperes-liste strong{font-size:1.25rem;color:#F3EEE3}
 .terre .reperes-liste span{color:#E5DDCB}
+
+.amb-defs{position:absolute;width:0;height:0;overflow:hidden}
