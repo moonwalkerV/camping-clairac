@@ -67,22 +67,26 @@
     {
      "titre": "The pitches",
      "texte": "Large, shaded and at least 5 metres apart, for tents, caravans or motorhomes. Hot showers, accessible facilities, Wi-Fi and a playground.",
-     "image": "/assets/img/photos/prairie-pins-ombragee.webp",
-     "alt": "A meadow shaded by pines, where you can pitch your tent",
+     "image": "/assets/img/photos/allee-caravanes-arbres.webp",
+     "alt": "A campsite lane with caravans set up in the shade of the trees",
      "note": "",
      "lien": "/sejourner/#emplacements",
      "lien_texte": "See pitches and prices (in French)",
-     "prix": "From €25 a night for 2 people"
+     "prix": "From €25 a night for 2 people",
+     "image2": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt2": "A tent pitched on the grass, under the trees"
     },
     {
      "titre": "The cottage",
      "texte": "A detached house on the estate: fitted kitchen, dining room, bathroom, and a shaded garden with deckchairs.",
-     "image": "/assets/img/photos/gite-jardin-transats.webp",
-     "alt": "The shaded cottage garden with its deckchairs",
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "The cottage, a detached house, and its terrace",
      "note": "",
      "lien": "/sejourner/#gite",
      "lien_texte": "Discover the cottage (in French)",
-     "prix": "Detached house, prices on request"
+     "prix": "Detached house, prices on request",
+     "image2": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt2": "The shaded cottage garden with its deckchairs"
     }
    ]
   },

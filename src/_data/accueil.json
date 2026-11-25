@@ -156,22 +156,26 @@
     {
      "titre": "Les emplacements",
      "texte": "Grands, ombragés et espacés d'au moins 5 mètres, pour tente, caravane ou camping-car. Sanitaires avec douches chaudes, accès PMR, Wi-Fi et aire de jeux.",
-     "image": "/assets/img/photos/prairie-pins-ombragee.webp",
-     "alt": "Une prairie ombragée par les pins, où l'on plante sa tente",
+     "image": "/assets/img/photos/allee-caravanes-arbres.webp",
+     "alt": "Une allée du camping avec des caravanes installées à l'ombre des arbres",
      "note": "l'herbe sous les pins",
      "lien": "/sejourner/#emplacements",
      "lien_texte": "Voir les emplacements et les tarifs",
-     "prix": "Dès 25 € la nuit pour 2 personnes"
+     "prix": "Dès 25 € la nuit pour 2 personnes",
+     "image2": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt2": "Une tente posée dans l'herbe, sous les arbres"
     },
     {
      "titre": "Le gîte",
      "texte": "Une maison indépendante sur le domaine : cuisine équipée, salle à manger, salle de bain, et un jardin ombragé avec des transats.",
-     "image": "/assets/img/photos/gite-jardin-transats.webp",
-     "alt": "Le jardin ombragé du gîte avec ses transats",
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "Le gîte, maison indépendante, et sa terrasse",
      "note": "les transats du gîte",
      "lien": "/sejourner/#gite",
      "lien_texte": "Découvrir le gîte",
-     "prix": "Maison indépendante, tarifs sur demande"
+     "prix": "Maison indépendante, tarifs sur demande",
+     "image2": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt2": "Le jardin ombragé du gîte avec ses transats"
     }
    ]
   },

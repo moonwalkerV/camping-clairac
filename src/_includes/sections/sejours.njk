@@ -1,7 +1,13 @@
 <section class="section sejours" id="sejours"><div class="conteneur">
   {% include "sections/_entete-section.njk" %}
-  <div class="sejours-grille">{% for i in s.items %}<article class="sejour">
-    <figure class="tirage"><img src="{{ i.image }}" alt="{{ i.alt }}" width="1200" height="900" loading="lazy"></figure>
-    <h3>{{ i.titre }}</h3>{% if i.prix %}<p class="sejour-prix">{{ i.prix }}</p>{% endif %}<p>{{ i.texte }}</p><a class="lien-fleche" href="{{ i.lien }}">{{ i.lien_texte }}</a>
+  <div class="sejours-liste">{% for i in s.items %}<article class="sejour sejour-{{ loop.index }}">
+    <div class="sejour-visuel">
+      <figure class="sejour-photo"><img src="{{ i.image }}" alt="{{ i.alt }}" width="1200" height="800" loading="lazy"></figure>
+      {% if i.image2 %}<figure class="sejour-photo2"><img src="{{ i.image2 }}" alt="{{ i.alt2 }}" width="600" height="600" loading="lazy"></figure>{% endif %}
+    </div>
+    <div class="sejour-texte">
+      <h3>{{ i.titre }}</h3>{% if i.prix %}<p class="sejour-prix">{{ i.prix }}</p>{% endif %}<p>{{ i.texte }}</p>
+      <a class="bouton sejour-bouton" href="{{ i.lien }}">{{ i.lien_texte }}</a>
+    </div>
   </article>{% endfor %}</div>
 </div></section>

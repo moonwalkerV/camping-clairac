@@ -42,16 +42,31 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .amb-c{border-radius:14px 140px 14px 14px;aspect-ratio:3/4}
 @media(max-width:700px){.amb-photos{grid-template-columns:1fr 1fr}.amb-b{grid-column:1 / -1;order:-1;aspect-ratio:4/3}}
 
-/* Séjours : deux blocs pleine largeur, vert pin / clair */
+/* Séjours : deux grandes cartes alternées, photo principale + petite photo qui la chevauche */
 .terre .sejours{padding-block:clamp(56px,8vw,100px)}
-.terre .sejours-grille{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;overflow:hidden}
-.terre .sejour{padding:clamp(24px,4vw,48px);background:var(--doux)}
-.terre .sejour:first-child{background:var(--pin);color:#F3EEE3}
-.terre .sejour:first-child a,.terre .sejour:first-child .sejour-prix{color:#F3EEE3}
-.terre .sejour .tirage{background:none;padding:0;box-shadow:none;transform:none;border-radius:12px;overflow:hidden}
-.terre .sejour .tirage img{border-radius:12px}
-.terre .sejour .note{display:none}
-@media(max-width:800px){.terre .sejours-grille{grid-template-columns:1fr}}
+.sejours-liste{display:grid;gap:clamp(20px,3vw,36px)}
+.terre .sejour{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:clamp(24px,4vw,56px);padding:clamp(20px,3vw,40px);border-radius:24px;background:var(--doux);color:var(--texte)}
+.terre .sejour-1{background:var(--pin);color:#F3EEE3}
+.terre .sejour-2{grid-template-columns:1fr 1.1fr}
+.terre .sejour-2 .sejour-visuel{order:2}
+.terre .sejour-visuel{position:relative;padding-bottom:clamp(24px,4vw,48px)}
+.terre .sejour-photo{margin:0;overflow:hidden;aspect-ratio:3/2}
+.terre .sejour-photo img,.terre .sejour-photo2 img{width:100%;height:100%;object-fit:cover;display:block}
+.terre .sejour-2 .sejour-photo img{object-position:50% 62%}
+.terre .sejour-1 .sejour-photo{border-radius:160px 16px 16px 16px}
+.terre .sejour-2 .sejour-photo{aspect-ratio:3/2;max-width:88%;margin-left:auto;border-radius:16px 16px 16px 160px}
+.terre .sejour-photo2{position:absolute;margin:0;overflow:hidden;width:34%;aspect-ratio:1;border:6px solid var(--fond);border-radius:50%;bottom:0}
+.terre .sejour-1 .sejour-photo2{left:-3%;border-color:var(--pin)}
+.terre .sejour-2 .sejour-photo2{right:-2%;left:auto;border-color:var(--doux);bottom:4%}
+.terre .sejour-texte h3{font-size:clamp(1.8rem,3vw,2.5rem);margin:0 0 .3em}
+.terre .sejour-prix{font-weight:600;font-size:1rem;margin:0 0 .8em;color:inherit;opacity:.9}
+.terre .sejour-1 .sejour-prix{color:#D9C9A8}
+.terre .sejour-2 .sejour-prix{color:var(--terre)}
+.terre .sejour-texte p{max-width:46ch}
+.terre .sejour-bouton{margin-top:1.4rem}
+.terre .sejour-1 .sejour-bouton{background:#F3EEE3;border-color:#F3EEE3;color:var(--pin)}
+.terre .sejour-1 .sejour-bouton:hover{background:#DDD6C6;border-color:#DDD6C6}
+@media(max-width:800px){.terre .sejour,.terre .sejour-2{grid-template-columns:1fr}.terre .sejour-2 .sejour-visuel{order:0}.terre .sejour-2 .sejour-photo{max-width:100%}.terre .sejour-photo2{width:30%}.terre .sejour-1 .sejour-photo{border-top-left-radius:90px}.terre .sejour-2 .sejour-photo{border-bottom-left-radius:90px}}
 
 /* Mouvement : uniquement si JS actif et sans prefers-reduced-motion */
 @media(prefers-reduced-motion:no-preference){
