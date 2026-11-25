@@ -20,8 +20,7 @@ body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#
 .th-voile{position:absolute;inset:0;background:linear-gradient(0deg,rgba(25,32,12,.6),rgba(25,32,12,.05) 60%),linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0) 30%)}
 .th-contenu{position:relative;z-index:1;padding:110px 24px 120px}
 .th-surtitre{text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}
-.th h1{font-family:var(--f-titre);font-weight:300;font-size:clamp(5rem,19vw,17rem);line-height:.85;letter-spacing:-.06em;margin:1.2rem 0 1.6rem;color:#F3EEE3}
-.th-slogan{font-size:clamp(1.15rem,1.8vw,1.5rem);max-width:none;margin:0 auto;text-wrap:balance}
+.th h1{font-family:var(--f-titre);font-weight:400;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1.05;letter-spacing:-.02em;margin:1rem auto 0;max-width:16ch;color:#F3EEE3;text-wrap:balance}
 .th-actions{display:flex;justify-content:center;align-items:center;gap:.4rem 2rem;flex-wrap:wrap;margin-top:2rem}
 .th .bouton{background:#F3EEE3;border-color:#F3EEE3;color:var(--pin)}.th .bouton:hover{background:#DDD6C6;border-color:#DDD6C6}
 .th-lien,.th-bas{color:#fff;display:inline-flex;align-items:center;min-height:44px}
@@ -54,8 +53,8 @@ body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#
 /* Mouvement : uniquement si JS actif et sans prefers-reduced-motion */
 @media(prefers-reduced-motion:no-preference){
  .th-image{animation:th-img 1.5s cubic-bezier(.2,.65,.25,1) both}
- .th-surtitre,.th h1,.th-slogan{animation:th-txt 1s cubic-bezier(.2,.65,.25,1) both}
- .th-surtitre{animation-delay:.1s}.th h1{animation-delay:.2s}.th-slogan{animation-delay:.3s}
+ .th-surtitre,.th h1{animation:th-txt 1s cubic-bezier(.2,.65,.25,1) both}
+ .th-surtitre{animation-delay:.1s}.th h1{animation-delay:.2s}
  .th-actions,.th .meteo-court{animation:th-txt .8s .55s cubic-bezier(.2,.65,.25,1) both}
  .amb-phrase.avant .mot{opacity:.15;transition:opacity .5s ease;transition-delay:calc(var(--i)*55ms)}
  .amb-phrase.avant.vu .mot{opacity:1}
@@ -65,7 +64,7 @@ body.terre{--fond:#F3EEE3;--doux:#E9E1D0;--pin:#3F5224;--terre:#9D5934;--texte:#
 }
 @keyframes th-img{from{opacity:.35;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
 @keyframes th-txt{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@media(max-width:650px){.th{min-height:600px;border-radius:14px}.th h1{font-size:clamp(4.6rem,24vw,8rem)}}
+@media(max-width:650px){.th{min-height:600px;border-radius:14px}.th h1{font-size:clamp(2.2rem,9.5vw,3rem)}}
 
 /* Sélecteur de langue */
 .langue{color:inherit;text-decoration:none;font-size:.9rem;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:.35em;min-height:44px;padding:0 .5rem;margin-left:1rem}
