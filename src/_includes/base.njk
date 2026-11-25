@@ -24,6 +24,7 @@
 </style>
 <link rel="stylesheet" href="/assets/socle.css">
 <link rel="stylesheet" href="/assets/themes/{{ site.theme }}.css">
+{% if page.url == "/comparaison/terre-et-pins/" %}<link rel="stylesheet" href="/assets/themes/terre-et-pins.css">{% endif %}
 <script>document.documentElement.classList.add("js")</script>
 <script src="/assets/js/meteo.js" defer></script>
 <script type="application/ld+json">{{ {
@@ -51,7 +52,7 @@
   ]
 } | dump | safe }}</script>
 </head>
-<body class="theme-{{ site.theme }}">
+<body class="theme-{{ site.theme }}{% if page.url == "/comparaison/terre-et-pins/" %} terre{% endif %}">
 {% include "pictos.njk" %}
 <a class="evitement" href="#contenu">Aller au contenu</a>
 {% if site.demo %}<p class="bandeau-demo">Version de démonstration : ce site n'est pas encore en ligne.</p>{% endif %}

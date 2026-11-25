@@ -1,0 +1,23 @@
+---
+layout: base.njk
+permalink: /comparaison/terre-et-pins/index.html
+noindex: true
+---
+{#- Refonte « Terre et pins » : accueil actuel + premier écran photo, phrase d'ambiance, séjours en deux blocs. Proposition validée le 25/11 (sur branche). -#}
+{% set hero = { surtitre: "Aire naturelle de camping · Béziers", titre_court: "Clairac", accroche: "Un petit coin nature aux portes de Béziers.", ambiance: "Un petit camping familial, au milieu des pins, des vignes et des oliviers. Vingt-cinq emplacements, de l'ombre, et le temps de se poser.", image: "/assets/img/photos/terrain-olivier-hero.webp", image_petite: "/assets/img/photos/terrain-olivier-hero-mobile.webp", alt: "Les pins du domaine et la prairie au soleil" } %}
+{% for s in accueil.sections %}
+  {% if loop.first %}{% set s = hero %}{% include "sections/hero-terre.njk" %}{% else %}{% include "sections/" + s.type + ".njk" %}{% endif %}
+{% endfor %}
+<script>
+(function(){
+  var h=document.querySelector(".entete"),hero=document.querySelector(".th");
+  function s(){h.classList.toggle("solide",scrollY>hero.offsetHeight-140)}
+  addEventListener("scroll",s,{passive:true});s();
+  var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(rm||!("IntersectionObserver"in window))return;
+  var mots=document.querySelectorAll(".amb-phrase .mot");
+  mots.forEach(function(m,i){m.style.setProperty("--i",i)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vu");io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll(".amb-phrase,.amb-p,.section h2,.sejour,.lieu").forEach(function(e){if(e.getBoundingClientRect().top>innerHeight*.9){e.classList.add("avant");io.observe(e)}});
+})();
+</script>
