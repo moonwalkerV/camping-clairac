@@ -20,7 +20,7 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .th-voile{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(20,30,10,.28),rgba(20,30,10,0) 65%),linear-gradient(0deg,rgba(25,32,12,.6),rgba(25,32,12,.05) 60%),linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0) 30%)}
 .th-contenu{position:relative;z-index:1;padding:110px 24px}
 .th-surtitre{text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}
-.th h1{font-family:var(--f-titre);font-weight:400;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.05;letter-spacing:0;margin:1rem auto 0;max-width:16ch;color:#F3EEE3;text-wrap:balance;text-shadow:0 2px 28px rgba(15,25,8,.45)}
+.th h1{font-family:var(--f-titre);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1.15;letter-spacing:.025em;margin:1rem auto 0;max-width:20ch;color:#F3EEE3;text-wrap:balance;text-shadow:0 2px 28px rgba(15,25,8,.45)}
 .th-actions{display:flex;justify-content:center;margin-top:2rem}
 .th .bouton{background:#F3EEE3;border-color:#F3EEE3;color:var(--pin)}.th .bouton:hover{background:#DDD6C6;border-color:#DDD6C6}
 .th-lien,.th-bas{color:#fff;display:inline-flex;align-items:center;min-height:44px}
@@ -64,7 +64,7 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 }
 @keyframes th-img{from{opacity:.35;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
 @keyframes th-txt{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@media(max-width:650px){.th{min-height:600px;border-radius:14px}.th h1{font-size:clamp(2.2rem,9.5vw,3rem)}}
+@media(max-width:650px){.th{min-height:600px;border-radius:14px}.th h1{font-size:clamp(1.9rem,7.6vw,2.4rem)}}
 
 /* Sélecteur de langue */
 .langue{color:inherit;text-decoration:none;font-size:.9rem;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:.35em;min-height:44px;padding:0 .5rem;margin-left:1rem}
