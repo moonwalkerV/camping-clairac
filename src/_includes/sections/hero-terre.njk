@@ -12,8 +12,8 @@
     <ul class="amb-mentions">{% for m in s.mentions %}<li>{{ m }}</li>{% endfor %}</ul>
   </div>
   <div class="amb-photos">
-    <figure class="amb-p amb-a"><img src="/assets/img/photos/olivier-pique-nique-sanitaires.webp" alt="Une table de pique-nique sous un olivier" width="1200" height="900" loading="lazy"></figure>
-    <figure class="amb-p amb-b"><img src="/assets/img/photos/vignes-domaine-batisse.webp" alt="Les vignes du domaine devant la bâtisse ancienne" width="1200" height="900" loading="lazy"></figure>
-    <figure class="amb-p amb-c"><img src="/assets/img/photos/camping-nature-lauriers-roses.webp" alt="Des lauriers roses en fleurs sous les grands pins" width="1200" height="900" loading="lazy"></figure>
+    <figure class="amb-p amb-a"><img src="/assets/img/photos/prairie-pins-ombragee.webp" alt="{{ 'A meadow shaded by the estate\'s pines' if lang == 'en' else 'Une prairie ombragée par les pins du domaine' }}" width="1200" height="900" loading="lazy"></figure>
+    <figure class="amb-p amb-b"><img src="/assets/img/photos/vignes-domaine-batisse.webp" alt="{{ 'The estate\'s vines in front of the old house' if lang == 'en' else 'Les vignes du domaine devant la bâtisse ancienne' }}" width="1200" height="900" loading="lazy"></figure>
+    <figure class="amb-p amb-c"><img src="/assets/img/photos/camping-emplacements-oliviers.webp" alt="{{ 'Pitches among the olive trees' if lang == 'en' else 'Des emplacements parmi les oliviers' }}" width="1200" height="900" loading="lazy"></figure>
   </div>
 </section>
