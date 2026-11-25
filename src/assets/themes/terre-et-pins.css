@@ -2,7 +2,7 @@
 body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--texte)}
 .terre .marque span{font-family:"Bryndan Write",var(--f-titre)}
 .terre h1,.terre h2,.terre h3{font-weight:400;letter-spacing:0}
-.terre .surtitre{color:var(--terre)}
+.terre .surtitre{color:#7F4526}
 .terre .bandeau-demo{position:absolute;top:0;left:0;right:0;z-index:30;background:rgba(25,32,12,.55);color:#fff;font-size:.75rem;padding:.2rem 1rem}
 .terre .entete{position:fixed;top:26px;left:0;right:0;background:transparent;backdrop-filter:none;border-bottom-color:transparent;transition:background .3s,top .3s}
 .terre .entete:not(.solide){background:linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0))}
@@ -74,12 +74,12 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
  .th-surtitre,.th h1{animation:th-txt 1s cubic-bezier(.2,.65,.25,1) both}
  .th-surtitre{animation-delay:.1s}.th h1{animation-delay:.2s}
  .th-actions,.th .meteo-court{animation:th-txt .8s .55s cubic-bezier(.2,.65,.25,1) both}
- .amb-phrase.avant .mot{opacity:.15;transition:opacity .5s ease;transition-delay:calc(var(--i)*55ms)}
- .amb-phrase.avant.vu .mot{opacity:1}
+ .amb-phrase.vu .mot{animation:mot-in .5s ease both;animation-delay:calc(var(--i)*55ms)}
  .amb-p.avant,.section h2.avant,.sejour.avant,.lieu.avant{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.65,.25,1)}
  .amb-p.avant.vu,.section h2.avant.vu,.sejour.avant.vu,.lieu.avant.vu{opacity:1;transform:none}
  .amb-b.avant{transition-delay:.12s}.amb-c.avant{transition-delay:.24s}
 }
+@keyframes mot-in{from{opacity:.3}to{opacity:1}}
 @keyframes th-img{from{opacity:.35;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
 @keyframes th-txt{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media(max-width:650px){.th{min-height:600px;border-radius:14px}.th h1{font-size:clamp(1.9rem,7.6vw,2.4rem)}}
