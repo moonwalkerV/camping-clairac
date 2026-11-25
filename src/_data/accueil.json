@@ -70,38 +70,38 @@
   },
   {
    "type": "corde",
-   "surtitre": "Le domaine en photos",
-   "titre": "Une journée à Clairac",
+   "surtitre": "Le domaine",
+   "titre": "Le domaine en images",
    "items": [
     {
      "image": "/assets/img/photos/sentier-pin-fleurs-sauvages.webp",
      "alt": "Un sentier sous les pins bordé de fleurs sauvages",
-     "note": "le sentier du matin"
+     "note": ""
     },
     {
      "image": "/assets/img/photos/camping-jardin-commun.webp",
      "alt": "Le jardin commun, avec ses fleurs et ses tables",
-     "note": "le jardin commun"
+     "note": ""
     },
     {
      "image": "/assets/img/photos/olivier-pique-nique-sanitaires.webp",
      "alt": "Une table de pique-nique sous un olivier",
-     "note": "pique-nique sous l'olivier"
+     "note": ""
     },
     {
      "image": "/assets/img/photos/aire-jeux-sanitaires-jour.webp",
      "alt": "L'aire de jeux dans l'herbe",
-     "note": "l'aire de jeux"
+     "note": ""
     },
     {
      "image": "/assets/img/photos/camping-nature-lauriers-roses.webp",
      "alt": "Des lauriers roses en fleurs sous les grands pins",
-     "note": "les lauriers en juin"
+     "note": ""
     },
     {
      "image": "/assets/img/photos/aire-jeux-nuit-pleine-lune.webp",
      "alt": "Le camping la nuit, sous la pleine lune",
-     "note": "les nuits de pleine lune"
+     "note": ""
     }
    ]
   },
