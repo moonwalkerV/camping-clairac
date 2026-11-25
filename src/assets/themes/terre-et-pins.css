@@ -78,3 +78,10 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 
 .terre .entete:not(.solide) .logo-c{display:none}.terre .entete:not(.solide) .logo-s{display:inline}
 @media(max-width:700px){.amb-mentions{gap:4px 20px;font-size:.85rem}.amb-mentions li+li::before{display:none}}
+
+/* Repères : bandeau vert pin plein, pour qu'il ressorte */
+.terre .reperes{padding-block:clamp(24px,4vw,48px)}
+.terre .reperes-liste{background:var(--pin);color:#F3EEE3;border:0;border-radius:18px;padding:clamp(24px,3vw,36px) clamp(20px,3vw,40px);gap:20px 24px}
+.terre .reperes-liste .picto{color:#D9C9A8;width:38px;height:38px}
+.terre .reperes-liste strong{font-size:1.25rem;color:#F3EEE3}
+.terre .reperes-liste span{color:#E5DDCB}
