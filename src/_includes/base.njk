@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ lang or 'fr' }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,14 @@
 <title>{{ titrePage }}</title>
 <meta name="description" content="{{ description or site.description_seo }}">
 {% if noindex or site.demo %}<meta name="robots" content="noindex">{% endif %}
+{% if altlien %}<link rel="alternate" hreflang="{{ 'fr' if lang == 'en' else 'en' }}" href="{{ altlien | absolu(site.url) }}">{% endif %}
 <link rel="canonical" href="{{ page.url | absolu(site.url) }}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ titrePage }}">
 <meta property="og:description" content="{{ description or site.description_seo }}">
 <meta property="og:image" content="{{ site.image_partage | absolu(site.url) }}">
 <meta property="og:url" content="{{ page.url | absolu(site.url) }}">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="{{ 'en_GB' if lang == 'en' else 'fr_FR' }}">
 <meta name="theme-color" content="{{ site.couleurs.fond }}">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -24,7 +25,7 @@
 </style>
 <link rel="stylesheet" href="/assets/socle.css">
 <link rel="stylesheet" href="/assets/themes/{{ site.theme }}.css">
-{% if page.url == "/comparaison/terre-et-pins/" %}<link rel="stylesheet" href="/assets/themes/terre-et-pins.css">{% endif %}
+{% if terre %}<link rel="stylesheet" href="/assets/themes/terre-et-pins.css">{% endif %}
 <script>document.documentElement.classList.add("js")</script>
 <script src="/assets/js/meteo.js" defer></script>
 <script type="application/ld+json">{{ {
@@ -52,17 +53,18 @@
   ]
 } | dump | safe }}</script>
 </head>
-<body class="theme-{{ site.theme }}{% if page.url == "/comparaison/terre-et-pins/" %} terre{% endif %}">
+<body class="theme-{{ site.theme }}{% if terre %} terre{% endif %}">
 {% include "pictos.njk" %}
-<a class="evitement" href="#contenu">Aller au contenu</a>
-{% if site.demo %}<p class="bandeau-demo">Version de démonstration : ce site n'est pas encore en ligne.</p>{% endif %}
+<a class="evitement" href="#contenu">{{ "Skip to content" if lang == "en" else "Aller au contenu" }}</a>
+{% if site.demo %}<p class="bandeau-demo">{{ "Demo version: this site is not online yet." if lang == "en" else "Version de démonstration : ce site n'est pas encore en ligne." }}</p>{% endif %}
 <header class="entete"><div class="conteneur entete-in">
   <a class="marque" href="/"><img src="{{ site.logo }}" alt="" width="68" height="68"><span>{{ site.nom }}</span></a>
   <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
   <nav id="menu-principal" aria-label="Navigation principale"><ul>
-  {% for item in site.navigation %}<li><a href="{{ item.lien }}"{% if item.lien == page.url %} aria-current="page"{% endif %}>{{ item.texte }}</a></li>{% endfor %}
+  {% for item in (site.navigation_en if lang == "en" else site.navigation) %}<li><a href="{{ item.lien }}"{% if item.lien == page.url %} aria-current="page"{% endif %}>{{ item.texte }}</a></li>{% endfor %}
   </ul></nav>
-  <a class="bouton bouton-entete" href="{{ site.bouton_flottant.lien }}">Réserver</a>
+  {% if altlien %}<a class="langue" href="{{ altlien }}" hreflang="{{ 'fr' if lang == 'en' else 'en' }}" lang="{{ 'fr' if lang == 'en' else 'en' }}"><span{% if lang != "en" %} aria-current="true"{% endif %}>FR</span> | <span{% if lang == "en" %} aria-current="true"{% endif %}>EN</span></a>{% endif %}
+  <a class="bouton bouton-entete" href="{{ site.bouton_flottant.lien }}">{{ "Book" if lang == "en" else "Réserver" }}</a>
 </div></header>
 <main id="contenu">
 {{ content | safe }}
@@ -70,12 +72,12 @@
 <a class="bouton bouton-flottant" href="{{ site.bouton_flottant.lien }}">{{ site.bouton_flottant.texte }}</a>
 <footer class="pied">
   <div class="conteneur pied-in">
-    <div class="pied-marque"><img src="{{ site.logo }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>Aire naturelle de 25 emplacements<br>{{ site.contact.ouverture | lower }}</p></div></div>
-    <div><p class="pied-titre">Nous trouver</p><p>{{ site.contact.adresse }}<br>GPS : {{ site.contact.gps }}<br><a href="{{ site.contact.carte }}" rel="noopener">Ouvrir dans Google Maps</a></p></div>
-    <div><p class="pied-titre">Nous écrire ou appeler</p><p><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p></div>
-    <div><p class="pied-titre">Le site</p><ul class="pied-liens">{% for item in site.navigation %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}<li><a href="/mentions-legales/">Mentions légales</a></li></ul></div>
+    <div class="pied-marque"><img src="{{ site.logo }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>{{ "Natural campsite with 25 pitches<br>open April to October" | safe if lang == "en" else ("Aire naturelle de 25 emplacements<br>" + (site.contact.ouverture | lower)) | safe }}</p></div></div>
+    <div><p class="pied-titre">{{ "Find us" if lang == "en" else "Nous trouver" }}</p><p>{{ site.contact.adresse }}<br>GPS : {{ site.contact.gps }}<br><a href="{{ site.contact.carte }}" rel="noopener">{{ "Open in Google Maps" if lang == "en" else "Ouvrir dans Google Maps" }}</a></p></div>
+    <div><p class="pied-titre">{{ "Write or call us" if lang == "en" else "Nous écrire ou appeler" }}</p><p><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p></div>
+    <div><p class="pied-titre">{{ "The site" if lang == "en" else "Le site" }}</p><ul class="pied-liens">{% for item in (site.navigation_en if lang == "en" else site.navigation) %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}<li><a href="/mentions-legales/">{{ "Legal notice (French)" if lang == "en" else "Mentions légales" }}</a></li></ul></div>
   </div>
-  <p class="conteneur petit pied-bas">© {{ "" | annee }} {{ site.nom }} · Recommandé par le Petit Futé depuis 2004</p>
+  <p class="conteneur petit pied-bas">© {{ "" | annee }} {{ site.nom }} · {{ "Recommended by the Petit Futé guide since 2004" if lang == "en" else "Recommandé par le Petit Futé depuis 2004" }}</p>
 </footer>
 <script>
 (function(){var f=document.querySelector(".bouton-flottant");if(f){var m=function(){f.classList.toggle("visible",scrollY>520)};addEventListener("scroll",m,{passive:true});m()}})();

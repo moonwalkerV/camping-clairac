@@ -1,0 +1,97 @@
+{
+ "sections": [
+  {
+   "type": "hero-carnet"
+  },
+  {
+   "type": "reperes",
+   "items": [
+    {
+     "picto": "tente",
+     "titre": "25 pitches",
+     "texte": "at least 5 m between neighbours"
+    },
+    {
+     "picto": "grappe",
+     "titre": "A former winegrowing estate",
+     "texte": "vines line the field"
+    },
+    {
+     "picto": "patte",
+     "titre": "Pets welcome",
+     "texte": "dogs and cats allowed"
+    },
+    {
+     "picto": "epingle",
+     "titre": "5 km from Béziers",
+     "texte": "and 15 km from the beaches"
+    }
+   ]
+  },
+  {
+   "type": "ferme",
+   "surtitre": "Life on the farm",
+   "titre": "Here, nothing is wasted: it all feeds the hens",
+   "texte": "Before it was a campsite, Clairac was a winegrowing estate. The big trees have had time to grow, the old house still watches over the place, and we simply opened 25 pitches in that setting.\n\nEcology is not a selling point for us: it is how we look after the estate every day.",
+   "items": [
+    {
+     "picto": "poule",
+     "texte": "Stale bread and peelings go to the hens."
+    },
+    {
+     "picto": "feuille",
+     "texte": "Green waste goes into the two compost bins."
+    },
+    {
+     "picto": "bocal",
+     "texte": "Sorting (glass, plastic, metal, paper) is done along the path."
+    },
+    {
+     "picto": "goutte",
+     "texte": "Drinking water is tested by an approved laboratory, and we use it sparingly: no car washing."
+    }
+   ],
+   "image": "/assets/img/photos/vignes-domaine-batisse.webp",
+   "alt": "The estate's vines in front of the old house",
+   "note": "",
+   "bouton": {
+    "texte": "Discover the natural campsite (in French)",
+    "lien": "/aire-naturelle/"
+   }
+  },
+  {
+   "type": "sejours",
+   "surtitre": "Staying",
+   "titre": "With your tent, or with nothing at all",
+   "items": [
+    {
+     "titre": "The pitches",
+     "texte": "Large, shaded and at least 5 metres apart, for tents, caravans or motorhomes. Hot showers, accessible facilities, Wi-Fi and a playground.",
+     "image": "/assets/img/photos/prairie-pins-ombragee.webp",
+     "alt": "A meadow shaded by pines, where you can pitch your tent",
+     "note": "",
+     "lien": "/sejourner/#emplacements",
+     "lien_texte": "See pitches and prices (in French)",
+     "prix": "From €25 a night for 2 people"
+    },
+    {
+     "titre": "The cottage",
+     "texte": "A detached house on the estate: fitted kitchen, dining room, bathroom, and a shaded garden with deckchairs.",
+     "image": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt": "The shaded cottage garden with its deckchairs",
+     "note": "",
+     "lien": "/sejourner/#gite",
+     "lien_texte": "Discover the cottage (in French)",
+     "prix": "Detached house, prices on request"
+    }
+   ]
+  },
+  {
+   "type": "appel-reservation",
+   "titre": "Shall we keep you a shady spot?",
+   "intro": "Tell us your dates and your equipment: we will reply by e-mail to confirm.",
+   "b1": "Request a booking",
+   "b2": "Call"
+  }
+ ]
+}

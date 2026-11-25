@@ -5,10 +5,10 @@
     <p class="th-surtitre">{{ s.surtitre }}</p>
     <h1 id="th-titre">{{ s.titre_court }}</h1>
     <p class="th-slogan">{{ s.accroche }}</p>
-    <div class="th-actions"><a class="bouton" href="{{ site.bouton_flottant.lien }}">Demander une réservation</a><a class="th-lien" href="#sejours">Découvrir les séjours</a></div>
+    <div class="th-actions"><a class="bouton" href="{{ site.bouton_flottant.lien }}">{{ s.b1 or "Demander une réservation" }}</a><a class="th-lien" href="#sejours">{{ s.b2 or "Découvrir les séjours" }}</a></div>
     <p class="meteo-court" data-meteo="court" aria-live="polite" aria-busy="true"></p>
   </div>
-  <a class="th-bas" href="#ambiance">Découvrir Clairac <span aria-hidden="true">↓</span></a>
+  <a class="th-bas" href="#ambiance">{{ "Discover Clairac" if lang == "en" else "Découvrir Clairac" }} <span aria-hidden="true">↓</span></a>
 </section>
 <section class="ambiance" id="ambiance" aria-label="L'esprit de Clairac">
   <p class="amb-phrase">{% for m in s.ambiance.split(" ") %}<span class="mot">{{ m }}</span> {% endfor %}</p>
