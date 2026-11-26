@@ -1,5 +1,6 @@
-<section class="bandeau-page"><div class="conteneur bandeau-in">
-  <div><p class="surtitre">{{ surtitre }}</p><h1>{{ title }}</h1>{% if intro %}<p class="chapo">{{ intro }}</p>{% endif %}</div>
-  {% if bandeau_image %}<figure class="tirage tirage-penche"><img src="{{ bandeau_image }}" alt="{{ bandeau_alt }}" width="800" height="600" fetchpriority="high"></figure>{% endif %}
-</div></section>
-<svg class="haie" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0V16c29 13 67 13 96 0c25 15 59 15 84 0c36 11 84 11 120 0c25 9 59 9 84 0c25 15 59 15 84 0c32 9 76 9 108 0c29 13 67 13 96 0c32 11 76 11 108 0c25 13 59 13 84 0c29 9 67 9 96 0c32 13 76 13 108 0c29 11 67 11 96 0c11 13 25 13 36 0V0Z"/></svg>
+<section class="page-th{% if not bandeau_image %} page-th-sans-photo{% endif %}" aria-labelledby="page-titre">
+  {% if bandeau_image %}<img class="page-th-image" src="{{ bandeau_image }}" alt="{{ bandeau_alt }}" width="1600" height="900" fetchpriority="high"><div class="page-th-voile" aria-hidden="true"></div>{% endif %}
+  <div class="page-th-contenu">
+    <p class="surtitre">{{ surtitre }}</p><h1 id="page-titre">{{ title }}</h1>{% if intro %}<p class="chapo">{{ intro }}</p>{% endif %}
+  </div>
+</section>

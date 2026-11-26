@@ -25,7 +25,7 @@
 </style>
 <link rel="stylesheet" href="/assets/socle.css">
 <link rel="stylesheet" href="/assets/themes/{{ site.theme }}.css">
-{% if terre %}<link rel="stylesheet" href="/assets/themes/terre-et-pins.css">{% endif %}
+<link rel="stylesheet" href="/assets/themes/terre-et-pins.css">
 <script>document.documentElement.classList.add("js")</script>
 <script src="/assets/js/meteo.js" defer></script>
 <script type="application/ld+json">{{ {
@@ -53,7 +53,7 @@
   ]
 } | dump | safe }}</script>
 </head>
-<body class="theme-{{ site.theme }}{% if terre %} terre{% endif %}">
+<body class="theme-{{ site.theme }} terre{% if terre %} accueil-terre{% endif %}">
 {% include "pictos.njk" %}
 <a class="evitement" href="#contenu">{{ "Skip to content" if lang == "en" else "Aller au contenu" }}</a>
 {% if site.demo %}<p class="bandeau-demo">{{ "Demo version: this site is not online yet." if lang == "en" else "Version de démonstration : ce site n'est pas encore en ligne." }}</p>{% endif %}
