@@ -10,9 +10,11 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .accueil-terre .entete:not(.solide) .menu-bouton{border-color:#fff}
 .accueil-terre .entete:not(.solide) .bouton-entete{background:transparent;border-color:#fff;color:#fff}
 .accueil-terre .entete.solide{top:0;background:color-mix(in srgb,var(--fond) 96%,transparent);backdrop-filter:blur(6px);border-bottom-color:color-mix(in srgb,var(--texte) 12%,transparent)}
-.accueil-terre .menu-ouvert .entete{background:var(--fond)}
-.accueil-terre .menu-ouvert .entete .marque,.accueil-terre .menu-ouvert .entete .menu-bouton{color:var(--texte)}
-.accueil-terre .menu-ouvert .entete .menu-bouton{border-color:var(--texte)}
+body.accueil-terre.menu-ouvert .entete:not(.solide){background:var(--fond)}
+body.accueil-terre.menu-ouvert .entete .marque,body.accueil-terre.menu-ouvert .entete .menu-bouton{color:var(--texte)}
+body.accueil-terre.menu-ouvert .entete .menu-bouton{border-color:var(--texte)}
+body.accueil-terre.menu-ouvert .entete nav a,body.accueil-terre.menu-ouvert .entete .langue,body.accueil-terre.menu-ouvert .entete .langue a{color:var(--texte)}
+body.accueil-terre.menu-ouvert .entete .logo-c{display:inline!important}body.accueil-terre.menu-ouvert .entete .logo-s{display:none!important}
 
 /* Hero : grand cadre photo arrondi */
 .th{position:relative;margin:clamp(6px,1vw,14px);margin-top:clamp(6px,1vw,14px);height:calc(100svh - clamp(12px,2vw,28px));min-height:620px;border-radius:18px;overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--pin)}
