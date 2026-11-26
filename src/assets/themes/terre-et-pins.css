@@ -135,3 +135,5 @@ body.accueil-terre.menu-ouvert .entete .logo-c{display:inline!important}body.acc
 
 .terre .vignettes figcaption{padding-top:12px;font-family:var(--f-texte,inherit);font-size:1rem;font-weight:600;text-align:center;color:var(--texte)}
 @media(max-width:700px){.th-image{object-position:75% 100%}}
+@media(max-width:380px){.marque{gap:8px}.marque img{width:40px;height:40px}.marque span{font-size:.92rem;letter-spacing:.02em}.langue{font-size:.8rem;gap:.25em}.menu-bouton{padding-left:.8rem;padding-right:.8rem}.entete-in{gap:.4rem}}
+@media(max-width:340px){.marque span{font-size:.78rem}.marque img{width:34px;height:34px}.menu-bouton{padding:.3rem .6rem}}
