@@ -3,16 +3,16 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .terre .marque span{font-family:"Bryndan Write",var(--f-titre)}
 .terre h1,.terre h2,.terre h3{font-weight:400;letter-spacing:0}
 .terre .surtitre{color:#7F4526}
-.terre .bandeau-demo{position:absolute;top:0;left:0;right:0;z-index:30;background:rgba(25,32,12,.55);color:#fff;font-size:.75rem;padding:.2rem 1rem}
-.terre .entete{position:fixed;top:26px;left:0;right:0;background:transparent;backdrop-filter:none;border-bottom-color:transparent;transition:background .3s,top .3s}
-.terre .entete:not(.solide){background:linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0))}
-.terre .entete:not(.solide) .marque,.terre .entete:not(.solide) nav a,.terre .entete:not(.solide) .menu-bouton{color:#fff}
-.terre .entete:not(.solide) .menu-bouton{border-color:#fff}
-.terre .entete:not(.solide) .bouton-entete{background:transparent;border-color:#fff;color:#fff}
-.terre .entete.solide{top:0;background:color-mix(in srgb,var(--fond) 96%,transparent);backdrop-filter:blur(6px);border-bottom-color:color-mix(in srgb,var(--texte) 12%,transparent)}
-.terre .menu-ouvert .entete{background:var(--fond)}
-.terre .menu-ouvert .entete .marque,.terre .menu-ouvert .entete .menu-bouton{color:var(--texte)}
-.terre .menu-ouvert .entete .menu-bouton{border-color:var(--texte)}
+.accueil-terre .bandeau-demo{position:absolute;top:0;left:0;right:0;z-index:30;background:rgba(25,32,12,.55);color:#fff;font-size:.75rem;padding:.2rem 1rem}
+.accueil-terre .entete{position:fixed;top:26px;left:0;right:0;background:transparent;backdrop-filter:none;border-bottom-color:transparent;transition:background .3s,top .3s}
+.accueil-terre .entete:not(.solide){background:linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0))}
+.accueil-terre .entete:not(.solide) .marque,.accueil-terre .entete:not(.solide) nav a,.accueil-terre .entete:not(.solide) .menu-bouton{color:#fff}
+.accueil-terre .entete:not(.solide) .menu-bouton{border-color:#fff}
+.accueil-terre .entete:not(.solide) .bouton-entete{background:transparent;border-color:#fff;color:#fff}
+.accueil-terre .entete.solide{top:0;background:color-mix(in srgb,var(--fond) 96%,transparent);backdrop-filter:blur(6px);border-bottom-color:color-mix(in srgb,var(--texte) 12%,transparent)}
+.accueil-terre .menu-ouvert .entete{background:var(--fond)}
+.accueil-terre .menu-ouvert .entete .marque,.accueil-terre .menu-ouvert .entete .menu-bouton{color:var(--texte)}
+.accueil-terre .menu-ouvert .entete .menu-bouton{border-color:var(--texte)}
 
 /* Hero : grand cadre photo arrondi */
 .th{position:relative;margin:clamp(6px,1vw,14px);margin-top:clamp(6px,1vw,14px);height:calc(100svh - clamp(12px,2vw,28px));min-height:620px;border-radius:18px;overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--pin)}
@@ -87,11 +87,11 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 /* Sélecteur de langue */
 .langue{color:inherit;text-decoration:none;font-size:.9rem;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:.35em;min-height:44px;padding:0 .5rem;margin-left:1rem}
 .langue [aria-current]{border-bottom:2px solid currentColor}
-.terre .entete:not(.solide) .langue{color:#fff}
+.accueil-terre .entete:not(.solide) .langue{color:#fff}
 @media(max-width:1080px){.langue{margin-left:auto}.menu-bouton{order:3;margin-left:.25rem}.marque span{font-size:1.05rem}.marque{min-width:0}}
 @media(max-width:420px){.marque span{font-size:.95rem;letter-spacing:.03em}.langue{padding:0 .25rem}}
 
-.terre .entete:not(.solide) .logo-c{display:none}.terre .entete:not(.solide) .logo-s{display:inline}
+.accueil-terre .entete:not(.solide) .logo-c{display:none}.accueil-terre .entete:not(.solide) .logo-s{display:inline}
 @media(max-width:700px){.amb-mentions{gap:4px 20px;font-size:.85rem}.amb-mentions li+li::before{display:none}}
 
 /* Repères : bandeau vert pin plein, pour qu'il ressorte */
@@ -102,3 +102,31 @@ body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--text
 .terre .reperes-liste span{color:#E5DDCB}
 
 .amb-defs{position:absolute;width:0;height:0;overflow:hidden}
+
+
+/* ===== Pages intérieures dans le même style ===== */
+.terre:not(.accueil-terre) .entete{position:sticky;top:0}
+/* En-tête de page : grand cadre arrondi, photo + titre */
+.page-th{position:relative;margin:clamp(6px,1vw,14px);border-radius:18px;overflow:hidden;color:#F3EEE3;background:var(--pin);min-height:clamp(300px,46vh,460px);display:flex;align-items:flex-end}
+.page-th-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.page-th-voile{position:absolute;inset:0;background:linear-gradient(0deg,rgba(25,32,12,.72),rgba(25,32,12,.1) 65%)}
+.page-th-contenu{position:relative;z-index:1;padding:clamp(24px,4vw,56px);max-width:760px}
+.page-th .surtitre{color:#D9C9A8;margin-bottom:.4em}
+.page-th h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;margin:0 0 .4em;color:#F3EEE3;text-shadow:0 2px 24px rgba(15,25,8,.4)}
+.page-th .chapo{margin:0;font-size:1.15rem;max-width:52ch}
+.page-th-sans-photo{background:var(--pin);min-height:0}.page-th-sans-photo .page-th-contenu{padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(32px,4vw,48px)}
+/* Photos : coins arrondis, sans cadre ni inclinaison */
+.terre .section .tirage{background:none;padding:0;box-shadow:none;transform:none;border-radius:18px;overflow:hidden}
+.terre .section .tirage img{border-radius:0;aspect-ratio:4/3;width:100%;height:100%;object-fit:cover}
+.terre .section .tirage .note{display:none}
+.terre .tirages-duo .tirage:first-child{border-radius:120px 18px 18px 18px}
+.terre .tirages-duo .tirage:nth-child(2){border-radius:18px 18px 120px 18px}
+.terre .tirages-duo .tirage img{aspect-ratio:3/4}
+.terre .vignettes img{border-radius:18px}
+.terre .note-encadree{background:var(--doux);border:0;border-radius:16px;padding:16px 20px}
+.terre .tarif-bloc{background:var(--doux);border-radius:18px;padding:clamp(18px,2.4vw,28px)}
+.terre .tarif-bloc h3{border-bottom-color:var(--pin)}
+.terre .sommaire a{border-color:var(--pin);color:var(--pin)}
+.terre .sommaire a:hover{background:var(--pin);color:#F3EEE3}
+.terre .lieu,.terre .carte-lieu-fiche{border-radius:18px}
+@media(max-width:820px){.page-th{min-height:320px}.page-th-sans-photo{min-height:0}.terre .tirages-duo .tirage:first-child{border-top-left-radius:80px}.terre .tirages-duo .tirage:nth-child(2){border-bottom-left-radius:18px;border-bottom-right-radius:80px}}

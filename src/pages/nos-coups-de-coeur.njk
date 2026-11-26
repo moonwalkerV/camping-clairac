@@ -22,7 +22,7 @@ bandeau_note: la mer est à 15 km
   {% if reste > 0 %}<details class="theme" id="{{ t.id }}"><summary><span>{{ t.label }}</span><span class="theme-nb">{{ reste }} adresse{% if reste > 1 %}s{% endif %}</span></summary>
     {% if t.intro %}<p class="section-intro">{{ t.intro }}</p>{% endif %}
     <div class="lieux-grille">{% for p in t.places %}{% if not p.favori %}{% include "sections/_lieu.njk" %}{% endif %}{% endfor %}</div>
-    {% if t.footerLink %}<p><a class="lien-fleche" href="{{ t.footerLink.href }}" rel="noopener">{{ t.footerLink.label }}</a></p>{% endif %}
+    {% if t.footerLink %}<p><a class="bouton" href="{{ t.footerLink.href }}" rel="noopener">{{ t.footerLink.label }}</a></p>{% endif %}
   </details>{% endif %}{% endfor %}
 </div></section>
 <script>(function(){function o(){var e=location.hash&&document.querySelector(location.hash);if(e&&e.tagName==="DETAILS")e.open=true}o();addEventListener("hashchange",o)})();</script>
