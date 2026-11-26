@@ -11,11 +11,6 @@
     <p class="amb-phrase">{% for m in s.ambiance.split(" ") %}<span class="mot">{{ m }}</span> {% endfor %}</p>
     <ul class="amb-mentions">{% for m in s.mentions %}<li>{{ m }}</li>{% endfor %}</ul>
   </div>
-  <svg class="amb-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>
-    <clipPath id="tente-a" clipPathUnits="objectBoundingBox"><path d="M0,0.3 L0.5,0 L1,0.3 L1,1 L0.58,1 L0.5,0.86 L0.42,1 L0,1 Z"/></clipPath>
-    <clipPath id="tente-b" clipPathUnits="objectBoundingBox"><path d="M0.37,0.04 Q0.5,-0.01 0.63,0.04 L1,1 L0.6,1 L0.5,0.87 L0.4,1 L0,1 Z"/></clipPath>
-    <clipPath id="tente-c" clipPathUnits="objectBoundingBox"><path d="M0,1 L0,0.46 C0,0.16 0.24,0 0.5,0 C0.76,0 1,0.16 1,0.46 L1,1 L0.6,1 L0.5,0.86 L0.4,1 Z"/></clipPath>
-  </defs></svg>
   <div class="amb-photos">
     <figure class="amb-p amb-a"><img src="/assets/img/photos/prairie-pins-harmonisee.webp" alt="{{ 'A meadow shaded by the estate\'s pines' if lang == 'en' else 'Une prairie ombragée par les pins du domaine' }}" width="1200" height="900" loading="lazy"></figure>
     <figure class="amb-p amb-b"><img src="/assets/img/photos/vignes-domaine.webp" alt="{{ 'A vine of the estate, heavy with leaves and grapes' if lang == 'en' else 'Un pied de vigne du domaine, chargé de feuilles et de raisins' }}" width="1200" height="900" loading="lazy"></figure>

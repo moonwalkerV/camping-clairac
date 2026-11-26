@@ -39,9 +39,9 @@ body.accueil-terre.menu-ouvert .entete .logo-c{display:inline!important}body.acc
 .amb-photos{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:clamp(12px,2vw,28px);align-items:end;margin-top:clamp(28px,4vw,48px)}
 .amb-p{margin:0;overflow:hidden}
 .amb-p img{width:100%;height:100%;object-fit:cover;display:block}
-.amb-a{aspect-ratio:3/4;clip-path:url(#tente-a)}
-.amb-b{aspect-ratio:4/5;clip-path:url(#tente-b)}
-.amb-c{aspect-ratio:3/4;clip-path:url(#tente-c)}
+.amb-a{aspect-ratio:3/4;border-radius:22px 22px 22px 120px}
+.amb-b{aspect-ratio:4/5;border-radius:22px 140px 22px 22px}
+.amb-c{aspect-ratio:3/4;border-radius:22px 22px 120px 22px}
 @media(max-width:700px){.amb-photos{grid-template-columns:1fr 1fr}.amb-b{grid-column:1 / -1;order:-1;aspect-ratio:4/3}}
 
 /* Séjours : deux grandes cartes alternées, photo principale + petite photo qui la chevauche */
