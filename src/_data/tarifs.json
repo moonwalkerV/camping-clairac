@@ -51,10 +51,6 @@
       "titre": "Services",
       "lignes": [
         {
-          "nom": "Douche chaude",
-          "prix": "Gratuite"
-        },
-        {
           "nom": "Machine à laver (par lavage)",
           "prix": "5,00 €"
         },
