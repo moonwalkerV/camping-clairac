@@ -134,3 +134,4 @@ body.accueil-terre.menu-ouvert .entete .logo-c{display:inline!important}body.acc
 .terre .section .tirage-chemin img{aspect-ratio:4/5;object-position:50% 100%}
 
 .terre .vignettes figcaption{padding-top:12px;font-family:var(--f-texte,inherit);font-size:1rem;font-weight:600;text-align:center;color:var(--texte)}
+@media(max-width:700px){.th-image{object-position:75% 100%}}
