@@ -1,6 +1,6 @@
-<section class="page-th{% if not bandeau_image %} page-th-sans-photo{% endif %}" aria-labelledby="page-titre">
-  {% if bandeau_image %}<img class="page-th-image" src="{{ bandeau_image }}" alt="{{ bandeau_alt }}" width="1600" height="900" fetchpriority="high"><div class="page-th-voile" aria-hidden="true"></div>{% endif %}
+<section class="page-th" aria-labelledby="page-titre">
   <div class="page-th-contenu">
     <p class="surtitre">{{ surtitre }}</p><h1 id="page-titre">{{ title }}</h1>{% if intro %}<p class="chapo">{{ intro }}</p>{% endif %}
   </div>
+  {% if bandeau_image %}<img class="page-th-image" src="{{ bandeau_image }}" alt="{{ bandeau_alt }}" width="1600" height="900" fetchpriority="high">{% endif %}
 </section>
