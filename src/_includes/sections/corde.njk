@@ -1,13 +1,13 @@
-<section class="corde" aria-labelledby="corde-titre"><div class="conteneur"><p class="surtitre">{{ s.surtitre }}</p><h2 id="corde-titre">{{ s.titre }}</h2></div>
+{% set en = (lang == "en") %}<section class="corde" aria-labelledby="corde-titre"><div class="conteneur"><p class="surtitre">{{ s.surtitre }}</p><h2 id="corde-titre">{{ s.titre }}</h2></div>
   <div class="corde-fil">
-    <ul class="corde-photos">{% for i in s.items %}<li><svg class="pince" aria-hidden="true"><use href="#p-pince"/></svg><figure class="tirage"><button type="button" class="photo-ouvrir" data-i="{{ loop.index0 }}" aria-label="Agrandir la photo : {{ i.alt }}"><img src="{{ i.image }}" alt="{{ i.alt }}" width="600" height="600" loading="lazy"></button>{% if i.note %}<figcaption class="note">{{ i.note }}</figcaption>{% endif %}</figure></li>{% endfor %}</ul>
+    <ul class="corde-photos">{% for i in s.items %}<li><svg class="pince" aria-hidden="true"><use href="#p-pince"/></svg><figure class="tirage"><button type="button" class="photo-ouvrir" data-i="{{ loop.index0 }}" aria-label="{{ 'Enlarge photo: ' if en else 'Agrandir la photo : ' }}{{ i.alt }}"><img src="{{ i.image }}" alt="{{ i.alt }}" width="600" height="600" loading="lazy"></button>{% if i.note %}<figcaption class="note">{{ i.note }}</figcaption>{% endif %}</figure></li>{% endfor %}</ul>
   </div>
-  <p class="centre corde-tout"><button type="button" class="bouton secondaire photo-ouvrir" data-i="0">{{ s.voir_tout or "Voir toutes les photos" }} ({{ s.items.length + s.plus.length }})</button></p>
-  <dialog class="visite" id="visite" aria-label="Visite du domaine en photos">
-    <button type="button" class="visite-fermer" aria-label="Fermer">×</button>
-    <button type="button" class="visite-nav visite-prec" aria-label="Photo précédente">‹</button>
+  <p class="centre corde-tout"><button type="button" class="bouton secondaire photo-ouvrir" data-i="0">{{ s.voir_tout or ("See all the photos" if en else "Voir toutes les photos") }} ({{ s.items.length + s.plus.length }})</button></p>
+  <dialog class="visite" id="visite" aria-label="{{ 'Tour of the estate in photos' if en else 'Visite du domaine en photos' }}">
+    <button type="button" class="visite-fermer" aria-label="{{ 'Close' if en else 'Fermer' }}">×</button>
+    <button type="button" class="visite-nav visite-prec" aria-label="{{ 'Previous photo' if en else 'Photo précédente' }}">‹</button>
     <figure class="visite-fig"><img class="visite-img" alt="" src=""><figcaption class="visite-legende"></figcaption></figure>
-    <button type="button" class="visite-nav visite-suiv" aria-label="Photo suivante">›</button>
+    <button type="button" class="visite-nav visite-suiv" aria-label="{{ 'Next photo' if en else 'Photo suivante' }}">›</button>
     <p class="visite-compteur" aria-live="polite"></p>
   </dialog>
   <script type="application/json" id="visite-donnees">{{ (s.items.concat(s.plus)) | dump | safe }}</script>

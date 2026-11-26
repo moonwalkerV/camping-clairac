@@ -1,4 +1,4 @@
-{% set questions = faq.slice(0, s.nombre) if s.nombre else faq %}
+{% set en = (lang == "en") %}{% set liste = faq_en if en else faq %}{% set questions = liste.slice(0, s.nombre) if s.nombre else liste %}
 <section class="section faq" id="questions"><div class="conteneur faq-in">
   {% include "sections/_entete-section.njk" %}
   <div class="faq-liste">{% for i in questions %}<details><summary>{{ i.titre }}</summary><p>{{ i.texte }}</p></details>{% endfor %}</div>

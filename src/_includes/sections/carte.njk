@@ -1,9 +1,9 @@
-<section class="section carte-section"><div class="conteneur carte-in">
+{% set en = (lang == "en") %}<section class="section carte-section"><div class="conteneur carte-in">
   <div class="carte-texte">
     <p class="surtitre">{{ s.surtitre }}</p><h2>{{ s.titre }}</h2><p>{{ s.intro }}</p>
     <a class="bouton bouton-section" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a>
   </div>
-  <svg class="carte-dessin" viewBox="0 0 520 440" role="img" aria-labelledby="carte-titre"><title id="carte-titre">Carte dessinée : le camping Clairac à 5 km de Béziers, 15 km de Pézenas et 15 km de la Méditerranée</title>
+  <svg class="carte-dessin" viewBox="0 0 520 440" role="img" aria-labelledby="carte-titre"><title id="carte-titre">{{ "Sketch map: Clairac campsite, 5 km from Béziers, 15 km from Pézenas and 15 km from the Mediterranean" if en else "Carte dessinée : le camping Clairac à 5 km de Béziers, 15 km de Pézenas et 15 km de la Méditerranée" }}</title>
     <path class="carte-mer" d="M520 300c-40 6-70 22-96 44-30 26-50 56-92 70-30 10-60 14-84 26H520Z"/>
     <path class="carte-cote" d="M520 300c-40 6-70 22-96 44-30 26-50 56-92 70-30 10-60 14-84 26"/>
     <path class="carte-route" d="M30 270C120 250 180 236 240 222s120-40 170-92 70-80 92-108"/>
@@ -11,8 +11,8 @@
     <g class="carte-pointille"><path d="M248 214L150 262"/><path d="M252 206L392 104"/><path d="M254 222L330 380"/></g>
     <g class="carte-lieu"><circle cx="146" cy="266" r="7"/><text x="62" y="300">Béziers</text><text class="carte-km" x="196" y="268">5 km</text></g>
     <g class="carte-lieu"><circle cx="396" cy="100" r="7"/><text x="410" y="96">Pézenas</text><text class="carte-km" x="334" y="170">15 km</text></g>
-    <g class="carte-lieu"><text x="430" y="410">la mer</text><text class="carte-km" x="300" y="318">15 km</text></g>
-    <g class="carte-lieu"><text x="40" y="60">vers le Salagou</text><text x="40" y="82">et l'arrière-pays ↖</text></g>
+    <g class="carte-lieu"><text x="430" y="410">{{ "the sea" if en else "la mer" }}</text><text class="carte-km" x="300" y="318">15 km</text></g>
+    <g class="carte-lieu"><text x="40" y="60">{{ "towards Lake Salagou" if en else "vers le Salagou" }}</text><text x="40" y="82">{{ 'and the hills ↖' if en else 'et l\'arrière-pays ↖' }}</text></g>
     <g class="carte-clairac"><circle cx="250" cy="214" r="22"/><svg x="232" y="194" width="36" height="36"><use href="#p-tente"/></svg><text x="282" y="214">Clairac</text></g>
   </svg>
 </div></section>

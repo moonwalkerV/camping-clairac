@@ -1,40 +1,40 @@
-<section class="section reservation" id="reservation"><div class="conteneur reservation-in">
+{% set en = (lang == "en") %}<section class="section reservation" id="reservation"><div class="conteneur reservation-in">
   <div class="reservation-infos">
-    <p class="surtitre">Réserver</p>
-    <h2>Demander une réservation</h2>
-    <p>Il n'y a pas de réservation en ligne : envoyez-nous vos dates, nous vous répondons par e-mail pour confirmer.</p>
+    <p class="surtitre">{{ "Book" if en else "Réserver" }}</p>
+    <h2>{{ "Request a booking" if en else "Demander une réservation" }}</h2>
+    <p>{% if en %}There is no online booking: send us your dates and we will reply by email to confirm.{% else %}Il n'y a pas de réservation en ligne : envoyez-nous vos dates, nous vous répondons par e-mail pour confirmer.{% endif %}</p>
     <ul class="contact-liste">
-      <li><svg class="picto" aria-hidden="true"><use href="#p-tel"/></svg><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-tel"/></svg><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone if en else site.contact.telephone_affiche }}</a></li>
       <li><svg class="picto" aria-hidden="true"><use href="#p-lettre"/></svg><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
-      <li><svg class="picto" aria-hidden="true"><use href="#p-cle"/></svg><span>Réception : 8 h 30 à 11 h 30 et 17 h à 20 h</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-cle"/></svg><span>{% if en %}Reception: 08:30–11:30 and 17:00–20:00{% else %}Réception : 8 h 30 à 11 h 30 et 17 h à 20 h{% endif %}</span></li>
     </ul>
   </div>
   <form class="formulaire" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="{{ site.formulaire.web3forms_cle }}">
-    <input type="hidden" name="subject" value="Demande de réservation depuis le site">
+    <input type="hidden" name="subject" value="Demande de réservation depuis le site{% if en %} (version anglaise){% endif %}">
     <input type="hidden" name="from_name" value="Site Camping Clairac">
-    <input type="hidden" name="redirect" value="{{ '/merci/' | absolu(site.url) }}">
+    <input type="hidden" name="redirect" value="{{ ('/en/merci/' if en else '/merci/') | absolu(site.url) }}">
     <input type="checkbox" name="botcheck" class="cache" tabindex="-1" autocomplete="off">
     <div class="champs-2">
-      <p><label for="nom">Votre nom</label><input id="nom" name="name" required autocomplete="name"></p>
-      <p><label for="tel">Téléphone (facultatif)</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></p>
+      <p><label for="nom">{{ "Your name" if en else "Votre nom" }}</label><input id="nom" name="name" required autocomplete="name"></p>
+      <p><label for="tel">{{ "Phone (optional)" if en else "Téléphone (facultatif)" }}</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></p>
     </div>
-    <p><label for="email">Votre e-mail</label><input id="email" name="email" type="email" required autocomplete="email"></p>
+    <p><label for="email">{{ "Your email" if en else "Votre e-mail" }}</label><input id="email" name="email" type="email" required autocomplete="email"></p>
     <div class="champs-2">
-      <p><label for="arrivee">Arrivée</label><input id="arrivee" name="arrivee" type="date" required></p>
-      <p><label for="depart">Départ</label><input id="depart" name="depart" type="date" required></p>
+      <p><label for="arrivee">{{ "Arrival" if en else "Arrivée" }}</label><input id="arrivee" name="arrivee" type="date" required></p>
+      <p><label for="depart">{{ "Departure" if en else "Départ" }}</label><input id="depart" name="depart" type="date" required></p>
     </div>
     <div class="champs-2">
-      <p><label for="adultes">Adultes</label><input id="adultes" name="adultes" type="number" min="1" max="12" value="2" required></p>
-      <p><label for="enfants">Enfants de moins de 13 ans</label><input id="enfants" name="enfants" type="number" min="0" max="12" value="0"></p>
+      <p><label for="adultes">{{ "Adults" if en else "Adultes" }}</label><input id="adultes" name="adultes" type="number" min="1" max="12" value="2" required></p>
+      <p><label for="enfants">{{ "Children under 13" if en else "Enfants de moins de 13 ans" }}</label><input id="enfants" name="enfants" type="number" min="0" max="12" value="0"></p>
     </div>
-    <fieldset><legend>Vous venez avec</legend>
-      <div class="choix">{% for e in ["Tente", "Caravane", "Camping-car ou fourgon", "Je voudrais le gîte"] %}<label><input type="radio" name="hebergement" value="{{ e }}"{% if loop.first %} required{% endif %}> {{ e }}</label>{% endfor %}</div>
+    <fieldset><legend>{{ "You are coming with" if en else "Vous venez avec" }}</legend>
+      <div class="choix">{% set labs = ["A tent", "A caravan", "A motorhome or van", "I would like the cottage"] if en else ["Tente", "Caravane", "Camping-car ou fourgon", "Je voudrais le gîte"] %}{% for e in ["Tente", "Caravane", "Camping-car ou fourgon", "Je voudrais le gîte"] %}<label><input type="radio" name="hebergement" value="{{ e }}"{% if loop.first %} required{% endif %}> {{ labs[loop.index0] }}</label>{% endfor %}</div>
     </fieldset>
-    <div class="choix choix-cases"><label><input type="checkbox" name="electricite" value="Oui"> Électricité</label><label><input type="checkbox" name="animal" value="Oui"> Un animal</label></div>
-    <p><label for="message">Un mot pour nous (facultatif)</label><textarea id="message" name="message" rows="4"></textarea></p>
-    <p class="petit">Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées pour de la publicité, et sont supprimées au bout de 12 mois. <a href="/mentions-legales/#donnees">En savoir plus</a></p>
-    {% if site.demo %}<p class="note-encadree petit">Démo : le formulaire sera relié à la boîte mail du camping à la mise en ligne.</p>{% endif %}
-    <button class="bouton" type="submit">Envoyer ma demande</button>
+    <div class="choix choix-cases"><label><input type="checkbox" name="electricite" value="Oui"> {{ "Electricity" if en else "Électricité" }}</label><label><input type="checkbox" name="animal" value="Oui"> {{ "A pet" if en else "Un animal" }}</label></div>
+    <p><label for="message">{{ "Anything you would like to tell us (optional)" if en else "Un mot pour nous (facultatif)" }}</label><textarea id="message" name="message" rows="4"></textarea></p>
+    <p class="petit">{% if en %}Your details are used only to reply to your request. They are never sold or used for advertising, and are deleted after 12 months. <a href="/en/mentions-legales/#donnees">Find out more</a>{% else %}Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées pour de la publicité, et sont supprimées au bout de 12 mois. <a href="/mentions-legales/#donnees">En savoir plus</a>{% endif %}</p>
+    {% if site.demo %}<p class="note-encadree petit">{% if en %}Demo: the form will be linked to the campsite's inbox when the site goes live.{% else %}Démo : le formulaire sera relié à la boîte mail du camping à la mise en ligne.{% endif %}</p>{% endif %}
+    <button class="bouton" type="submit">{{ "Send my request" if en else "Envoyer ma demande" }}</button>
   </form>
 </div></section>

@@ -1,0 +1,30 @@
+---
+layout: base.njk
+permalink: /en/nos-coups-de-coeur/
+lang: en
+altlien: /nos-coups-de-coeur/
+title: Our favourites
+surtitre: Around the campsite
+description: "Walks, villages, beaches, markets, restaurants and vineyards around Béziers: the places we love, a few kilometres from Camping Clairac."
+intro: "Our favourite places for exploring the area."
+bandeau_image: /assets/img/photos/velo-plage-dunes.webp
+bandeau_alt: Bicycles on the beach, between the dunes and the sea
+---
+{% include "bandeau.njk" %}
+<section class="section-courte lieux" id="preferes"><div class="conteneur">
+  <h2>Our top picks</h2>
+  <p class="section-intro">If you only have a few days, start with these.</p>
+  <div class="lieux-grille">{% for t in alentours_en %}{% for p in t.places %}{% if p.favori %}{% include "sections/_lieu.njk" %}{% endif %}{% endfor %}{% endfor %}</div>
+</div></section>
+<section class="section-courte lieux" id="autres"><div class="conteneur">
+  <h2>And everything else, by theme</h2>
+  <p class="section-intro">Open a theme to see all our other recommendations.</p>
+  {% for t in alentours_en %}{% set reste = 0 %}{% for p in t.places %}{% if not p.favori %}{% set reste = reste + 1 %}{% endif %}{% endfor %}
+  {% if reste > 0 %}<details class="theme" id="{{ t.id }}"><summary><span>{{ t.label }}</span><span class="theme-nb">{{ reste }} {{ "place" if reste == 1 else "places" }}</span></summary>
+    {% if t.intro %}<p class="section-intro">{{ t.intro }}</p>{% endif %}
+    <div class="lieux-grille">{% for p in t.places %}{% if not p.favori %}{% include "sections/_lieu.njk" %}{% endif %}{% endfor %}</div>
+    {% if t.footerLink %}<p><a class="bouton" href="{{ t.footerLink.href }}" rel="noopener">{{ t.footerLink.label }}</a></p>{% endif %}
+  </details>{% endif %}{% endfor %}
+</div></section>
+<script>(function(){function o(){var e=location.hash&&document.querySelector(location.hash);if(e&&e.tagName==="DETAILS")e.open=true}o();addEventListener("hashchange",o)})();</script>
+{% set s = { titre: "And in the evening, back to the calm", intro: "Book your pitch and we will reply by email to confirm." } %}{% include "sections/appel-reservation.njk" %}

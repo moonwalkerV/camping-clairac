@@ -1,0 +1,339 @@
+[
+ {
+  "id": "nature",
+  "label": "Walks and hikes",
+  "places": [
+   {
+    "name": "Canyon du Diable",
+    "subtitle": "Saint-Jean-de-la-Blaquière",
+    "image": "/images/decouvrir-canyon-diable.webp",
+    "alt": "Red ruffe earth and cliffs of the Canyon du Diable",
+    "text": "Nicknamed the Colorado of Languedoc, the Canyon du Diable is a vast stretch of ruffes, the red earth sculpted by erosion, making a striking mineral landscape of cliffs, gullies and natural chimneys. It is freely accessible by the walking trails that start from the village. A spectacular spot, best visited early in the morning when the light brings out the reds.",
+    "mapsQuery": "Canyon du Diable Saint-Jean-de-la-Blaquiere"
+   },
+   {
+    "name": "Cirque de Mourèze",
+    "alt": "Dolomite rock chaos of the Cirque de Mourèze",
+    "image": "/images/decouvrir-cirque-moureze.webp",
+    "text": "This 340-hectare chaos of dolomite rock, with its so-called “ruiniform” shapes, is a Grand Site de France and lies close to Lake Salagou. We like the short circuit (3 km, 1 to 1.5 hours), which is family-friendly and winds through the maze of rocks from the village. For the more energetic, the walk around Mont Liausson (7 to 9 km, 2.5 to 4 hours) gives a panoramic view of Lake Salagou.",
+    "note": "Paid parking (€2–3 a day) at the Parc des Courtinals, at the entrance to the village.",
+    "mapsQuery": "Cirque de Moureze",
+    "favori": true
+   },
+   {
+    "name": "Forêt enchantée",
+    "subtitle": "Villeneuvette",
+    "image": "/images/decouvrir-foret-enchantee.webp",
+    "alt": "Rock sculptures in the Forêt enchantée at Villeneuvette",
+    "text": "This unusual site is a collection of sculptures carved into rocks, depicting people and animals, found at the start of a 15 km loop that then climbs to the Ramasse plateau. We like this offbeat walk, which is especially good fun with children. Wear sturdy shoes if you plan to carry on round the whole loop.",
+    "mapsQuery": "Foret Enchantee Villeneuvette"
+   },
+   {
+    "name": "Gorges d'Héric",
+    "subtitle": "Mons-la-Trivalle",
+    "image": "/images/decouvrir-gorges-heric.webp",
+    "alt": "Gorges d'Héric, natural rock pools at the foot of the Caroux",
+    "text": "We love going to cool off in the natural rock pools of the Gorges d'Héric, at the foot of the Caroux. The path follows the stream in the shade of chestnut trees, perfect for a family walk. Wear sturdy shoes, as the path is stony in places.",
+    "hours": "Free access, all year round",
+    "mapsQuery": "Gorges d'Héric, Mons-la-Trivalle",
+    "favori": true
+   },
+   {
+    "name": "Lake Salagou",
+    "image": "/images/decouvrir-salagou.webp",
+    "alt": "Lake Salagou and its red ruffe landscapes",
+    "text": "With its water and distinctive red ruffes, Lake Salagou has a landscape unlike anywhere else in the region. It is a lovely place for a bike ride, a swim or simply to enjoy the sunset. Not to be missed if you have a day to spend in nature.",
+    "hours": "Free access, all year round",
+    "mapsQuery": "Lac du Salagou",
+    "credit": "Hans Hagenaars",
+    "favori": true
+   },
+   {
+    "name": "Mont Caylus",
+    "subtitle": "Clermont-l'Hérault",
+    "image": "/images/decouvrir-mont-caylus.webp",
+    "alt": "View from Mont Caylus over the plain of the heart of the Hérault",
+    "text": "This 6.4 km loop, about 2 hours' walk with 206 m of climbing, winds above Clermont-l'Hérault up to the Ramasse viewpoint. It gives an open view over the whole plain of the central Hérault, a nice goal for a half-day walk. It starts from the car park near the wine cooperative, avenue du Général-Malafosse.",
+    "mapsQuery": "Mont Caylus Clermont-l'Herault"
+   },
+   {
+    "name": "Mont Saint-Clair",
+    "subtitle": "Sète",
+    "image": "/images/decouvrir-mont-saint-clair.webp",
+    "alt": "Panoramic view from Mont Saint-Clair over the Étang de Thau",
+    "text": "A short, easy walk above Sète is all it takes to enjoy a panoramic view of the Mediterranean, the Étang de Thau and the Lido. We like to go up at the end of the day to watch the sun set over the water. A fine balance of minimal effort and maximum view.",
+    "mapsQuery": "Mont Saint-Clair Sete"
+   },
+   {
+    "name": "Roquebrun",
+    "image": "/images/decouvrir-roquebrun.webp",
+    "alt": "The village of Roquebrun beside the River Orb",
+    "text": "Nicknamed the little Nice of the Hérault thanks to its microclimate, Roquebrun is a hilltop village where orange trees and mimosa grow. We like strolling along the Orb and climbing up to the Mediterranean garden for the view. A perfect stop for a quiet afternoon.",
+    "hours": "Village open to visitors all year round",
+    "mapsQuery": "Roquebrun",
+    "credit": "Christian Ferrer",
+    "favori": true
+   },
+   {
+    "name": "Saint-Guilhem-le-Désert",
+    "image": "/images/decouvrir-saint-guilhem.webp",
+    "alt": "Medieval lanes of Saint-Guilhem-le-Désert",
+    "text": "Listed among the most beautiful villages in France, Saint-Guilhem-le-Désert is well worth the detour, with its medieval lanes and thousand-year-old abbey. We suggest going early in the morning to enjoy the calm before the visitors arrive. The Devil's Bridge, right next to it, is also worth a look.",
+    "hours": "Village open to visitors all year round",
+    "mapsQuery": "Saint-Guilhem-le-Désert",
+    "credit": "uuger",
+    "favori": true
+   }
+  ]
+ },
+ {
+  "id": "patrimoine",
+  "label": "Villages and heritage",
+  "places": [
+   {
+    "name": "The nine locks of Fonséranes",
+    "subtitle": "Béziers",
+    "image": "/images/decouvrir-ecluses-fonseranes.webp",
+    "alt": "The Fonséranes staircase of locks on the Canal du Midi",
+    "text": "This staircase of locks, built in the 17th century, lets boats climb 25 metres on the Canal du Midi. We like watching the barges work their way from lock to lock, a real piece of engineering theatre. It is also a lovely spot for a walk or a bike ride along the canal.",
+    "hours": "Free access to the locks, all year round",
+    "mapsQuery": "Écluses de Fonséranes, Béziers",
+    "favori": true
+   },
+   {
+    "name": "Fontcaude Abbey",
+    "subtitle": "Cazedarnes",
+    "image": "/images/decouvrir-abbaye-fontcaude.webp",
+    "alt": "Fontcaude Abbey, set beside a sacred spring",
+    "text": "Founded in 1154 by the Premonstratensian order, this abbey is set beside a sacred spring in the heart of Languedoc. A branch of the Way of St James passes by the abbey, for walkers looking for a stop steeped in history.",
+    "mapsQuery": "Abbaye de Fontcaude Cazedarnes"
+   },
+   {
+    "name": "Berlou",
+    "image": "/images/decouvrir-berlou.webp",
+    "alt": "The village of Berlou in the mountains of the Saint-Chinian area",
+    "text": "This little village of 200 inhabitants is tucked away in the mountains near the Gorges d'Héric. Its wine carries the “Berlou” geographical name as well as the Saint-Chinian AOC, and the village has splendid views over the valley.",
+    "mapsQuery": "Berlou Herault"
+   },
+   {
+    "name": "Béziers",
+    "subtitle": "Saint-Nazaire Cathedral, Allées Paul Riquet",
+    "image": "/images/decouvrir-beziers.webp",
+    "alt": "View of Béziers and Saint-Nazaire Cathedral",
+    "text": "Just a few minutes from the campsite, Béziers is worth a visit for its Saint-Nazaire Cathedral, perched above the Orb with a superb view. We also like strolling along the Allées Paul Riquet, one of the town's loveliest promenades, lined with café terraces and plane trees. A good choice for a day out in town without going far.",
+    "hours": "Town open to visitors all year round",
+    "mapsQuery": "Béziers"
+   },
+   {
+    "name": "Béziers Cathedral",
+    "image": "/images/decouvrir-cathedrale-beziers.webp",
+    "alt": "Saint-Nazaire Cathedral in Béziers",
+    "text": "Rebuilt after the tragic events of the Albigensian Crusade, Saint-Nazaire Cathedral stands over the town from its hilltop above the Orb. We like its southern Gothic architecture and the view it gives over the surrounding vineyards. Entry is free and the atmosphere is always peaceful.",
+    "hours": "Opening times to be confirmed",
+    "mapsQuery": "Cathédrale Saint-Nazaire, Béziers"
+   }
+  ]
+ },
+ {
+  "id": "plages",
+  "label": "Beaches",
+  "places": [
+   {
+    "name": "Cap d'Agde",
+    "image": "/images/decouvrir-cap-agde.webp",
+    "alt": "Black volcanic rocks of Cap d'Agde plunging into the sea",
+    "text": "Built on ancient lava flows, the resort of Cap d'Agde is recognisable by its black rocks that drop straight into the sea. There are large sandy beaches for families, but also wilder coves along the rocky coast for those looking for a little more peace.",
+    "mapsQuery": "Cap d'Agde"
+   },
+   {
+    "name": "Marseillan",
+    "image": "/images/decouvrir-marseillan.webp",
+    "alt": "The picturesque harbour of Marseillan on the Étang de Thau",
+    "text": "This picturesque little harbour on the Étang de Thau is worth the detour for its flower-lined lanes and the Noilly Prat house, where the famous vermouth is made. We like to make it the starting point for an oyster outing, enjoyed right by the water at one of the many producers. Marseillan lies on the Étang de Thau, the largest lagoon in Languedoc and a major centre for oyster and mussel farming, with more than 600 shellfish businesses.",
+    "mapsQuery": "Marseillan",
+    "favori": true
+   },
+   {
+    "name": "Portiragnes-Plage",
+    "image": "/images/decouvrir-portiragnes.webp",
+    "alt": "Beach and dune ridge at Portiragnes-Plage",
+    "text": "This family beach is backed by an unspoilt dune ridge, far from the bustle of the big resorts. It is the place for a lazy day, between swimming and a nap in the shade of a parasol.",
+    "mapsQuery": "Portiragnes-Plage"
+   },
+   {
+    "name": "Sérignan",
+    "image": "/images/decouvrir-serignan.webp",
+    "alt": "Sérignan beach at the mouth of the Orb",
+    "text": "At the mouth of the Orb, the village and beach of Sérignan offer a lovely mix of river walks and seaside relaxation. We like this double atmosphere, which lets you vary your day without changing destination.",
+    "mapsQuery": "Serignan-Plage",
+    "favori": true
+   },
+   {
+    "name": "Sète",
+    "image": "/images/decouvrir-sete.webp",
+    "alt": "Canals and colourful houses in Sète",
+    "text": "Nicknamed the Venice of Languedoc, Sète charms with its canals, colourful houses and lively fishing port. We suggest also going up Mont Saint-Clair, just above, for a full panorama of the town and the Étang de Thau (see the Walks and hikes tab).",
+    "mapsQuery": "Sete"
+   },
+   {
+    "name": "Valras-Plage",
+    "image": "/images/decouvrir-valras-plage.webp",
+    "alt": "Sandy beach and promenade at Valras-Plage",
+    "text": "This family seaside resort has a long beach of fine sand and a lively promenade, with restaurants and shops facing the sea. We like it for its closeness to the campsite and its friendly atmosphere, perfect for a hassle-free day at the beach.",
+    "mapsQuery": "Valras-Plage"
+   }
+  ]
+ },
+ {
+  "id": "terroir",
+  "label": "Markets and local produce",
+  "places": [
+   {
+    "name": "Agde market",
+    "alt": "Les Halles in Agde and the market in the historic centre",
+    "text": "Around Les Halles and the place du Jeu de Ballon, Agde market is a must for food and local crafts. We like its lively atmosphere a stone's throw from the historic centre, with stalls overflowing with seasonal produce. A good complement to the Pézenas and Béziers markets.",
+    "hours": "Market: Thursdays all year round (06:30–13:00), plus Sundays from April to September (07:00–13:00)",
+    "mapsQuery": "Halles d'Agde"
+   },
+   {
+    "name": "Bessan market",
+    "image": "/images/decouvrir-marche-bessan.webp",
+    "alt": "Bessan market on the shady promenade in the town centre",
+    "text": "Bessan market sets up twice a week in the heart of the town, on the shady promenade. You will find a bit of everything: food, clothes and local produce, in a lively village-market atmosphere. Bessan is also home to the Ricard factory, where the pastis of the same name has been made since 1965.",
+    "hours": "Market: Tuesdays and Sundays, 06:30–12:00",
+    "mapsQuery": "Marche de Bessan"
+   },
+   {
+    "name": "Montagnac market",
+    "image": "/images/decouvrir-marche-montagnac.webp",
+    "alt": "Montagnac market under the plane trees of the esplanade",
+    "text": "With more than 800 years of history, Montagnac market stretches under the plane trees of the esplanade as far as the square in front of Saint-André church. We like its authentic atmosphere and its position right in the centre of the village, a proper local-produce market of the kind we love.",
+    "hours": "Market: Fridays, 07:00–13:00",
+    "mapsQuery": "Marche de Montagnac Esplanade des Platanes"
+   },
+   {
+    "name": "Pézenas market",
+    "image": "/images/decouvrir-marche-pezenas.webp",
+    "alt": "Provençal-style market in the lanes of Pézenas",
+    "text": "The Saturday morning market in Pézenas is a must for local produce, with market gardeners, cheesemongers and wine producers. We like wandering the lanes of the old town, where Molière himself once lived, before heading home with arms full. Allow a good morning to make the most of it.",
+    "hours": "Market: Saturday mornings",
+    "mapsQuery": "Marché de Pézenas",
+    "favori": true
+   },
+   {
+    "name": "Night markets",
+    "subtitle": "Valras-Plage, Sérignan, Portiragnes-Plage",
+    "image": "/images/decouvrir-marche-nocturne.webp",
+    "alt": "A lively night market by the sea",
+    "text": "In summer, night markets set up along the coast for lively evenings of local crafts, regional specialities and seaside atmosphere. We like going at the end of the day to enjoy the cool air and finish with a sunset on the beach.",
+    "hours": "Opening times to be confirmed",
+    "note": "Seasonal markets, generally in July and August only: it is best to check dates and locations each year.",
+    "mapsQuery": "Marché nocturne Valras-Plage",
+    "favori": true
+   }
+  ]
+ },
+ {
+  "id": "manger",
+  "label": "Where to eat",
+  "places": [
+   {
+    "name": "Bistrot Cersois",
+    "image": "/images/decouvrir-bistrot-cersois.webp",
+    "alt": "The terrace of the Bistrot Cersois",
+    "text": "In Cers, just a short way from the campsite, this bistro serves simple, generous food made with local produce. It is a good choice for an unfussy lunch or an evening meal on the terrace in summer. A neighbourhood address we like for its friendly atmosphere.",
+    "hours": "Opening times to be confirmed",
+    "mapsQuery": "Bistrot Cersois"
+   },
+   {
+    "name": "De Lauzun",
+    "subtitle": "Pézenas, Prieuré de Saint-Jean-de-Bébian",
+    "alt": "The dining room of the De Lauzun restaurant at the Prieuré de Saint-Jean-de-Bébian",
+    "text": "Housed in the Prieuré de Saint-Jean-de-Bébian, in the middle of the vines, De Lauzun is a Michelin-starred restaurant run by chef Matthieu de Lauzun. The refined Mediterranean cooking is served in a setting of stone, wood and copper. One to book for a special occasion.",
+    "hours": "Open Tuesday to Saturday, lunch and dinner. Booking essential.",
+    "mapsQuery": "De Lauzun Prieure de Saint-Jean-de-Bebian Pezenas"
+   },
+   {
+    "name": "La Cabane",
+    "subtitle": "Marseillan, 1 Chemin de l'Étang",
+    "alt": "The terrace of La Cabane, right at the water's edge on the Étang de Thau",
+    "text": "Run by oyster farmers, this oyster and mussel bar sits right at the water's edge on the Étang de Thau. We go above all for the wood-fired brasucade of mussels, enjoyed on the terrace facing the lagoon. A simple, authentic place, built on the know-how of local producers.",
+    "hours": "Opening times to be confirmed",
+    "mapsQuery": "La Cabane, 1 Chemin de l'Étang, Marseillan"
+   },
+   {
+    "name": "Le Faitout",
+    "subtitle": "Berlou",
+    "image": "/images/decouvrir-le-faitout.webp",
+    "alt": "Le Faitout restaurant in Berlou",
+    "text": "Tucked away in this little wine village near the Gorges d'Héric, Le Faitout stands out for its remarkable value for money. A simple, generous address, to discover after a walk in the area.",
+    "website": "http://www.lefaitout.net/",
+    "mapsQuery": "Le Faitout Berlou"
+   },
+   {
+    "name": "L'Orangerie",
+    "subtitle": "Béziers",
+    "image": "/images/decouvrir-orangerie.webp",
+    "alt": "The dining room of L'Orangerie restaurant in Béziers",
+    "text": "In Béziers, L'Orangerie serves carefully prepared food in a pleasant setting, perfect for a slightly more festive meal. We like to linger there in the evening, with good food and attentive service. A good option if you want to leave the campsite for a rather special dinner.",
+    "hours": "Opening times to be confirmed",
+    "mapsQuery": "L'Orangerie, Béziers",
+    "favori": true
+   },
+   {
+    "name": "Tielle La Cettoise",
+    "subtitle": "Sète",
+    "alt": "Sète tielles in the window at Tielle La Cettoise",
+    "text": "In the centre of Sète, this little shop specialises in the tielle sétoise, the traditional octopus pie that is the town's emblem. It is more of a simple treat than a proper meal, but the quality is praised by everyone.",
+    "hours": "Opening times to be confirmed",
+    "mapsQuery": "Tielles La Cettoise Sete"
+   }
+  ]
+ },
+ {
+  "id": "vignobles",
+  "label": "Vineyards",
+  "intro": "Many wine estates surround us, most of them open to visitors for tasting and buying directly from the producer. Every village also has its own wine cooperative.",
+  "footerLink": {
+   "label": "Find more wine estates",
+   "href": "http://www.hachette-vins.com/le-guide-hachette-des-vins/regions-viticoles/languedoc-1-1-98.html"
+  },
+  "places": [
+   {
+    "name": "Saint-Saturnin de Lucian wine cooperative",
+    "image": "/images/decouvrir-cave-saint-saturnin.webp",
+    "alt": "The wine cooperative of Saint-Saturnin de Lucian",
+    "text": "This wine cooperative offers tastings and direct sales of local wine, a good way to come away with a few bottles of the local vintage straight from the producers.",
+    "website": "https://www.vins-saint-saturnin.com/"
+   },
+   {
+    "name": "Domaine Comps",
+    "image": "/images/decouvrir-domaine-comps.webp",
+    "alt": "The Comps wine estate",
+    "text": "This wine estate also offers tastings and direct sales, a chance to discover a local producer's work over a glass.",
+    "website": "http://www.domainecomps.com"
+   },
+   {
+    "name": "Picpoul de Pinet",
+    "image": "/images/decouvrir-picpoul-pinet.webp",
+    "alt": "Picpoul de Pinet vineyards east of the Étang de Thau",
+    "text": "This AOC white wine is produced east of the Étang de Thau, around Pinet, Castelnau-de-Guers, Florensac, Mèze, Montagnac and Pomérols. Crisp and mineral, it is the natural partner for oysters from the nearby Étang de Thau.",
+    "favori": true
+   }
+  ]
+ },
+ {
+  "id": "nautique",
+  "label": "Water activities",
+  "places": [
+   {
+    "name": "Réals, canoeing and kayaking on the Orb",
+    "image": "/images/decouvrir-reals-canoe-kayak.webp",
+    "alt": "Canoeing down the Orb from the Réals base",
+    "text": "This base offers trips down the Orb Valley by canoe or kayak, with routes for all levels. You can also simply stay on the banks to picnic in the shade of the trees and swim in the river's fresh water.",
+    "website": "http://www.base-reals.com/",
+    "mapsQuery": "Base de Reals Canoe Kayak"
+   }
+  ]
+ }
+]

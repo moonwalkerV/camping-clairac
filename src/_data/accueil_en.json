@@ -13,13 +13,13 @@
     },
     {
      "picto": "grappe",
-     "titre": "A former winegrowing estate",
-     "texte": "vines line the field"
+     "titre": "A former wine estate",
+     "texte": "a few rows of vines in the grounds"
     },
     {
      "picto": "patte",
      "titre": "Pets welcome",
-     "texte": "dogs and cats allowed"
+     "texte": "dogs and cats are accepted"
     },
     {
      "picto": "epingle",
@@ -30,72 +30,197 @@
   },
   {
    "type": "ferme",
-   "surtitre": "Our ecological approach",
+   "surtitre": "How we look after the place",
    "titre": "Here, we look after the estate every day",
-   "texte": "Ecology is not a selling point for us: it is how we look after the estate, day after day.\n\nThe big trees have had time to grow, we simply opened 25 pitches in that setting, with no mobile homes or entertainment, and we keep the gestures simple.",
+   "texte": "For us, ecology is not a selling point. It is simply how we look after the estate, day after day.\n\nThe tall trees had already had time to grow, so we simply opened 25 pitches in that setting, with no mobile homes and no entertainment programme, and we keep to simple habits.",
    "items": [
     {
      "picto": "goutte",
-     "texte": "Drinking water is tested by an approved laboratory, and we use it sparingly: no car washing."
+     "texte": "The drinking water is tested by an approved laboratory, and we use it sparingly: no car washing."
     },
     {
      "picto": "bocal",
-     "texte": "Sorting (glass, plastic, metal, paper) is done along the path."
+     "texte": "Glass, plastic, metal and paper are sorted at the recycling point along the track."
     },
     {
      "picto": "feuille",
-     "texte": "Green waste goes into the two compost bins."
+     "texte": "Garden waste goes into the two compost bins."
     },
     {
      "picto": "poule",
-     "texte": "Stale bread and peelings go to the hens: nothing is wasted."
+     "texte": "Stale bread and peelings go to the hens in the henhouse: nothing is wasted."
     }
    ],
    "image": "/assets/img/photos/camping-poules.webp",
-   "alt": "The estate's hens roaming free",
-   "note": "",
+   "alt": "The estate's hens roaming freely",
+   "note": "the estate's hens",
    "bouton": {
-    "texte": "Discover the natural campsite (in French)",
-    "lien": "/aire-naturelle/"
+    "texte": "Discover the natural campsite",
+    "lien": "/en/aire-naturelle/"
    }
+  },
+  {
+   "type": "corde",
+   "surtitre": "The estate",
+   "titre": "The estate in pictures",
+   "items": [
+    {
+     "image": "/assets/img/photos/sentier-pin-fleurs-sauvages.webp",
+     "alt": "A path under the pines lined with wild flowers",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/camping-jardin-commun.webp",
+     "alt": "The shared garden, with its flowers and tables",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/olivier-pique-nique-sanitaires.webp",
+     "alt": "A picnic table under an olive tree",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/aire-jeux-sanitaires-jour.webp",
+     "alt": "The play area on the grass",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/camping-nature-lauriers-roses.webp",
+     "alt": "Oleanders in flower under tall pines",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/aire-jeux-nuit-pleine-lune.webp",
+     "alt": "The campsite at night under a full moon",
+     "note": ""
+    }
+   ],
+   "plus": [
+    {
+     "image": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt": "A tent pitched on the grass, under the trees of the estate"
+    },
+    {
+     "image": "/assets/img/photos/camping-poules.webp",
+     "alt": "The estate's hens roaming freely"
+    },
+    {
+     "image": "/assets/img/photos/chemin-arbres-tunnel.webp",
+     "alt": "A dirt track running through a tunnel of trees"
+    },
+    {
+     "image": "/assets/img/photos/camping-reception.webp",
+     "alt": "The little reception and its terrace"
+    },
+    {
+     "image": "/assets/img/photos/camping-nature-allee-lauriers.webp",
+     "alt": "A lane lined with oleanders under the pines"
+    },
+    {
+     "image": "/assets/img/photos/prairie-pins-ombragee.webp",
+     "alt": "A meadow shaded by pines"
+    },
+    {
+     "image": "/assets/img/photos/camping-emplacements-oliviers.webp",
+     "alt": "Pitches among the olive trees"
+    },
+    {
+     "image": "/assets/img/photos/vignes-domaine.webp",
+     "alt": "A vine on the estate, heavy with leaves and grapes"
+    },
+    {
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "The cottage and its terrace"
+    },
+    {
+     "image": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt": "The cottage's shady garden with its deckchairs"
+    }
+   ],
+   "voir_tout": "See all the photos"
   },
   {
    "type": "sejours",
    "surtitre": "Staying",
-   "titre": "With your tent, or with nothing at all",
+   "titre": "Tent, caravan, motorhome or cottage",
    "items": [
     {
      "titre": "The pitches",
-     "texte": "Large, shaded and at least 5 metres apart, for tents, caravans or motorhomes. Hot showers, accessible facilities, Wi-Fi and a playground.",
+     "texte": "Large, shady and at least 5 metres apart, for tents, caravans and motorhomes. Toilet and shower block with hot showers, wheelchair access, Wi-Fi and a play area.",
      "image": "/assets/img/photos/allee-caravanes-arbres.webp",
-     "alt": "A campsite lane with caravans set up in the shade of the trees",
-     "note": "",
-     "lien": "/sejourner/#emplacements",
-     "lien_texte": "See pitches and prices (in French)",
+     "alt": "A lane on the campsite with caravans parked in the shade of the trees",
+     "note": "grass under the pines",
+     "lien": "/en/sejourner/#emplacements",
+     "lien_texte": "See the pitches and prices",
      "prix": "From €25 a night for 2 people",
      "image2": "/assets/img/photos/tente-cloche-pins.webp",
      "alt2": "A tent pitched on the grass, under the trees"
     },
     {
      "titre": "The cottage",
-     "texte": "A detached house on the estate: fitted kitchen, dining room, bathroom, and a shaded garden with deckchairs.",
+     "texte": "A self-contained house on the estate, with a fully equipped kitchen, a dining room, a bathroom and a shady garden with deckchairs.",
      "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
-     "alt": "The cottage, a detached house, and its terrace",
-     "note": "",
-     "lien": "/sejourner/#gite",
-     "lien_texte": "Discover the cottage (in French)",
-     "prix": "Detached house, prices on request",
+     "alt": "The cottage, a self-contained house, and its terrace",
+     "note": "the cottage deckchairs",
+     "lien": "/en/sejourner/#gite",
+     "lien_texte": "Discover the cottage",
+     "prix": "Self-contained house, prices on request",
      "image2": "/assets/img/photos/gite-jardin-transats.webp",
-     "alt2": "The shaded cottage garden with its deckchairs"
+     "alt2": "The cottage's shady garden with its deckchairs"
     }
    ]
   },
   {
+   "type": "tarifs-resume",
+   "titre": "Simple prices",
+   "prix": "€25",
+   "prix_detail": "a night for a pitch and 2 people",
+   "items": [
+    "Extra adult: €6",
+    "Child under 13: €4",
+    "Electricity: €5",
+    "Pet: €2"
+   ],
+   "bouton": {
+    "texte": "See all the prices",
+    "lien": "/en/sejourner/#tarifs"
+   }
+  },
+  {
+   "type": "carte",
+   "surtitre": "Where to find us",
+   "titre": "Peaceful, yet close to everything",
+   "intro": "The estate is 5 km from the centre of Béziers, 15 km from Pézenas and 15 km from the Mediterranean beaches. The hills of the Hérault begin 20 km away.",
+   "bouton": {
+    "texte": "See directions and GPS address",
+    "lien": "/en/infos-pratiques/#acces"
+   }
+  },
+  {
+   "type": "alentours-choix",
+   "surtitre": "Our favourites",
+   "titre": "What we like to do nearby",
+   "intro": "On foot, by bike or by car: the sea, the villages and the hills are all within easy reach.",
+   "noms": [
+    "Lake Salagou",
+    "The nine locks of Fonséranes",
+    "Sérignan"
+   ],
+   "bouton": {
+    "texte": "See all our favourites",
+    "lien": "/en/nos-coups-de-coeur/"
+   }
+  },
+  {
+   "type": "faq-clairac",
+   "surtitre": "Before you come",
+   "titre": "Questions we are often asked",
+   "nombre": 6
+  },
+  {
    "type": "appel-reservation",
    "titre": "Shall we keep you a shady spot?",
-   "intro": "Tell us your dates and your equipment: we will reply by e-mail to confirm.",
-   "b1": "Request a booking",
-   "b2": "Call"
+   "intro": "Tell us your dates and what you are travelling with, and we will reply by email to confirm."
   }
  ]
 }

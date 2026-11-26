@@ -1,0 +1,49 @@
+---
+layout: base.njk
+permalink: /en/infos-pratiques/
+lang: en
+altlien: /infos-pratiques/
+title: Practical information and booking
+surtitre: Planning your visit
+description: "How to get to Camping Clairac near Béziers (GPS address, routes from the A9 and A75), opening times, campsite map, fire safety rules and booking request."
+bandeau_image: /assets/img/photos/camping-reception.webp
+bandeau_alt: The campsite reception and its terrace
+intro: "5 km from Béziers, among vines and olive trees."
+---
+{% include "bandeau.njk" %}
+{% include "sections/reservation.njk" %}
+<section class="section fond-doux" id="acces"><div class="conteneur deux-col">
+  <div>
+    <h2>Getting here</h2>
+    <p class="note-encadree"><strong>For your GPS, do not use the postal address.</strong> Type “{{ site.contact.gps }}” or the coordinates 43.362408, 3.319105. And follow either our directions or your GPS, never both at once.</p>
+    <p class="actions"><a class="bouton secondaire" href="{{ site.contact.carte }}" rel="noopener">Open in Google Maps</a><a class="bouton secondaire" href="{{ site.contact.carte_apple }}" rel="noopener">Open in Apple Maps</a></p>
+    <h3>From the A9</h3>
+    <p>Take exit 35 “Béziers Centre”. At the 1st roundabout, follow signs for Béziers-Centre. At the 2nd and 3rd roundabouts, follow signs for Pézenas. At the 4th, follow signs for N9 / PAE La Baume. Go straight on along the N9 for 3.5 km, then turn right towards “Domaine de Clairac / Camping Clairac”.</p>
+    <h3>From the A75</h3>
+    <p>Take exit 63 “Béziers-Centre”. At the roundabout, turn right towards N9 / PAE La Baume. Go straight on along the N9 for 3.5 km, then turn right towards “Domaine de Clairac / Camping Clairac”.</p>
+    <p>The last few kilometres are on a well-kept dirt track, as you would expect of a true natural campsite.</p>
+    <p class="petit">Postal address, for post only: {{ site.contact.adresse }}.</p>
+  </div>
+  <figure class="tirage tirage-penche"><img src="/assets/img/photos/chemin-terre-acces-chiens.webp" alt="The dirt track leading to the campsite" width="900" height="1200" loading="lazy"></figure>
+</div></section>
+<section class="section" id="infos"><div class="conteneur">
+  <header class="section-entete"><h2>Good to know</h2></header>
+  <ul class="reperes-liste reperes-page">
+    <li><svg class="picto" aria-hidden="true"><use href="#p-tente"/></svg><strong>Open</strong><span>April to October</span></li>
+    <li><svg class="picto" aria-hidden="true"><use href="#p-cle"/></svg><strong>Gate</strong><span>open 07:30 to 22:30</span></li>
+    <li><svg class="picto" aria-hidden="true"><use href="#p-maison"/></svg><strong>Reception</strong><span>08:30–11:30 and 17:00–20:00</span></li>
+    <li><svg class="picto" aria-hidden="true"><use href="#p-lettre"/></svg><strong>Booking</strong><span>by email or phone</span></li>
+  </ul>
+  <h3 class="meteo-h">The weather at the campsite</h3>
+  <div class="meteo" data-meteo="complet" aria-live="polite" aria-busy="true"><p>Loading the weather…</p></div>
+  <div class="deux-col plan-feu">
+    <figure class="plan"><a href="/assets/img/photos/plan-du-camping.webp"><img src="/assets/img/photos/plan-du-camping.webp" alt="Map of the campsite showing the numbered pitches, the toilet block, the play area and the fire safety equipment" width="1641" height="1800" loading="lazy"></a><figcaption>Campsite map (click to enlarge)</figcaption></figure>
+    <div class="alerte-feu">
+      <svg class="picto picto-grand" aria-hidden="true"><use href="#p-flamme"/></svg>
+      <h3>Wildfire warning area</h3>
+      <p>The campsite is in an area classed as high risk for wildfires. Open fires and ground-level barbecues are strictly forbidden: only electric or gas barbecues are allowed, with a single gas bottle per set-up.</p>
+      <p>Never drop a cigarette butt on the ground. The safety of everyone, campers and forest alike, depends on it.</p>
+    </div>
+  </div>
+</div></section>
+{% set s = { surtitre: "Frequently asked questions", titre: "Answers before you set off" } %}{% include "sections/faq-clairac.njk" %}

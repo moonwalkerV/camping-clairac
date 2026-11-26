@@ -3,6 +3,8 @@ layout: page.njk
 surtitre: Camping Clairac
 title: Message envoyé
 permalink: /merci/
+lang: fr
+altlien: /en/merci/
 eleventyExcludeFromCollections: true
 noindex: true
 bouton:
