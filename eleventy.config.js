@@ -3,6 +3,7 @@ const exemple = process.env.EXEMPLE;
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   if (exemple) eleventyConfig.addPassthroughCopy({ [`exemples/${exemple}/img`]: "assets/img" });
