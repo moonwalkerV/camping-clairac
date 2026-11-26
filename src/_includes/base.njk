@@ -1,17 +1,21 @@
 <!doctype html>
+{% set en = (lang == "en") %}{% set lienResa = site.en.bouton_flottant.lien if en else site.bouton_flottant.lien %}
 <html lang="{{ lang or 'fr' }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% set titrePage = (title + " · " + site.nom) if title else (site.nom + " · Aire naturelle de camping près de Béziers") %}
+{% set descPage = description or (site.en.description_seo if en else site.description_seo) %}
+{% set titrePage = (title + " · " + site.nom) if title else (site.nom + (" · Natural campsite near Béziers" if en else " · Aire naturelle de camping près de Béziers")) %}
 <title>{{ titrePage }}</title>
-<meta name="description" content="{{ description or site.description_seo }}">
+<meta name="description" content="{{ descPage }}">
 {% if noindex or site.demo %}<meta name="robots" content="noindex">{% endif %}
-{% if altlien %}<link rel="alternate" hreflang="{{ 'fr' if lang == 'en' else 'en' }}" href="{{ altlien | absolu(site.url) }}">{% endif %}
+{% if altlien %}<link rel="alternate" hreflang="{{ 'en' if en else 'fr' }}" href="{{ page.url | absolu(site.url) }}">
+<link rel="alternate" hreflang="{{ 'fr' if en else 'en' }}" href="{{ altlien | absolu(site.url) }}">
+<link rel="alternate" hreflang="x-default" href="{{ (altlien if en else page.url) | absolu(site.url) }}">{% endif %}
 <link rel="canonical" href="{{ page.url | absolu(site.url) }}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ titrePage }}">
-<meta property="og:description" content="{{ description or site.description_seo }}">
+<meta property="og:description" content="{{ descPage }}">
 <meta property="og:image" content="{{ site.image_partage | absolu(site.url) }}">
 <meta property="og:url" content="{{ page.url | absolu(site.url) }}">
 <meta property="og:locale" content="{{ 'en_GB' if lang == 'en' else 'fr_FR' }}">
@@ -35,52 +39,55 @@
   "@context": "https://schema.org",
   "@type": site.type_schema,
   "name": site.nom,
-  "description": site.description_seo,
+  "description": site.en.description_seo if en else site.description_seo,
   "url": site.url,
   "telephone": site.contact.telephone,
   "email": site.contact.email,
   "image": site.image_partage | absolu(site.url),
   "logo": site.logo_schema | absolu(site.url),
-  "priceRange": "À partir de 25 € la nuit pour 2 personnes",
+  "priceRange": "From €25 a night for 2 people" if en else "À partir de 25 € la nuit pour 2 personnes",
   "petsAllowed": true,
   "address": { "@type": "PostalAddress", "streetAddress": site.contact.rue, "postalCode": site.contact.code_postal, "addressLocality": site.contact.commune, "addressRegion": "Occitanie", "addressCountry": "FR" },
   "geo": { "@type": "GeoCoordinates", "latitude": site.contact.latitude, "longitude": site.contact.longitude },
   "hasMap": site.contact.carte,
   "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Douches chaudes", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Sanitaires accessibles PMR", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Électricité", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Hot showers" if en else "Douches chaudes", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Wheelchair-accessible toilets" if en else "Sanitaires accessibles PMR", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Electricity" if en else "Électricité", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Aire de jeux", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Dépôt de pain", "value": true }
+    { "@type": "LocationFeatureSpecification", "name": "Play area" if en else "Aire de jeux", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Bread ordering" if en else "Dépôt de pain", "value": true }
   ]
 } | dump | safe }}</script>
 </head>
 <body class="theme-{{ site.theme }} terre{% if terre %} accueil-terre{% endif %}">
 {% include "pictos.njk" %}
-<a class="evitement" href="#contenu">{{ "Skip to content" if lang == "en" else "Aller au contenu" }}</a>
-{% if site.demo %}<p class="bandeau-demo">{{ "Demo version: this site is not online yet." if lang == "en" else "Version de démonstration : ce site n'est pas encore en ligne." }}</p>{% endif %}
+<a class="evitement" href="#contenu">{{ "Skip to content" if en else "Aller au contenu" }}</a>
+{% if site.demo %}<p class="bandeau-demo">{{ "Demo version: this site is not online yet." if en else "Version de démonstration : ce site n'est pas encore en ligne." }}</p>{% endif %}
 <header class="entete"><div class="conteneur entete-in">
-  <a class="marque" href="/"><img class="logo-c" src="{{ site.logo }}" alt="" width="68" height="68"><img class="logo-s" src="{{ site.logo_sombre }}" alt="" width="68" height="68"><span>{{ site.nom }}</span></a>
+  <a class="marque" href="{{ "/en/" if en else "/" }}"><img class="logo-c" src="{{ site.logo }}" alt="" width="68" height="68"><img class="logo-s" src="{{ site.logo_sombre }}" alt="" width="68" height="68"><span>{{ site.nom }}</span></a>
   <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
-  <nav id="menu-principal" aria-label="Navigation principale"><ul>
-  {% for item in (site.navigation_en if lang == "en" else site.navigation) %}<li><a href="{{ item.lien }}"{% if item.lien == page.url %} aria-current="page"{% endif %}>{{ item.texte }}</a></li>{% endfor %}
+  <nav id="menu-principal" aria-label="{{ 'Main navigation' if en else 'Navigation principale' }}"><ul>
+  {% for item in (site.navigation_en if en else site.navigation) %}<li><a href="{{ item.lien }}"{% if item.lien == page.url %} aria-current="page"{% endif %}>{{ item.texte }}</a></li>{% endfor %}
   </ul></nav>
-  {% if altlien %}<a class="langue" href="{{ altlien }}" hreflang="{{ 'fr' if lang == 'en' else 'en' }}" lang="{{ 'fr' if lang == 'en' else 'en' }}"><span{% if lang != "en" %} aria-current="true"{% endif %}>FR</span> | <span{% if lang == "en" %} aria-current="true"{% endif %}>EN</span></a>{% endif %}
-  <a class="bouton bouton-entete" href="{{ site.bouton_flottant.lien }}">{{ "Book" if lang == "en" else "Réserver" }}</a>
+  {% if altlien %}<div class="langue" role="group" aria-label="Langue / Language">
+    <span class="langue-cur" lang="{{ 'en' if en else 'fr' }}" aria-current="true"><svg class="drapeau" aria-hidden="true" focusable="false"><use href="#d-{{ 'gb' if en else 'fr' }}"/></svg><span class="langue-code">{{ "EN" if en else "FR" }}</span><span class="cache-visuel">{{ "English (current language)" if en else "Français (langue actuelle)" }}</span></span>
+    <a class="langue-autre" href="{{ altlien }}" hreflang="{{ 'fr' if en else 'en' }}" lang="{{ 'fr' if en else 'en' }}" aria-label="{{ 'Lire cette page en français' if en else 'Read this page in English' }}"><svg class="drapeau" aria-hidden="true" focusable="false"><use href="#d-{{ 'fr' if en else 'gb' }}"/></svg><span class="langue-code" aria-hidden="true">{{ "FR" if en else "EN" }}</span></a>
+  </div>{% endif %}
+  <a class="bouton bouton-entete" href="{{ lienResa }}">{{ "Book" if en else "Réserver" }}</a>
 </div></header>
 <main id="contenu">
 {{ content | safe }}
 </main>
-<a class="bouton bouton-flottant" href="{{ site.bouton_flottant.lien }}">{{ site.bouton_flottant.texte }}</a>
+<a class="bouton bouton-flottant" href="{{ lienResa }}">{{ site.en.bouton_flottant.texte if en else site.bouton_flottant.texte }}</a>
 <footer class="pied">
   <div class="conteneur pied-in">
-    <div class="pied-marque"><img src="{{ site.logo_sombre }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>{{ "Natural campsite with 25 pitches<br>open April to October" | safe if lang == "en" else ("Aire naturelle de 25 emplacements<br>" + (site.contact.ouverture | lower)) | safe }}</p></div></div>
-    <div><p class="pied-titre">{{ "Find us" if lang == "en" else "Nous trouver" }}</p><p>{{ site.contact.adresse }}<br>GPS : {{ site.contact.gps }}<br><a href="{{ site.contact.carte }}" rel="noopener">{{ "Open in Google Maps" if lang == "en" else "Ouvrir dans Google Maps" }}</a></p></div>
-    <div><p class="pied-titre">{{ "Write or call us" if lang == "en" else "Nous écrire ou appeler" }}</p><p><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone_affiche }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p></div>
-    <div><p class="pied-titre">{{ "The site" if lang == "en" else "Le site" }}</p><ul class="pied-liens">{% for item in (site.navigation_en if lang == "en" else site.navigation) %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}<li><a href="/mentions-legales/">{{ "Legal notice (French)" if lang == "en" else "Mentions légales" }}</a></li></ul></div>
+    <div class="pied-marque"><img src="{{ site.logo_sombre }}" alt="" width="56" height="56" loading="lazy"><div><strong class="pied-nom">{{ site.nom }}</strong><p>{{ ("Natural campsite with 25 pitches<br>" + site.en.ouverture) | safe if en else ("Aire naturelle de 25 emplacements<br>" + (site.contact.ouverture | lower)) | safe }}</p></div></div>
+    <div><p class="pied-titre">{{ "Find us" if en else "Nous trouver" }}</p><p>{{ site.contact.adresse }}<br>GPS{{ ": " if en else " : " }}{{ site.contact.gps }}<br><a href="{{ site.contact.carte }}" rel="noopener">{{ "Open in Google Maps" if en else "Ouvrir dans Google Maps" }}</a></p></div>
+    <div><p class="pied-titre">{{ "Write or call us" if en else "Nous écrire ou appeler" }}</p><p><a href="tel:{{ site.contact.telephone | tel }}">{{ site.contact.telephone if en else site.contact.telephone_affiche }}</a><br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p></div>
+    <div><p class="pied-titre">{{ "The site" if en else "Le site" }}</p><ul class="pied-liens">{% for item in (site.navigation_en if en else site.navigation) %}<li><a href="{{ item.lien }}">{{ item.texte }}</a></li>{% endfor %}<li><a href="{{ '/en/mentions-legales/' if en else '/mentions-legales/' }}">{{ "Legal notice" if en else "Mentions légales" }}</a></li></ul></div>
   </div>
-  <p class="conteneur petit pied-bas">© {{ "" | annee }} {{ site.nom }} · {{ "Recommended by the Petit Futé guide since 2004" if lang == "en" else "Recommandé par le Petit Futé depuis 2004" }}</p>
+  <p class="conteneur petit pied-bas">© {{ "" | annee }} {{ site.nom }} · {{ "Recommended by the Petit Futé guide since 2004" if en else "Recommandé par le Petit Futé depuis 2004" }}</p>
 </footer>
 <script>
 (function(){var f=document.querySelector(".bouton-flottant");if(f){var m=function(){f.classList.toggle("visible",scrollY>520)};addEventListener("scroll",m,{passive:true});m()}})();

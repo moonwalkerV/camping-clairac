@@ -1,6 +1,8 @@
 ---
 layout: page.njk
 permalink: /mentions-legales/
+lang: fr
+altlien: /en/mentions-legales/
 title: Mentions légales
 description: Mentions légales et données personnelles du site du camping Clairac.
 eleventyExcludeFromCollections: true

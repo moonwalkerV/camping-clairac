@@ -84,25 +84,40 @@
  "navigation_en": [
   {
    "texte": "The campsite",
-   "lien": "/aire-naturelle/"
+   "lien": "/en/aire-naturelle/"
   },
   {
    "texte": "Staying",
-   "lien": "/sejourner/"
+   "lien": "/en/sejourner/"
   },
   {
    "texte": "Prices",
-   "lien": "/sejourner/#tarifs"
+   "lien": "/en/sejourner/#tarifs"
   },
   {
    "texte": "Our favourites",
-   "lien": "/nos-coups-de-coeur/"
+   "lien": "/en/nos-coups-de-coeur/"
   },
   {
    "texte": "Practical info",
-   "lien": "/infos-pratiques/"
+   "lien": "/en/infos-pratiques/"
   }
  ],
  "logo_sombre": "/assets/img/logo-sombre.svg",
- "logo_schema": "/assets/img/logo-512.png"
+ "logo_schema": "/assets/img/logo-512.png",
+ "en": {
+  "description_seo": "A small natural campsite 5 km from Béziers: 25 shady pitches for tents, caravans and motorhomes, plus a cottage, on a former wine estate. Open April to October.",
+  "bouton_flottant": {
+   "texte": "Request a booking",
+   "lien": "/en/infos-pratiques/#reservation"
+  },
+  "accroche": "A small farm campsite among vines and olive trees, 5 km from Béziers.",
+  "horaires": [
+   "Open April to October",
+   "Reception: 08:30–11:30 and 17:00–20:00",
+   "Gate: 07:30–22:30"
+  ],
+  "message_merci": "Thank you! Your request is on its way. We will reply by email to confirm availability.",
+  "ouverture": "open April to October"
+ }
 }

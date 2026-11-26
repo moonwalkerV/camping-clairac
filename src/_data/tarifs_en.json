@@ -1,0 +1,88 @@
+{
+ "annee": "2026 and 2027",
+ "groupes": [
+  {
+   "titre": "Pitch, per night",
+   "lignes": [
+    {
+     "nom": "Pitch for a tent, caravan or car, 2 people included",
+     "prix": "€25.00"
+    },
+    {
+     "nom": "Extra adult",
+     "prix": "€6.00"
+    },
+    {
+     "nom": "Child under 13",
+     "prix": "€4.00"
+    },
+    {
+     "nom": "Electricity",
+     "prix": "€5.00"
+    },
+    {
+     "nom": "Pet (dog, cat…)",
+     "prix": "€2.00"
+    }
+   ]
+  },
+  {
+   "titre": "Extras",
+   "lignes": [
+    {
+     "nom": "Extra small tent",
+     "prix": "€5.00"
+    },
+    {
+     "nom": "Caravan over 6 m",
+     "prix": "€5.00"
+    },
+    {
+     "nom": "Second car",
+     "prix": "€5.00"
+    },
+    {
+     "nom": "Converted van used as a motorhome",
+     "prix": "€5.00"
+    }
+   ]
+  },
+  {
+   "titre": "Services",
+   "lignes": [
+    {
+     "nom": "Washing machine (per wash)",
+     "prix": "€5.00"
+    },
+    {
+     "nom": "Laundry detergent (per dose)",
+     "prix": "€1.50"
+    },
+    {
+     "nom": "Electric cable hire",
+     "prix": "€1.00"
+    },
+    {
+     "nom": "Deposit for an adapter or electric cable",
+     "prix": "€30.00"
+    }
+   ]
+  },
+  {
+   "titre": "Tourist tax",
+   "lignes": [
+    {
+     "nom": "Per person aged 18 and over, per night",
+     "prix": "€0.29"
+    }
+   ]
+  }
+ ],
+ "inclus": [
+  "the pitch",
+  "toilets and hot showers",
+  "the play area",
+  "Wi-Fi"
+ ],
+ "gite": "Prices for the cottage will be added soon. In the meantime, get in touch and we will reply with a price for your dates."
+}

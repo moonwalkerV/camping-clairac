@@ -1,0 +1,73 @@
+---
+layout: base.njk
+permalink: /en/sejourner/
+lang: en
+altlien: /sejourner/
+title: Staying
+surtitre: Pitches, cottage and prices
+description: "25 shady pitches for tents, caravans and motorhomes, a self-contained cottage, toilet and shower block with hot showers, and prices at Camping Clairac near Béziers."
+intro: "Tent, caravan or motorhome: everyone finds a shady corner."
+bandeau_image: /assets/img/photos/allee-caravanes-arbres.webp
+bandeau_alt: A lane of caravans under the trees
+---
+{% include "bandeau.njk" %}
+<section class="section" id="emplacements"><div class="conteneur deux-col">
+  <div>
+    <h2>The pitches</h2>
+    <p>There are 25 pitches for tents, caravans and motorhomes, in a calm, shady setting. Each pitch is roomy and at least 5 metres from its neighbour, so you can enjoy the open air without being on top of one another.</p>
+    <ul class="gestes gestes-compact">
+      <li><svg class="picto" aria-hidden="true"><use href="#p-prise"/></svg><span>Electricity on request</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-patte"/></svg><span>Pets welcome</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-lune"/></svg><span>Play area and Wi-Fi</span></li>
+      <li><svg class="picto" aria-hidden="true"><use href="#p-flamme"/></svg><span>Electric or gas barbecues only</span></li>
+    </ul>
+  </div>
+  <div class="tirages-duo">
+    <figure class="tirage"><img src="/assets/img/photos/emplacement-tente-ombrage.webp" alt="A tent pitch in the shade" width="638" height="595" loading="lazy"></figure>
+    <figure class="tirage tirage-penche"><img src="/assets/img/photos/camping-emplacements-oliviers.webp" alt="Pitches among the olive trees" width="1200" height="900" loading="lazy"></figure>
+  </div>
+</div></section>
+
+<section class="section fond-doux"><div class="conteneur">
+  <header class="section-entete"><h2>The toilet block</h2><p class="section-intro">A toilet and shower block, cleaned every day.</p></header>
+  <div class="vignettes">
+    <figure><img src="/assets/img/photos/camping-sanitaires-douche.webp" alt="An individual shower" width="900" height="1160" loading="lazy"><figcaption>Showers</figcaption></figure>
+    <figure><img src="/assets/img/photos/camping-sanitaires-wc.webp" alt="Clean toilets" width="900" height="1200" loading="lazy"><figcaption>Toilets</figcaption></figure>
+    <figure><img src="/assets/img/photos/camping-sanitaires-lavabos.webp" alt="Open-air washing-up sinks and wash basins" width="900" height="1196" loading="lazy"><figcaption>Washing-up sinks</figcaption></figure>
+    <figure><img src="/assets/img/photos/camping-sanitaires-pmr.webp" alt="The door to the accessible toilets" width="900" height="1200" loading="lazy"><figcaption>Wheelchair access</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="section" id="gite"><div class="conteneur deux-col deux-col-inverse">
+  <div>
+    <h2>The cottage</h2>
+    <p>No camping gear? The estate also has a self-contained house, so you can put down your bags without a tent or a motorhome. It has a fully equipped kitchen, a dining room and a private bathroom: all the comfort of a proper home.</p>
+    <p>Outside, a shady garden with deckchairs invites you to do nothing at all, in the same calm as the rest of the estate.</p>
+    <p class="note-encadree">{{ tarifs_en.gite }}</p>
+    <a class="bouton" href="/en/infos-pratiques/#reservation">Ask about the cottage</a>
+  </div>
+  <div class="tirages-duo">
+    <figure class="tirage"><img src="/assets/img/photos/gite-exterieur-terrasse.webp" alt="The cottage's outdoor terrace" width="900" height="1200" loading="lazy"></figure>
+    <figure class="tirage tirage-penche"><img src="/assets/img/photos/gite-interieur-cuisine.webp" alt="The cottage's fully equipped kitchen" width="900" height="1200" loading="lazy"></figure>
+  </div>
+</div></section>
+
+<section class="section fond-doux" id="reception"><div class="conteneur deux-col">
+  <div>
+    <h2>Reception and morning bread</h2>
+    <p><strong>Arrivals between 08:30 and 20:00.</strong> Pitches are usually free from 11:00. Reception, which is also a small shop, is open from 08:30 to 11:30 and from 17:00 to 20:00. Outside these hours, ring the bell on the left-hand shutter.</p>
+    <p><svg class="picto picto-texte" aria-hidden="true"><use href="#p-pain"/></svg> <strong>Bread and pastries:</strong> put your name down on the list at reception the day before, and the team will pick them up from the bakery. Collect them between 08:30 and 11:30.</p>
+    <p><svg class="picto picto-texte" aria-hidden="true"><use href="#p-velo"/></svg> <strong>Shopping:</strong> there is a Lidl 6 minutes away by car or 15 minutes by bike (rue des Entrepreneurs, Servian). <a href="https://www.google.com/maps/dir//Lidl,+Rue+des+Entrepreneurs+10,+34290+Servian" rel="noopener">Directions</a></p>
+  </div>
+  <figure class="tirage tirage-penche"><img src="/assets/img/photos/camping-reception.webp" alt="The campsite reception and its terrace" width="1200" height="900" loading="lazy"></figure>
+</div></section>
+
+<section class="section" id="tarifs"><div class="conteneur">
+  <header class="section-entete"><p class="surtitre">{{ tarifs_en.annee }} prices</p><h2>Prices</h2><p class="section-intro">Included in the price: {% for i in tarifs_en.inclus %}{{ i }}{% if loop.revindex == 2 %} and {% elif not loop.last %}, {% endif %}{% endfor %}.</p></header>
+  <div class="tarifs-grille">
+  {% for g in tarifs_en.groupes %}<div class="tarif-bloc"><h3>{{ g.titre }}</h3>
+    <table><caption class="cache-visuel">{{ g.titre }}</caption><tbody>{% for l in g.lignes %}<tr><th scope="row">{{ l.nom }}</th><td>{{ l.prix }}</td></tr>{% endfor %}</tbody></table>
+  </div>{% endfor %}
+  </div>
+  <p class="centre"><a class="bouton" href="/en/infos-pratiques/#reservation">Request a booking</a></p>
+</div></section>
