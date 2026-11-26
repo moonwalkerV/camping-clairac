@@ -1,195 +1,236 @@
 {
-  "sections": [
+ "sections": [
+  {
+   "type": "hero-carnet",
+   "surtitre": "Aire naturelle de camping · Béziers",
+   "titre": "Un petit camping à la ferme, entre vignes et oliviers",
+   "intro": "25 emplacements pour tente, caravane ou camping-car sur un ancien domaine viticole, à 5 km de Béziers et 15 km de la mer. Pas de mobil-homes ni d'animation : la campagne, l'ombre des pins et le temps de s'y poser.",
+   "image": "/assets/img/photos/tente-cloche-pins.webp",
+   "alt": "Une tente installée sur l'herbe, sous les pins du domaine",
+   "note": "votre coin d'ombre sous les pins",
+   "image2": "/assets/img/photos/camping-poules.webp",
+   "alt2": "Les poules du domaine en liberté",
+   "note2": "les voisines"
+  },
+  {
+   "type": "reperes",
+   "items": [
     {
-      "type": "hero-carnet",
-      "surtitre": "Aire naturelle de camping · Béziers",
-      "titre": "Un petit camping à la ferme, entre vignes et oliviers",
-      "intro": "25 emplacements pour tente, caravane ou camping-car sur un ancien domaine viticole, à 5 km de Béziers et 15 km de la mer. Pas de mobil-homes ni d'animation : la campagne, l'ombre des pins et le temps de s'y poser.",
-      "image": "/assets/img/photos/tente-cloche-pins.webp",
-      "alt": "Une tente installée sur l'herbe, sous les pins du domaine",
-      "note": "votre coin d'ombre sous les pins",
-      "image2": "/assets/img/photos/camping-poules.webp",
-      "alt2": "Les poules du domaine en liberté",
-      "note2": "les voisines"
+     "picto": "tente",
+     "titre": "25 emplacements",
+     "texte": "au moins 5 m entre voisins"
     },
     {
-      "type": "reperes",
-      "items": [
-        {
-          "picto": "tente",
-          "titre": "25 emplacements",
-          "texte": "au moins 5 m entre voisins"
-        },
-        {
-          "picto": "grappe",
-          "titre": "Un ancien domaine viticole",
-          "texte": "les vignes bordent le terrain"
-        },
-        {
-          "picto": "patte",
-          "titre": "Animaux bienvenus",
-          "texte": "chiens et chats acceptés"
-        },
-        {
-          "picto": "epingle",
-          "titre": "À 5 km de Béziers",
-          "texte": "et 15 km des plages"
-        }
-      ]
+     "picto": "grappe",
+     "titre": "Un ancien domaine viticole",
+     "texte": "les vignes bordent le terrain"
     },
     {
-      "type": "ferme",
-      "surtitre": "La vie à la ferme",
-      "titre": "Ici, rien ne se perd, tout nourrit les poules",
-      "texte": "Avant d'être un camping, Clairac était un domaine viticole. Les grands arbres ont eu le temps de pousser, la bâtisse veille toujours sur l'ensemble, et on a simplement ouvert 25 emplacements dans ce cadre-là.\n\nL'écologie n'est pas un argument pour nous : c'est la façon dont on entretient le domaine au quotidien.",
-      "items": [
-        {
-          "picto": "poule",
-          "texte": "Pain sec et épluchures vont aux poules du poulailler."
-        },
-        {
-          "picto": "feuille",
-          "texte": "Les déchets verts rejoignent les deux bacs à compost."
-        },
-        {
-          "picto": "bocal",
-          "texte": "Le tri (verre, plastique, métal, papier) se fait le long du chemin."
-        },
-        {
-          "picto": "goutte",
-          "texte": "L'eau potable est analysée par un laboratoire agréé, et on la ménage : pas de lavage de voiture."
-        }
-      ],
-      "image": "/assets/img/photos/vignes-domaine-batisse.webp",
-      "alt": "Les vignes du domaine devant la bâtisse ancienne",
-      "note": "la bâtisse du domaine",
-      "bouton": {
-        "texte": "Découvrir l'aire naturelle",
-        "lien": "/aire-naturelle/"
-      }
+     "picto": "patte",
+     "titre": "Animaux bienvenus",
+     "texte": "chiens et chats acceptés"
     },
     {
-      "type": "corde",
-      "surtitre": "Le domaine en photos",
-      "titre": "Une journée à Clairac",
-      "items": [
-        {
-          "image": "/assets/img/photos/sentier-pin-fleurs-sauvages.webp",
-          "alt": "Un sentier sous les pins bordé de fleurs sauvages",
-          "note": "le sentier du matin"
-        },
-        {
-          "image": "/assets/img/photos/camping-jardin-commun.webp",
-          "alt": "Le jardin commun, avec ses fleurs et ses tables",
-          "note": "le jardin commun"
-        },
-        {
-          "image": "/assets/img/photos/olivier-pique-nique-sanitaires.webp",
-          "alt": "Une table de pique-nique sous un olivier",
-          "note": "pique-nique sous l'olivier"
-        },
-        {
-          "image": "/assets/img/photos/aire-jeux-sanitaires-jour.webp",
-          "alt": "L'aire de jeux dans l'herbe",
-          "note": "l'aire de jeux"
-        },
-        {
-          "image": "/assets/img/photos/camping-nature-lauriers-roses.webp",
-          "alt": "Des lauriers roses en fleurs sous les grands pins",
-          "note": "les lauriers en juin"
-        },
-        {
-          "image": "/assets/img/photos/aire-jeux-nuit-pleine-lune.webp",
-          "alt": "Le camping la nuit, sous la pleine lune",
-          "note": "les nuits de pleine lune"
-        }
-      ]
-    },
-    {
-      "type": "sejours",
-      "surtitre": "Séjourner",
-      "titre": "Avec votre tente, ou sans rien du tout",
-      "items": [
-        {
-          "titre": "Les emplacements",
-          "texte": "Grands, ombragés et espacés d'au moins 5 mètres, pour tente, caravane ou camping-car. Sanitaires avec douches chaudes, accès PMR, Wi-Fi et aire de jeux.",
-          "image": "/assets/img/photos/prairie-pins-ombragee.webp",
-          "alt": "Une prairie ombragée par les pins, où l'on plante sa tente",
-          "note": "l'herbe sous les pins",
-          "lien": "/sejourner/#emplacements",
-          "lien_texte": "Voir les emplacements et les tarifs",
-          "prix": "Dès 25 € la nuit pour 2 personnes"
-        },
-        {
-          "titre": "Le gîte",
-          "texte": "Une maison indépendante sur le domaine : cuisine équipée, salle à manger, salle de bain, et un jardin ombragé avec des transats.",
-          "image": "/assets/img/photos/gite-jardin-transats.webp",
-          "alt": "Le jardin ombragé du gîte avec ses transats",
-          "note": "les transats du gîte",
-          "lien": "/sejourner/#gite",
-          "lien_texte": "Découvrir le gîte",
-          "prix": "Maison indépendante, tarifs sur demande"
-        }
-      ]
-    },
-    {
-      "type": "tarifs-resume",
-      "titre": "Des prix simples",
-      "prix": "25 €",
-      "prix_detail": "la nuit pour un emplacement et 2 personnes",
-      "items": [
-        "Adulte en plus : 6 €",
-        "Enfant de moins de 13 ans : 4 €",
-        "Électricité : 5 €",
-        "Animal : 2 €",
-        "Douches chaudes gratuites"
-      ],
-      "bouton": {
-        "texte": "Voir tous les tarifs",
-        "lien": "/sejourner/#tarifs"
-      }
-    },
-    {
-      "type": "panorama",
-      "image": "/assets/img/photos/coucher-soleil-domaine.webp",
-      "alt": "Coucher de soleil sur le domaine",
-      "note": "Ici, la seule animation du soir, c'est le coucher de soleil."
-    },
-    {
-      "type": "carte",
-      "surtitre": "Où nous trouver",
-      "titre": "Au calme, mais tout près de tout",
-      "intro": "Le domaine est à 5 km du centre de Béziers, 15 km de Pézenas et 15 km des plages de la Méditerranée. Les reliefs de l'Hérault commencent à 20 km.",
-      "bouton": {
-        "texte": "Voir l'accès et l'adresse GPS",
-        "lien": "/infos-pratiques/#acces"
-      }
-    },
-    {
-      "type": "alentours-choix",
-      "surtitre": "Nos coups de cœur",
-      "titre": "Ce qu'on aime faire autour",
-      "intro": "À pied, à vélo ou en voiture : la mer, les villages et l'arrière-pays sont à portée de main.",
-      "noms": [
-        "Lac du Salagou",
-        "9 écluses de Fonséranes",
-        "Sérignan"
-      ],
-      "bouton": {
-        "texte": "Voir tous nos coups de cœur",
-        "lien": "/nos-coups-de-coeur/"
-      }
-    },
-    {
-      "type": "faq-clairac",
-      "surtitre": "Avant de venir",
-      "titre": "Les questions qu'on nous pose souvent",
-      "nombre": 6
-    },
-    {
-      "type": "appel-reservation",
-      "titre": "On vous garde un coin d'ombre ?",
-      "intro": "Dites-nous vos dates et votre équipement : nous vous répondons par e-mail pour confirmer."
+     "picto": "epingle",
+     "titre": "À 5 km de Béziers",
+     "texte": "et 15 km des plages"
     }
-  ]
+   ]
+  },
+  {
+   "type": "ferme",
+   "surtitre": "Notre démarche écologique",
+   "titre": "Ici, on prend soin du domaine au quotidien",
+   "texte": "L'écologie n'est pas un argument pour nous : c'est la façon dont on entretient le domaine, jour après jour.\n\nLes grands arbres ont eu le temps de pousser, on a simplement ouvert 25 emplacements dans ce cadre-là, sans mobil-homes ni animation, et on garde les gestes simples.",
+   "items": [
+    {
+     "picto": "goutte",
+     "texte": "L'eau potable est analysée par un laboratoire agréé, et on la ménage : pas de lavage de voiture."
+    },
+    {
+     "picto": "bocal",
+     "texte": "Le tri (verre, plastique, métal, papier) se fait le long du chemin."
+    },
+    {
+     "picto": "feuille",
+     "texte": "Les déchets verts rejoignent les deux bacs à compost."
+    },
+    {
+     "picto": "poule",
+     "texte": "Pain sec et épluchures vont aux poules du poulailler : rien ne se perd."
+    }
+   ],
+   "image": "/assets/img/photos/camping-poules.webp",
+   "alt": "Les poules du domaine en liberté",
+   "note": "les poules du domaine",
+   "bouton": {
+    "texte": "Découvrir l'aire naturelle",
+    "lien": "/aire-naturelle/"
+   }
+  },
+  {
+   "type": "corde",
+   "surtitre": "Le domaine",
+   "titre": "Le domaine en images",
+   "items": [
+    {
+     "image": "/assets/img/photos/sentier-pin-fleurs-sauvages.webp",
+     "alt": "Un sentier sous les pins bordé de fleurs sauvages",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/camping-jardin-commun.webp",
+     "alt": "Le jardin commun, avec ses fleurs et ses tables",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/olivier-pique-nique-sanitaires.webp",
+     "alt": "Une table de pique-nique sous un olivier",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/aire-jeux-sanitaires-jour.webp",
+     "alt": "L'aire de jeux dans l'herbe",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/camping-nature-lauriers-roses.webp",
+     "alt": "Des lauriers roses en fleurs sous les grands pins",
+     "note": ""
+    },
+    {
+     "image": "/assets/img/photos/aire-jeux-nuit-pleine-lune.webp",
+     "alt": "Le camping la nuit, sous la pleine lune",
+     "note": ""
+    }
+   ],
+   "plus": [
+    {
+     "image": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt": "Une tente posée dans l'herbe, sous les arbres du domaine"
+    },
+    {
+     "image": "/assets/img/photos/camping-poules.webp",
+     "alt": "Les poules du domaine en liberté"
+    },
+    {
+     "image": "/assets/img/photos/chemin-arbres-tunnel.webp",
+     "alt": "Un chemin de terre en tunnel d'arbres"
+    },
+    {
+     "image": "/assets/img/photos/camping-reception.webp",
+     "alt": "La petite réception et sa terrasse"
+    },
+    {
+     "image": "/assets/img/photos/camping-nature-allee-lauriers.webp",
+     "alt": "Une allée bordée de lauriers roses sous les pins"
+    },
+    {
+     "image": "/assets/img/photos/prairie-pins-ombragee.webp",
+     "alt": "Une prairie ombragée par les pins"
+    },
+    {
+     "image": "/assets/img/photos/camping-emplacements-oliviers.webp",
+     "alt": "Des emplacements parmi les oliviers"
+    },
+    {
+     "image": "/assets/img/photos/vignes-domaine.webp",
+     "alt": "Un pied de vigne du domaine, chargé de feuilles et de raisins"
+    },
+    {
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "Le gîte et sa terrasse"
+    },
+    {
+     "image": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt": "Le jardin ombragé du gîte avec ses transats"
+    }
+   ],
+   "voir_tout": "Voir toutes les photos"
+  },
+  {
+   "type": "sejours",
+   "surtitre": "Séjourner",
+   "titre": "Avec votre tente, ou sans rien du tout",
+   "items": [
+    {
+     "titre": "Les emplacements",
+     "texte": "Grands, ombragés et espacés d'au moins 5 mètres, pour tente, caravane ou camping-car. Sanitaires avec douches chaudes, accès PMR, Wi-Fi et aire de jeux.",
+     "image": "/assets/img/photos/allee-caravanes-arbres.webp",
+     "alt": "Une allée du camping avec des caravanes installées à l'ombre des arbres",
+     "note": "l'herbe sous les pins",
+     "lien": "/sejourner/#emplacements",
+     "lien_texte": "Voir les emplacements et les tarifs",
+     "prix": "Dès 25 € la nuit pour 2 personnes",
+     "image2": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt2": "Une tente posée dans l'herbe, sous les arbres"
+    },
+    {
+     "titre": "Le gîte",
+     "texte": "Une maison indépendante sur le domaine : cuisine équipée, salle à manger, salle de bain, et un jardin ombragé avec des transats.",
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "Le gîte, maison indépendante, et sa terrasse",
+     "note": "les transats du gîte",
+     "lien": "/sejourner/#gite",
+     "lien_texte": "Découvrir le gîte",
+     "prix": "Maison indépendante, tarifs sur demande",
+     "image2": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt2": "Le jardin ombragé du gîte avec ses transats"
+    }
+   ]
+  },
+  {
+   "type": "tarifs-resume",
+   "titre": "Des prix simples",
+   "prix": "25 €",
+   "prix_detail": "la nuit pour un emplacement et 2 personnes",
+   "items": [
+    "Adulte en plus : 6 €",
+    "Enfant de moins de 13 ans : 4 €",
+    "Électricité : 5 €",
+    "Animal : 2 €",
+    "Douches chaudes gratuites"
+   ],
+   "bouton": {
+    "texte": "Voir tous les tarifs",
+    "lien": "/sejourner/#tarifs"
+   }
+  },
+  {
+   "type": "carte",
+   "surtitre": "Où nous trouver",
+   "titre": "Au calme, mais tout près de tout",
+   "intro": "Le domaine est à 5 km du centre de Béziers, 15 km de Pézenas et 15 km des plages de la Méditerranée. Les reliefs de l'Hérault commencent à 20 km.",
+   "bouton": {
+    "texte": "Voir l'accès et l'adresse GPS",
+    "lien": "/infos-pratiques/#acces"
+   }
+  },
+  {
+   "type": "alentours-choix",
+   "surtitre": "Nos coups de cœur",
+   "titre": "Ce qu'on aime faire autour",
+   "intro": "À pied, à vélo ou en voiture : la mer, les villages et l'arrière-pays sont à portée de main.",
+   "noms": [
+    "Lac du Salagou",
+    "9 écluses de Fonséranes",
+    "Sérignan"
+   ],
+   "bouton": {
+    "texte": "Voir tous nos coups de cœur",
+    "lien": "/nos-coups-de-coeur/"
+   }
+  },
+  {
+   "type": "faq-clairac",
+   "surtitre": "Avant de venir",
+   "titre": "Les questions qu'on nous pose souvent",
+   "nombre": 6
+  },
+  {
+   "type": "appel-reservation",
+   "titre": "On vous garde un coin d'ombre ?",
+   "intro": "Dites-nous vos dates et votre équipement : nous vous répondons par e-mail pour confirmer."
+  }
+ ]
 }

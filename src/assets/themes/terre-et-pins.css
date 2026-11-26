@@ -1,0 +1,104 @@
+/* Refonte « Terre et pins » : palette de la fiche client, hero photo cadré, phrase d'ambiance, séjours en deux blocs. Sans JS ni avec prefers-reduced-motion : tout est visible, rien ne bouge. */
+body.terre{--pin:#3F5224;--terre:#9D5934;background:var(--fond);color:var(--texte)}
+.terre .marque span{font-family:"Bryndan Write",var(--f-titre)}
+.terre h1,.terre h2,.terre h3{font-weight:400;letter-spacing:0}
+.terre .surtitre{color:#7F4526}
+.terre .bandeau-demo{position:absolute;top:0;left:0;right:0;z-index:30;background:rgba(25,32,12,.55);color:#fff;font-size:.75rem;padding:.2rem 1rem}
+.terre .entete{position:fixed;top:26px;left:0;right:0;background:transparent;backdrop-filter:none;border-bottom-color:transparent;transition:background .3s,top .3s}
+.terre .entete:not(.solide){background:linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0))}
+.terre .entete:not(.solide) .marque,.terre .entete:not(.solide) nav a,.terre .entete:not(.solide) .menu-bouton{color:#fff}
+.terre .entete:not(.solide) .menu-bouton{border-color:#fff}
+.terre .entete:not(.solide) .bouton-entete{background:transparent;border-color:#fff;color:#fff}
+.terre .entete.solide{top:0;background:color-mix(in srgb,var(--fond) 96%,transparent);backdrop-filter:blur(6px);border-bottom-color:color-mix(in srgb,var(--texte) 12%,transparent)}
+.terre .menu-ouvert .entete{background:var(--fond)}
+.terre .menu-ouvert .entete .marque,.terre .menu-ouvert .entete .menu-bouton{color:var(--texte)}
+.terre .menu-ouvert .entete .menu-bouton{border-color:var(--texte)}
+
+/* Hero : grand cadre photo arrondi */
+.th{position:relative;margin:clamp(6px,1vw,14px);margin-top:clamp(6px,1vw,14px);height:calc(100svh - clamp(12px,2vw,28px));min-height:620px;border-radius:18px;overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--pin)}
+.th-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.th-voile{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(20,30,10,.28),rgba(20,30,10,0) 65%),linear-gradient(0deg,rgba(25,32,12,.6),rgba(25,32,12,.05) 60%),linear-gradient(180deg,rgba(25,32,12,.5),rgba(25,32,12,0) 30%)}
+.th-contenu{position:relative;z-index:1;padding:110px 24px}
+.th-surtitre{text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}
+.th h1{font-family:var(--f-titre);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.8rem);line-height:1.15;letter-spacing:.025em;margin:1rem auto 0;max-width:20ch;color:#F3EEE3;text-wrap:balance;text-shadow:0 2px 28px rgba(15,25,8,.45)}
+.th-actions{display:flex;justify-content:center;margin-top:2rem}
+.th .bouton{background:#F3EEE3;border-color:#F3EEE3;color:var(--pin)}.th .bouton:hover{background:#DDD6C6;border-color:#DDD6C6}
+.th-lien,.th-bas{color:#fff;display:inline-flex;align-items:center;min-height:44px}
+.th .meteo-court{margin-top:1rem;font-size:.95rem;opacity:.92;border:0;padding:0;background:none}
+.th-bas{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:1;text-decoration:none;font-size:.875rem;padding:0 1rem}
+.th-bas span{margin-left:.35rem}
+
+/* Ambiance : une phrase, trois photos en formes organiques */
+.ambiance{max-width:1160px;margin:0 auto;padding:clamp(48px,6vw,88px) 24px clamp(32px,4vw,56px)}
+.amb-tete{display:flex;align-items:center;justify-content:space-between;gap:12px 48px;flex-wrap:wrap}
+.amb-phrase{font-family:var(--f-titre);font-weight:400;font-size:clamp(1.35rem,2.3vw,1.9rem);line-height:1.3;letter-spacing:.01em;max-width:34ch;margin:0;text-align:left;text-wrap:balance}
+.amb-mentions{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 0;font-size:.95rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--terre)}
+.amb-mentions li+li::before{content:"";display:inline-block;width:22px;height:1.5px;background:currentColor;vertical-align:middle;margin:0 14px;opacity:.6}
+.amb-photos{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:clamp(12px,2vw,28px);align-items:end;margin-top:clamp(28px,4vw,48px)}
+.amb-p{margin:0;overflow:hidden}
+.amb-p img{width:100%;height:100%;object-fit:cover;display:block}
+.amb-a{aspect-ratio:3/4;clip-path:url(#tente-a)}
+.amb-b{aspect-ratio:4/5;clip-path:url(#tente-b)}
+.amb-c{aspect-ratio:3/4;clip-path:url(#tente-c)}
+@media(max-width:700px){.amb-photos{grid-template-columns:1fr 1fr}.amb-b{grid-column:1 / -1;order:-1;aspect-ratio:4/3}}
+
+/* Séjours : deux grandes cartes alternées, photo principale + petite photo qui la chevauche */
+.terre .sejours{padding-block:clamp(56px,8vw,100px)}
+.sejours-liste{display:grid;gap:clamp(20px,3vw,36px)}
+.terre .sejour{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:clamp(24px,4vw,56px);padding:clamp(20px,3vw,40px);border-radius:24px;background:var(--doux);color:var(--texte)}
+.terre .sejour-1{background:var(--pin);color:#F3EEE3}
+.terre .sejour-2{grid-template-columns:1fr 1.1fr}
+.terre .sejour-2 .sejour-visuel{order:2}
+.terre .sejour-visuel{position:relative;padding-bottom:clamp(24px,4vw,48px)}
+.terre .sejour-photo{margin:0;overflow:hidden;aspect-ratio:3/2}
+.terre .sejour-photo img,.terre .sejour-photo2 img{width:100%;height:100%;object-fit:cover;display:block}
+.terre .sejour-2 .sejour-photo img{object-position:50% 62%}
+.terre .sejour-1 .sejour-photo{border-radius:160px 16px 16px 16px}
+.terre .sejour-2 .sejour-photo{aspect-ratio:3/2;max-width:88%;margin-left:auto;border-radius:16px 16px 16px 160px}
+.terre .sejour-photo2{position:absolute;margin:0;overflow:hidden;width:34%;aspect-ratio:1;border:6px solid var(--fond);border-radius:50%;bottom:0}
+.terre .sejour-1 .sejour-photo2{left:-3%;border-color:var(--pin)}
+.terre .sejour-2 .sejour-photo2{right:-2%;left:auto;border-color:var(--doux);bottom:4%}
+.terre .sejour-texte h3{font-size:clamp(1.8rem,3vw,2.5rem);margin:0 0 .3em}
+.terre .sejour-prix{font-weight:600;font-size:1rem;margin:0 0 .8em;color:inherit;opacity:.9}
+.terre .sejour-1 .sejour-prix{color:#D9C9A8}
+.terre .sejour-2 .sejour-prix{color:var(--terre)}
+.terre .sejour-texte p{max-width:46ch}
+.terre .sejour-bouton{margin-top:1.4rem}
+.terre .sejour-1 .sejour-bouton{background:#F3EEE3;border-color:#F3EEE3;color:var(--pin)}
+.terre .sejour-1 .sejour-bouton:hover{background:#DDD6C6;border-color:#DDD6C6}
+@media(max-width:800px){.terre .sejour,.terre .sejour-2{grid-template-columns:1fr}.terre .sejour-2 .sejour-visuel{order:0}.terre .sejour-2 .sejour-photo{max-width:100%}.terre .sejour-photo2{width:30%}.terre .sejour-1 .sejour-photo{border-top-left-radius:90px}.terre .sejour-2 .sejour-photo{border-bottom-left-radius:90px}}
+
+/* Mouvement : uniquement si JS actif et sans prefers-reduced-motion */
+@media(prefers-reduced-motion:no-preference){
+ .th-image{animation:th-img 1.5s cubic-bezier(.2,.65,.25,1) both}
+ .th-surtitre,.th h1{animation:th-txt 1s cubic-bezier(.2,.65,.25,1) both}
+ .th-surtitre{animation-delay:.1s}.th h1{animation-delay:.2s}
+ .th-actions,.th .meteo-court{animation:th-txt .8s .55s cubic-bezier(.2,.65,.25,1) both}
+ .amb-phrase.vu .mot{animation:mot-in .5s ease both;animation-delay:calc(var(--i)*55ms)}
+ .amb-p.avant,.section h2.avant,.sejour.avant,.lieu.avant{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.65,.25,1)}
+ .amb-p.avant.vu,.section h2.avant.vu,.sejour.avant.vu,.lieu.avant.vu{opacity:1;transform:none}
+ .amb-b.avant{transition-delay:.12s}.amb-c.avant{transition-delay:.24s}
+}
+@keyframes mot-in{from{opacity:.3}to{opacity:1}}
+@keyframes th-img{from{opacity:.35;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
+@keyframes th-txt{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:650px){.th{min-height:600px;border-radius:14px}.th h1{font-size:clamp(1.9rem,7.6vw,2.4rem)}}
+
+/* Sélecteur de langue */
+.langue{color:inherit;text-decoration:none;font-size:.9rem;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:.35em;min-height:44px;padding:0 .5rem;margin-left:1rem}
+.langue [aria-current]{border-bottom:2px solid currentColor}
+.terre .entete:not(.solide) .langue{color:#fff}
+@media(max-width:1080px){.langue{margin-left:auto}.menu-bouton{order:3;margin-left:.25rem}.marque span{font-size:1.05rem}.marque{min-width:0}}
+@media(max-width:420px){.marque span{font-size:.95rem;letter-spacing:.03em}.langue{padding:0 .25rem}}
+
+.terre .entete:not(.solide) .logo-c{display:none}.terre .entete:not(.solide) .logo-s{display:inline}
+@media(max-width:700px){.amb-mentions{gap:4px 20px;font-size:.85rem}.amb-mentions li+li::before{display:none}}
+
+/* Repères : bandeau vert pin plein, pour qu'il ressorte */
+.terre .reperes{padding-block:clamp(24px,4vw,48px)}
+.terre .reperes-liste{background:var(--pin);color:#F3EEE3;border:0;border-radius:18px;padding:clamp(24px,3vw,36px) clamp(20px,3vw,40px);gap:20px 24px}
+.terre .reperes-liste .picto{color:#D9C9A8;width:38px;height:38px}
+.terre .reperes-liste strong{font-size:1.25rem;color:#F3EEE3}
+.terre .reperes-liste span{color:#E5DDCB}
+
+.amb-defs{position:absolute;width:0;height:0;overflow:hidden}

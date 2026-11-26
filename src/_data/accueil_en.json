@@ -1,0 +1,101 @@
+{
+ "sections": [
+  {
+   "type": "hero-carnet"
+  },
+  {
+   "type": "reperes",
+   "items": [
+    {
+     "picto": "tente",
+     "titre": "25 pitches",
+     "texte": "at least 5 m between neighbours"
+    },
+    {
+     "picto": "grappe",
+     "titre": "A former winegrowing estate",
+     "texte": "vines line the field"
+    },
+    {
+     "picto": "patte",
+     "titre": "Pets welcome",
+     "texte": "dogs and cats allowed"
+    },
+    {
+     "picto": "epingle",
+     "titre": "5 km from Béziers",
+     "texte": "and 15 km from the beaches"
+    }
+   ]
+  },
+  {
+   "type": "ferme",
+   "surtitre": "Our ecological approach",
+   "titre": "Here, we look after the estate every day",
+   "texte": "Ecology is not a selling point for us: it is how we look after the estate, day after day.\n\nThe big trees have had time to grow, we simply opened 25 pitches in that setting, with no mobile homes or entertainment, and we keep the gestures simple.",
+   "items": [
+    {
+     "picto": "goutte",
+     "texte": "Drinking water is tested by an approved laboratory, and we use it sparingly: no car washing."
+    },
+    {
+     "picto": "bocal",
+     "texte": "Sorting (glass, plastic, metal, paper) is done along the path."
+    },
+    {
+     "picto": "feuille",
+     "texte": "Green waste goes into the two compost bins."
+    },
+    {
+     "picto": "poule",
+     "texte": "Stale bread and peelings go to the hens: nothing is wasted."
+    }
+   ],
+   "image": "/assets/img/photos/camping-poules.webp",
+   "alt": "The estate's hens roaming free",
+   "note": "",
+   "bouton": {
+    "texte": "Discover the natural campsite (in French)",
+    "lien": "/aire-naturelle/"
+   }
+  },
+  {
+   "type": "sejours",
+   "surtitre": "Staying",
+   "titre": "With your tent, or with nothing at all",
+   "items": [
+    {
+     "titre": "The pitches",
+     "texte": "Large, shaded and at least 5 metres apart, for tents, caravans or motorhomes. Hot showers, accessible facilities, Wi-Fi and a playground.",
+     "image": "/assets/img/photos/allee-caravanes-arbres.webp",
+     "alt": "A campsite lane with caravans set up in the shade of the trees",
+     "note": "",
+     "lien": "/sejourner/#emplacements",
+     "lien_texte": "See pitches and prices (in French)",
+     "prix": "From €25 a night for 2 people",
+     "image2": "/assets/img/photos/tente-cloche-pins.webp",
+     "alt2": "A tent pitched on the grass, under the trees"
+    },
+    {
+     "titre": "The cottage",
+     "texte": "A detached house on the estate: fitted kitchen, dining room, bathroom, and a shaded garden with deckchairs.",
+     "image": "/assets/img/photos/gite-exterieur-terrasse.webp",
+     "alt": "The cottage, a detached house, and its terrace",
+     "note": "",
+     "lien": "/sejourner/#gite",
+     "lien_texte": "Discover the cottage (in French)",
+     "prix": "Detached house, prices on request",
+     "image2": "/assets/img/photos/gite-jardin-transats.webp",
+     "alt2": "The shaded cottage garden with its deckchairs"
+    }
+   ]
+  },
+  {
+   "type": "appel-reservation",
+   "titre": "Shall we keep you a shady spot?",
+   "intro": "Tell us your dates and your equipment: we will reply by e-mail to confirm.",
+   "b1": "Request a booking",
+   "b2": "Call"
+  }
+ ]
+}

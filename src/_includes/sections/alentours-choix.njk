@@ -4,5 +4,5 @@
     {% if p.image %}<img src="{{ p.image | replace('/images/', '/assets/img/photos/') }}" alt="{{ p.alt }}" width="800" height="600" loading="lazy">{% endif %}
     <p class="lieu-cat">{{ t.label }}</p><h3>{{ p.name }}</h3>{% if p.subtitle %}<p class="lieu-sous">{{ p.subtitle }}</p>{% endif %}
   </article>{% endif %}{% endfor %}{% endfor %}</div>
-  <p class="centre"><a class="lien-fleche" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a></p>
+  <p class="centre"><a class="bouton bouton-section" href="{{ s.bouton.lien }}">{{ s.bouton.texte }}</a></p>
 </div></section>

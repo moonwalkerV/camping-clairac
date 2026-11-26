@@ -1,22 +1,20 @@
 /* CLAIRAC : thème propre au camping Clairac (parti du thème « domaine »).
    Esprit : petit camping à la ferme, calme, nature, familial.
    Signature : le « carnet de la ferme » (photos posées comme des tirages, notes manuscrites, pictos dessinés au trait, haies ondulées). */
-@font-face{font-family:"Fraunces";src:url(/assets/fonts/fraunces.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(/assets/fonts/source-sans-3.woff2) format("woff2");font-weight:200 900;font-display:swap}
 @font-face{font-family:"Source Sans 3";src:url(/assets/fonts/source-sans-3-italic.woff2) format("woff2");font-weight:200 900;font-style:italic;font-display:swap}
-@font-face{font-family:"Caveat";src:url(/assets/fonts/caveat.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Bryndan Write";src:url(/assets/fonts/bryndan-write.woff2) format("woff2");font-display:swap}
 
 :root{--papier:#FBF8F0;--ombre:0 1px 2px rgb(46 59 42/.12),0 8px 24px -10px rgb(46 59 42/.35);--rayon:6px}
 body{font-size:1.125rem;line-height:1.65}
 .conteneur{--largeur:1160px}
-h1,h2,h3{font-weight:560;font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:-.01em;line-height:1.1}
+h1,h2,h3{font-weight:400;letter-spacing:0;line-height:1.1}
 h1{font-size:clamp(2.3rem,5.2vw,3.9rem)}
 h2{font-size:clamp(1.9rem,3.8vw,2.8rem)}
 h3{font-size:1.4rem}
 a{color:var(--accent)}
 a:hover{text-decoration-thickness:2px}
-.surtitre{font-family:"Caveat",cursive;font-size:1.6rem;line-height:1;color:var(--accent);margin-bottom:.4em}
+.surtitre{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;line-height:1.2;color:var(--accent);margin-bottom:.8em}
 .chapo{font-size:1.2rem;max-width:56ch}
 .section{padding-block:clamp(64px,9vw,112px)}
 .section-courte{padding-block:clamp(40px,6vw,64px)}
@@ -76,7 +74,7 @@ a:hover{text-decoration-thickness:2px}
 .tirage{margin:0;position:relative;background:var(--papier);padding:10px 10px 12px;border-radius:3px;box-shadow:var(--ombre)}
 .tirage img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
 .tirage-penche{transform:rotate(1.4deg)}
-.note{font-family:"Caveat",cursive;font-size:1.45rem;line-height:1.1;color:var(--texte);padding:8px 4px 0}
+.note{font-style:italic;font-size:1rem;line-height:1.3;color:var(--texte);padding:8px 4px 0}
 .tirage .note::before{content:"↖ ";color:var(--accent)}
 @media (prefers-reduced-motion:no-preference){.tirage{transition:transform .3s}.tirage:hover{transform:rotate(0) scale(1.01)}}
 
@@ -101,7 +99,7 @@ a:hover{text-decoration-thickness:2px}
 .hero-photo .tirage-petit img{aspect-ratio:1}
 .meteo-court{display:flex;align-items:center;gap:12px;margin:24px 0 0;padding-top:16px;border-top:1px dashed rgb(243 238 226/.35);min-height:60px;font-size:1.05rem}
 .meteo-court .picto{color:#E9C46A;width:44px;height:44px}
-.meteo-court .meteo-titre{display:block;font-family:"Caveat",cursive;font-size:1.35rem;line-height:1;color:#E9A47E}
+.meteo-court .meteo-titre{display:block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;line-height:1.2;color:#E9A47E}
 @media (max-width:860px){.hero-carnet{grid-template-columns:1fr;min-height:0}.hero-panneau{padding:36px 20px 48px;justify-content:flex-start}.hero-photo{min-height:0;aspect-ratio:1}.hero-photo .tirage-petit{left:16px;bottom:-30px;width:39%}}
 
 /* Repères */
@@ -109,7 +107,7 @@ a:hover{text-decoration-thickness:2px}
 .reperes-liste{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0;padding:24px 0;border-block:1px dashed color-mix(in srgb,var(--texte) 30%,transparent)}
 .reperes-liste li{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center}
 .reperes-liste .picto{grid-row:span 2}
-.reperes-liste strong{font-family:var(--f-titre);font-weight:560;font-size:1.15rem;line-height:1.2}
+.reperes-liste strong{font-family:var(--f-titre);font-weight:400;font-size:1.15rem;line-height:1.2}
 .reperes-liste span{font-size:.98rem}
 .reperes-page{margin-bottom:56px}
 @media (max-width:900px){.reperes-liste{grid-template-columns:1fr 1fr;row-gap:24px}}
@@ -119,7 +117,7 @@ a:hover{text-decoration-thickness:2px}
 .ferme-in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,88px);align-items:center}
 .gestes{list-style:none;display:grid;gap:14px;margin:24px 0 28px}
 .gestes li{display:flex;gap:14px;align-items:center}
-.gestes strong{display:block;font-family:var(--f-titre);font-weight:560;font-size:1.2rem}
+.gestes strong{display:block;font-family:var(--f-titre);font-weight:400;font-size:1.2rem}
 .gestes-grille{grid-template-columns:1fr 1fr;gap:28px 40px;max-width:980px;margin:0 auto 56px}
 .gestes-grille li{align-items:flex-start}
 .gestes-compact{gap:10px}
@@ -142,8 +140,8 @@ a:hover{text-decoration-thickness:2px}
 .etiquette{position:relative;background:var(--papier);border:2px solid var(--texte);border-radius:18px 18px 18px 18px;padding:28px 36px 24px 52px;transform:rotate(-2deg);box-shadow:var(--ombre);text-align:center;max-width:300px}
 .etiquette::before{content:"";position:absolute;left:18px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;border:2px solid var(--texte);background:var(--fond)}
 .etiquette p{margin:0}
-.etiquette-titre{font-family:"Caveat",cursive;font-size:1.6rem;color:var(--accent)}
-.etiquette-prix{font-family:var(--f-titre);font-weight:600;font-size:4rem;line-height:1}
+.etiquette-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
+.etiquette-prix{font-family:var(--f-titre);font-weight:400;font-size:4rem;line-height:1}
 .tarifs-points{list-style:none;columns:2;gap:32px;margin:0 0 16px}
 .tarifs-points li{padding:6px 0;border-bottom:1px dashed color-mix(in srgb,var(--texte) 25%,transparent);break-inside:avoid}
 @media (max-width:700px){.tarifs-resume-in{grid-template-columns:1fr;justify-items:center}.tarifs-points{columns:1}}
@@ -152,7 +150,7 @@ a:hover{text-decoration-thickness:2px}
 .cartes-lieux{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:32px}
 .lieu{background:var(--papier);border-radius:var(--rayon);overflow:hidden;box-shadow:var(--ombre)}
 .lieu img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.lieu-cat{font-family:"Caveat",cursive;font-size:1.3rem;color:var(--accent);margin:14px 18px 0}
+.lieu-cat{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:14px 18px 0}
 .lieu h3{margin:2px 18px 4px;font-size:1.3rem}
 .lieu-sous{margin:0 18px 18px;font-size:.95rem;opacity:.85}
 .lieu-texte{padding:18px 20px 8px}
@@ -171,9 +169,9 @@ a:hover{text-decoration-thickness:2px}
 /* FAQ */
 .faq-liste{max-width:780px;margin:0 auto}
 .faq details{border-bottom:1px dashed color-mix(in srgb,var(--texte) 30%,transparent);padding:4px 0}
-.faq summary{font-family:var(--f-titre);font-weight:520;font-size:1.2rem;padding:14px 36px 14px 0;list-style:none;position:relative}
+.faq summary{font-family:var(--f-titre);font-weight:400;font-size:1.2rem;padding:14px 36px 14px 0;list-style:none;position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:4px;top:8px;font-family:"Caveat",cursive;font-size:2rem;color:var(--accent)}
+.faq summary::after{content:"+";position:absolute;right:4px;top:8px;font-family:var(--f-texte);font-size:1.6rem;line-height:1;color:var(--accent)}
 .faq details[open] summary::after{content:"–"}
 
 /* Appel réservation */
@@ -200,7 +198,7 @@ a:hover{text-decoration-thickness:2px}
 .vignettes figure{margin:0}
 .vignettes img{aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:var(--rayon)}
 .vignettes figcaption{padding-top:10px;font-size:1rem}
-.vignettes strong{display:block;font-family:var(--f-titre);font-weight:560;font-size:1.15rem}
+.vignettes strong{display:block;font-family:var(--f-titre);font-weight:400;font-size:1.15rem}
 @media (max-width:860px){.vignettes{grid-template-columns:1fr 1fr}}
 .note-encadree+.actions{margin:0 0 32px}
 .note-encadree{background:var(--papier);border-left:4px solid var(--accent);padding:14px 18px;border-radius:0 var(--rayon) var(--rayon) 0}
@@ -248,9 +246,9 @@ a:hover{text-decoration-thickness:2px}
 .pied a{color:var(--fond)}
 .pied-in{display:grid;grid-template-columns:1.3fr 1fr 1fr .8fr;gap:32px;padding-top:40px}
 .pied-marque{display:flex;gap:14px;align-items:flex-start}
-.pied-marque img{background:var(--fond);border-radius:50%;padding:6px;width:56px;height:56px}
+.pied-marque img{width:56px;height:56px}
 .pied-nom{font-family:"Bryndan Write",var(--f-titre);text-transform:uppercase;letter-spacing:.06em;font-weight:400;font-size:1.15rem}
-.pied-titre{font-family:"Caveat",cursive;font-size:1.4rem;color:var(--doux);margin-bottom:4px}
+.pied-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--doux);margin-bottom:4px}
 .pied-liens{list-style:none;display:grid;gap:4px}
 .pied-liens a{display:inline-block;padding:4px 0}
 .pied-bas{border-top:1px solid rgb(255 255 255/.18);padding-top:20px;margin-top:24px;opacity:.85}
@@ -264,14 +262,16 @@ a:hover{text-decoration-thickness:2px}
 .corde{padding-block:clamp(56px,8vw,96px) clamp(48px,6vw,72px);background:color-mix(in srgb,var(--doux) 55%,var(--fond));overflow:hidden}
 .corde .conteneur{text-align:center}
 .corde-fil{position:relative;margin-top:24px}
-.corde-ligne{position:absolute;left:0;right:0;top:0;width:100%;height:60px;fill:none;stroke:#8A6848;stroke-width:2.5}
-.corde-photos{list-style:none;display:flex;gap:clamp(16px,2.4vw,36px);padding:22px 4vw 28px;overflow-x:auto;scroll-snap-type:x mandatory;justify-content:safe center}
-.corde-photos li{position:relative;flex:0 0 clamp(180px,13.4vw,220px);scroll-snap-align:center;padding-top:14px}
-.corde-photos li:nth-child(odd){transform:rotate(-2.4deg) translateY(10px)}
-.corde-photos li:nth-child(even){transform:rotate(2deg) translateY(22px)}
-.corde-photos li:nth-child(3),.corde-photos li:nth-child(4){margin-top:14px}
+.corde-photos{--gap:clamp(16px,2.4vw,36px);list-style:none;display:flex;gap:var(--gap);padding:22px 4vw 28px;overflow-x:auto;scroll-snap-type:x mandatory;justify-content:safe center}
+.corde-photos li{position:relative;flex:0 0 clamp(160px,12.4vw,210px);scroll-snap-align:center;padding-top:28px}
+/* La corde passe de pince en pince : un fil légèrement affaissé entre deux photos, attaché au sommet des pinces */
+.corde-photos li::before{content:"";position:absolute;top:8px;left:50%;width:calc(100% + var(--gap));height:12px;border-bottom:2.5px solid #8A6848;border-radius:0 0 50% 50%/0 0 100% 100%}
+.corde-photos li:last-child::before{width:50vw;height:0;border-bottom:0;border-top:2.5px solid #8A6848;border-radius:0;top:19px}
+.corde-photos li:first-child::after{content:"";position:absolute;top:19px;right:50%;width:50vw;border-top:2.5px solid #8A6848}
+.corde-photos li:nth-child(odd) .tirage{transform:rotate(-2.4deg)}
+.corde-photos li:nth-child(even) .tirage{transform:rotate(2deg) translateY(6px)}
 .corde-photos .tirage img{aspect-ratio:1}
-.pince{position:absolute;top:0;left:50%;width:14px;height:34px;margin-left:-7px;z-index:2;fill:#D9B98A;stroke:#5C4A36;stroke-width:1.6}
+.pince{position:absolute;top:2px;left:50%;width:14px;height:34px;margin-left:-7px;z-index:2;fill:#D9B98A;stroke:#5C4A36;stroke-width:1.6}
 
 /* Panorama : la photo d'origine est petite (1360 px), on l'affiche dans la largeur du contenu, sans l'agrandir */
 .panorama{padding-block:clamp(48px,6vw,72px) 0}
@@ -284,7 +284,7 @@ a:hover{text-decoration-thickness:2px}
 
 /* Carte dessinée */
 .carte-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:center}
-.carte-dessin{width:100%;height:auto;font-family:"Caveat",cursive;font-size:24px}
+.carte-dessin{width:100%;height:auto;font-family:var(--f-texte);font-style:italic;font-size:20px}
 .carte-mer{fill:#C9D7CF}
 .carte-cote{fill:none;stroke:var(--second);stroke-width:2.5}
 .carte-route{fill:none;stroke:#C9B98F;stroke-width:6;stroke-linecap:round}
@@ -303,8 +303,8 @@ a:hover{text-decoration-thickness:2px}
 .meteo-maintenant{display:flex;gap:16px;align-items:center}
 .meteo-maintenant p{margin:0}
 .meteo-maintenant .picto{width:72px;height:72px;color:var(--accent)}
-.meteo .meteo-titre{font-family:"Caveat",cursive;font-size:1.4rem;color:var(--accent)}
-.meteo-temp{font-family:var(--f-titre);font-size:2.6rem;font-weight:600;line-height:1}
+.meteo .meteo-titre{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+.meteo-temp{font-family:var(--f-titre);font-size:2.6rem;font-weight:400;line-height:1}
 .meteo-jours{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center}
 .meteo-jours li{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border-left:1px dashed color-mix(in srgb,var(--texte) 25%,transparent)}
 .meteo-jour{text-transform:capitalize;font-weight:600}
@@ -313,9 +313,9 @@ a:hover{text-decoration-thickness:2px}
 @media (max-width:760px){.meteo{grid-template-columns:1fr}.meteo-jours li:first-child{border-left:0}}
 
 /* P2 : prix sur les cartes séjours, thèmes repliables des coups de cœur */
-.sejour-prix{font-family:"Caveat",cursive;font-size:1.5rem;color:var(--accent);margin:-4px 0 6px}
+.sejour-prix{font-weight:600;font-size:1rem;color:var(--accent);margin:-4px 0 6px}
 .theme{background:var(--papier);border-radius:var(--rayon);box-shadow:var(--ombre);margin:0 0 16px;scroll-margin-top:140px}
-.theme>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font-family:"Fraunces",serif;font-size:1.3rem;min-height:48px}
+.theme>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font-family:var(--f-titre);font-size:1.3rem;min-height:48px}
 .theme>summary::-webkit-details-marker{display:none}
 .theme>summary::after{content:"+";font-size:1.6rem;line-height:1;margin-left:auto}
 .theme[open]>summary::after{content:"–"}
@@ -323,3 +323,34 @@ a:hover{text-decoration-thickness:2px}
 .theme>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .theme>.section-intro,.theme>.lieux-grille,.theme>p{margin-inline:22px}
 .theme[open]{padding-bottom:22px}
+.menu-bouton{font-family:inherit}
+
+.logo-s{display:none}
+
+/* Corde : sans barre de défilement ; photos cliquables ; visite en grand */
+.corde-photos{scrollbar-width:none;-ms-overflow-style:none}
+.corde-photos::-webkit-scrollbar{display:none}
+.photo-ouvrir{display:block;width:100%;padding:0;margin:0;border:0;background:none;cursor:zoom-in;font:inherit}
+.photo-ouvrir:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.corde-tout{margin-top:8px}
+.visite{border:0;padding:0;margin:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;background:rgba(32,22,8,.94);color:#F3EEE3}
+.visite::backdrop{background:rgba(32,22,8,.94)}
+.visite[open]{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:1fr auto;align-items:center;justify-items:center;gap:8px;padding:16px}
+.visite-fig{grid-column:2;grid-row:1;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;max-width:100%;max-height:100%;min-height:0}
+.visite-img{max-width:100%;max-height:calc(100dvh - 120px);width:auto;height:auto;object-fit:contain;border-radius:10px}
+.visite-legende{font-size:1rem;text-align:center;max-width:60ch}
+.visite-compteur{grid-column:2;grid-row:2;margin:0;font-size:.9rem;opacity:.8}
+.visite-nav,.visite-fermer{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(243,238,227,.6);background:rgba(243,238,227,.08);color:#F3EEE3;font-size:2rem;line-height:1;cursor:pointer;font-family:var(--f-texte)}
+.visite-nav:hover,.visite-fermer:hover{background:rgba(243,238,227,.2)}
+.visite-nav:focus-visible,.visite-fermer:focus-visible{outline:3px solid #F3EEE3;outline-offset:2px}
+.visite-prec{grid-column:1;grid-row:1}.visite-suiv{grid-column:3;grid-row:1}
+.visite-fermer{position:absolute;top:14px;right:14px;z-index:2}
+.visite-ouverte{overflow:hidden}
+@media(max-width:640px){.visite[open]{grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;padding:12px}.visite-fig{grid-column:1 / -1;grid-row:1}.visite-nav{grid-row:2;width:44px;height:44px}.visite-prec{grid-column:1;justify-self:start}.visite-suiv{grid-column:2;justify-self:end}.visite-compteur{grid-column:1 / -1;grid-row:3}.visite-img{max-height:calc(100dvh - 190px)}}
+@media(prefers-reduced-motion:no-preference){.visite[open]{animation:visite-in .25s ease both}.visite-img{animation:visite-img .3s ease both}}
+@keyframes visite-in{from{opacity:0}to{opacity:1}}
+@keyframes visite-img{from{opacity:.4;transform:scale(.985)}to{opacity:1;transform:none}}
+.corde-tout .bouton{border:2px solid var(--texte);background:transparent;color:var(--texte);cursor:pointer;font-family:inherit}
+.corde-tout .bouton:hover{background:var(--texte);color:var(--fond);border-color:var(--texte)}
+.corde-tout .photo-ouvrir{display:inline-flex;width:auto;padding:12px 28px;cursor:pointer;border:2px solid var(--texte)}
+.bouton-section{margin-top:1.4rem}.alentours-choix .bouton-section,.centre .bouton-section{margin-top:0}

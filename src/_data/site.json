@@ -1,63 +1,108 @@
 {
-  "theme": "clairac",
-  "entete": "classique",
-  "nom": "Camping Clairac",
-  "activite": "Aire naturelle de camping à la ferme",
-  "ville": "Béziers",
-  "url": "https://www.campingclairac.com",
-  "demo": true,
-  "accroche": "Un petit camping à la ferme, entre vignes et oliviers, à 5 km de Béziers.",
-  "description_seo": "Aire naturelle de camping à 5 km de Béziers : 25 emplacements ombragés pour tente, caravane ou camping-car et un gîte, sur un ancien domaine viticole. Ouvert d'avril à octobre.",
-  "type_schema": "Campground",
-  "image_partage": "/assets/img/partage.jpg",
-  "logo": "/assets/img/logo.png",
-  "couleurs": {
-    "fond": "#F3EEE2",
-    "texte": "#2E3B2A",
-    "accent": "#8F4727",
-    "accent_texte": "#FFFFFF",
-    "doux": "#E6D9B8",
-    "second": "#6B7B55"
+ "theme": "clairac",
+ "entete": "classique",
+ "nom": "Camping Clairac",
+ "activite": "Aire naturelle de camping à la ferme",
+ "ville": "Béziers",
+ "url": "https://www.campingclairac.com",
+ "demo": true,
+ "accroche": "Un petit camping à la ferme, entre vignes et oliviers, à 5 km de Béziers.",
+ "description_seo": "Aire naturelle de camping à 5 km de Béziers : 25 emplacements ombragés pour tente, caravane ou camping-car et un gîte, sur un ancien domaine viticole. Ouvert d'avril à octobre.",
+ "type_schema": "Campground",
+ "image_partage": "/assets/img/partage.jpg",
+ "logo": "/assets/img/logo.svg",
+ "couleurs": {
+  "fond": "#F3EEE3",
+  "texte": "#2F1904",
+  "accent": "#9D5934",
+  "accent_texte": "#FFFFFF",
+  "doux": "#D9C9A8",
+  "second": "#3F5224"
+ },
+ "polices": {
+  "titre": "Bryndan Write",
+  "texte": "Source Sans 3",
+  "google_fonts": ""
+ },
+ "contact": {
+  "telephone": "+33 6 11 19 98 13",
+  "telephone_affiche": "06 11 19 98 13",
+  "email": "info@campingclairac.com",
+  "adresse": "Domaine de Clairac, Route de Bessan, 34500 Béziers",
+  "rue": "Domaine de Clairac, Route de Bessan",
+  "code_postal": "34500",
+  "commune": "Béziers",
+  "gps": "Allée de Clairac, Béziers",
+  "latitude": 43.362408,
+  "longitude": 3.319105,
+  "carte": "https://www.google.com/maps/search/?api=1&query=43.362408,3.319105",
+  "carte_apple": "https://maps.apple.com/?address=34500%20B%C3%A9ziers,%20France&auid=13666031460363364111&ll=43.362434,3.319060&lsp=9902&q=Camping%20Clairac&t=m",
+  "ouverture": "D'avril à octobre",
+  "horaires": [
+   "Ouvert d'avril à octobre",
+   "Réception : 8 h 30 à 11 h 30 et 17 h à 20 h",
+   "Portail : 7 h 30 à 22 h 30"
+  ]
+ },
+ "reseaux": [],
+ "avis_google": "",
+ "formulaire": {
+  "actif": true,
+  "web3forms_cle": "A-REMPLACER",
+  "message_merci": "Merci ! Votre demande est bien partie. Nous vous répondons par e-mail pour confirmer les disponibilités."
+ },
+ "rendez_vous": {
+  "actif": false,
+  "lien": ""
+ },
+ "navigation": [
+  {
+   "texte": "L'aire naturelle",
+   "lien": "/aire-naturelle/"
   },
-  "polices": {
-    "titre": "Fraunces",
-    "texte": "Source Sans 3",
-    "google_fonts": ""
+  {
+   "texte": "Séjourner",
+   "lien": "/sejourner/"
   },
-  "contact": {
-    "telephone": "+33 6 11 19 98 13",
-    "telephone_affiche": "06 11 19 98 13",
-    "email": "info@campingclairac.com",
-    "adresse": "Domaine de Clairac, Route de Bessan, 34500 Béziers",
-    "rue": "Domaine de Clairac, Route de Bessan",
-    "code_postal": "34500",
-    "commune": "Béziers",
-    "gps": "Allée de Clairac, Béziers",
-    "latitude": 43.362408,
-    "longitude": 3.319105,
-    "carte": "https://www.google.com/maps/search/?api=1&query=43.362408,3.319105",
-    "carte_apple": "https://maps.apple.com/?address=34500%20B%C3%A9ziers,%20France&auid=13666031460363364111&ll=43.362434,3.319060&lsp=9902&q=Camping%20Clairac&t=m",
-    "ouverture": "D'avril à octobre",
-    "horaires": [
-      "Ouvert d'avril à octobre",
-      "Réception : 8 h 30 à 11 h 30 et 17 h à 20 h",
-      "Portail : 7 h 30 à 22 h 30"
-    ]
+  {
+   "texte": "Tarifs",
+   "lien": "/sejourner/#tarifs"
   },
-  "reseaux": [],
-  "avis_google": "",
-  "formulaire": {
-    "actif": true,
-    "web3forms_cle": "A-REMPLACER",
-    "message_merci": "Merci ! Votre demande est bien partie. Nous vous répondons par e-mail pour confirmer les disponibilités."
+  {
+   "texte": "Nos coups de cœur",
+   "lien": "/nos-coups-de-coeur/"
   },
-  "rendez_vous": { "actif": false, "lien": "" },
-  "navigation": [
-    { "texte": "L'aire naturelle", "lien": "/aire-naturelle/" },
-    { "texte": "Séjourner", "lien": "/sejourner/" },
-    { "texte": "Tarifs", "lien": "/sejourner/#tarifs" },
-    { "texte": "Nos coups de cœur", "lien": "/nos-coups-de-coeur/" },
-    { "texte": "Infos pratiques", "lien": "/infos-pratiques/" }
-  ],
-  "bouton_flottant": { "texte": "Demander une réservation", "lien": "/infos-pratiques/#reservation" }
+  {
+   "texte": "Infos pratiques",
+   "lien": "/infos-pratiques/"
+  }
+ ],
+ "bouton_flottant": {
+  "texte": "Demander une réservation",
+  "lien": "/infos-pratiques/#reservation"
+ },
+ "navigation_en": [
+  {
+   "texte": "The campsite",
+   "lien": "/aire-naturelle/"
+  },
+  {
+   "texte": "Staying",
+   "lien": "/sejourner/"
+  },
+  {
+   "texte": "Prices",
+   "lien": "/sejourner/#tarifs"
+  },
+  {
+   "texte": "Our favourites",
+   "lien": "/nos-coups-de-coeur/"
+  },
+  {
+   "texte": "Practical info",
+   "lien": "/infos-pratiques/"
+  }
+ ],
+ "logo_sombre": "/assets/img/logo-sombre.svg",
+ "logo_schema": "/assets/img/logo-512.png"
 }

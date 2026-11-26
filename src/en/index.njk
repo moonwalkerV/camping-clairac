@@ -1,0 +1,21 @@
+---
+layout: base.njk
+permalink: /en/index.html
+noindex: true
+terre: true
+lang: en
+altlien: /
+title: Natural campsite near Béziers
+description: A small family campsite among pines, vines and olive trees, 5 km from Béziers and 15 km from the sea.
+---
+{% set hero = { surtitre: "Natural campsite · Béziers", titre_court: "Clairac", accroche: "A small corner of nature at the gates of Béziers.", ambiance: "A small family campsite among pines, vines and olive trees.", mentions: ["25 pitches", "Plenty of shade", "Time to settle in"], image: "/assets/img/photos/terrain-olivier-hero.webp", image_petite: "/assets/img/photos/terrain-olivier-hero-mobile.webp", alt: "The estate's pines and the meadow in the sun", b1: "Request a booking", b2: "Discover the stays" } %}
+{% for s in accueil_en.sections %}
+  {% if loop.first %}{% set s = hero %}{% include "sections/hero-terre.njk" %}{% else %}{% include "sections/" + s.type + ".njk" %}{% endif %}
+{% endfor %}
+<script>
+(function(){
+  var h=document.querySelector(".entete"),hero=document.querySelector(".th");
+  function s(){h.classList.toggle("solide",scrollY>hero.offsetHeight-140)}
+  addEventListener("scroll",s,{passive:true});s();
+})();
+</script>
